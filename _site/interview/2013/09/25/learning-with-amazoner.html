@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
+<head>
+   <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+   <title>Learning With Amazoner</title>
+   <link rel="shortcut icon" type="image/png" href="/images/heng.png">
+   <meta name="author" content="Wei Heng" />
+   <link href="http://feeds.feedburner.com/tom-preston-werner" rel="alternate" title="Tom Preston-Werner" type="application/atom+xml" />
+   <meta name="readability-verification" content="QCzSs992GxmRYRKVpPeZ6LE2tS8aYKxsSSQKV8YM"/>
+
+   <!-- syntax highlighting CSS -->
+   <link rel="stylesheet" href="/stylesheets/syntax.css" type="text/css" />
+   <link rel="stylesheet" href="/stylesheets/pygment_trac.css" type="text/css" />
+
+   <!-- Homepage CSS -->
+   <link rel="stylesheet" href="/stylesheets/screen.css" type="text/css" media="screen, projection" />
+
+   <!-- Typekit -->
+   <script type="text/javascript" src="http://use.typekit.com/jpd0pfm.js"></script>
+   <script type="text/javascript">try{Typekit.load();}catch(e){}</script>
+</head>
+<body>
+
+<!-- ClickTale Top part -->
+<script type="text/javascript">
+var WRInitTime=(new Date()).getTime();
+</script>
+<!-- ClickTale end of Top part -->
+
+<div class="site">
+  <div class="title">
+    <a href="/">Heng</a>
+    <a class="extra" href="/">home</a>
+  </div>
+
+  <div id="post">
+<h3>1. A Simple Algorithm for Print All Combination of Balanced Parentheses###</h3>
+
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><code class="language-cpp" data-lang="cpp"> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61</code></pre></div></td><td class="code"><div class="highlight"><pre><span class="cp">#include&lt;iostream&gt;</span>
+    <span class="cp">#include&lt;cassert&gt;</span>
+    <span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
+    <span class="k">const</span> <span class="kt">int</span> <span class="n">MAX</span> <span class="o">=</span> <span class="mi">20</span><span class="p">;</span>
+    <span class="kt">void</span> <span class="nf">print_bracket</span><span class="p">(</span><span class="kt">int</span> <span class="n">level</span><span class="p">,</span> <span class="kt">char</span> <span class="n">out</span><span class="p">[],</span> <span class="kt">int</span> <span class="n">n</span><span class="p">,</span> <span class="kt">int</span> <span class="n">flag</span><span class="p">);</span>
+    <span class="kt">void</span> <span class="nf">print_bracket_v2</span><span class="p">(</span><span class="kt">int</span> <span class="n">n</span><span class="p">,</span> <span class="kt">int</span> <span class="n">pos</span><span class="p">,</span> <span class="kt">int</span> <span class="n">close</span><span class="p">,</span> <span class="kt">int</span> <span class="n">open</span><span class="p">);</span>
+    <span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+        <span class="kt">int</span> <span class="n">n</span> <span class="o">=</span> <span class="mi">3</span><span class="p">;</span>
+        <span class="kt">int</span> <span class="n">flag</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+        <span class="kt">char</span><span class="o">*</span> <span class="n">out</span> <span class="o">=</span> <span class="k">new</span> <span class="kt">char</span><span class="p">[</span><span class="mi">2</span><span class="o">*</span><span class="n">n</span><span class="p">];</span>
+        <span class="cm">/* we can define a static char array inside the print_bracket function */</span>
+        <span class="n">print_bracket</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">n</span><span class="p">,</span> <span class="n">out</span><span class="p">,</span> <span class="mi">2</span><span class="o">*</span><span class="n">n</span><span class="p">,</span> <span class="n">flag</span><span class="p">);</span>
+        <span class="n">cout</span><span class="o">&lt;&lt;</span><span class="s">&quot;another method:&quot;</span><span class="o">&lt;&lt;</span><span class="n">endl</span><span class="p">;</span>
+        <span class="n">print_bracket_v2</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">);</span>
+        <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+    <span class="p">}</span>
+    
+    <span class="kt">void</span> <span class="nf">print_bracket_v2</span><span class="p">(</span><span class="kt">int</span> <span class="n">n</span><span class="p">,</span> <span class="kt">int</span> <span class="n">pos</span><span class="p">,</span> <span class="kt">int</span> <span class="n">close</span><span class="p">,</span> <span class="kt">int</span> <span class="n">open</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">static</span> <span class="kt">char</span> <span class="n">output</span><span class="p">[</span><span class="n">MAX</span><span class="p">];</span>
+        <span class="k">if</span><span class="p">(</span><span class="n">close</span> <span class="o">==</span> <span class="n">n</span><span class="p">)</span> <span class="p">{</span>
+            <span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span> <span class="n">i</span><span class="o">&lt;</span><span class="mi">2</span><span class="o">*</span><span class="n">n</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+                <span class="n">cout</span><span class="o">&lt;&lt;</span><span class="n">output</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">&lt;&lt;</span><span class="s">&quot;</span><span class="se">\t</span><span class="s">&quot;</span><span class="p">;</span>
+            <span class="p">}</span>
+            <span class="n">cout</span><span class="o">&lt;&lt;</span><span class="n">endl</span><span class="p">;</span>
+            <span class="k">return</span><span class="p">;</span>
+        <span class="p">}</span>
+    
+        <span class="k">if</span><span class="p">(</span><span class="n">open</span> <span class="o">&lt;</span> <span class="n">n</span><span class="p">)</span> <span class="p">{</span>
+            <span class="n">output</span><span class="p">[</span><span class="n">pos</span><span class="p">]</span> <span class="o">=</span> <span class="sc">&#39;(&#39;</span><span class="p">;</span>
+            <span class="n">print_bracket_v2</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">pos</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span> <span class="n">close</span><span class="p">,</span> <span class="n">open</span><span class="o">+</span><span class="mi">1</span><span class="p">);</span>
+        <span class="p">}</span>
+        <span class="k">if</span><span class="p">(</span><span class="n">open</span> <span class="o">&gt;</span> <span class="n">close</span><span class="p">)</span> <span class="p">{</span>
+            <span class="n">output</span><span class="p">[</span><span class="n">pos</span><span class="p">]</span> <span class="o">=</span> <span class="sc">&#39;)&#39;</span><span class="p">;</span>
+            <span class="n">print_bracket_v2</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">pos</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span> <span class="n">close</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span> <span class="n">open</span><span class="p">);</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+    <span class="kt">void</span> <span class="nf">print_bracket</span><span class="p">(</span><span class="kt">int</span> <span class="n">level</span><span class="p">,</span> <span class="kt">char</span> <span class="n">out</span><span class="p">[],</span> <span class="kt">int</span> <span class="n">len</span><span class="p">,</span> <span class="kt">int</span> <span class="n">flag</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">if</span><span class="p">(</span><span class="n">level</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+            <span class="k">if</span><span class="p">(</span><span class="n">flag</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+                <span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">=</span><span class="n">len</span><span class="o">-</span><span class="mi">1</span><span class="p">;</span> <span class="n">i</span><span class="o">&gt;=</span><span class="mi">0</span><span class="p">;</span> <span class="n">i</span><span class="o">--</span><span class="p">)</span> <span class="p">{</span>
+                    <span class="n">cout</span><span class="o">&lt;&lt;</span><span class="n">out</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">&lt;&lt;</span><span class="s">&quot;</span><span class="se">\t</span><span class="s">&quot;</span><span class="p">;</span>
+                <span class="p">}</span>
+                <span class="n">cout</span><span class="o">&lt;&lt;</span><span class="n">endl</span><span class="p">;</span>
+            <span class="p">}</span>
+            <span class="k">return</span><span class="p">;</span>
+        <span class="p">}</span>
+        <span class="cm">/* this condition filter the illegal bracket */</span>
+        <span class="k">if</span><span class="p">(</span><span class="n">flag</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+            <span class="k">return</span><span class="p">;</span>
+        <span class="p">}</span>
+    
+        <span class="n">out</span><span class="p">[</span><span class="n">level</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="sc">&#39;(&#39;</span><span class="p">;</span>
+        <span class="n">flag</span><span class="o">++</span><span class="p">;</span>
+        <span class="n">print_bracket</span><span class="p">(</span><span class="n">level</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="n">out</span><span class="p">,</span> <span class="n">len</span><span class="p">,</span> <span class="n">flag</span><span class="p">);</span>
+        <span class="cm">/* recover the modified flag */</span>
+        <span class="n">flag</span><span class="o">--</span><span class="p">;</span>
+    
+        <span class="n">out</span><span class="p">[</span><span class="n">level</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="sc">&#39;)&#39;</span><span class="p">;</span>
+        <span class="n">flag</span><span class="o">--</span><span class="p">;</span>
+        <span class="n">print_bracket</span><span class="p">(</span><span class="n">level</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="n">out</span><span class="p">,</span> <span class="n">len</span><span class="p">,</span> <span class="n">flag</span><span class="p">);</span>
+    <span class="p">}</span>
+</pre></div>
+</td></tr></table>
+
+
+<h3>2. Find the Element Pair in Array with Sum Equals to a integer ###</h3>
+
+</div>
+
+<div id="related">
+  <h2>Related Posts</h2>
+  <ul class="posts">
+    
+      <li><span>28 May 2015</span> &raquo; <a href="/2015/05/28/singleton-design-pattern.html">Singleton Design Pattern</a></li>
+    
+      <li><span>11 Nov 2014</span> &raquo; <a href="/2014/11/11/Common-ShortKey-And-Command-On-MacOSX.html">Common ShortKey And Command on MacOSX</a></li>
+    
+      <li><span>09 Aug 2014</span> &raquo; <a href="/translation/2014/08/09/add-comment-to-jekyll-blog-with-disqus.html">Add Comment to Jekyll Blog with Disqus</a></li>
+    
+  </ul>
+</div>
+
+
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+    /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+    var disqus_shortname = 'josepheng'; // required: replace example with your forum shortname
+    /* * * This turns developer mode on, Make sure you remove this before you push this to your live site. * * * /
+    /* * * var disqus_developer = 1;  * * * /
+
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">blog comments powered by <span class="logo-disqus">Disqus</span></a>
+
+
+
+  <div class="footer">
+    <div class="contact">
+      <p>
+        Wei Heng<br />
+        lengerfulluse@gmail.com
+      </p>
+    </div>
+    <div class="contact">
+      <p>
+        <a href="http://github.com/lengerfulluse/">github.com/lengerfulluse</a><br />
+      </p>
+    </div>
+    <div class="rss">
+      <a href="http://feeds.feedburner.com/joseph-heng">
+        <img src="/assets/img/rss.png" alt="Subscribe to RSS Feed" />
+      </a>
+    </div>
+  </div>
+</div>
+
+<a href="http://github.com/lengerfulluse"><img style="position: absolute; top: 0; right: 0; border: 0;" src="http://s3.amazonaws.com/github/ribbons/forkme_right_red_aa0000.png" alt="Fork me on GitHub" /></a>
+
+<!-- ClickTale Bottom part -->
+<div id="ClickTaleDiv" style="display: none;"></div>
+<script type="text/javascript">
+if(document.location.protocol!='https:')
+  document.write(unescape("%3Cscript%20src='http://s.clicktale.net/WRb.js'%20type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script type="text/javascript">
+if(typeof ClickTale=='function') ClickTale(206,0.3,"www03");
+</script>
+<!-- ClickTale end of Bottom part -->
+
+<!-- Google Analytics -->
+<script type="text/javascript">
+var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script type="text/javascript">
+var pageTracker = _gat._getTracker("UA-6016902-1");
+pageTracker._trackPageview();
+</script>
+<!-- Google Analytics end -->
+
+</body>
+</html>

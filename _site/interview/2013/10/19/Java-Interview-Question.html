@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
+<head>
+   <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+   <title>Java Interview Question</title>
+   <link rel="shortcut icon" type="image/png" href="/images/heng.png">
+   <meta name="author" content="Wei Heng" />
+   <link href="http://feeds.feedburner.com/tom-preston-werner" rel="alternate" title="Tom Preston-Werner" type="application/atom+xml" />
+   <meta name="readability-verification" content="QCzSs992GxmRYRKVpPeZ6LE2tS8aYKxsSSQKV8YM"/>
+
+   <!-- syntax highlighting CSS -->
+   <link rel="stylesheet" href="/stylesheets/syntax.css" type="text/css" />
+   <link rel="stylesheet" href="/stylesheets/pygment_trac.css" type="text/css" />
+
+   <!-- Homepage CSS -->
+   <link rel="stylesheet" href="/stylesheets/screen.css" type="text/css" media="screen, projection" />
+
+   <!-- Typekit -->
+   <script type="text/javascript" src="http://use.typekit.com/jpd0pfm.js"></script>
+   <script type="text/javascript">try{Typekit.load();}catch(e){}</script>
+</head>
+<body>
+
+<!-- ClickTale Top part -->
+<script type="text/javascript">
+var WRInitTime=(new Date()).getTime();
+</script>
+<!-- ClickTale end of Top part -->
+
+<div class="site">
+  <div class="title">
+    <a href="/">Heng</a>
+    <a class="extra" href="/">home</a>
+  </div>
+
+  <div id="post">
+<h3>Java 面试题小结 ###</h3>
+
+<p><strong>1. Java String 类的基础知识</strong> <br/>
+Q1: String 类到底创建几个对象？</p>
+
+<pre><code>String str = "Hello, World";
+String str2 = "Hello, World";
+String str3 = new String("Hello,World");
+String str4 = new String("Hello, World");    
+</code></pre>
+
+<p>A1: String 构造时，如果是常量赋值的话，首先会去常量<strong>Pool</strong>中查找是否已经存在常量，如存在则直接把常量字符串的引用赋值便可，如果不存在则需要在常量池中创建新的常量引用在赋值给变量的引用;而如果是new操作的化，则是在堆中创建，且每次都会新创建一个常量池中的对象，然后在把这个对象用过new构造函数赋值给其在堆中的新对象。所以<strong>答案</strong>为：</p>
+
+<pre><code>1
+1
+2
+2
+</code></pre>
+
+<p>Q2:  String 中的== 和 equals操作符含义？</p>
+
+<pre><code> str == str2 ?
+ str equals str2 ?
+ str3 == str4 ?
+ str3 equals str4 ?
+</code></pre>
+
+<p>A2: 通常对于字符串内容的比较我们通过<strong>equals()</strong>函数来进行，而==运算符则是比较两个字符串引用是否指向同一个对象。两者的区别用下面<a href="http://stackoverflow.com/questions/767372/java-string-equals-versus">stackoverflow</a>上的回答：   <br/>
+<img src="/assets/img/java_equals.png" alt="java equals method source code" /> 因此<strong>答案</strong>为：</p>
+
+<pre><code>true
+true
+false
+true
+</code></pre>
+
+<p><strong>2. Synchronized 类线程安全和效率的比较</strong>  <br/>
+Q1: ArrayList, Vector and LinkedList 三者之间的区别？   <br/>
+A1: 可以从两方面来比较，首先对于ArrayList和Vector其底层都是通过Array的连续存储空间实现，可以按位快速存取，但是当出入值时需要顺序后移，因此效率较低，而LinkedList则是用过链表的方式因此其插入效率很高，但查找效率降低。 然后，如果单从线程安全的角度来看，Vector是实现synchronized，因此是线程安全，但是却会因此降低了其效率。引用<a href="http://www.coderanch.com/t/409421/java/java/Difference-ArrayList-LinkedList-Vector">JavaRanch</a>上的一个回答：   <br/>
+<img src="/assets/img/java_synchronized.png" alt="ArrayList, Vector LinkedList difference" /></p>
+
+<p>Q2: HashMap 和 HashTable的区别？   <br/>
+A2: 可以从两方面来回答。首先是线程安全的角度;其次是是否允许空值的角度。而HashTable都可以看作是对HashMap的限制和提高。因此HashMap是非线程安全的，且是允许一个null键和多个null值的，而HashTable是线程安全的，且是不允许null值和键的。最后可以从扩展性上来看，如果想要默认插入顺序的，可以选择<strong>LinkedHashMap</strong>，如果想要线程安全的可以使用<strong>ConcurrentHashMap</strong>，更详细的解答，仍旧是看<a href="http://stackoverflow.com/questions/40471/differences-between-hashmap-and-hashtable/40483#40483">stackoverflow</a>上的解答：   <br/>
+<img src="/assets/img/java_hashmap_hashtable_difference.png" alt="difference between HashMap and HashTable" /></p>
+
+<p><strong>3. Overloading vs override in Java</strong>  <br/>
+Q1: Overloading 和 Override之间有什么区别？  <br/>
+A1: Overloading称之为重载，通常是同一个功能的函数，为了实现不同的输入参数个数和类型等需要，在一个对象中定义的多个函数。而Override则通常是存在与父类和子类中的，同一个函数，其参数类型和个数都相等，在子类中对其重新实现，且覆盖了原先的方法。而Overriding通常有两种，一种是<em>vitual</em>函数的overriding，另一种是非<em>virtual</em>函数的overriding。前者是一种动态的绑定，而后者是一种静态的。 具体区别如下：   <br/>
+<img src="/assets/img/java_overloading_override.png" alt="difference between overloading and override" /></p>
+
+</div>
+
+<div id="related">
+  <h2>Related Posts</h2>
+  <ul class="posts">
+    
+      <li><span>28 May 2015</span> &raquo; <a href="/2015/05/28/singleton-design-pattern.html">Singleton Design Pattern</a></li>
+    
+      <li><span>11 Nov 2014</span> &raquo; <a href="/2014/11/11/Common-ShortKey-And-Command-On-MacOSX.html">Common ShortKey And Command on MacOSX</a></li>
+    
+      <li><span>09 Aug 2014</span> &raquo; <a href="/translation/2014/08/09/add-comment-to-jekyll-blog-with-disqus.html">Add Comment to Jekyll Blog with Disqus</a></li>
+    
+  </ul>
+</div>
+
+
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+    /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+    var disqus_shortname = 'josepheng'; // required: replace example with your forum shortname
+    /* * * This turns developer mode on, Make sure you remove this before you push this to your live site. * * * /
+    /* * * var disqus_developer = 1;  * * * /
+
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">blog comments powered by <span class="logo-disqus">Disqus</span></a>
+
+
+
+  <div class="footer">
+    <div class="contact">
+      <p>
+        Wei Heng<br />
+        lengerfulluse@gmail.com
+      </p>
+    </div>
+    <div class="contact">
+      <p>
+        <a href="http://github.com/lengerfulluse/">github.com/lengerfulluse</a><br />
+      </p>
+    </div>
+    <div class="rss">
+      <a href="http://feeds.feedburner.com/joseph-heng">
+        <img src="/assets/img/rss.png" alt="Subscribe to RSS Feed" />
+      </a>
+    </div>
+  </div>
+</div>
+
+<a href="http://github.com/lengerfulluse"><img style="position: absolute; top: 0; right: 0; border: 0;" src="http://s3.amazonaws.com/github/ribbons/forkme_right_red_aa0000.png" alt="Fork me on GitHub" /></a>
+
+<!-- ClickTale Bottom part -->
+<div id="ClickTaleDiv" style="display: none;"></div>
+<script type="text/javascript">
+if(document.location.protocol!='https:')
+  document.write(unescape("%3Cscript%20src='http://s.clicktale.net/WRb.js'%20type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script type="text/javascript">
+if(typeof ClickTale=='function') ClickTale(206,0.3,"www03");
+</script>
+<!-- ClickTale end of Bottom part -->
+
+<!-- Google Analytics -->
+<script type="text/javascript">
+var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script type="text/javascript">
+var pageTracker = _gat._getTracker("UA-6016902-1");
+pageTracker._trackPageview();
+</script>
+<!-- Google Analytics end -->
+
+</body>
+</html>
