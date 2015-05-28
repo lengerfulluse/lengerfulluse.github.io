@@ -1,0 +1,3 @@
+markdown: rdiscount
+highlighter: pygments
+encoding: UTF-8
