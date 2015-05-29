@@ -4,6 +4,8 @@ category: languages
 tags: [interview, cpp]
 ---
 {%include JB/setup %}
+{{post.title}}
+==========
 
 ###虚函数的作用####
 虚函数是为了实现多态性而实现的，更准确的说，是为了实现运行时多态，即dynamic binding的方法。如下例所示：    
