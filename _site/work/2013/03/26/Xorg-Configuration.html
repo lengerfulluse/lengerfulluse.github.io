@@ -34,6 +34,11 @@ var WRInitTime=(new Date()).getTime();
   </div>
 
   <div id="post">
+<h1>Xorg Configuration</h1>
+
+<p class="meta">26 Mar 2013 - Beijing</p>
+
+
 <p>In this article, we focus on some basic and foundational introduction about the X11 related topics in our linux experience.</p>
 
 <h4>Xorg Server</h4>
@@ -63,7 +68,7 @@ DISPLAYMANAGER="slim"
 <p>After finish the basic configure for the slim, and set the
 /etc/conf.d/xdm variable, we should be able to login our personal Xsession with the default themes in the /usr/share/slim/theme.
 However, we should notice that the /etc/slim.conf configure script file will automatically read the /etc/X11/Sessions/ directory to
-find the default multiply Session, so when you login in with the slim, you could select your particular session with a simple F1 key.<br/>
+find the default multiply Session, so when you login in with the slim, you could select your particular session with a simple F1 key.
 Otherwise, if you want to set the default session environment, the simplest way is just:</p>
 
 <pre><code>ln -s /etc/X11/Sessions/fluxbox ~/.xsession
@@ -127,7 +132,7 @@ the Login Manager benifits for.  the configure step has just been demonstrated a
 all are almost divert us away. also the whole installation process is automatically done, so once there encounters some problems, It's just
 terrible, and in most situation, people would select install the whole system. ^_^. I am at least. I always wonder that when I could resolve
 this problem myself, here today, I came over a startx failure, and after some dianostic, I finish it eventually.  Here I note some basic and
-important steps:<br/>
+important steps:
 - You're aim to solve the problems: the first and the only step is to analyze current problem. What's the symptoms of the problems, is
 there some log or error output? how many possible reasons for this/these symptoms? what's the most possible one?
 - Be careful and most selective for the search keywords when Google, also you should first finish some basic background knowledge learnint to
@@ -141,7 +146,7 @@ original version files or programs, before you do every dangerous things!!</p>
   <h2>Related Posts</h2>
   <ul class="posts">
     
-      <li><span>28 May 2015</span> &raquo; <a href="/2015/05/28/singleton-design-pattern.html">Singleton Design Pattern</a></li>
+      <li><span>30 May 2015</span> &raquo; <a href="/2015/05/30/singleton-design-pattern.html">Singleton Design Pattern</a></li>
     
       <li><span>11 Nov 2014</span> &raquo; <a href="/2014/11/11/Common-ShortKey-And-Command-On-MacOSX.html">Common ShortKey And Command on MacOSX</a></li>
     

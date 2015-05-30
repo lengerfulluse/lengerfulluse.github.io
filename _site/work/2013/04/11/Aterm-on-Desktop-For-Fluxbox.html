@@ -34,10 +34,15 @@ var WRInitTime=(new Date()).getTime();
   </div>
 
   <div id="post">
-<p>It's an amazing thing to conquer the aterm, and make it stick on desktop obediently.<br/>
+<h1>Aterm On Desktop For Fluxbox</h1>
+
+<p class="meta">11 Apr 2013 - Beijing</p>
+
+
+<p>It's an amazing thing to conquer the aterm, and make it stick on desktop obediently.
 The core of the entire process comes from how to make the aterm windows size on the desktop correctly. And I just find that It aways make me confused when I find the <strong>fluxbox</strong> options about the size of the windows on desktop cannot work.  Ok, let's get the whole process from scratch.</p>
 
-<h4>Install the Aterm terminal and Edit the .Xdefaults file ####</h4>
+<h4>Install the Aterm terminal and Edit the .Xdefaults file</h4>
 
 <pre><code>equo install x11-term/aterm or emerge x11-term/aterm
 </code></pre>
@@ -49,7 +54,7 @@ aterm*color1: #ff23
 and etc...
 </code></pre>
 
-<h4>Cofnigure Fluxbox app file to make the aterm sticky on desktop ####</h4>
+<h4>Cofnigure Fluxbox app file to make the aterm sticky on desktop</h4>
 
 <pre><code>[app](aterm)
 [sticky]{yes}
@@ -61,12 +66,12 @@ and etc...
 [end]
 </code></pre>
 
-<p>Common options like above. all these seems so easy done well.<br/>
+<p>Common options like above. all these seems so easy done well.
 Ok, That's all, you reload your fluxbox, and run the <strong>aterm</strong>, you will find the beatiful things on your desktoop. Yes, you are right.</p>
 
 <p>But, when you open the a large file which more than one page with <strong>vim</strong> editor like, the unfortunately things happens, the border of your aterm windows seems appearence. why? and How?</p>
 
-<h4>Some small cares and tricky ####</h4>
+<h4>Some small cares and tricky</h4>
 
 <ol>
 <li>if you set the [Dimensions] options in the app file, you'd better comment your geometry setting in your <em>.Xdefaults</em> file.</li>
@@ -79,7 +84,7 @@ Ok, That's all, you reload your fluxbox, and run the <strong>aterm</strong>, you
   <h2>Related Posts</h2>
   <ul class="posts">
     
-      <li><span>28 May 2015</span> &raquo; <a href="/2015/05/28/singleton-design-pattern.html">Singleton Design Pattern</a></li>
+      <li><span>30 May 2015</span> &raquo; <a href="/2015/05/30/singleton-design-pattern.html">Singleton Design Pattern</a></li>
     
       <li><span>11 Nov 2014</span> &raquo; <a href="/2014/11/11/Common-ShortKey-And-Command-On-MacOSX.html">Common ShortKey And Command on MacOSX</a></li>
     

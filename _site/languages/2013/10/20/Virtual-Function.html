@@ -34,6 +34,11 @@ var WRInitTime=(new Date()).getTime();
   </div>
 
   <div id="post">
+<h1>Virtual Function</h1>
+
+<p class="meta">20 Oct 2013 - Beijing</p>
+
+
 <h3>虚函数的作用</h3>
 
 <p>虚函数是为了实现多态性而实现的，更准确的说，是为了实现运行时多态，即dynamic binding的方法。如下例所示：</p>
@@ -42,9 +47,9 @@ var WRInitTime=(new Date()).getTime();
 using namespace std;
 
 /* a simple example show the difference between the dynamic binding
- * and static binding. And common function override is a static 
- * binding which aims to implement a common function in different 
- * class. However, the virtual function is just aimed at interface-like 
+ * and static binding. And common function override is a static
+ * binding which aims to implement a common function in different
+ * class. However, the virtual function is just aimed at interface-like
  * function. It implement the dynamic binding.
  */
 class shape {
@@ -93,7 +98,7 @@ Draw round
 <p>这种动态绑定的属性使得我们仅通过基类的指针便可以访问其派生类的某种方法，因此在设计对象继承模式时便很常见了。但是，我们发现对于这种依靠基类来进行动态绑定的方法中，某些基类的某种方法我们并不能实现，如下面的例子：</p>
 
 <pre><code>/* Declaration from:
- * http://www.learncpp.com/cpp-tutorial/126-pure-virtual-functions-abstract-base-classes-and-interface-classes/ 
+ * http://www.learncpp.com/cpp-tutorial/126-pure-virtual-functions-abstract-base-classes-and-interface-classes/
  */
 
 #include &lt;string&gt;
@@ -143,7 +148,7 @@ public:
 
 <blockquote><ol>
 <li>. 对于<em>Animal</em>这种类型，我们无法对其的virtual方法Speak给出实现，当用户定义一个Animal对象时，如果调用其Speak方法，我们无法实现这样一个方法，或是只能空函数体，则得到的是空结果，或是非用户想要的结果，则在某种程度是一种很不好的设计模式。</li>
-<li>. 对于<em>Animal</em>类，在某种抽象程度上，对象本身是不具有意义的，往往是一个抽象的个体罢了，从语言理解的层面，其往往是一个具有抽象概念的东西。因此，我们不应该允许其实例化。故上面的代码对于其构造函数使用了Protected控制符。   <br/>
+<li>. 对于<em>Animal</em>类，在某种抽象程度上，对象本身是不具有意义的，往往是一个抽象的个体罢了，从语言理解的层面，其往往是一个具有抽象概念的东西。因此，我们不应该允许其实例化。故上面的代码对于其构造函数使用了Protected控制符。
 上面的两种情况，都可以利用纯虚函数的概念来解决。其定义方法为：</li>
 </ol>
 </blockquote>
@@ -153,7 +158,7 @@ public:
 
 <p>而存在纯虚函数的类成为了抽象类，不允许构造对象实例。如此便进一步解决了这种抽象类中，虚函数无法实现，且抽象类不具有实际定义对象必要的情况。</p>
 
-<h3>进化二： 接口类###</h3>
+<h3>进化二： 接口类</h3>
 
 <p>严格意义上来，C++中并没有一个<strong>Interface</strong>关键词，来提供这样一种接口功能，但我们可以通过抽象类来定义。通常而言，接口类只提供一种操作原型的声明，把具体实现指派到派生类。从抽象的角度，接口通常不含有具体的数据成员。</p>
 
@@ -163,7 +168,7 @@ public:
   <h2>Related Posts</h2>
   <ul class="posts">
     
-      <li><span>28 May 2015</span> &raquo; <a href="/2015/05/28/singleton-design-pattern.html">Singleton Design Pattern</a></li>
+      <li><span>30 May 2015</span> &raquo; <a href="/2015/05/30/singleton-design-pattern.html">Singleton Design Pattern</a></li>
     
       <li><span>11 Nov 2014</span> &raquo; <a href="/2014/11/11/Common-ShortKey-And-Command-On-MacOSX.html">Common ShortKey And Command on MacOSX</a></li>
     

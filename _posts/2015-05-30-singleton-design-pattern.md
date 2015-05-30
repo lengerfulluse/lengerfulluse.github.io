@@ -7,11 +7,9 @@ published: True
 
 ---
 
-{{page.title}}
-=============
-<p class="meta">28 May 2015 - Beijing</p>
-
 singleton模式看似简单，却有很多值得注意的地方。下面给出一个经典的多线程安全的简单例子，然后NOTE下值得注意的几点：
+
+{% highlight java linenos=table %}
 
     package org.josepheng.design_pattern.singleton;
 
@@ -42,6 +40,7 @@ singleton模式看似简单，却有很多值得注意的地方。下面给出�
           return uniqConnctor;
       }
   }
+{%  endhighlight %}
 
 **Watch Out**:
 

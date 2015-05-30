@@ -34,6 +34,11 @@ var WRInitTime=(new Date()).getTime();
   </div>
 
   <div id="post">
+<h1>Jekyll Introduction</h1>
+
+<p class="meta">29 Dec 2011 - Beijing</p>
+
+
 <p>This Jekyll introduction will outline specifically  what Jekyll is and why you would want to use it.
 Directly following the intro we'll learn exactly <em>how</em> Jekyll does what it does.</p>
 
@@ -129,19 +134,19 @@ Jekyll-bootstrap conveniently provides the base directory format.</p>
 </code></pre>
 
 <ul>
-<li><p><strong>_config.yml</strong><br/>
+<li><p><strong>_config.yml</strong>
   Stores configuration data.</p></li>
-<li><p><strong>_includes</strong><br/>
+<li><p><strong>_includes</strong>
   This folder is for partial views.</p></li>
-<li><p><strong>_layouts</strong> <br/>
+<li><p><strong>_layouts</strong>
   This folder is for the main templates your content will be inserted into.
   You can have different layouts for different pages or page sections.</p></li>
-<li><p><strong>_posts</strong><br/>
+<li><p><strong>_posts</strong>
   This folder contains your dynamic content/posts.
   the naming format is required to be <code>@YEAR-MONTH-DATE-title.MARKUP@</code>.</p></li>
-<li><p><strong>_site</strong><br/>
+<li><p><strong>_site</strong>
   This is where the generated site will be placed once Jekyll is done transforming it.</p></li>
-<li><p><strong>assets</strong><br/>
+<li><p><strong>assets</strong>
   This folder is not part of the standard jekyll structure.
   The assets folder represents <em>any generic</em> folder you happen to create in your root directory.
   Directories and files not properly formatted for jekyll will be left untouched for you to serve normally.</p></li>
@@ -167,27 +172,27 @@ Both posts and pages can have meta-data assigned on a per-page basis such as tit
 
 <h3>Working With Posts</h3>
 
-<p><strong>Creating a Post</strong> <br/>
+<p><strong>Creating a Post</strong>
 Posts are created by properly formatting a file and placing it the <code>_posts</code> folder.</p>
 
-<p><strong>Formatting</strong><br/>
+<p><strong>Formatting</strong>
 A post must have a valid filename in the form <code>YEAR-MONTH-DATE-title.MARKUP</code> and be placed in the <code>_posts</code> directory.
 If the data format is invalid Jekyll will not recognize the file as a post. The date and title are automatically parsed from the filename of the post file.
 Additionally, each file must have <a href="https://github.com/mojombo/jekyll/wiki/YAML-Front-Matter">YAML Front-Matter</a> prepended to its content.
 YAML Front-Matter is a valid YAML syntax specifying meta-data for the given file.</p>
 
-<p><strong>Order</strong><br/>
+<p><strong>Order</strong>
 Ordering is an important part of Jekyll but it is hard to specify a custom ordering strategy.
 Only reverse chronological and chronological ordering is supported in Jekyll.</p>
 
 <p>Since the date is hard-coded into the filename format, to change the order, you must change the dates in the filenames.</p>
 
-<p><strong>Tags</strong> <br/>
+<p><strong>Tags</strong>
 Posts can have tags associated with them as part of their meta-data.
 Tags may be placed on posts by providing them in the post's YAML front matter.
 You have access to the post-specific tags in the templates. These tags also get added to the sitewide collection.</p>
 
-<p><strong>Categories</strong> <br/>
+<p><strong>Categories</strong>
 Posts may be categorized by providing one or more categories in the YAML front matter.
 Categories offer more significance over tags in that they can be reflected in the URL path to the given post.
 Note categories in Jekyll work in a specific way.
@@ -205,17 +210,17 @@ You won't find "lessons" and "beginner" as two separate categories unless you de
 
 <h3>Working With Pages</h3>
 
-<p><strong>Creating a Page</strong><br/>
+<p><strong>Creating a Page</strong>
 Pages are created by properly formatting a file and placing it anywhere in the root directory or subdirectories that do <em>not</em> start with an underscore.</p>
 
-<p><strong>Formatting</strong><br/>
+<p><strong>Formatting</strong>
 In order to register as a Jekyll page the file must contain <a href="https://github.com/mojombo/jekyll/wiki/YAML-Front-Matter">YAML Front-Matter</a>.
 Registering a page means 1) that Jekyll will process the page and 2) that the page object will be available in the <code>site.pages</code> array for inclusion into your templates.</p>
 
-<p><strong>Categories and Tags</strong><br/>
+<p><strong>Categories and Tags</strong>
 Pages do not compute categories nor tags so defining them will have no effect.</p>
 
-<p><strong>Sub-Directories</strong><br/>
+<p><strong>Sub-Directories</strong>
 If pages are defined in sub-directories, the path to the page will be reflected in the url.
 Example:</p>
 
@@ -230,13 +235,13 @@ Example:</p>
 <p><strong>Recommended Pages</strong></p>
 
 <ul>
-<li><strong>index.html</strong><br/>
+<li><strong>index.html</strong>
 You will always want to define the root index.html page as this will display on your root URL.</li>
-<li><strong>404.html</strong><br/>
+<li><strong>404.html</strong>
 Create a root 404.html page and GitHub Pages will serve it as your 404 response.</li>
-<li><strong>sitemap.html</strong><br/>
+<li><strong>sitemap.html</strong>
 Generating a sitemap is good practice for SEO.</li>
-<li><strong>about.html</strong><br/>
+<li><strong>about.html</strong>
 A nice about page is easy to do and gives the human perspective to your website.</li>
 </ul>
 
@@ -248,14 +253,14 @@ All templates have access to a global site object variable: <code>site</code> as
 The site variable holds all accessible content and metadata relative to the site.
 The page variable holds accessible data for the given page or post being rendered at that point.</p>
 
-<p><strong>Create a Template</strong><br/>
+<p><strong>Create a Template</strong>
 Templates are created by properly formatting a file and placing it in the <code>_layouts</code> directory.</p>
 
-<p><strong>Formatting</strong><br/>
+<p><strong>Formatting</strong>
 Templates should be coded in HTML and contain YAML Front Matter.
 All templates can contain Liquid code to work with your site's data.</p>
 
-<p><strong>Rending Page/Post Content in a Template</strong><br/>
+<p><strong>Rending Page/Post Content in a Template</strong>
 There is a special variable in all templates named : <code>content</code>.
 The <code>content</code> variable holds the page/post content including any sub-template content previously defined.
 Render the content variable wherever you want your main content to be injected into your template:</p>
@@ -316,7 +321,7 @@ Both of which cannot be supported by GitHub Pages.</p>
 <p>But rather than look a gift horse in the mouth we are going to
 suck it up and view it as an opportunity to work around limitations and adopt client-side solutions when possible.</p>
 
-<p><strong>Aside</strong> <br/>
+<p><strong>Aside</strong>
 My personal stance is to not invest time trying to hack liquid. It's really unnecessary
 <em>from a programmer's</em> perspective. That is to say if you have the ability to run custom plugins (i.e. run arbitrary ruby code)
 you are better off sticking with ruby. Toward that end I've built <a href="http://github.com/plusjade/mustache-with-jekyll">Mustache-with-Jekyll</a></p>
@@ -333,9 +338,9 @@ That is they have no valid YAML Front Matter and are thus not treated as Jekyll 
 <p>Remember Jekyll is a processing engine. There are two main types of parsing in Jekyll.</p>
 
 <ul>
-<li><strong>Content parsing.</strong> <br/>
+<li><strong>Content parsing.</strong>
   This is done with textile or markdown.</li>
-<li><strong>Template parsing.</strong> <br/>
+<li><strong>Template parsing.</strong>
 This is done with the liquid templating language.</li>
 </ul>
 
@@ -343,15 +348,15 @@ This is done with the liquid templating language.</li>
 <p>And thus there are two main types of file formats needed for this parsing.</p>
 
 <ul>
-<li><strong>Post and Page files.</strong><br/>
+<li><strong>Post and Page files.</strong>
 All content in Jekyll is either a post or a page so valid posts and pages are parsed with markdown or textile.</li>
-<li><strong>Template files.</strong>  <br/>
+<li><strong>Template files.</strong>
   These files go in <code>_layouts</code> folder and contain your blogs <strong>templates</strong>. They should be made in HTML with the help of Liquid syntax.
   Since include files are simply injected into templates they are essentially parsed as if they were native to the template.</li>
 </ul>
 
 
-<p><strong>Arbitrary files and folders.</strong> <br/>
+<p><strong>Arbitrary files and folders.</strong>
 Files that <em>are not</em> valid pages are treated as static content and pass through
 Jekyll untouched and reside on your blog in the exact structure and format they originally existed in.</p>
 
@@ -390,24 +395,24 @@ That is to say loading a post file into a template file that refers to another t
 The following is an outline of how that's done:</p>
 
 <ol>
-<li><p><strong>Jekyll collects data.</strong> <br/>
+<li><p><strong>Jekyll collects data.</strong>
 Jekyll scans the posts directory and collects all posts files as post objects. It then scans the layout assets and collects those and finally scans other directories in search of pages.</p></li>
-<li><p><strong>Jekyll computes data.</strong> <br/>
+<li><p><strong>Jekyll computes data.</strong>
 Jekyll takes these objects, computes metadata (permalinks, tags, categories, titles, dates) from them and constructs one
 big <code>site</code> object that holds all the posts, pages, layouts, and respective metadata.
 At this stage your site is one big computed ruby object.</p></li>
-<li><p><strong>Jekyll liquifies posts and templates.</strong><br/>
+<li><p><strong>Jekyll liquifies posts and templates.</strong>
 Next jekyll loops through each post file and converts (through markdown or textile) and <strong>liquifies</strong> the post inside of its respective layout(s).
-Once the post is parsed and liquified inside the the proper layout structure, the layout itself is "liquified". <br/>
+Once the post is parsed and liquified inside the the proper layout structure, the layout itself is "liquified".
  <strong>Liquification</strong> is defined as follows: Jekyll initiates a Liquid template, and passes a simpler hash representation of the ruby site object as well as a simpler
 hash representation of the ruby post object. These simplified data structures are what you have access to in the templates.</p></li>
-<li><p><strong>Jekyll generates output.</strong> <br/>
+<li><p><strong>Jekyll generates output.</strong>
  Finally the liquid templates are "rendered", thereby processing any liquid syntax provided in the templates
  and saving the final, static representation of the file.</p></li>
 </ol>
 
 
-<p><strong>Notes.</strong><br/>
+<p><strong>Notes.</strong>
 Because Jekyll computes the entire site in one fell swoop, each template is given access to
 a global <code>site</code> hash that contains useful data. It is this data that you'll iterate through and format
 using the Liquid tags and filters in order to render it onto a given page.</p>
@@ -443,7 +448,7 @@ or jump right into <a href="">Usage</a> if you'd like.</p>
   <h2>Related Posts</h2>
   <ul class="posts">
     
-      <li><span>28 May 2015</span> &raquo; <a href="/2015/05/28/singleton-design-pattern.html">Singleton Design Pattern</a></li>
+      <li><span>30 May 2015</span> &raquo; <a href="/2015/05/30/singleton-design-pattern.html">Singleton Design Pattern</a></li>
     
       <li><span>11 Nov 2014</span> &raquo; <a href="/2014/11/11/Common-ShortKey-And-Command-On-MacOSX.html">Common ShortKey And Command on MacOSX</a></li>
     

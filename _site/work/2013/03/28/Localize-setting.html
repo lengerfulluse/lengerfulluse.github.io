@@ -34,6 +34,11 @@ var WRInitTime=(new Date()).getTime();
   </div>
 
   <div id="post">
+<h1>Localize Setting</h1>
+
+<p class="meta">28 Mar 2013 - Beijing</p>
+
+
 <p>What's locale? basically, locale is all the information about your geography postion, such as which country you are? what language you use?
 and of course contains date time format, moneny currency format and so much information. With the tendy of software internationalize, the
 specific localize for specific local users become urgent and necessary. All above is what locale is responsible for.  Ok, let's get start.</p>
@@ -42,36 +47,36 @@ specific localize for specific local users become urgent and necessary. All abov
 
 <p>The introduction part generally describe some aspects about what particular a lcoale seems contains. and As we know, all these have their
 standard definition, context and content details. For the locale, the ISO files have the regular and comprehensive definition. It may contain
-the following aspects and in unix-like system, It's demonstrated as Locale Environment Variables. <br/>
+the following aspects and in unix-like system, It's demonstrated as Locale Environment Variables.
 - <em>LANG</em> the default definition for all local settings at once. while allowing the further individual customization via LC_* settings
-belows.<br/>
+belows.
 - <em>LC_CTYPE</em> define the character handling properties for the system. <em>The determines which characters are seen as part of alphabet, numberic
-and so on</em>, This also determine teh character set used, if applicable.<br/>
-- <em>LC_COLLATE</em> define the alphabetical ordering of strings. This effects <em>eg.</em> output of sorted directory listing.<br/>
-- <em>LC_MESSAGE</em> Programs' localization for applications use message based localization.<br/>
+and so on</em>, This also determine teh character set used, if applicable.
+- <em>LC_COLLATE</em> define the alphabetical ordering of strings. This effects <em>eg.</em> output of sorted directory listing.
+- <em>LC_MESSAGE</em> Programs' localization for applications use message based localization.
 - <em>LC_MONETARY</em> define curry units and formatting of currency type, numberic values.
-- <em>LC_NUMBERIC</em> define formatting of numberic values which are not monetary.<br/>
-- <em>LC_TIME</em> define formatting of data and time.<br/>
-- <em>LC_...</em> main contains other setting.<br/>
-- <em>LC_ALL</em> A special value to overriding all the above settings.<br/>
+- <em>LC_NUMBERIC</em> define formatting of numberic values which are not monetary.
+- <em>LC_TIME</em> define formatting of data and time.
+- <em>LC_...</em> main contains other setting.
+- <em>LC_ALL</em> A special value to overriding all the above settings.
 The linux system self provide a lot of locale for almost all of the countries and regions. the specific locale directory is
 <code>/usr/share/locale/</code>, which provide the locale resource files. By default, all kinds of locale contained Here.</p>
 
 <h4>Setting locale</h4>
 
 <p>The first step of settings is to know what locale our system current use. Here we need the <code>locale</code> command. which is used for get
-locale-specific informations. <br/>
+locale-specific informations.
 If we want to know what current locale our system support now, we should add the <code>-a</code> options for the <code>locale</code>
-command. If you find that there doesn't exist the locale you wanted , you should generate the locale by yourself. which contain two steps:<br/>
-1. edit the <code>/etc/locale.gen</code> configure file to add the locale you want.<br/>
+command. If you find that there doesn't exist the locale you wanted , you should generate the locale by yourself. which contain two steps:
+1. edit the <code>/etc/locale.gen</code> configure file to add the locale you want.
 2. run the command <code>locale-gen</code> to generate the locale.</p>
 
 <p>Now, since we have generate the locale we need, we need to setting the locale. Like common linux configure sytles, almost every configure
 settings have the different apply range. namely the system-wide and personal user settings. and no exception for the locale. there are two
-choice to setting the locale. if you want to settingt the system-wide, you can edit two setting files.<br/>
+choice to setting the locale. if you want to settingt the system-wide, you can edit two setting files.
     /etc/env.d/02locale --> LANG="en_US.UTF-8" for instance.
     /etc/profile --> export LANG="en_US.UTF-8" for instance.
-and for user specified range.<br/>
+and for user specified range.
     $HOME/.bash_profile --> LANG="en_US.UTF-8" for instance.</p>
 
 <p>Of course the above just simple give a simple example, you can give a specified setting for LC_* Variables for yourself.</p>
@@ -82,7 +87,7 @@ and for user specified range.<br/>
   <h2>Related Posts</h2>
   <ul class="posts">
     
-      <li><span>28 May 2015</span> &raquo; <a href="/2015/05/28/singleton-design-pattern.html">Singleton Design Pattern</a></li>
+      <li><span>30 May 2015</span> &raquo; <a href="/2015/05/30/singleton-design-pattern.html">Singleton Design Pattern</a></li>
     
       <li><span>11 Nov 2014</span> &raquo; <a href="/2014/11/11/Common-ShortKey-And-Command-On-MacOSX.html">Common ShortKey And Command on MacOSX</a></li>
     

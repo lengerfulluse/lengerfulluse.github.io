@@ -34,6 +34,11 @@ var WRInitTime=(new Date()).getTime();
   </div>
 
   <div id="post">
+<h1>Learning Wxpython</h1>
+
+<p class="meta">11 Mar 2013 - Beijing</p>
+
+
 <p>For a part of project, the demands for the gui interface enforce me to find a simple and flexibile toolkit-like to develop a desktop programming. the two main choices are the <strong>Swing</strong> and <strong>wxPython</strong>. The java things bores me a lot in before. So I decide to try something new, since I have a lot of interest in python recently.</p>
 
 <h4>Modules introduction</h4>
@@ -45,7 +50,7 @@ var WRInitTime=(new Date()).getTime();
 |-- Core: consists of elementary classes. Object, Sizers, Events.
 |-- GDI: used for drawing onto the widgets.
 |-- Misc: various other classes and modules. logging, configuration.
-|-- Windows: consists of various windows. Panel, Dialog, Frame etc. 
+|-- Windows: consists of various windows. Panel, Dialog, Frame etc.
 </code></pre>
 
 <p>Widgets are called controls in windows. GUI programming is a tedious project, the main reason lies in that the inner logical flow troubles me a lot. such as when you try to create a menuitem, you should first contruct a MenuBar object, then a Menu object, and then construct a menuitem, finnally append the menu object to the menubar object. Also you should bing the event to the itemmenu object.</p>
@@ -58,7 +63,7 @@ var WRInitTime=(new Date()).getTime();
 - changing fonts might spoiled the layout.
 - it's difficult to redo the layout.</p>
 
-<p>Sizer address all those issues, we can choose among these sizers:<br/>
+<p>Sizer address all those issues, we can choose among these sizers:
     .
     |-- wx.BoxSizer enable us to put several widgets into row or column.
     |-- wx.GridSizer lays out widgets in two dimensional table, each cell has the same size.
@@ -67,7 +72,7 @@ var WRInitTime=(new Date()).getTime();
 
 <h4>Events</h4>
 
-<p>Events are integral part of every GUI application. All GUI application are event-driven.<br/>
+<p>Events are integral part of every GUI application. All GUI application are event-driven.
 <strong>Event object</strong> is an object associated with the event. It is usually a window. <strong>Event type</strong> is a unique event, that has been generated. <strong>Event binder</strong> is an object, that binds an event type with an event handler.</p>
 
 <h4>Widgets</h4>
@@ -98,7 +103,7 @@ var WRInitTime=(new Date()).getTime();
   <h2>Related Posts</h2>
   <ul class="posts">
     
-      <li><span>28 May 2015</span> &raquo; <a href="/2015/05/28/singleton-design-pattern.html">Singleton Design Pattern</a></li>
+      <li><span>30 May 2015</span> &raquo; <a href="/2015/05/30/singleton-design-pattern.html">Singleton Design Pattern</a></li>
     
       <li><span>11 Nov 2014</span> &raquo; <a href="/2014/11/11/Common-ShortKey-And-Command-On-MacOSX.html">Common ShortKey And Command on MacOSX</a></li>
     

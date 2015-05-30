@@ -34,7 +34,12 @@ var WRInitTime=(new Date()).getTime();
   </div>
 
   <div id="post">
-<h3>1. A Simple Algorithm for Print All Combination of Balanced Parentheses###</h3>
+<h1>Learning With Amazoner</h1>
+
+<p class="meta">25 Sept 2013 - Beijing</p>
+
+
+<h3>1. A Simple Algorithm for Print All Combination of Balanced Parentheses</h3>
 
 <table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><code class="language-cpp" data-lang="cpp"> 1
  2
@@ -112,7 +117,7 @@ var WRInitTime=(new Date()).getTime();
         <span class="n">print_bracket_v2</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">);</span>
         <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
     <span class="p">}</span>
-    
+
     <span class="kt">void</span> <span class="nf">print_bracket_v2</span><span class="p">(</span><span class="kt">int</span> <span class="n">n</span><span class="p">,</span> <span class="kt">int</span> <span class="n">pos</span><span class="p">,</span> <span class="kt">int</span> <span class="n">close</span><span class="p">,</span> <span class="kt">int</span> <span class="n">open</span><span class="p">)</span> <span class="p">{</span>
         <span class="k">static</span> <span class="kt">char</span> <span class="n">output</span><span class="p">[</span><span class="n">MAX</span><span class="p">];</span>
         <span class="k">if</span><span class="p">(</span><span class="n">close</span> <span class="o">==</span> <span class="n">n</span><span class="p">)</span> <span class="p">{</span>
@@ -122,7 +127,7 @@ var WRInitTime=(new Date()).getTime();
             <span class="n">cout</span><span class="o">&lt;&lt;</span><span class="n">endl</span><span class="p">;</span>
             <span class="k">return</span><span class="p">;</span>
         <span class="p">}</span>
-    
+
         <span class="k">if</span><span class="p">(</span><span class="n">open</span> <span class="o">&lt;</span> <span class="n">n</span><span class="p">)</span> <span class="p">{</span>
             <span class="n">output</span><span class="p">[</span><span class="n">pos</span><span class="p">]</span> <span class="o">=</span> <span class="sc">&#39;(&#39;</span><span class="p">;</span>
             <span class="n">print_bracket_v2</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">pos</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span> <span class="n">close</span><span class="p">,</span> <span class="n">open</span><span class="o">+</span><span class="mi">1</span><span class="p">);</span>
@@ -146,13 +151,13 @@ var WRInitTime=(new Date()).getTime();
         <span class="k">if</span><span class="p">(</span><span class="n">flag</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
             <span class="k">return</span><span class="p">;</span>
         <span class="p">}</span>
-    
+
         <span class="n">out</span><span class="p">[</span><span class="n">level</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="sc">&#39;(&#39;</span><span class="p">;</span>
         <span class="n">flag</span><span class="o">++</span><span class="p">;</span>
         <span class="n">print_bracket</span><span class="p">(</span><span class="n">level</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="n">out</span><span class="p">,</span> <span class="n">len</span><span class="p">,</span> <span class="n">flag</span><span class="p">);</span>
         <span class="cm">/* recover the modified flag */</span>
         <span class="n">flag</span><span class="o">--</span><span class="p">;</span>
-    
+
         <span class="n">out</span><span class="p">[</span><span class="n">level</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="sc">&#39;)&#39;</span><span class="p">;</span>
         <span class="n">flag</span><span class="o">--</span><span class="p">;</span>
         <span class="n">print_bracket</span><span class="p">(</span><span class="n">level</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="n">out</span><span class="p">,</span> <span class="n">len</span><span class="p">,</span> <span class="n">flag</span><span class="p">);</span>
@@ -161,7 +166,7 @@ var WRInitTime=(new Date()).getTime();
 </td></tr></table>
 
 
-<h3>2. Find the Element Pair in Array with Sum Equals to a integer ###</h3>
+<h3>2. Find the Element Pair in Array with Sum Equals to a integer</h3>
 
 </div>
 
@@ -169,7 +174,7 @@ var WRInitTime=(new Date()).getTime();
   <h2>Related Posts</h2>
   <ul class="posts">
     
-      <li><span>28 May 2015</span> &raquo; <a href="/2015/05/28/singleton-design-pattern.html">Singleton Design Pattern</a></li>
+      <li><span>30 May 2015</span> &raquo; <a href="/2015/05/30/singleton-design-pattern.html">Singleton Design Pattern</a></li>
     
       <li><span>11 Nov 2014</span> &raquo; <a href="/2014/11/11/Common-ShortKey-And-Command-On-MacOSX.html">Common ShortKey And Command on MacOSX</a></li>
     

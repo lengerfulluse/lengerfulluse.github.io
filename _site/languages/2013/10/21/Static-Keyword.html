@@ -34,17 +34,22 @@ var WRInitTime=(new Date()).getTime();
   </div>
 
   <div id="post">
+<h1>Static Keyword</h1>
+
+<p class="meta">21 Oct 2013 - Beijing</p>
+
+
 <p>几乎在所有的面试笔试题中都有<strong>static</strong>变量的身影，其涉及到变量内存分配空间，变量生命周期等。最终我们可以从其<strong>作用域</strong>的角度来对其进行较为详细的分析与介绍。</p>
 
-<h3>函数体内的static关键字###</h3>
+<h3>函数体内的static关键字</h3>
 
 <p>静态成员变量的内存分配空间是和全局变量的分配空间一样的，都是在静态存储区。所以变量的生命周期一直保持到程序的结束。但由于该静态变量的作用域仍然是在函数体内，所以在函数体外调用该变量会引起编译错误。</p>
 
-<h3>在一个文件中的全局static关键字###</h3>
+<h3>在一个文件中的全局static关键字</h3>
 
 <p>实现了一种类似类封装的效果，在该文件中成员可以访问该static变量或是函数，但是文件之外是不可以访问的。</p>
 
-<h3>在类中的static关键字###</h3>
+<h3>在类中的static关键字</h3>
 
 <blockquote><ol>
 <li>static 成员变量:在类的作用域中是全局可见的，且是唯一一份拷贝的。</li>
@@ -86,7 +91,7 @@ int main() {
   <h2>Related Posts</h2>
   <ul class="posts">
     
-      <li><span>28 May 2015</span> &raquo; <a href="/2015/05/28/singleton-design-pattern.html">Singleton Design Pattern</a></li>
+      <li><span>30 May 2015</span> &raquo; <a href="/2015/05/30/singleton-design-pattern.html">Singleton Design Pattern</a></li>
     
       <li><span>11 Nov 2014</span> &raquo; <a href="/2014/11/11/Common-ShortKey-And-Command-On-MacOSX.html">Common ShortKey And Command on MacOSX</a></li>
     

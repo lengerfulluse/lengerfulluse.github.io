@@ -34,22 +34,27 @@ var WRInitTime=(new Date()).getTime();
   </div>
 
   <div id="post">
+<h1>Const Keyword</h1>
+
+<p class="meta">22 Oct 2013 - Beijing</p>
+
+
 <p><code>const</code> 关键词在C/CPP中也是一个类似于<a href="http://lengerfulluse.com/research/2013/10/20/%E8%99%9A%E5%87%BD%E6%95%B0/">static</a>一样，经常出现，且作用往往不止一种，在面试中经常被问及的关键词。我们从其修饰的对象角度来分析。</p>
 
-<h3>修饰变量或者指针###</h3>
+<h3>修饰变量或者指针</h3>
 
 <pre><code>int d = 4;
 const int a = 5;   /* the content of variable cannot be change */
 int * const b = &amp;d; /* the variable pointer itself cannot be change */
 const int * const c = &amp;d; /* the content and the pointer both cannot be changed */
 
-int * const b = &amp;a  /*Compiler Error: a is const variable, while b is not, cannot 
+int * const b = &amp;a  /*Compiler Error: a is const variable, while b is not, cannot
                      convert from const int to int */
 </code></pre>
 
 <p>此处有一点值得提及，当用<code>const</code>修饰变量或指针时，赋值时只能从非const变量向const变量进行，而如果把const量赋值为非const量，则会发生编译错误。</p>
 
-<h3>修饰函数###</h3>
+<h3>修饰函数</h3>
 
 <p>1. 当用const放在末尾修饰类成员函数时，其表明该函数不能够改变类成员的值，如下：</p>
 
@@ -66,7 +71,7 @@ class A {
 
 void A::const_fun(int a) const {
     cout&lt;&lt;"I am const function, cannot change variable content"&lt;&lt;endl;
-    e = a;  /* Compiler Error: cannot change value of member variable */   
+    e = a;  /* Compiler Error: cannot change value of member variable */
 }
 
 int main() {
@@ -86,7 +91,7 @@ int main() {
   <h2>Related Posts</h2>
   <ul class="posts">
     
-      <li><span>28 May 2015</span> &raquo; <a href="/2015/05/28/singleton-design-pattern.html">Singleton Design Pattern</a></li>
+      <li><span>30 May 2015</span> &raquo; <a href="/2015/05/30/singleton-design-pattern.html">Singleton Design Pattern</a></li>
     
       <li><span>11 Nov 2014</span> &raquo; <a href="/2014/11/11/Common-ShortKey-And-Command-On-MacOSX.html">Common ShortKey And Command on MacOSX</a></li>
     

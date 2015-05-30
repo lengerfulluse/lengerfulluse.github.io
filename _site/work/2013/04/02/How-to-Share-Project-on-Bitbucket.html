@@ -34,9 +34,14 @@ var WRInitTime=(new Date()).getTime();
   </div>
 
   <div id="post">
+<h1>How To Share Project On Bitbucket</h1>
+
+<p class="meta">02 Apr 2013 - Beijing</p>
+
+
 <p>In the age of open source and could computer, it become very necessary for us to work together ou the cloud with an
 share projects. <a href="http://bitbucket.org"><strong>Bitbucket</strong></a> provides an possibility for our needs.  this article is aim to
-give an simple introduction about how to share and collaborate on a project. <br/>
+give an simple introduction about how to share and collaborate on a project.
 Generally speacking, it mainly contains the following configurationn steps(I'll assume that your os is
 windows):</p>
 
@@ -44,47 +49,47 @@ windows):</p>
 
 <p><strong>1.</strong>  Install <a href="msysgit.github.com"><strong>git for windows</strong></a>. just as the common way of install software on Windows,
 click
-all the way.<br/>
+all the way.
 <strong>2.</strong>  After installing, you need to do a simple configure of git for your name and emails:</p>
 
 <pre><code>git config --global user.name "Your Name"
-git config --global user.email "Name@example.com"  
+git config --global user.email "Name@example.com"
 </code></pre>
 
 <p>also you can configure for you favorite editor or diff tools(optional):</p>
 
-<pre><code>git config --global core.editor "vim"  
+<pre><code>git config --global core.editor "vim"
 </code></pre>
 
 <p>and you can configure your git to display with color:</p>
 
-<pre><code>git config --global color.ui true  
+<pre><code>git config --global color.ui true
 </code></pre>
 
 <p><strong>3.</strong> then, you need configure ssh key for pull and push on the bitbucket repository. here, I already configure it
 for
 you, and I will send to you by email, with usage attached. so just skip if you would care the configure details.
-otherwise, a tutorial <a href="https://help.github.com/articles/generating-ssh-keys">here</a>.<br/>
+otherwise, a tutorial <a href="https://help.github.com/articles/generating-ssh-keys">here</a>.
 <strong>4.</strong> now, it time to pull the repository down, just copy the following command, and execute it:</p>
 
-<pre><code>git clone git@bitbucket.org:lengerfulluse/acl-multiling.git  
+<pre><code>git clone git@bitbucket.org:lengerfulluse/acl-multiling.git
 </code></pre>
 
 <p>after the pull completement, you will find the directory <em>acl-multiling</em> in your current working directory. That's
-the repository on the cloud.<br/>
+the repository on the cloud.
 <em>Notice: you run the <code>git clone</code> command just for the first time you pull a repository. After that, every time you
 work on the existed repository, the first step is to run the <code>git pull</code> to ensure that your repository
- is the already up-to-date</em>.    <br/>
+ is the already up-to-date</em>.
 <strong>5.</strong> you can work on your local repository now, for example do some modify or add a file to the directory, after
 that you can check  what <em>files</em> you have modify or create:</p>
 
-<pre><code>git status  
+<pre><code>git status
 </code></pre>
 
 <p><strong>6.</strong> then you add the file and commit it:</p>
 
-<pre><code>git add &lt;file you modified&gt;  
-git commit -m "message you want to say about this commit"  
+<pre><code>git add &lt;file you modified&gt;
+git commit -m "message you want to say about this commit"
 </code></pre>
 
 <p><strong>7.</strong> you can continue to work on the local repository and do the loop as <em>step 5</em> and <em>step 6</em>. you can also now
@@ -92,22 +97,22 @@ push
 your current commit to bitbucket repository.  Also before the <code>push</code> step, you'd better do the <code>pull</code> operation again
 to ensure the newest status of your local repository. so you should do:</p>
 
-<pre><code>git pull  
+<pre><code>git pull
 </code></pre>
 
 <p>if there doen't exist some emerge conflict, then:</p>
 
-<pre><code>git push  
+<pre><code>git push
 </code></pre>
 
 <p>That's all, it simply contains normal workflow loop. It is strongly recommended to read the great arts <a href="http://www.google.com/search?q=pro+git"><strong>Pro
-Git</strong></a>.<br/>
+Git</strong></a>.
 Also we can do a simple demonstration together. Any prolem feel free to contact me any time.</p>
 
 <h4>Some Conflict Screenshot and Howto Emerge Conflict</h4>
 
 <ul>
-<li><strong>git push failure</strong><br/>
+<li><strong>git push failure</strong>
 <img src="/assets/img/git/push-conflict.png" alt="push failure" /></li>
 <li><strong>git pull to emerge</strong>
 <img src="/assets/img/git/pull-emerge-conflict.png" alt="pull emerge" /></li>
@@ -118,7 +123,7 @@ Also we can do a simple demonstration together. Any prolem feel free to contact 
 
 <h4>Reference</h4>
 
-<p><strong>[1]</strong> <a href="https://help.github.com/articles/generating-ssh-keys"><strong>Generating SSH keys</strong></a>   <br/>
+<p><strong>[1]</strong> <a href="https://help.github.com/articles/generating-ssh-keys"><strong>Generating SSH keys</strong></a>
 <strong>[2]</strong> <a href="http://jekyllrb.com"><strong>_config.yml</strong></a></p>
 
 </div>
@@ -127,7 +132,7 @@ Also we can do a simple demonstration together. Any prolem feel free to contact 
   <h2>Related Posts</h2>
   <ul class="posts">
     
-      <li><span>28 May 2015</span> &raquo; <a href="/2015/05/28/singleton-design-pattern.html">Singleton Design Pattern</a></li>
+      <li><span>30 May 2015</span> &raquo; <a href="/2015/05/30/singleton-design-pattern.html">Singleton Design Pattern</a></li>
     
       <li><span>11 Nov 2014</span> &raquo; <a href="/2014/11/11/Common-ShortKey-And-Command-On-MacOSX.html">Common ShortKey And Command on MacOSX</a></li>
     

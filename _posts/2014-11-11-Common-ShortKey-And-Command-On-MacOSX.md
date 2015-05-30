@@ -2,6 +2,9 @@
 layout: post 
 title: Common ShortKey And Command on MacOSX
 ---
+{{page.title}}
+=============
+<p class="meta">11 Nov 2014 - Beijing</p>
 
 Only during the 3 hours experience on MacBook Pro, I find that I could not love it more. Yes, maybe you can say, it's price seems make people daunting. However, if you really give yourself a try, you'll find that, the biggest regret ever is why I haven't migrate to Mac earlier. It will really save my so much time and energy.   
 

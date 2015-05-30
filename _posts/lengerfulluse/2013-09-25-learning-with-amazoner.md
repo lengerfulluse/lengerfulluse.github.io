@@ -1,11 +1,13 @@
 ---
 layout: post
-category: interview 
+category: interview
 tags: [algorithm, interview]
 ---
-{% include JB/setup %}
+{{page.title}}
+=============
+<p class="meta">25 Sept 2013 - Beijing</p>
 
-### 1. A Simple Algorithm for Print All Combination of Balanced Parentheses###     
+### 1. A Simple Algorithm for Print All Combination of Balanced Parentheses
 {% highlight cpp linenos=table %}
     #include<iostream>
     #include<cassert>
@@ -23,7 +25,7 @@ tags: [algorithm, interview]
         print_bracket_v2(n, 0, 0, 0);
         return 0;
     }
-    
+
     void print_bracket_v2(int n, int pos, int close, int open) {
         static char output[MAX];
         if(close == n) {
@@ -33,7 +35,7 @@ tags: [algorithm, interview]
             cout<<endl;
             return;
         }
-    
+
         if(open < n) {
             output[pos] = '(';
             print_bracket_v2(n, pos+1, close, open+1);
@@ -57,18 +59,18 @@ tags: [algorithm, interview]
         if(flag < 0) {
             return;
         }
-    
+
         out[level-1] = '(';
         flag++;
         print_bracket(level-1, out, len, flag);
         /* recover the modified flag */
         flag--;
-    
+
         out[level-1] = ')';
         flag--;
         print_bracket(level-1, out, len, flag);
     }
-{% endhighlight %}     
+{% endhighlight %}
 
-### 2. Find the Element Pair in Array with Sum Equals to a integer ###    
+### 2. Find the Element Pair in Array with Sum Equals to a integer
 
