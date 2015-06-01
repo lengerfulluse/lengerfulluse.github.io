@@ -1,7 +1,7 @@
 ---
 layout: post
 category: "work"
-tags: [explore, shell]
+tags: [tools]
 ---
 {{page.title}}
 =============

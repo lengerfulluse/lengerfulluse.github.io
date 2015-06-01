@@ -6,3 +6,18 @@
 
 - slug: tools
   name: Tools
+
+- slug: jekyll
+  name: Jekyll
+
+- slug: lankar
+  name: Lankar
+
+- slug: linux
+  name: linux
+
+- slug: research
+  name: research
+
+- slug: interview
+  name: interview

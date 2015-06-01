@@ -1,7 +1,7 @@
 ---
 layout: post
-category: "life"
-tags: [linux, thinking]
+category: "work"
+tags: [linux]
 ---
 {{page.title}}
 =============

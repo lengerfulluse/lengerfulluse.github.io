@@ -1,7 +1,7 @@
 ---
 layout: post
 category: interview
-tags: [algorithm, interview]
+tags: [algorithm]
 ---
 {{page.title}}
 =============

@@ -1,7 +1,7 @@
 ---
 layout: post
 category: "life"
-tags: [category, habit]
+tags: [lankar]
 ---
 {{page.title}}
 =============

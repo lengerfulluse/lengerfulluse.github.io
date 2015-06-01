@@ -1,7 +1,7 @@
 ---
 layout: post
 category: "work"
-tags: [note, research]
+tags: [research]
 ---
 {{page.title}}
 =============

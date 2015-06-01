@@ -1,7 +1,7 @@
 ---
 layout: post
-category: interview
-tags: [java, interview]
+category: work
+tags: [language, interview]
 ---
 {{page.title}}
 =============

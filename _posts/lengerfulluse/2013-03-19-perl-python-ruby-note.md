@@ -1,7 +1,7 @@
 ---
 layout: post
-category: "languages"
-tags: [comparision, perl, python, ruby]
+category: "work"
+tags: [language]
 ---
 {{page.title}}
 =============

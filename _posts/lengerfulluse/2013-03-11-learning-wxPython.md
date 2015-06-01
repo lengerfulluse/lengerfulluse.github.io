@@ -1,7 +1,7 @@
 ---
 layout: post
-category: languages
-tags: [work, python, gui]
+category: work
+tags: [language]
 ---
 {{page.title}}
 =============

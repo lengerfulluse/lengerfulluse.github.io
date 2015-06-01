@@ -1,8 +1,8 @@
 ---
 layout: post
-category : lessons
+category : programming
 tagline: "Supporting tagline"
-tags : [intro, beginner, jekyll, tutorial]
+tags : [jekyll, tools]
 ---
 
 {{page.title}}

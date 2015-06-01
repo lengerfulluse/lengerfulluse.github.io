@@ -1,7 +1,7 @@
 ---
 layout: post
 category: "work"
-tags: [note, Xorg]
+tags: [linux]
 ---
 {{page.title}}
 =============

@@ -1,7 +1,7 @@
 ---
 layout: post
 category: "work"
-tags: [fluxbox, aterm]
+tags: [linux]
 ---
 {{page.title}}
 =============

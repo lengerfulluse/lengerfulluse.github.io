@@ -1,8 +1,8 @@
 ---
 layout: post
-category: languages
+category: programming
 tagline: ""
-tags: [ruby, python, comparison]
+tags: [language]
 ---
 {{page.title}}
 =============

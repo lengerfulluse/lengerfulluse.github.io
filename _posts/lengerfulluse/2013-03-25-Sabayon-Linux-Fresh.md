@@ -1,7 +1,7 @@
 ---
 layout: post
 category: "work"
-tags: [note, linux]
+tags: [linux]
 ---
 {{page.title}}
 =============

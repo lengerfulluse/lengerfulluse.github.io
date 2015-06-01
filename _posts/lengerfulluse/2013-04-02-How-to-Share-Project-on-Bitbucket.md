@@ -1,7 +1,7 @@
 ---
 layout: post
 category: "work"
-tags: [note, git]
+tags: [tools]
 ---
 {{page.title}}
 =============

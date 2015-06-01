@@ -1,7 +1,7 @@
 ---
 layout: post
-category: "notes"
-tags: [linux, fcitx]
+category: "work"
+tags: [linux]
 ---
 {{page.title}}
 =============

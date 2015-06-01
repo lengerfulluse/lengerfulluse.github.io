@@ -1,7 +1,7 @@
 ---
 layout: post
-category: "notes"
-tags: [work, tutorial]
+category: "work"
+tags: [tools]
 ---
 {{page.title}}
 =============

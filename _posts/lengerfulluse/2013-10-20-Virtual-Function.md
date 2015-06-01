@@ -1,7 +1,7 @@
 ---
 layout: post
-category: languages
-tags: [interview, cpp]
+category: work
+tags: [language, interview]
 ---
 
 {{page.title}}

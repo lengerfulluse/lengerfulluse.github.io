@@ -1,7 +1,7 @@
 ---
 layout: post
-category: notes
-tags: [os, interview]
+category: work
+tags: [linux, interview]
 ---
 {{page.title}}
 =============

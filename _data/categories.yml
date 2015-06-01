@@ -8,4 +8,8 @@
 
 - slug: design-pattern
   name: Design Pattern
-  color: '#1abc9c'
+  color: '#1efc9c'
+
+- slug: life
+  name: Life
+  color: '#FFCC00'

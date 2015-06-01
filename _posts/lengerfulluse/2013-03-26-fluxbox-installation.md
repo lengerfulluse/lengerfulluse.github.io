@@ -1,7 +1,7 @@
 ---
 layout: post
 category: "work"
-tags: [note, window manager]
+tags: [linux]
 ---
 {{page.title}}
 =============

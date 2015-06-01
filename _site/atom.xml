@@ -4,7 +4,7 @@
  <title>Tom Preston-Werner</title>
  <link href="http://tom.preston-werner.com/atom.xml" rel="self"/>
  <link href="http://tom.preston-werner.com/"/>
- <updated>2015-06-01T19:59:44+08:00</updated>
+ <updated>2015-06-01T22:37:12+08:00</updated>
  <id>http://tom.preston-werner.com/</id>
  <author>
    <name>Tom Preston-Werner</name>
@@ -457,16 +457,16 @@ To simplify the interaction process, we introduce the facade layer. Facade expos
 &lt;p class=&quot;meta&quot;&gt;03 July 2014 - Beijing&lt;/p&gt;
 
 
-&lt;p&gt;I noticed lot of projects code with &lt;strong&gt;unit test&lt;/strong&gt; as a necessary part. Unfortunately that, I didn&#39;t have the opportunity to do it myself. Upon coming out from the campus, it naturally become a necessary part of the carel talent of a SDE.&lt;br/&gt;
-Common and basic test procedure framework will be &lt;a href=&quot;http://junit.org&quot;&gt;Junit&lt;/a&gt;, which lay the fundation of test. Such as &lt;code&gt;@Before,@Test,@After&lt;/code&gt; workflow, &lt;code&gt;Assertions, Test Runners, Ignoring, Rule&lt;/code&gt;. However, when encounter complex and sophisticated system, the dependency of functions may become perplexing. It&#39;s impossible to construct all this objects as the input of a to-be tested function. &lt;strong&gt;Mock&lt;/strong&gt; conception arise naturally. Well in plain word, could we just mock these dependency objects, give their input parameters and expected behavior or return value. And it just exactly benefit what our test case needed. There are lots of good mock framework, such as &lt;a href=&quot;http://jmock.org&quot; title=&quot;JMock Official&quot;&gt;JMock&lt;/a&gt;, &lt;a href=&quot;http://easymock.org&quot; title=&quot;EasyMock official&quot;&gt;EasyMock&lt;/a&gt;. All roads to Roma. I spent about three days to learn the JMock for a particular unit test code. When I come from JMock to EasyMock, I found that most prior knowledge and experience can be come in handy. I take notes here as a reminder. &lt;br/&gt;
- 1. From scratch, I just know a little about junit. If I want to write tests for a class, the meta element for test is functions. So I need to construct the context for a function test, such as the corresponding main class, the input parameters for a test, external dependency objects need to construct. also the purpose of test, do we need to &lt;code&gt;Assertions&lt;/code&gt;? and so on.&lt;br/&gt;
- 2. with these in mind, we need to test the functionality of the methods. Is it a &lt;code&gt;AssertEqual()&lt;/code&gt;,&lt;code&gt;AssertTrue()&lt;/code&gt;,&lt;code&gt;Expected Exception&lt;/code&gt;? How could we guarantee the coverage?&lt;br/&gt;
+&lt;p&gt;I noticed lot of projects code with &lt;strong&gt;unit test&lt;/strong&gt; as a necessary part. Unfortunately that, I didn&#39;t have the opportunity to do it myself. Upon coming out from the campus, it naturally become a necessary part of the carel talent of a SDE.
+Common and basic test procedure framework will be &lt;a href=&quot;http://junit.org&quot;&gt;Junit&lt;/a&gt;, which lay the fundation of test. Such as &lt;code&gt;@Before,@Test,@After&lt;/code&gt; workflow, &lt;code&gt;Assertions, Test Runners, Ignoring, Rule&lt;/code&gt;. However, when encounter complex and sophisticated system, the dependency of functions may become perplexing. It&#39;s impossible to construct all this objects as the input of a to-be tested function. &lt;strong&gt;Mock&lt;/strong&gt; conception arise naturally. Well in plain word, could we just mock these dependency objects, give their input parameters and expected behavior or return value. And it just exactly benefit what our test case needed. There are lots of good mock framework, such as &lt;a href=&quot;http://jmock.org&quot; title=&quot;JMock Official&quot;&gt;JMock&lt;/a&gt;, &lt;a href=&quot;http://easymock.org&quot; title=&quot;EasyMock official&quot;&gt;EasyMock&lt;/a&gt;. All roads to Roma. I spent about three days to learn the JMock for a particular unit test code. When I come from JMock to EasyMock, I found that most prior knowledge and experience can be come in handy. I take notes here as a reminder.
+ 1. From scratch, I just know a little about junit. If I want to write tests for a class, the meta element for test is functions. So I need to construct the context for a function test, such as the corresponding main class, the input parameters for a test, external dependency objects need to construct. also the purpose of test, do we need to &lt;code&gt;Assertions&lt;/code&gt;? and so on.
+ 2. with these in mind, we need to test the functionality of the methods. Is it a &lt;code&gt;AssertEqual()&lt;/code&gt;,&lt;code&gt;AssertTrue()&lt;/code&gt;,&lt;code&gt;Expected Exception&lt;/code&gt;? How could we guarantee the coverage?
  3. How to mock the external dependency object. This is definitely a long story. Simplify by three steps, expect what the behavior and result, replay the workflow, verify the result.&lt;/p&gt;
 
-&lt;p&gt;&lt;strong&gt;Reference&lt;/strong&gt;  &lt;br/&gt;
-1. &lt;a href=&quot;http://jmock.org&quot; title=&quot;JMock Official&quot;&gt;JMock Website&lt;/a&gt;&lt;br/&gt;
-2. &lt;a href=&quot;http://easymock.org&quot; title=&quot;EasyMock official&quot;&gt;EasyMock Official&lt;/a&gt; &lt;br/&gt;
-3. &lt;a href=&quot;http://michaelminella.com/testing/mock-controls-with-easymock.html&quot; title=&quot;EasyMock Control Tutorial&quot;&gt;EasyMock Control Tutorial&lt;/a&gt; &lt;br/&gt;
+&lt;p&gt;&lt;strong&gt;Reference&lt;/strong&gt;
+1. &lt;a href=&quot;http://jmock.org&quot; title=&quot;JMock Official&quot;&gt;JMock Website&lt;/a&gt;
+2. &lt;a href=&quot;http://easymock.org&quot; title=&quot;EasyMock official&quot;&gt;EasyMock Official&lt;/a&gt;
+3. &lt;a href=&quot;http://michaelminella.com/testing/mock-controls-with-easymock.html&quot; title=&quot;EasyMock Control Tutorial&quot;&gt;EasyMock Control Tutorial&lt;/a&gt;
 4. &lt;a href=&quot;http://tamasgyorfi.wordpress.com/2011/04/21/mocking-tutorial-part-1-jmock&quot; title=&quot;JMock Tutorial&quot;&gt;JMock Tutorial&lt;/a&gt;&lt;/p&gt;
 </content>
  </entry>
@@ -798,8 +798,8 @@ public:
 &lt;p&gt;此处我们提及两点：&lt;/p&gt;
 
 &lt;blockquote&gt;&lt;ol&gt;
-&lt;li&gt;对于&lt;em&gt;Animal&lt;/em&gt;这种类型，我们无法对其的virtual方法Speak给出实现，当用户定义一个Animal对象时，如果调用其Speak方法，我们无法实现这样一个方法，或是只能空函数体，则得到的是空结果，或是非用户想要的结果，则在某种程度是一种很不好的设计模式。&lt;/li&gt;
-&lt;li&gt;对于&lt;em&gt;Animal&lt;/em&gt;类，在某种抽象程度上，对象本身是不具有意义的，往往是一个抽象的个体罢了，从语言理解的层面，其往往是一个具有抽象概念的东西。因此，我们不应该允许其实例化。故上面的代码对于其构造函数使用了Protected控制符。
+&lt;li&gt;. 对于&lt;em&gt;Animal&lt;/em&gt;这种类型，我们无法对其的virtual方法Speak给出实现，当用户定义一个Animal对象时，如果调用其Speak方法，我们无法实现这样一个方法，或是只能空函数体，则得到的是空结果，或是非用户想要的结果，则在某种程度是一种很不好的设计模式。&lt;/li&gt;
+&lt;li&gt;. 对于&lt;em&gt;Animal&lt;/em&gt;类，在某种抽象程度上，对象本身是不具有意义的，往往是一个抽象的个体罢了，从语言理解的层面，其往往是一个具有抽象概念的东西。因此，我们不应该允许其实例化。故上面的代码对于其构造函数使用了Protected控制符。
 上面的两种情况，都可以利用纯虚函数的概念来解决。其定义方法为：&lt;/li&gt;
 &lt;/ol&gt;
 &lt;/blockquote&gt;
@@ -1852,11 +1852,11 @@ I become to enjoy the writing and thinking time, when the light is  turn off. My
 &lt;h4&gt;Congiure &amp;amp; Install&lt;/h4&gt;
 
 &lt;blockquote&gt;&lt;ol&gt;
-&lt;li&gt;mysql-connector-python-1.0.9-py2.7.msi install&lt;/li&gt;
-&lt;li&gt;install setuputils through ez_setup.py, and then add Script subdirectory in python install to env variables.&lt;/li&gt;
-&lt;li&gt;install Whoosh 2.4.1 with the easy_install.exe tools&lt;/li&gt;
-&lt;li&gt;install web.py with easy_install for web front end display.&lt;/li&gt;
-&lt;li&gt;install xlwt package for write results to excel.&lt;/li&gt;
+&lt;li&gt;  mysql-connector-python-1.0.9-py2.7.msi install&lt;/li&gt;
+&lt;li&gt;  install setuputils through ez_setup.py, and then add Script subdirectory in python install to env variables.&lt;/li&gt;
+&lt;li&gt;  install Whoosh 2.4.1 with the easy_install.exe tools&lt;/li&gt;
+&lt;li&gt; install web.py with easy_install for web front end display.&lt;/li&gt;
+&lt;li&gt; install xlwt package for write results to excel.&lt;/li&gt;
 &lt;/ol&gt;
 &lt;/blockquote&gt;
 </content>
