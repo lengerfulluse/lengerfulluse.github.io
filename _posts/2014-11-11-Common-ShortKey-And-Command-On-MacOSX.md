@@ -1,6 +1,8 @@
 --- 
 layout: post 
 title: Common ShortKey And Command on MacOSX
+category: work
+tags: [tools]
 ---
 {{page.title}}
 =============

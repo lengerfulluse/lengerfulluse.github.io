@@ -1,7 +1,7 @@
 ---
 layout: post
 category: "work"
-tags: [language, comparison]
+tags: [language]
 ---
 {{page.title}}
 =============

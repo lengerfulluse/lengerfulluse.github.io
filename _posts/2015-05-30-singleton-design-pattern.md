@@ -1,11 +1,14 @@
 ---
 layout: post
 title: Singleton Design Pattern
-categories: design-pattern
-tags: []
+category: design-pattern
+tags: [headfirst, tools]
 published: True
 
 ---
+{{page.title}}
+=============
+<p class="meta">11 Nov 2014 - Beijing</p>
 
 singleton模式看似简单，却有很多值得注意的地方。下面给出一个经典的多线程安全的简单例子，然后NOTE下值得注意的几点：
 

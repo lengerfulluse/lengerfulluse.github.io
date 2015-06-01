@@ -4,7 +4,7 @@
  <title>Tom Preston-Werner</title>
  <link href="http://tom.preston-werner.com/atom.xml" rel="self"/>
  <link href="http://tom.preston-werner.com/"/>
- <updated>2015-05-30T22:55:08+08:00</updated>
+ <updated>2015-06-01T19:59:44+08:00</updated>
  <id>http://tom.preston-werner.com/</id>
  <author>
    <name>Tom Preston-Werner</name>
@@ -14,10 +14,15 @@
  
  <entry>
    <title>Singleton Design Pattern</title>
-   <link href="http://tom.preston-werner.com/2015/05/30/singleton-design-pattern.html"/>
+   <link href="http://tom.preston-werner.com/post/singleton-design-pattern"/>
    <updated>2015-05-30T00:00:00+08:00</updated>
-   <id>http://tom.preston-werner.com/2015/05/30/singleton-design-pattern</id>
-   <content type="html">&lt;p&gt;singleton模式看似简单，却有很多值得注意的地方。下面给出一个经典的多线程安全的简单例子，然后NOTE下值得注意的几点：&lt;/p&gt;
+   <id>http://tom.preston-werner.com/post/singleton-design-pattern</id>
+   <content type="html">&lt;h1&gt;Singleton Design Pattern&lt;/h1&gt;
+
+&lt;p class=&quot;meta&quot;&gt;11 Nov 2014 - Beijing&lt;/p&gt;
+
+
+&lt;p&gt;singleton模式看似简单，却有很多值得注意的地方。下面给出一个经典的多线程安全的简单例子，然后NOTE下值得注意的几点：&lt;/p&gt;
 
 &lt;table class=&quot;highlighttable&quot;&gt;&lt;tr&gt;&lt;td class=&quot;linenos&quot;&gt;&lt;div class=&quot;linenodiv&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-java&quot; data-lang=&quot;java&quot;&gt; 1
  2
@@ -100,9 +105,9 @@
  
  <entry>
    <title>Common ShortKey And Command on MacOSX</title>
-   <link href="http://tom.preston-werner.com/2014/11/11/Common-ShortKey-And-Command-On-MacOSX.html"/>
+   <link href="http://tom.preston-werner.com/post/Common-ShortKey-And-Command-On-MacOSX"/>
    <updated>2014-11-11T00:00:00+08:00</updated>
-   <id>http://tom.preston-werner.com/2014/11/11/Common-ShortKey-And-Command-On-MacOSX</id>
+   <id>http://tom.preston-werner.com/post/Common-ShortKey-And-Command-On-MacOSX</id>
    <content type="html">&lt;h1&gt;Common ShortKey And Command on MacOSX&lt;/h1&gt;
 
 &lt;p class=&quot;meta&quot;&gt;11 Nov 2014 - Beijing&lt;/p&gt;
@@ -143,9 +148,9 @@ Basic tools install:  &lt;br/&gt;
  
  <entry>
    <title>Add Comment to Jekyll Blog with Disqus</title>
-   <link href="http://tom.preston-werner.com/translation/2014/08/09/add-comment-to-jekyll-blog-with-disqus.html"/>
+   <link href="http://tom.preston-werner.com/post/add-comment-to-jekyll-blog-with-disqus"/>
    <updated>2014-08-09T00:00:00+08:00</updated>
-   <id>http://tom.preston-werner.com/translation/2014/08/09/add-comment-to-jekyll-blog-with-disqus</id>
+   <id>http://tom.preston-werner.com/post/add-comment-to-jekyll-blog-with-disqus</id>
    <content type="html">&lt;h1&gt;Add Comment to Jekyll Blog with Disqus&lt;/h1&gt;
 
 &lt;p class=&quot;meta&quot;&gt;09 Aug 2014 - Beijing&lt;/p&gt;
@@ -232,9 +237,9 @@ to your jekyll theme. &lt;a href=&quot;https://disqus.com&quot;&gt;Disqus&lt;/a&
  
  <entry>
    <title>Builder Design Pattern</title>
-   <link href="http://tom.preston-werner.com/2014/07/31/Builder-Design-Pattern.html"/>
+   <link href="http://tom.preston-werner.com/post/Builder-Design-Pattern"/>
    <updated>2014-07-31T00:00:00+08:00</updated>
-   <id>http://tom.preston-werner.com/2014/07/31/Builder-Design-Pattern</id>
+   <id>http://tom.preston-werner.com/post/Builder-Design-Pattern</id>
    <content type="html">&lt;h1&gt;Builder Design Pattern&lt;/h1&gt;
 
 &lt;p class=&quot;meta&quot;&gt;31 July 2014 - Beijing&lt;/p&gt;
@@ -379,9 +384,9 @@ to your jekyll theme. &lt;a href=&quot;https://disqus.com&quot;&gt;Disqus&lt;/a&
  
  <entry>
    <title>Facade Design Pattern</title>
-   <link href="http://tom.preston-werner.com/2014/07/15/Facade-Design-Pattern.html"/>
+   <link href="http://tom.preston-werner.com/post/Facade-Design-Pattern"/>
    <updated>2014-07-15T00:00:00+08:00</updated>
-   <id>http://tom.preston-werner.com/2014/07/15/Facade-Design-Pattern</id>
+   <id>http://tom.preston-werner.com/post/Facade-Design-Pattern</id>
    <content type="html">&lt;h1&gt;Facade Design Pattern&lt;/h1&gt;
 
 &lt;p class=&quot;meta&quot;&gt;15 July 2014 - Beijing&lt;/p&gt;
@@ -419,9 +424,9 @@ To simplify the interaction process, we introduce the facade layer. Facade expos
  
  <entry>
    <title>Controller-View-Model</title>
-   <link href="http://tom.preston-werner.com/2014/07/06/Controller-View-Model.html"/>
+   <link href="http://tom.preston-werner.com/post/Controller-View-Model"/>
    <updated>2014-07-06T00:00:00+08:00</updated>
-   <id>http://tom.preston-werner.com/2014/07/06/Controller-View-Model</id>
+   <id>http://tom.preston-werner.com/post/Controller-View-Model</id>
    <content type="html">&lt;h1&gt;Controller-View-Model&lt;/h1&gt;
 
 &lt;p class=&quot;meta&quot;&gt;06 July 2014 - Beijing &lt;/p&gt;
@@ -444,9 +449,9 @@ To simplify the interaction process, we introduce the facade layer. Facade expos
  
  <entry>
    <title>EasyMock for Unit Test</title>
-   <link href="http://tom.preston-werner.com/2014/07/03/EasyMock-for-unit-test.html"/>
+   <link href="http://tom.preston-werner.com/post/EasyMock-for-unit-test"/>
    <updated>2014-07-03T00:00:00+08:00</updated>
-   <id>http://tom.preston-werner.com/2014/07/03/EasyMock-for-unit-test</id>
+   <id>http://tom.preston-werner.com/post/EasyMock-for-unit-test</id>
    <content type="html">&lt;h1&gt;EasyMock for Unit Test&lt;/h1&gt;
 
 &lt;p class=&quot;meta&quot;&gt;03 July 2014 - Beijing&lt;/p&gt;
@@ -468,9 +473,9 @@ Common and basic test procedure framework will be &lt;a href=&quot;http://junit.
  
  <entry>
    <title>Study Notes Operating System Concepts</title>
-   <link href="http://tom.preston-werner.com/notes/2013/10/27/Study-Notes-Operating-System-Concepts.html"/>
+   <link href="http://tom.preston-werner.com/post/Study-Notes-Operating-System-Concepts"/>
    <updated>2013-10-27T00:00:00+08:00</updated>
-   <id>http://tom.preston-werner.com/notes/2013/10/27/Study-Notes-Operating-System-Concepts</id>
+   <id>http://tom.preston-werner.com/post/Study-Notes-Operating-System-Concepts</id>
    <content type="html">&lt;h1&gt;Study Notes Operating System Concepts&lt;/h1&gt;
 
 &lt;p class=&quot;meta&quot;&gt;27 Oct 2013 - Beijing&lt;/p&gt;
@@ -561,9 +566,9 @@ And the following figure show the work flow of process state.
  
  <entry>
    <title>Const Keyword</title>
-   <link href="http://tom.preston-werner.com/languages/2013/10/22/Const-Keyword.html"/>
+   <link href="http://tom.preston-werner.com/post/Const-Keyword"/>
    <updated>2013-10-22T00:00:00+08:00</updated>
-   <id>http://tom.preston-werner.com/languages/2013/10/22/Const-Keyword</id>
+   <id>http://tom.preston-werner.com/post/Const-Keyword</id>
    <content type="html">&lt;h1&gt;Const Keyword&lt;/h1&gt;
 
 &lt;p class=&quot;meta&quot;&gt;22 Oct 2013 - Beijing&lt;/p&gt;
@@ -619,9 +624,9 @@ int main() {
  
  <entry>
    <title>Static Keyword</title>
-   <link href="http://tom.preston-werner.com/languages/2013/10/21/Static-Keyword.html"/>
+   <link href="http://tom.preston-werner.com/post/Static-Keyword"/>
    <updated>2013-10-21T00:00:00+08:00</updated>
-   <id>http://tom.preston-werner.com/languages/2013/10/21/Static-Keyword</id>
+   <id>http://tom.preston-werner.com/post/Static-Keyword</id>
    <content type="html">&lt;h1&gt;Static Keyword&lt;/h1&gt;
 
 &lt;p class=&quot;meta&quot;&gt;21 Oct 2013 - Beijing&lt;/p&gt;
@@ -677,9 +682,9 @@ int main() {
  
  <entry>
    <title>Virtual Function</title>
-   <link href="http://tom.preston-werner.com/languages/2013/10/20/Virtual-Function.html"/>
+   <link href="http://tom.preston-werner.com/post/Virtual-Function"/>
    <updated>2013-10-20T00:00:00+08:00</updated>
-   <id>http://tom.preston-werner.com/languages/2013/10/20/Virtual-Function</id>
+   <id>http://tom.preston-werner.com/post/Virtual-Function</id>
    <content type="html">&lt;h1&gt;Virtual Function&lt;/h1&gt;
 
 &lt;p class=&quot;meta&quot;&gt;20 Oct 2013 - Beijing&lt;/p&gt;
@@ -793,8 +798,8 @@ public:
 &lt;p&gt;此处我们提及两点：&lt;/p&gt;
 
 &lt;blockquote&gt;&lt;ol&gt;
-&lt;li&gt;. 对于&lt;em&gt;Animal&lt;/em&gt;这种类型，我们无法对其的virtual方法Speak给出实现，当用户定义一个Animal对象时，如果调用其Speak方法，我们无法实现这样一个方法，或是只能空函数体，则得到的是空结果，或是非用户想要的结果，则在某种程度是一种很不好的设计模式。&lt;/li&gt;
-&lt;li&gt;. 对于&lt;em&gt;Animal&lt;/em&gt;类，在某种抽象程度上，对象本身是不具有意义的，往往是一个抽象的个体罢了，从语言理解的层面，其往往是一个具有抽象概念的东西。因此，我们不应该允许其实例化。故上面的代码对于其构造函数使用了Protected控制符。
+&lt;li&gt;对于&lt;em&gt;Animal&lt;/em&gt;这种类型，我们无法对其的virtual方法Speak给出实现，当用户定义一个Animal对象时，如果调用其Speak方法，我们无法实现这样一个方法，或是只能空函数体，则得到的是空结果，或是非用户想要的结果，则在某种程度是一种很不好的设计模式。&lt;/li&gt;
+&lt;li&gt;对于&lt;em&gt;Animal&lt;/em&gt;类，在某种抽象程度上，对象本身是不具有意义的，往往是一个抽象的个体罢了，从语言理解的层面，其往往是一个具有抽象概念的东西。因此，我们不应该允许其实例化。故上面的代码对于其构造函数使用了Protected控制符。
 上面的两种情况，都可以利用纯虚函数的概念来解决。其定义方法为：&lt;/li&gt;
 &lt;/ol&gt;
 &lt;/blockquote&gt;
@@ -812,9 +817,9 @@ public:
  
  <entry>
    <title>Java Interview Question</title>
-   <link href="http://tom.preston-werner.com/interview/2013/10/19/Java-Interview-Question.html"/>
+   <link href="http://tom.preston-werner.com/post/Java-Interview-Question"/>
    <updated>2013-10-19T00:00:00+08:00</updated>
-   <id>http://tom.preston-werner.com/interview/2013/10/19/Java-Interview-Question</id>
+   <id>http://tom.preston-werner.com/post/Java-Interview-Question</id>
    <content type="html">&lt;h1&gt;Java Interview Question&lt;/h1&gt;
 
 &lt;p class=&quot;meta&quot;&gt;03 July 2014 - Beijing&lt;/p&gt;
@@ -874,9 +879,9 @@ A1: Overloading称之为重载，通常是同一个功能的函数，为了实�
  
  <entry>
    <title>Retrospect With Cpp</title>
-   <link href="http://tom.preston-werner.com/languages/2013/09/27/retrospect-with-cpp.html"/>
+   <link href="http://tom.preston-werner.com/post/retrospect-with-cpp"/>
    <updated>2013-09-27T00:00:00+08:00</updated>
-   <id>http://tom.preston-werner.com/languages/2013/09/27/retrospect-with-cpp</id>
+   <id>http://tom.preston-werner.com/post/retrospect-with-cpp</id>
    <content type="html">&lt;h1&gt;Retrospect With Cpp&lt;/h1&gt;
 
 &lt;p class=&quot;meta&quot;&gt;27 Sept 2013 - Beijing&lt;/p&gt;
@@ -893,9 +898,9 @@ A1: Overloading称之为重载，通常是同一个功能的函数，为了实�
  
  <entry>
    <title>Learning With Amazoner</title>
-   <link href="http://tom.preston-werner.com/interview/2013/09/25/learning-with-amazoner.html"/>
+   <link href="http://tom.preston-werner.com/post/learning-with-amazoner"/>
    <updated>2013-09-25T00:00:00+08:00</updated>
-   <id>http://tom.preston-werner.com/interview/2013/09/25/learning-with-amazoner</id>
+   <id>http://tom.preston-werner.com/post/learning-with-amazoner</id>
    <content type="html">&lt;h1&gt;Learning With Amazoner&lt;/h1&gt;
 
 &lt;p class=&quot;meta&quot;&gt;25 Sept 2013 - Beijing&lt;/p&gt;
@@ -1034,9 +1039,9 @@ A1: Overloading称之为重载，通常是同一个功能的函数，为了实�
  
  <entry>
    <title>Aterm On Desktop For Fluxbox</title>
-   <link href="http://tom.preston-werner.com/work/2013/04/11/Aterm-on-Desktop-For-Fluxbox.html"/>
+   <link href="http://tom.preston-werner.com/post/Aterm-on-Desktop-For-Fluxbox"/>
    <updated>2013-04-11T00:00:00+08:00</updated>
-   <id>http://tom.preston-werner.com/work/2013/04/11/Aterm-on-Desktop-For-Fluxbox</id>
+   <id>http://tom.preston-werner.com/post/Aterm-on-Desktop-For-Fluxbox</id>
    <content type="html">&lt;h1&gt;Aterm On Desktop For Fluxbox&lt;/h1&gt;
 
 &lt;p class=&quot;meta&quot;&gt;11 Apr 2013 - Beijing&lt;/p&gt;
@@ -1085,9 +1090,9 @@ Ok, That&#39;s all, you reload your fluxbox, and run the &lt;strong&gt;aterm&lt;
  
  <entry>
    <title>Gnome Icons Howto</title>
-   <link href="http://tom.preston-werner.com/notes/2013/04/05/Gnome-Icons-Howto.html"/>
+   <link href="http://tom.preston-werner.com/post/Gnome-Icons-Howto"/>
    <updated>2013-04-05T00:00:00+08:00</updated>
-   <id>http://tom.preston-werner.com/notes/2013/04/05/Gnome-Icons-Howto</id>
+   <id>http://tom.preston-werner.com/post/Gnome-Icons-Howto</id>
    <content type="html">&lt;h1&gt;Gnome Icons Howto&lt;/h1&gt;
 
 &lt;p class=&quot;meta&quot;&gt;05 Apr 2013 - Beijing&lt;/p&gt;
@@ -1121,9 +1126,9 @@ open the &lt;strong&gt;gconf-editor&lt;/strong&gt; tools and then select the app
  
  <entry>
    <title>Installation Mahout</title>
-   <link href="http://tom.preston-werner.com/work/2013/04/04/Installation-Mahout.html"/>
+   <link href="http://tom.preston-werner.com/post/Installation-Mahout"/>
    <updated>2013-04-04T00:00:00+08:00</updated>
-   <id>http://tom.preston-werner.com/work/2013/04/04/Installation-Mahout</id>
+   <id>http://tom.preston-werner.com/post/Installation-Mahout</id>
    <content type="html">&lt;h1&gt;Installation Mahout&lt;/h1&gt;
 
 &lt;p class=&quot;meta&quot;&gt;04 Apr 2013 - Beijing&lt;/p&gt;
@@ -1135,9 +1140,9 @@ open the &lt;strong&gt;gconf-editor&lt;/strong&gt; tools and then select the app
  
  <entry>
    <title>How To Share Project On Bitbucket</title>
-   <link href="http://tom.preston-werner.com/work/2013/04/02/How-to-Share-Project-on-Bitbucket.html"/>
+   <link href="http://tom.preston-werner.com/post/How-to-Share-Project-on-Bitbucket"/>
    <updated>2013-04-02T00:00:00+08:00</updated>
-   <id>http://tom.preston-werner.com/work/2013/04/02/How-to-Share-Project-on-Bitbucket</id>
+   <id>http://tom.preston-werner.com/post/How-to-Share-Project-on-Bitbucket</id>
    <content type="html">&lt;h1&gt;How To Share Project On Bitbucket&lt;/h1&gt;
 
 &lt;p class=&quot;meta&quot;&gt;02 Apr 2013 - Beijing&lt;/p&gt;
@@ -1234,9 +1239,9 @@ Also we can do a simple demonstration together. Any prolem feel free to contact 
  
  <entry>
    <title>Talk About Login Script</title>
-   <link href="http://tom.preston-werner.com/work/2013/04/01/Talk-About-Login-Script.html"/>
+   <link href="http://tom.preston-werner.com/post/Talk-About-Login-Script"/>
    <updated>2013-04-01T00:00:00+08:00</updated>
-   <id>http://tom.preston-werner.com/work/2013/04/01/Talk-About-Login-Script</id>
+   <id>http://tom.preston-werner.com/post/Talk-About-Login-Script</id>
    <content type="html">&lt;h1&gt;Talk About Login Script&lt;/h1&gt;
 
 &lt;p class=&quot;meta&quot;&gt;01 Apr 2013 - Beijing&lt;/p&gt;
@@ -1279,9 +1284,9 @@ on. to get the success\failure informations returned from the response.&lt;/li&g
  
  <entry>
    <title>Bash Note</title>
-   <link href="http://tom.preston-werner.com/work/2013/03/30/Bash-Note.html"/>
+   <link href="http://tom.preston-werner.com/post/Bash-Note"/>
    <updated>2013-03-30T00:00:00+08:00</updated>
-   <id>http://tom.preston-werner.com/work/2013/03/30/Bash-Note</id>
+   <id>http://tom.preston-werner.com/post/Bash-Note</id>
    <content type="html">&lt;h1&gt;Bash Note&lt;/h1&gt;
 
 &lt;p class=&quot;meta&quot;&gt;30 Mar 2013 - Beijing&lt;/p&gt;
@@ -1314,9 +1319,9 @@ All in a word, I feel that this attemption just make me write code more easily. 
  
  <entry>
    <title>Systemic Learning</title>
-   <link href="http://tom.preston-werner.com/life/2013/03/28/Systemic-Learning.html"/>
+   <link href="http://tom.preston-werner.com/post/Systemic-Learning"/>
    <updated>2013-03-28T00:00:00+08:00</updated>
-   <id>http://tom.preston-werner.com/life/2013/03/28/Systemic-Learning</id>
+   <id>http://tom.preston-werner.com/post/Systemic-Learning</id>
    <content type="html">&lt;h1&gt;Systemic Learning&lt;/h1&gt;
 
 &lt;p class=&quot;meta&quot;&gt;28 Mar 2013 - Beijing&lt;/p&gt;
@@ -1346,9 +1351,9 @@ deductive.&lt;/p&gt;
  
  <entry>
    <title>Localize Setting</title>
-   <link href="http://tom.preston-werner.com/work/2013/03/28/Localize-setting.html"/>
+   <link href="http://tom.preston-werner.com/post/Localize-setting"/>
    <updated>2013-03-28T00:00:00+08:00</updated>
-   <id>http://tom.preston-werner.com/work/2013/03/28/Localize-setting</id>
+   <id>http://tom.preston-werner.com/post/Localize-setting</id>
    <content type="html">&lt;h1&gt;Localize Setting&lt;/h1&gt;
 
 &lt;p class=&quot;meta&quot;&gt;28 Mar 2013 - Beijing&lt;/p&gt;
@@ -1400,9 +1405,9 @@ and for user specified range.
  
  <entry>
    <title>Fcitx And Fonts Setting</title>
-   <link href="http://tom.preston-werner.com/notes/2013/03/28/Fcitx-and-Fonts-setting.html"/>
+   <link href="http://tom.preston-werner.com/post/Fcitx-and-Fonts-setting"/>
    <updated>2013-03-28T00:00:00+08:00</updated>
-   <id>http://tom.preston-werner.com/notes/2013/03/28/Fcitx-and-Fonts-setting</id>
+   <id>http://tom.preston-werner.com/post/Fcitx-and-Fonts-setting</id>
    <content type="html">&lt;h1&gt;Fcitx And Fonts Setting&lt;/h1&gt;
 
 &lt;p class=&quot;meta&quot;&gt;28 Mar 2013 - Beijing&lt;/p&gt;
@@ -1461,9 +1466,9 @@ After you reboot the X system, you could use the command &lt;code&gt;fc-list | g
  
  <entry>
    <title>Fluxbox Installation</title>
-   <link href="http://tom.preston-werner.com/work/2013/03/26/fluxbox-installation.html"/>
+   <link href="http://tom.preston-werner.com/post/fluxbox-installation"/>
    <updated>2013-03-26T00:00:00+08:00</updated>
-   <id>http://tom.preston-werner.com/work/2013/03/26/fluxbox-installation</id>
+   <id>http://tom.preston-werner.com/post/fluxbox-installation</id>
    <content type="html">&lt;h1&gt;Fluxbox Installation&lt;/h1&gt;
 
 &lt;p class=&quot;meta&quot;&gt;26 Mar 2013 - Beijing&lt;/p&gt;
@@ -1494,9 +1499,9 @@ desktop.  I&#39;ll list below and give a detailed explanations.
  
  <entry>
    <title>Xorg Configuration</title>
-   <link href="http://tom.preston-werner.com/work/2013/03/26/Xorg-Configuration.html"/>
+   <link href="http://tom.preston-werner.com/post/Xorg-Configuration"/>
    <updated>2013-03-26T00:00:00+08:00</updated>
-   <id>http://tom.preston-werner.com/work/2013/03/26/Xorg-Configuration</id>
+   <id>http://tom.preston-werner.com/post/Xorg-Configuration</id>
    <content type="html">&lt;h1&gt;Xorg Configuration&lt;/h1&gt;
 
 &lt;p class=&quot;meta&quot;&gt;26 Mar 2013 - Beijing&lt;/p&gt;
@@ -1607,9 +1612,9 @@ original version files or programs, before you do every dangerous things!!&lt;/p
  
  <entry>
    <title>Sabayon Linux Fresh</title>
-   <link href="http://tom.preston-werner.com/work/2013/03/25/Sabayon-Linux-Fresh.html"/>
+   <link href="http://tom.preston-werner.com/post/Sabayon-Linux-Fresh"/>
    <updated>2013-03-25T00:00:00+08:00</updated>
-   <id>http://tom.preston-werner.com/work/2013/03/25/Sabayon-Linux-Fresh</id>
+   <id>http://tom.preston-werner.com/post/Sabayon-Linux-Fresh</id>
    <content type="html">&lt;h1&gt;Sabayon Linux Fresh&lt;/h1&gt;
 
 &lt;p class=&quot;meta&quot;&gt;25 Mar 2013 - Beijing&lt;/p&gt;
@@ -1686,9 +1691,9 @@ The core configure directory directory is ~/.fluxbox, and that&#39;s all.&lt;/p&
  
  <entry>
    <title>Web Application Framework</title>
-   <link href="http://tom.preston-werner.com/work/2013/03/24/Web-Application-Framework.html"/>
+   <link href="http://tom.preston-werner.com/post/Web-Application-Framework"/>
    <updated>2013-03-24T00:00:00+08:00</updated>
-   <id>http://tom.preston-werner.com/work/2013/03/24/Web-Application-Framework</id>
+   <id>http://tom.preston-werner.com/post/Web-Application-Framework</id>
    <content type="html">&lt;h1&gt;Web Application Framework&lt;/h1&gt;
 
 &lt;p class=&quot;meta&quot;&gt;24 Mar 2013 - Beijing&lt;/p&gt;
@@ -1708,9 +1713,9 @@ Also, to see the power of ruby language, I try to construct a &lt;em&gt;ruby on 
  
  <entry>
    <title>Art Of Arrangement</title>
-   <link href="http://tom.preston-werner.com/life/2013/03/21/Art-of-Arrangement.html"/>
+   <link href="http://tom.preston-werner.com/post/Art-of-Arrangement"/>
    <updated>2013-03-21T00:00:00+08:00</updated>
-   <id>http://tom.preston-werner.com/life/2013/03/21/Art-of-Arrangement</id>
+   <id>http://tom.preston-werner.com/post/Art-of-Arrangement</id>
    <content type="html">&lt;h1&gt;Art Of Arrangement&lt;/h1&gt;
 
 &lt;p class=&quot;meta&quot;&gt;21 Mar 2013 - Beijing&lt;/p&gt;
@@ -1737,9 +1742,9 @@ Also, to see the power of ruby language, I try to construct a &lt;em&gt;ruby on 
  
  <entry>
    <title>My Vim Manual</title>
-   <link href="http://tom.preston-werner.com/notes/2013/03/20/My-Vim-Manual.html"/>
+   <link href="http://tom.preston-werner.com/post/My-Vim-Manual"/>
    <updated>2013-03-20T00:00:00+08:00</updated>
-   <id>http://tom.preston-werner.com/notes/2013/03/20/My-Vim-Manual</id>
+   <id>http://tom.preston-werner.com/post/My-Vim-Manual</id>
    <content type="html">&lt;h1&gt;My Vim Manual&lt;/h1&gt;
 
 &lt;p class=&quot;meta&quot;&gt;20 Mar 2013 - Beijing&lt;/p&gt;
@@ -1804,9 +1809,9 @@ I become to enjoy the writing and thinking time, when the light is  turn off. My
  
  <entry>
    <title>Py  Search</title>
-   <link href="http://tom.preston-werner.com/work/2013/03/19/py--search.html"/>
+   <link href="http://tom.preston-werner.com/post/py--search"/>
    <updated>2013-03-19T00:00:00+08:00</updated>
-   <id>http://tom.preston-werner.com/work/2013/03/19/py--search</id>
+   <id>http://tom.preston-werner.com/post/py--search</id>
    <content type="html">&lt;h1&gt;Py  Search&lt;/h1&gt;
 
 &lt;p class=&quot;meta&quot;&gt;19 Mar 2013 - Beijing&lt;/p&gt;
@@ -1847,11 +1852,11 @@ I become to enjoy the writing and thinking time, when the light is  turn off. My
 &lt;h4&gt;Congiure &amp;amp; Install&lt;/h4&gt;
 
 &lt;blockquote&gt;&lt;ol&gt;
-&lt;li&gt;  mysql-connector-python-1.0.9-py2.7.msi install&lt;/li&gt;
-&lt;li&gt;  install setuputils through ez_setup.py, and then add Script subdirectory in python install to env variables.&lt;/li&gt;
-&lt;li&gt;  install Whoosh 2.4.1 with the easy_install.exe tools&lt;/li&gt;
-&lt;li&gt; install web.py with easy_install for web front end display.&lt;/li&gt;
-&lt;li&gt; install xlwt package for write results to excel.&lt;/li&gt;
+&lt;li&gt;mysql-connector-python-1.0.9-py2.7.msi install&lt;/li&gt;
+&lt;li&gt;install setuputils through ez_setup.py, and then add Script subdirectory in python install to env variables.&lt;/li&gt;
+&lt;li&gt;install Whoosh 2.4.1 with the easy_install.exe tools&lt;/li&gt;
+&lt;li&gt;install web.py with easy_install for web front end display.&lt;/li&gt;
+&lt;li&gt;install xlwt package for write results to excel.&lt;/li&gt;
 &lt;/ol&gt;
 &lt;/blockquote&gt;
 </content>
@@ -1859,9 +1864,9 @@ I become to enjoy the writing and thinking time, when the light is  turn off. My
  
  <entry>
    <title>Perl Python Ruby Note</title>
-   <link href="http://tom.preston-werner.com/languages/2013/03/19/perl-python-ruby-note.html"/>
+   <link href="http://tom.preston-werner.com/post/perl-python-ruby-note"/>
    <updated>2013-03-19T00:00:00+08:00</updated>
-   <id>http://tom.preston-werner.com/languages/2013/03/19/perl-python-ruby-note</id>
+   <id>http://tom.preston-werner.com/post/perl-python-ruby-note</id>
    <content type="html">&lt;h1&gt;Perl Python Ruby Note&lt;/h1&gt;
 
 &lt;p class=&quot;meta&quot;&gt;19 Mar 2013 - Beijing&lt;/p&gt;
@@ -1885,9 +1890,9 @@ Ruby is a dynamic, reflective, general-purpose pure OO languages that combines s
  
  <entry>
    <title>About Gui Programming</title>
-   <link href="http://tom.preston-werner.com/work/2013/03/18/About-GUI-Programming.html"/>
+   <link href="http://tom.preston-werner.com/post/About-GUI-Programming"/>
    <updated>2013-03-18T00:00:00+08:00</updated>
-   <id>http://tom.preston-werner.com/work/2013/03/18/About-GUI-Programming</id>
+   <id>http://tom.preston-werner.com/post/About-GUI-Programming</id>
    <content type="html">&lt;h1&gt;About Gui Programming&lt;/h1&gt;
 
 &lt;p class=&quot;meta&quot;&gt;18 Mar 2013 - Beijing&lt;/p&gt;
@@ -1917,9 +1922,9 @@ Equipped with above two weapons, you could finish some basic and simple tasks, w
  
  <entry>
    <title>Learning Wxpython</title>
-   <link href="http://tom.preston-werner.com/languages/2013/03/11/learning-wxPython.html"/>
+   <link href="http://tom.preston-werner.com/post/learning-wxPython"/>
    <updated>2013-03-11T00:00:00+08:00</updated>
-   <id>http://tom.preston-werner.com/languages/2013/03/11/learning-wxPython</id>
+   <id>http://tom.preston-werner.com/post/learning-wxPython</id>
    <content type="html">&lt;h1&gt;Learning Wxpython&lt;/h1&gt;
 
 &lt;p class=&quot;meta&quot;&gt;11 Mar 2013 - Beijing&lt;/p&gt;
@@ -1987,9 +1992,9 @@ Equipped with above two weapons, you could finish some basic and simple tasks, w
  
  <entry>
    <title>To Live, To Life</title>
-   <link href="http://tom.preston-werner.com/life/2013/03/10/to-live,-to-life.html"/>
+   <link href="http://tom.preston-werner.com/post/to-live,-to-life"/>
    <updated>2013-03-10T00:00:00+08:00</updated>
-   <id>http://tom.preston-werner.com/life/2013/03/10/to-live,-to-life</id>
+   <id>http://tom.preston-werner.com/post/to-live,-to-life</id>
    <content type="html">&lt;h1&gt;To Live, To Life&lt;/h1&gt;
 
 &lt;p class=&quot;meta&quot;&gt;10 Mar 2013 - Jiangsu&lt;/p&gt;
@@ -2045,9 +2050,9 @@ so long, and thanks for all the fish ^_^&lt;/p&gt;
  
  <entry>
    <title>Some Comparison Between Ruby And Python</title>
-   <link href="http://tom.preston-werner.com/languages/2013/03/10/some-comparison-between-ruby-and-python.html"/>
+   <link href="http://tom.preston-werner.com/post/some-comparison-between-ruby-and-python"/>
    <updated>2013-03-10T00:00:00+08:00</updated>
-   <id>http://tom.preston-werner.com/languages/2013/03/10/some-comparison-between-ruby-and-python</id>
+   <id>http://tom.preston-werner.com/post/some-comparison-between-ruby-and-python</id>
    <content type="html">&lt;h1&gt;Some Comparison Between Ruby And Python&lt;/h1&gt;
 
 &lt;p class=&quot;meta&quot;&gt;10 Mar 2013 - Beijing&lt;/p&gt;
@@ -2063,9 +2068,9 @@ so long, and thanks for all the fish ^_^&lt;/p&gt;
  
  <entry>
    <title>Jekyll Introduction</title>
-   <link href="http://tom.preston-werner.com/lessons/2011/12/29/jekyll-introduction.html"/>
+   <link href="http://tom.preston-werner.com/post/jekyll-introduction"/>
    <updated>2011-12-29T00:00:00+08:00</updated>
-   <id>http://tom.preston-werner.com/lessons/2011/12/29/jekyll-introduction</id>
+   <id>http://tom.preston-werner.com/post/jekyll-introduction</id>
    <content type="html">&lt;h1&gt;Jekyll Introduction&lt;/h1&gt;
 
 &lt;p class=&quot;meta&quot;&gt;29 Dec 2011 - Beijing&lt;/p&gt;

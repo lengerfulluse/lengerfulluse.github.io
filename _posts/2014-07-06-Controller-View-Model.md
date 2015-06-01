@@ -2,6 +2,7 @@
 layout: post
 title: Controller-View-Model
 category : design-pattern
+tags: [headfirst]
 ---
 
 {{page.title}}
