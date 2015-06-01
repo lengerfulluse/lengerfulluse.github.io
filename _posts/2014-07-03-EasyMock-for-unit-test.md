@@ -1,6 +1,7 @@
 ---
 layout: post
 title: EasyMock for Unit Test
+category : programming
 ---
 
 {{page.title}}

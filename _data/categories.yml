@@ -1,0 +1,11 @@
+- slug: work
+  name: Work
+  color: '#3498db'
+
+- slug: programming
+  name: Programming
+  color: '#1abc9c'
+
+- slug: design-pattern
+  name: Design Pattern
+  color: '#1abc9c'

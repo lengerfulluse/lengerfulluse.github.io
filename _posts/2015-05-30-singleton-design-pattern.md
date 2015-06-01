@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Singleton Design Pattern
-categories: []
+categories: design-pattern
 tags: []
 published: True
 

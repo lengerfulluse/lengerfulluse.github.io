@@ -1,6 +1,7 @@
 ---
 layout: post
 title: Controller-View-Model
+category : design-pattern
 ---
 
 {{page.title}}
