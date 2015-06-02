@@ -1,2 +1,28 @@
-.post-meta { margin-top: 30px; font-style: italic; text-align: right; }
-p.post-meta { color: #999; font-size: small }
+.post-meta {
+	margin-top: 30px;
+	font-style: italic;
+	text-align: right;
+}
+p.post-meta {
+	color: #999;
+	font-size: small
+}
+#post-content a {
+	text-decoration: none;
+	font-family: "Helvetica Neue", "Helvetica", "Arial", "sans-serif";
+}
+#post-title {
+	font-size: xx-large;
+}
+#post-year {
+	color: #999999;
+	font-size: 150%;
+	font-weight: lighter;
+	margin-top: 10px;
+}
+.copyright {
+	color: #999999;
+	font-weight: 300;
+	text-align: center;
+	margin-bottom: -5px;
+}
