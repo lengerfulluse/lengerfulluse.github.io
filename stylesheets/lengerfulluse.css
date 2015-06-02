@@ -22,11 +22,15 @@ p.post-meta {
 }
 .copyright {
 	color: #999999;
-	font-weight: 300;
+	font-weight: 200;
 	text-align: center;
 }
 
 .project {
 	font-family: "Helvetica";
 	font-size: 700;
+}
+
+.author {
+	font-size: small;
 }

@@ -146,7 +146,7 @@ img {
   max-width: 650px;
   padding: 5px;
   margin: 10px 0 32px 0;
-  border: 1px solid #ccc;
+  border: 1px solid #C3001D;;
 }
 
 p img {
@@ -303,6 +303,10 @@ a.buttons {
 	height: 30px;
 }
 
+a.home {
+  background: url(../assets/img/blog/home-logo.png) no-repeat 1px;
+}
+
 a.github {
 	background: url(../assets/img/blog/github-logo.png) no-repeat 1px;
 }
@@ -392,10 +396,6 @@ footer {
     padding:10px 0 10px 20px;
     margin:0 0 30px;
   }
-
-	footer {
-		margin: 0 0 0 30px;
-	}
 
   header ul, header p.view {
     position:static;
