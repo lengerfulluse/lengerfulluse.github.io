@@ -25,12 +25,15 @@ p.post-meta {
 	font-weight: 200;
 	text-align: center;
 }
-
 .project {
 	font-family: "Helvetica";
 	font-size: 700;
 }
-
 .author {
 	font-size: small;
 }
+.header-p {
+    text-align: left;
+    margin: 0 16px 20px 0px;
+    font-family: "Lucida Console";
+  }

@@ -144,8 +144,8 @@ img {
   position: relative;
   margin: 0 auto;
   max-width: 650px;
-  padding: 5px;
-  margin: 10px 0 32px 0;
+  padding: 1px;
+  margin: 10px 0 22px 0;
   border: 1px solid #C3001D;;
 }
 
@@ -263,11 +263,11 @@ header ul {
 
 header li {
 	list-style-type: none;
-  width:125px;
+  width:110px;
   height:15px;
 	margin-bottom: 12px;
 	line-height: 1em;
-	padding: 6px 6px 6px 7px;
+	padding: 6px 6px 6px 8px;
 
 	background: #AF0011;
 	background: -moz-linear-gradient(top, #AF0011 0%, #820011 100%);
