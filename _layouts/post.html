@@ -11,14 +11,14 @@ comments: true
         {% endif %}
     {% endfor %}
     {% if category %}
-        {% capture category_content %} <span><a href="/blog/category/{{ category.slug }}/" style="color: {{ category.color }};text-decoration: none;">{{ category.name }}</a></span>{% endcapture %}
+        {% capture category_content %} <i class="fa fa-folder-open"></i> <span><a href="/blog/category/{{ category.slug }}/" style="color: {{ category.color }};text-decoration: none;">{{ category.name }}</a></span>{% endcapture %}
     {% endif %}
 {% else %}
     {% assign category_content = '' %}
 {% endif %}
 
 {% if post.tags.size > 0 %}
-    {% capture tags_content %} tagged: <i class="fa fa-tags"></i> {% endcapture %}
+    {% capture tags_content %} <i class="fa fa-tags"></i> {% endcapture %}
     {% for post_tag in post.tags %}
         {% for data_tag in site.data.tags %}
             {% if data_tag.slug == post_tag %}
@@ -35,7 +35,7 @@ comments: true
 {% endif %}
 
 
-<p class="post-meta">Posted in {{ category_content }} {{ tags_content }}</p>
+<p class="post-meta">{{ category_content }} {{ tags_content }}</p>
 
 <div id="post">
 {{ content }}
