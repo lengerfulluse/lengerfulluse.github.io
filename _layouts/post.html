@@ -11,7 +11,7 @@ comments: true
         {% endif %}
     {% endfor %}
     {% if category %}
-        {% capture category_content %} <i class="fa fa-folder-open"></i> <span><a href="/blog/category/{{ category.slug }}/" style="color: {{ category.color }};text-decoration: none;">{{ category.name }}</a></span>{% endcapture %}
+        {% capture category_content %} <i class="fa fa-book fa-lg"></i> <span><a href="/blog/category/{{ category.slug }}/" style="color: {{ category.color }};text-decoration: none;">{{ category.name }}</a></span>{% endcapture %}
     {% endif %}
 {% else %}
     {% assign category_content = '' %}

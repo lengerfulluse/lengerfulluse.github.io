@@ -299,8 +299,9 @@ a.buttons {
 	-webkit-font-smoothing: antialiased;
 	font-weight: normal;
 	text-shadow: rgba(0, 0, 0, 0.4) 0 -1px 0;
-	padding: 2px 2px 2px 28px;
+	padding: 2px 2px 2px 16px;
 	height: 30px;
+  text-align: right;
 }
 
 a.home {
