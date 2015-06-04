@@ -27,15 +27,15 @@
 	line-height: 50px;
 	vertical-align: baseline;
 	margin: 0;
-    padding: 0;
-    height: 100%;
+  padding: 0;
+  height: 100%;
 }
 
 .nav-items {
 	float: left;
-	padding-right: 20px;
+	padding-right: 30px;
 	font-weight: 800;
-	font-size: 100%;
+	font-size: 120%;
 }
 
 
