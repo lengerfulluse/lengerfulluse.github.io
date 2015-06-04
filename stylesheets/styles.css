@@ -26,11 +26,10 @@ time, mark, audio, video {
 /* Base text styles */
 
 body {
-  padding:10px 50px 0 0;
   font-family:"Helvetica Neue", Helvetica, Arial, sans-serif;
 	font-size: 14px;
 	color: #232323;
-	background-color: #FBFAF7;
+	background-color: #eff3fa;
 	margin: 0;
 	line-height: 1.8em;
 	-webkit-font-smoothing: antialiased;
@@ -226,7 +225,7 @@ header {
 	border-top-right-radius: 4px;
 	border-bottom-right-radius: 4px;
 	padding: 34px 25px 22px 40px;
-	margin: 30px 25px 0 0;
+	margin: 45px 25px 0 0;
 	-webkit-font-smoothing: antialiased;
 }
 
@@ -329,9 +328,10 @@ a.buttons:hover {
 /* Section - for main page content */
 
 section {
-  width:650px;
-  float:right;
+  width:60%;
+  float:left;
   padding-bottom:50px;
+  position: static;
 }
 
 
@@ -339,7 +339,7 @@ section {
 
 footer {
   float:left;
-  position:relative
+  width:60%;
   bottom:10px;
 	padding-left: 250px;
 }
@@ -352,7 +352,7 @@ footer {
   }
 
   header, section, footer {
-    float:none;
+    float:center;
     position:static;
     width:auto;
   }
@@ -383,7 +383,7 @@ footer {
   }
 }
 
-@media print, screen and (max-width: 720px) {
+@media print, screen {
   body {
     word-wrap:break-word;
   }
@@ -395,7 +395,6 @@ footer {
 
 	section {
     padding:10px 0 10px 20px;
-    margin:0 0 30px;
   }
 
   header ul, header p.view {

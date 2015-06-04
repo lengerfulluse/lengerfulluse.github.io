@@ -3,9 +3,6 @@ layout: post
 category: "work"
 tags: [linux]
 ---
-{{page.title}}
-=============
-<p class="meta">26 Mar 2013 - Beijing</p>
 
 I have mentioned a little about the configuration process related to the lightweight *Desktop Environment* or some kind of full-functional *Window Managerment*. It's extremely a bit lucky that I could have encountered the
 **Fluxbox**. It's almost the same situation as my dating with Sabayon Linux. One day, I suddenly miss the lovely gentoo linux, so I open my

@@ -3,9 +3,6 @@ layout: post
 category: work
 tags: [language, interview]
 ---
-{{page.title}}
-=============
-<p class="meta">27 Sept 2013 - Beijing</p>
 
 ### Hello C plus plus
 1  `const` **member function ** when a member function is declared as const suffixed, it promises that it will not change current class member

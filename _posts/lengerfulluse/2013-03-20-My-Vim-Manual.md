@@ -3,9 +3,6 @@ layout: post
 category: "work"
 tags: [tools]
 ---
-{{page.title}}
-=============
-<p class="meta">20 Mar 2013 - Beijing</p>
 
 Love is definitely amazing thing! ^_^, A ha ? Penny.
 I become to enjoy the writing and thinking time, when the light is  turn off. My heart is warm, and mind is clean, the whole circumstation is just right, except my pumble poor english represion. All right, lets take the driver, go!

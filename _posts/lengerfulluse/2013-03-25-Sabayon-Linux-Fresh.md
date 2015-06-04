@@ -3,9 +3,6 @@ layout: post
 category: "work"
 tags: [linux]
 ---
-{{page.title}}
-=============
-<p class="meta">25 Mar 2013 - Beijing</p>
 
 When [**Gentoo**](http://www.gentoo.org) beckons to you, follows him. Though his ways are hard and steep.
 Thanks for the instruction from **Ryan Li** at *RedHat* Co.td during my internship, I stepped on a nice

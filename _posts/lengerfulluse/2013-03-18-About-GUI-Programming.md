@@ -3,9 +3,6 @@ layout: post
 category: "work"
 tags: [language]
 ---
-{{page.title}}
-=============
-<p class="meta">18 Mar 2013 - Beijing</p>
 
 I couldn't remember what's exact the time, when I begin learning to do comparison between different but similar things. there is obvious no exception for the computer programming. Especially for GUI programming.
 #### Since GUI Road

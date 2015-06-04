@@ -4,10 +4,6 @@ category: work
 tags: [interview, language]
 ---
 
-{{page.title}}
-=============
-<p class="meta">22 Oct 2013 - Beijing</p>
-
 `const` 关键词在C/CPP中也是一个类似于[static](http://lengerfulluse.com/research/2013/10/20/%E8%99%9A%E5%87%BD%E6%95%B0/)一样，经常出现，且作用往往不止一种，在面试中经常被问及的关键词。我们从其修饰的对象角度来分析。
 ###修饰变量或者指针
 

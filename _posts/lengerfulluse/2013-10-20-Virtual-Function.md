@@ -4,10 +4,6 @@ category: work
 tags: [language, interview]
 ---
 
-{{page.title}}
-=============
-<p class="meta">20 Oct 2013 - Beijing</p>
-
 ###虚函数的作用
 虚函数是为了实现多态性而实现的，更准确的说，是为了实现运行时多态，即dynamic binding的方法。如下例所示：
 

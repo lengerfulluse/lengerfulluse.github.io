@@ -3,9 +3,7 @@ layout: post
 category: "notes"
 tags: [tutorial, linux]
 ---
-{{page.title}}
-=============
-<p class="meta">05 Apr 2013 - Beijing</p>
+
 Change Gnome Start-here Icons Howto.
 This is the basic configuration howto about change the gnome start here icons.
 =================

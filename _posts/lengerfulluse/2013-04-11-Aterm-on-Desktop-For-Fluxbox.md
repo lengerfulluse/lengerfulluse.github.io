@@ -3,9 +3,6 @@ layout: post
 category: "work"
 tags: [linux]
 ---
-{{page.title}}
-=============
-<p class="meta">11 Apr 2013 - Beijing</p>
 
 It's an amazing thing to conquer the aterm, and make it stick on desktop obediently.
 The core of the entire process comes from how to make the aterm windows size on the desktop correctly. And I just find that It aways make me confused when I find the **fluxbox** options about the size of the windows on desktop cannot work.  Ok, let's get the whole process from scratch.

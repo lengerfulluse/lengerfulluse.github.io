@@ -3,9 +3,6 @@ layout: post
 category: work
 tags: [language, interview]
 ---
-{{page.title}}
-=============
-<p class="meta">03 July 2014 - Beijing</p>
 
 ###Java 面试题小结
 **1. Java String 类的基础知识**

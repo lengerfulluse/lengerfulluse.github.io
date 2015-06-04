@@ -2,11 +2,35 @@
 layout: homepage
 title: Wei Heng
 ---
-  <div>
+<div>
   <h1>Tech Posts</h1>
-  <ul class="posts">
     {% for post in site.posts %}
-      <li><span>{{ post.date | date_to_string }}</span> &raquo; <a href="{{ post.url }}">{{ post.title }}</a></li>
+      <div id="post-card">
+        <div id="card-profile">
+          <span id="title"><i class="fa fa-book"></i><span class="awesome_font_margin"></span><a href="{{ post.url }}">{{ post.title }}</a></span>
+          <span id="timedate"><i class="fa fa-calendar"></i><span class="awesome_font_margin"></span>{{ post.date | date_to_string }}</span>
+          <div id="card-content">
+            {{ post.content | strip_html | truncatewords:50}}
+          </div>
+          <div id="readmore">
+            <a href="{{ post.url }}/#disqus_thread"></a><span style="margin-left:5px"><i class="fa fa-comment-o"></i><span class="awesome_font_margin"></span></span>
+            <span><a href="{{ post.url }}">read more...<i class="fa fa-external-link"></i></a></span>
+          </div>
+        </div>
+      </div>
     {% endfor %}
-  </ul>
 </div>
+
+<!-- add comment count for article -->
+<script type="text/javascript">
+/* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+var disqus_shortname = 'lengerfulluse'; // required: replace example with your forum shortname
+
+/* * * DON'T EDIT BELOW THIS LINE * * */
+(function () {
+var s = document.createElement('script'); s.async = true;
+s.type = 'text/javascript';
+s.src = '//' + disqus_shortname + '.disqus.com/count.js';
+(document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
+}());
+</script>

@@ -4,9 +4,6 @@ category : life
 tagline: ""
 tags : [lankar]
 ---
-{{page.title}}
-=============
-<p class="meta">10 Mar 2013 - Jiangsu</p>
 
 In the myterious equations of love that any logic or reasons can be found.
 you are the only reason I am. You are all the reason.

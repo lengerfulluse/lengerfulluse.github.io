@@ -3,9 +3,6 @@ layout: post
 category: "work"
 tags: [language]
 ---
-{{page.title}}
-=============
-<p class="meta">19 Mar 2013 - Beijing</p>
 
 Fortunately, I still keep passion about the new things. Especially for the programming languages. from the moment that I first met c language, I wonder whether other various language look like. are they also static strong type? Are they have the unpleasant points? Are they contructed by the function invoking and variables? Are they general purpose or somethings like shell script? All in all, I seek for other interesting features in other language. In a word,  I attempt to find somethings common points and different parts respectively.
 #### "All Language are just tools to solve problems"

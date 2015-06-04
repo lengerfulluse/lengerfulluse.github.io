@@ -3,9 +3,6 @@ layout: post
 category: "work"
 tags: [linux]
 ---
-{{page.title}}
-=============
-<p class="meta">28 Mar 2013 - Beijing</p>
 
 What's locale? basically, locale is all the information about your geography postion, such as which country you are? what language you use?
 and of course contains date time format, moneny currency format and so much information. With the tendy of software internationalize, the

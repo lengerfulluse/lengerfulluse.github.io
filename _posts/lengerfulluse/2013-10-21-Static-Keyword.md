@@ -3,9 +3,6 @@ layout: post
 category: work
 tags: [interview, language]
 ---
-{{page.title}}
-=============
-<p class="meta">21 Oct 2013 - Beijing</p>
 
 几乎在所有的面试笔试题中都有**static**变量的身影，其涉及到变量内存分配空间，变量生命周期等。最终我们可以从其**作用域**的角度来对其进行较为详细的分析与介绍。
 ###函数体内的static关键字

@@ -1,21 +1,18 @@
 ---
 layout: post
-title:	Builder Design Pattern 
+title:	Builder Design Pattern
 category : design-pattern
 tags: [headfirst]
 ---
 
-{{page.title}}
-=============
-<p class="meta">31 July 2014 - Beijing</p>
-
 ####At First Sight of Builder Pattern
-The first time I encountered the Builder Pattern would date back to the beautiful internship time in Red Hat. What inspired me a lot is its strange setter way.    
+The first time I encountered the Builder Pattern would date back to the beautiful internship time in Red Hat. What inspired me a lot is its strange setter way.
+
 {% highlight java linenos %}
 class PeopleBuilder {
     private String name = "Joseph"
     private int age = 24;
-    private String talent = "programming"; 
+    private String talent = "programming";
 
     public PeopleBuilder setName(String name) {
 	this.name = name;
@@ -31,7 +28,7 @@ class PeopleBuilder {
     }
 }
 {% endhighlight linenos %}
-The function will return object itself, in setter methods. Also these setter methods can avoid too many parameters in a function invocation process, such as:   
+The function will return object itself, in setter methods. Also these setter methods can avoid too many parameters in a function invocation process, such as:
 {% highlight java linenos %}
     PeopleBuilder peopleBuilder = new PeopleBuilder();
     /*
@@ -61,12 +58,12 @@ The function will return object itself, in setter methods. Also these setter met
 
 {% endhighlight linenos %}
 
-**At the first glance** of the above ***Builder Pattern*** usage, it resoved the too many parameters problem. However, when `doWork()` function invoke the `PeopleBuilder` class, it looks really strange and weild. Now the PeopleBuilder looks more like a POJO but a Builder. The `get` methods in Builder really strange. So the most important thing to do is to just figure out what the adventages and disadvantages do the builder pattern suit:     
-1. *if you find that there are too many parameters in a function invocation, you could take a consideration: could it be encapsulated into a Java Bean Object. and with necessary ***get***, ***set*** methods*.   
-2. *Still, you find that the encapsulated class could not satify with your requirement. some construct parameters are necessary for you and some a optional. But all they could only be assigned value at first construct stage of the object. The object become read only, and be immutable.*  
-3. *Then, Builder Pattern is becoming your first choice.*  
+**At the first glance** of the above ***Builder Pattern*** usage, it resoved the too many parameters problem. However, when `doWork()` function invoke the `PeopleBuilder` class, it looks really strange and weild. Now the PeopleBuilder looks more like a POJO but a Builder. The `get` methods in Builder really strange. So the most important thing to do is to just figure out what the adventages and disadvantages do the builder pattern suit:
+1. *if you find that there are too many parameters in a function invocation, you could take a consideration: could it be encapsulated into a Java Bean Object. and with necessary ***get***, ***set*** methods*.
+2. *Still, you find that the encapsulated class could not satify with your requirement. some construct parameters are necessary for you and some a optional. But all they could only be assigned value at first construct stage of the object. The object become read only, and be immutable.*
+3. *Then, Builder Pattern is becoming your first choice.*
 
-####An Example of Classical Builder Pattern.   
+####An Example of Classical Builder Pattern.
 **mail sender builder**
 {% highlight java linenos %}
     Class EmailSender {
@@ -122,17 +119,17 @@ The function will return object itself, in setter methods. Also these setter met
    	         return this;
    	     }
    	     /**
-   	      * It's definitely cool! Also you can implement the logic 
+   	      * It's definitely cool! Also you can implement the logic
 	      * condition in build according to your requirement.
    	      */
    	     public EmailSender build() {
    	         return new EmailSender(this);
    	     }
    	 }
-    } 
+    }
 
 {% endhighlight %}
-So long and thanks for all the fish!   
+So long and thanks for all the fish!
 ####Reference
 * [The builder pattern in practice](http://www.javacodegeeks.com/2013/01/the-builder-pattern-in-practice.html).
 * [Builder Pattern](http://en.wikipedia.org/wiki/Builder_pattern).

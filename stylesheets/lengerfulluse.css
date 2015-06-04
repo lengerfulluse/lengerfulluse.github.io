@@ -1,12 +1,48 @@
+.site-nav {
+	right: 0;
+	position: fixed;
+	width: 100%;
+  height: 50px;
+  top: 0;
+  z-index: 600;
+  background-color: #fff;
+  border-bottom: 1px solid #c2c9d4;
+}
+
+.main-left {
+  margin-top: 51px;
+  width: 20%;
+  float:  left;
+}
+
+.main-center {
+  float: left;
+  width: 60%;
+  margin-top: 51px;
+}
+
+.main-right {
+  float: right;
+  margin-top: 51px;
+  width: 20%;
+}
+
 .post-meta {
-	margin-top: 30px;
 	font-style: italic;
-	text-align: right;
+	text-align: left;
+	position: relative;
+	font-size: small;
+  margin-top: 5px;
 }
-p.post-meta {
-	color: #999;
-	font-size: small
+
+#post-tags {
+	float: right;
+	margin-left: 10px;
 }
+#post-nav {
+	float: right;
+}
+
 #post-content a {
 	text-decoration: none;
 	font-family: "Helvetica Neue", "Helvetica", "Arial", "sans-serif";
@@ -37,3 +73,38 @@ p.post-meta {
     margin: 0 16px 20px 0px;
     font-family: "Lucida Console";
   }
+
+#readmore {
+	text-align: right;
+	left-margin: 10px;
+}
+
+#post-card {
+	margin-bottom: 18px;
+}
+
+#card-profile {
+	padding: 10px 20px 4px;
+	display: inline-block;
+	border: 1px solid #c2c9d4;
+	background-color: white;
+}
+
+#card-content {
+	text-indent:24px;
+	color: #999;
+}
+
+#timedate {
+	margin-right: 5px;
+	float:  right;
+}
+
+#title {
+	margin-right: 5px;
+	margin-left: 0px;
+}
+
+.awesome_font_margin {
+  margin-left: 5px;
+}

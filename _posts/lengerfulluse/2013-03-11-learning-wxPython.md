@@ -3,9 +3,6 @@ layout: post
 category: work
 tags: [language]
 ---
-{{page.title}}
-=============
-<p class="meta">11 Mar 2013 - Beijing</p>
 
 For a part of project, the demands for the gui interface enforce me to find a simple and flexibile toolkit-like to develop a desktop programming. the two main choices are the **Swing** and **wxPython**. The java things bores me a lot in before. So I decide to try something new, since I have a lot of interest in python recently.
 #### Modules introduction

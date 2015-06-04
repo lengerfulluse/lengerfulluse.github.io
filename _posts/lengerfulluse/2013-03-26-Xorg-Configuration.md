@@ -3,9 +3,7 @@ layout: post
 category: "work"
 tags: [linux]
 ---
-{{page.title}}
-=============
-<p class="meta">26 Mar 2013 - Beijing</p>
+
 In this article, we focus on some basic and foundational introduction about the X11 related topics in our linux experience.
 ####Xorg Server
 There are mainly two sub\-sections in the Xorg Server section. firstly, I will conduct some introduction and explanation about the history and roles Xorg take in our hole GUI system. secondly, I'll give a practical example to show the process of problem trackback and solved.

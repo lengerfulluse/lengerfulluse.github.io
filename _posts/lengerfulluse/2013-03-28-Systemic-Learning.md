@@ -3,9 +3,7 @@ layout: post
 category: "work"
 tags: [linux]
 ---
-{{page.title}}
-=============
-<p class="meta">28 Mar 2013 - Beijing</p>
+
 The pain on the installation of FreeBSD system fonts during my college
 life still exists. It is still impressive that I was totally confused by
 the all series unttacked of the sytem fonts settings and the Chinese

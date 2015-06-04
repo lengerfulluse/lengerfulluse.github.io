@@ -3,12 +3,10 @@ layout: post
 category: interview
 tags: [algorithm]
 ---
-{{page.title}}
-=============
-<p class="meta">25 Sept 2013 - Beijing</p>
 
 ### 1. A Simple Algorithm for Print All Combination of Balanced Parentheses
-{% highlight cpp linenos=table %}
+
+{% highlight cpp %}
     #include<iostream>
     #include<cassert>
     using namespace std;

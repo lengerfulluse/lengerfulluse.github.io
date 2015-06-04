@@ -3,9 +3,7 @@ layout: post
 category: "work"
 tags: [tools]
 ---
-{{page.title}}
-=============
-<p class="meta">02 Apr 2013 - Beijing</p>
+
 In the age of open source and could computer, it become very necessary for us to work together ou the cloud with an
 share projects. [**Bitbucket**](http://bitbucket.org) provides an possibility for our needs.  this article is aim to
 give an simple introduction about how to share and collaborate on a project.

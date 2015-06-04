@@ -3,9 +3,6 @@ layout: post
 category: "work"
 tags: [linux]
 ---
-{{page.title}}
-=============
-<p class="meta">28 Mar 2013 - Beijing</p>
 
 The purpose of this note is to analyze the steps for setting chinese
 input method [**Fcitx**](http://www.fcitx-im.org) in an English system

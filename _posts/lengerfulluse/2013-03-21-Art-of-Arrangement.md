@@ -3,9 +3,6 @@ layout: post
 category: "life"
 tags: [lankar]
 ---
-{{page.title}}
-=============
-<p class="meta">21 Mar 2013 - Beijing</p>
 
 A very little things happens today that everybody may encounter and may even not to  mention it. My mental ask to find the previous project's source programming, which maybe re-used in our current's project. Accidently, I have no idea where this source I put it. After doze of endeavours, I gave up, and of course felt very dispointed the whole day. I retrospect my this horrible habit, that leave the staged things away. I get the conclusion that I would never re-use or do some back-review work on this done things in mostly situations. And to some exents, except the remain knowledge in my brain, I could hardly adopt any excellent methods or design which is perfectly completed before. In other words, I often tend to reinvent the wheel.
 #### Horrible Habits

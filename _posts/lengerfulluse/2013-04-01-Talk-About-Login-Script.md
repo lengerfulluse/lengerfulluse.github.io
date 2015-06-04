@@ -3,9 +3,7 @@ layout: post
 category: "work"
 tags: [tools]
 ---
-{{page.title}}
-=============
-<p class="meta">01 Apr 2013 - Beijing</p>
+
 It seems to be an unfinished wanted. From the begining of learning the computer language programmings, it is naturally to be taughted about
 the story of great computer hackers. Among all of the cabaility owned by them , the most important one is to crawl on the complex and wideless
 internet. So the automatic robot which wander freely on the internet become the greatest things for all the hacker. No matter how beautiful

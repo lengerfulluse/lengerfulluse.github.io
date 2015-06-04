@@ -4,34 +4,21 @@ title: Singleton Design Pattern
 category: design-pattern
 tags: [headfirst, tools]
 published: True
-
 ---
-{{page.title}}
-=============
-<p class="meta">11 Nov 2014 - Beijing</p>
 
-singleton模式看似简单，却有很多值得注意的地方。下面给出一个经典的多线程安全的简单例子，然后NOTE下值得注意的几点：
+Singleton模式看似简单，却有很多值得注意的地方。下面给出一个经典的多线程安全的简单例子，然后NOTE下值得注意的几点：
 
-{% highlight java linenos=table %}
+{% highlight java %}
 
     package org.josepheng.design_pattern.singleton;
-
-    /**
-      * Be capable of demonstrate the singleton design pattern.
-      *
-      * @author hengwei
-      */
-
     public class ConnectionManager {
       private static volatile ConnectionManager uniqConnctor;
-
       private ConnectionManager() {
           // private constructor.
       }
-
-    /**
-          * Global access point of obtain unqiue object instance.
-          */
+      /**
+        * Global access point of obtain unqiue object instance.
+        */
       public static ConnectionManager getInstance() {
           if (uniqConnctor == null) {
               synchronized (ConnectionManager.class){

@@ -3,9 +3,6 @@ layout: post
 category: work
 tags: [linux, interview]
 ---
-{{page.title}}
-=============
-<p class="meta">27 Oct 2013 - Beijing</p>
 
 刚好最近在准备找工作面试，无奈之前的基础知识已经遗忘殆尽，值得在重新复习一下，便做了关于操作系统方面的笔记，书采用的是[Operating System Concepts, 9th Edition](http://www.amazon.com/Operating-System-Concepts-9th-Edition-ebook/dp/B00APSZCEQ)，采用边看边做笔记的形式来记录下，以便以后遗忘时可以随时查验。全篇将近有1000页不可能全部看完，只得分批来看，今天主要看进程模块。
 ### Process\(进程\)
