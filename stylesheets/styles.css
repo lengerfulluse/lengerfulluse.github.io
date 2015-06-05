@@ -344,12 +344,7 @@ footer {
 	padding-left: 250px;
 }
 
-@media print, screen and (max-width: 960px) {
-
-  div.wrapper {
-    width:auto;
-    margin:0;
-  }
+@media print, screen and (min-width: 960px) {
 
   header, section, footer {
     float:center;
@@ -363,45 +358,57 @@ footer {
 		padding:0;
 	}
 
-  header {
-    padding-right:320px;
+  .main-left, .nav-logo {
+    width: 25%;
   }
 
-  section {
-    padding:20px 84px 20px 50px;
-    margin:0 0 20px;
+  .main-right, .nav-search {
+    width: 25%;
   }
 
-  header a small {
-    display:inline;
+  .main-center, .nav-content {
+    width: 50%;
   }
 
-  header ul {
-    position:absolute;
-    right:130px;
-    top:84px;
+}
+
+@media print, screen and (min-width: 600px) and (max-width: 960px) {
+  .main-left, .nav-logo {
+    width: 20%;
+  }
+
+  .main-right, .nav-search {
+    width: 20%;
+  }
+
+  .main-center, .nav-content {
+    width: 60%;
   }
 }
 
-@media print, screen {
+@media print, screen and (min-width: 481px) and (max-width: 599px){
   body {
     word-wrap:break-word;
-  }
-
-  header {
-    padding:10px 20px 0;
-		margin-right: 0;
-  }
-
-	section {
-    padding:10px 0 10px 20px;
   }
 
   header ul, header p.view {
     position:static;
   }
+
+  .main-left, .nav-logo {
+    width: 10%;
+  }
+
+  .main-right, .nav-search {
+    width: 10%;
+  }
+
+  .main-center, .nav-content {
+    width: 80%;
+  }
 }
 
+/* for small screen device, like smartphone*/
 @media print, screen and (max-width: 480px) {
 
   header ul li.download {
@@ -415,6 +422,18 @@ footer {
 	footer a{
 		display:block;
 	}
+
+  .main-left, .nav-logo {
+    width: 5%;
+  }
+
+  .main-right, .nav-search {
+    width: 5%;
+  }
+
+  .main-center, .nav-content {
+    width: 90%;
+  }
 
 }
 
