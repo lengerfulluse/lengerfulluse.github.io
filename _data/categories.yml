@@ -13,3 +13,7 @@
 - slug: life
   name: Life
   color: '#FFCC00'
+
+- slug: tutorials
+  name: Tutorials
+  color: '#CC00FF'

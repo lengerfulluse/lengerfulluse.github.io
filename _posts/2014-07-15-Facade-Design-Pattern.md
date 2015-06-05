@@ -6,7 +6,8 @@ tags: [headfirst]
 ---
 
 **Facade pattern** provides a simplified interface to a set of interfaces within a system and thus it hides the complexities of the subsystem from the client. It creates a layer to abstract and unify the related interfaces in the application and define an entry point to each subsystem level and thus make them communicate only through their faces.
-To simplify the interaction process, we introduce the facade layer. Facade expose a simplified interface\(in this case a single interface to perform that multi\-step process\) and internally it interacts with those components and gets job done for you **one way**.  Common representation are dipicted as followings:
+To simplify the interaction process, we introduce the facade layer. Facade expose a simplified interface\(in this case a single interface to perform that multi\-step process\) and internally it interacts with those components and gets job done for you **one way**. Common representation are dipicted as followings:
+
 ![facade_pattern](/images/facade_pattern_example.jpg)
 ####Common Mistakes
 1. Layered architecture is good but assess the need for every layer. Just naming a class as ABCDFacade\.java doesn't really make it a facade.

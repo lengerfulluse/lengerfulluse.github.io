@@ -1,6 +1,7 @@
 ---
 layout: post
-category: translation
+category: tutorials
+tags : [jekyll]
 title: Add Comment to Jekyll Blog with Disqus
 ---
 

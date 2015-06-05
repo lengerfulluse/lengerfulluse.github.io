@@ -26,7 +26,7 @@ And the following figure show the work flow of process state.
 
 **进程的创建**
 子进程创建继承父进程的资源信息，接下来可以利用`exec()`函数来覆盖父进程的进程空间，执行自己的进程，也可以保持父进程的执行空间，使的父子进程同时执行。一个经典的创建多进程的实例如下：
-{% highlight c linenos=table %}
+{% highlight c %}
 
 #include <sys/types.h>
 #include <stdio.h>
