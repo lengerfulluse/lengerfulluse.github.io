@@ -1,6 +1,6 @@
 ---
 layout: blog_by_tag
-title: 'Articles by category: tools'
+title: 'Tools'
 category: tools
-permalink: /blog/category/tools/
+permalink: /blog/tag/tools/
 ---

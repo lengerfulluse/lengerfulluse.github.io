@@ -140,7 +140,7 @@ hr {
 /* Images */
 
 img {
-  position: relative;
+position: relative;
   margin: 0 auto;
   max-width: 650px;
   padding: 1px;
@@ -337,26 +337,13 @@ section {
 
 /* Footer */
 
-footer {
+.footer {
   float:left;
-  width:60%;
-  bottom:10px;
-	padding-left: 250px;
+  margin-top: 20px;
+  width: 100%;
 }
 
 @media print, screen and (min-width: 960px) {
-
-  header, section, footer {
-    float:center;
-    position:static;
-    width:auto;
-  }
-
-	footer {
-		border-top: 1px solid #ccc;
-		margin:0 84px 0 50px;
-		padding:0;
-	}
 
   .main-left, .nav-logo {
     width: 25%;
@@ -414,14 +401,6 @@ footer {
   header ul li.download {
     display:none;
   }
-
-	footer {
-		margin: 0 0 0 20px;
-	}
-
-	footer a{
-		display:block;
-	}
 
   .main-left, .nav-logo {
     width: 5%;

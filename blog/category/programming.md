@@ -1,6 +1,6 @@
 ---
 layout: blog_by_category
-title: 'Articles by category: programming'
+title: 'Programming'
 category: programming
 permalink: /blog/category/programming/
 ---

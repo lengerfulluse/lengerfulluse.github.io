@@ -1,41 +1,35 @@
-
 /* navigator things */
-
 .site-nav {
-  right: 0;
-  position: fixed;
-  width: 100%;
-  height: 50px;
-  top: 0;
-  z-index: 600;
-  background-color: #f8f8f8;
-  border-color: #e7e7e7;
-  box-shadow: 0 1px 3px rgba(0,0,0,0.2);
+	right: 0;
+	position: fixed;
+	width: 100%;
+	height: 50px;
+	top: 0;
+	z-index: 600;
+	background-color: #f8f8f8;
+	border-color: #e7e7e7;
+	box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
 }
-
 .nav-logo {
 	float: left;
-	margin:0;
-	padding:0;
+	margin: 0;
+	padding: 0;
 	height: 100%;
 }
-
 .nav-search {
 	float: left;
 	margin: 0;
 	padding: 0;
 	height: 100%;
 }
-
 .nav-content {
 	float: left;
 	line-height: 50px;
 	vertical-align: baseline;
 	margin: 0;
-  padding: 0;
-  height: 100%;
+	padding: 0;
+	height: 100%;
 }
-
 .nav-content-item {
 	float: left;
 	padding-right: 30px;
@@ -43,49 +37,45 @@
 	font-size: 120%;
 }
 
-
 /* main body */
-
 .main-left {
-  margin-top: 51px;
-  float:  left;
+	margin-top: 51px;
+	float: left;
 }
-
 .main-center {
-  float: left;
-  margin-top: 51px;
+	float: left;
+	margin-top: 51px;
 }
-
 .main-right {
-  float: right;
-  margin-top: 51px;
+	float: right;
+	margin-top: 51px;
 }
-
 .post-meta {
 	font-style: italic;
 	text-align: left;
 	position: relative;
 	font-size: small;
-  	margin-top: 15px;
-}
-
-#post-tags {
-	float: right;
-	margin-left: 10px;
+	margin-top: 15px;
 }
 #post-nav {
 	float: right;
 }
+#post-tags {
+	float: right;
+	margin-left: 10px;
+}
 
+/* archives css, organize for category and tags */
 #post-content a {
 	text-decoration: none;
 	font-family: "Helvetica Neue", "Helvetica", "Arial", "sans-serif";
 }
 #post-title {
-	font-size: xx-large;
+	font-size: 20px;
+	margin: 20px 0;
 }
 #post-year {
-	color: #999999;
+	color: #232323;
 	font-size: 150%;
 	font-weight: lighter;
 	margin-top: 10px;
@@ -93,6 +83,7 @@
 .copyright {
 	color: #999999;
 	font-weight: 200;
+	font-size: 12px;
 	text-align: center;
 }
 .project {
@@ -103,43 +94,36 @@
 	font-size: small;
 }
 .header-p {
-    text-align: left;
-    margin: 0 16px 20px 0px;
-    font-family: "Lucida Console";
-  }
-
+	text-align: left;
+	margin: 0 16px 20px 0px;
+	font-family: "Lucida Console";
+}
 #readmore {
 	text-align: right;
 	left-margin: 10px;
 }
-
 #post-card {
 	margin-bottom: 18px;
 }
-
 #card-profile {
 	padding: 10px 20px 4px;
 	display: inline-block;
 	border: 1px solid #c2c9d4;
 	background-color: white;
-	box-shadow: 0 1px 3px rgba(0,0,0,0.2);
+	box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
 }
-
 #card-content {
-	text-indent:24px;
+	text-indent: 24px;
 	color: #626252;
 }
-
 #timedate {
 	margin-right: 5px;
-	float:  right;
+	float: right;
 }
-
 #title {
 	margin-right: 5px;
 	margin-left: 0px;
 }
-
 .awesome_font_margin {
-  margin-left: 5px;
+	margin-left: 5px;
 }

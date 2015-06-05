@@ -1,6 +1,6 @@
 ---
 layout: blog_by_category
-title: 'Articles by category: work'
+title: 'Work'
 category: work
 permalink: /blog/category/work/
 ---

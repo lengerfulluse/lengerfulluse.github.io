@@ -1,29 +1,28 @@
 ---
-layout: default
+layout: homepage
 ---
 
-<header id="post-header">
-    <h1 id="post-title">{{ page.category }}</h1>
-</header>
+
+<div id="post-title"><i class="fa fa-folder-open-o fa-lg"></i><span class="awesome_font_margin">{{ page.title }}</div>
 
 <div id="post-content">
     {% if site.categories[page.category] %}
         {% for post in site.categories[page.category] %}
             {% capture post_year %}{{ post.date | date: '%Y' }}{% endcapture %}
             {% if forloop.first %}
-                <h3 id="post-year">{{ post_year }}</h3><div class="list-group">
+                <div id="post-year">{{ post_year }}</div><div class="list-group">
             {% endif %}
 
             {% if forloop.first == false %}
                 {% assign previous_index = forloop.index0 | minus: 1 %}
                 {% capture previous_post_year %}{{ site.categories[page.category][previous_index].date | date: '%Y' }}{% endcapture %}
                 {% if post_year != previous_post_year %}
-                    </div><h3 id="post-year">{{ post_year }}</h3><div class="list-group">
+                    </div><div id="post-year">{{ post_year }}</div><div class="list-group">
                 {% endif %}
             {% endif %}
 
             <a href="{{ post.url }}/" class="list-group-item">
-                <h4 class="list-group-item-heading">{{ post.title }}</h4>
+                <div class="list-group-item-heading">{{ post.title }}</div>
             </a>
 
             {% if forloop.last %}
@@ -31,6 +30,6 @@ layout: default
             {% endif %}
         {% endfor %}
     {% else %}
-        <p>There are no posts in this category.</p>
+        <div>: ( , there are no posts in this category.</div>
     {% endif %}
 </div>
