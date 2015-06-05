@@ -5,11 +5,11 @@ layout: homepage
 <div id="post-title"><i class="fa fa-tags"></i><span class="awesome_font_margin">{{ page.title }}</div>
 
 <div id="post-content">
-    {% if site.tags[page.tags] %}
-        {% for post in site.tags[page.tags] %}
+    {% if site.tags[page.tag] %}
+        {% for post in site.tags[page.tag] %}
             {% capture post_year %}{{ post.date | date: '%Y' }}{% endcapture %}
             {% if forloop.first %}
-                <div id="post-year"></span>{{ post_year }}</div><div class="list-group">
+                <div id="post-year">{{ post_year }}</div><div class="list-group">
             {% endif %}
 
             {% if forloop.first == false %}

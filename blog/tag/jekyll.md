@@ -1,6 +1,6 @@
 ---
 layout: blog_by_tag
 title: 'Jekyll'
-category: jekyll
+tag: jekyll
 permalink: /blog/tag/jekyll/
 ---

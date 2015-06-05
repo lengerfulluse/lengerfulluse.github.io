@@ -2,7 +2,7 @@
 layout: post
 title: Singleton Design Pattern
 category: design-pattern
-tags: [headfirst, tools]
+tags: [ headfirst, tools ]
 published: True
 ---
 

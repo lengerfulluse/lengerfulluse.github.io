@@ -1,6 +1,6 @@
 ---
 layout: blog_by_tag
 title: 'Lankar'
-category: lankar
+tag: lankar
 permalink: /blog/tag/lankar/
 ---

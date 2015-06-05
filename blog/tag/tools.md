@@ -1,6 +1,6 @@
 ---
 layout: blog_by_tag
 title: 'Tools'
-category: tools
+tag: tools
 permalink: /blog/tag/tools/
 ---

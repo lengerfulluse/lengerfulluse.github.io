@@ -1,6 +1,6 @@
 ---
 layout: blog_by_tag
-title: 'Headfirst'
-category: headfirst
+title: 'HeadFirst'
+tag: headfirst
 permalink: /blog/tag/headfirst/
 ---

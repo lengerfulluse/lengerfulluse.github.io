@@ -1,6 +1,6 @@
 ---
 layout: blog_by_tag
 title: 'Research'
-category: research
+tag: research
 permalink: /blog/tag/research/
 ---
