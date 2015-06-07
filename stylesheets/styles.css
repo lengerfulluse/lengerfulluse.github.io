@@ -397,6 +397,10 @@ section {
   .nav-search {
     display: none;
   }
+
+  .nav-logo {
+    display: none;
+  }
 }
 
 /* for small screen device, like smartphone*/
@@ -420,6 +424,10 @@ section {
 
   .nav-search {
     display:none;
+  }
+
+  .nav-logo {
+    display: none;
   }
 }
 
