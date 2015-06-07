@@ -25,10 +25,11 @@
             <a href="/index.html"><span class="nav-content-item">Home</span></a>
             <a href="/project.html"><span class="nav-content-item">Projects</span></a>
             <a href="/me.html"><span class="nav-content-item">About</span></a>
-            <span class="nav-search">
-                <span class="search-input"><input type="search" id="search" placeholder="Article..." /></span>
+            <div class="nav-search">
+                <span class="search-input"><input type="text" id="search" placeholder="Article..." /></span>
                 <span class="icon"><i class="fa fa-search"></i></span>
-            </span>
+                <ul id="results-container"></ul>
+            </div>
         </div>
         <div class="nav-discovery">
         </div>
@@ -46,6 +47,20 @@
     </div>
     <div class="main-right">
     </div>
+    <!-- Script pointing to jekyll-search.js -->
+    <script src="/dest/jekyll-search.js" type="text/javascript"></script>
+    <script type="text/javascript">
+      SimpleJekyllSearch({
+        searchInput: document.getElementById('search'),
+        resultsContainer: document.getElementById('results-container'),
+        json: 'http://t.hengwei.me/search.json',
+        searchResultTemplate: '<li><a href="{url}" title="{desc}">{title}</a></li>',
+        noResultsText: 'No results found',
+        limit: 10,
+        fuzzy: false,
+        exclude: ['Welcome']
+      })
+    </script>
 </body>
 
 </html>
