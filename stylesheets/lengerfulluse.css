@@ -157,8 +157,7 @@
 	padding: 10px 20px 4px;
 	display: inline-block;
 	border: 1px solid #c2c9d4;
-	background-color: #f8f8f8;
-	box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+	box-shadow: 0 2px 3px rgba(0, 0, 0, 0.2);
 }
 #card-content {
 	text-indent: 24px;
