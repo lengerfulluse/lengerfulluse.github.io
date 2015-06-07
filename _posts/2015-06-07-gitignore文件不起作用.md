@@ -23,5 +23,5 @@ published: True
 4. git commit -m "fixed untracked files"
 
 ####-引用
-1. [gitignore-not-working](http://stackoverflow.com/questions/11451535/gitignore-not-working)
-2. [ignoring file](https://help.github.com/articles/ignoring-files/)
+**[1].** [gitignore-not-working](http://stackoverflow.com/questions/11451535/gitignore-not-working)  
+**[2].** [ignoring file](https://help.github.com/articles/ignoring-files/)  
