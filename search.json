@@ -8,8 +8,7 @@ layout: null
       "category" : "{{ post.category }}",
       "tags"     : "{{ post.tags | join: ', ' }}",
       "url"      : "{{ site.baseurl }}{{ post.url }}",
-      "date"     : "{{ post.date }}",
-      "content"  : "{{ post.content | strip_html | strip_newlines | remove_chars | escape }}"
+      "date"     : "{{ post.date }}"
     } {% unless forloop.last %},{% endunless %}
   {% endfor %}
   ,
@@ -20,8 +19,7 @@ layout: null
         "category" : "{{ page.category }}",
         "tags"     : "{{ page.tags | join: ', ' }}",
         "url"      : "{{ site.baseurl }}{{ page.url }}",
-        "date"     : "{{ page.date }}",
-        "content"  : "{{ post.content | strip_html | strip_newlines | remove_chars | escape }}"
+        "date"     : "{{ page.date }}"
      {% endif %}
    } {% unless forloop.last %},{% endunless %}
   {% endfor %}
