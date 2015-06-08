@@ -56,7 +56,8 @@ img {
 	border: 0;
 }
 #results-container {
-	margin-top: 51px;
+	margin-top: 10px;
+	position: fixed;
 }
 .nav-discovery {
 	float: left;
