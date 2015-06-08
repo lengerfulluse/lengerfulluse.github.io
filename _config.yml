@@ -2,4 +2,5 @@ markdown: rdiscount
 highlighter: pygments
 encoding: UTF-8
 permalink: /post/:title
+url: "http://t.hengwei.me"
 
