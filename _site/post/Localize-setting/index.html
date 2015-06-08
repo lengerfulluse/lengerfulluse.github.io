@@ -1,0 +1,198 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <title>楞伽山人</title>
+    <link rel="shortcut icon" type="image/png" href="/images/heng.png">
+    <link rel="stylesheet" href="/stylesheets/styles.css">
+    <link rel="stylesheet" href="/stylesheets/pygment_trac.css">
+    <link rel="stylesheet" href="/stylesheets/lengerfulluse.css" type="text/css" />
+    <link rel="stylesheet" href="/stylesheets/font_awesome.css" type="text/css" />
+    <script src="javascripts/scale.fix.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+</head>
+
+<body>
+    <div class="site-nav">
+        <div class="nav-logo">
+        <img src="/assets/img/blog/nav-logo.png" >
+        </div>
+        <div class="nav-content">
+            <a href="/index.html"><span class="nav-content-item">Home</span></a>
+            <a href="/project.html"><span class="nav-content-item">Projects</span></a>
+            <a href="/me.html"><span class="nav-content-item">About</span></a>
+        </div>
+        <div class="nav-discovery">
+            <div class="nav-search">
+                <span class="search-input"><input type="text" id="search" placeholder="Article..." /></span>
+                <span class="icon"><i class="fa fa-search"></i></span>
+            </div>
+        </div>
+    </div>
+    <div class="main-left">
+    </div>
+    <div class="main-center">
+        
+
+
+    
+        
+            
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+    
+        
+    
+
+
+
+    
+    
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+                
+            
+        
+            
+        
+            
+        
+            
+        
+        
+            
+            
+        
+    
+
+
+
+<div class="post-meta"><i class="fa fa-calendar-o"></i><span class="awesome_font_margin"></span>28 Mar 2013<span id="post-nav"> <i class="fa fa-folder-open-o fa-lg"></i> <span><a href="/blog/category/work/" style="color: #3498db;text-decoration: none;">Work</a></span><span id="post-tags">  <i class="fa fa-tags"></i> <a href="/blog/tag/linux/" style="color:#33CCCC;text-decoration: none;">linux</a></span></span></div>
+
+<div id="post">
+    <h1>Localize Setting</h1>
+    <p>What's locale? basically, locale is all the information about your geography postion, such as which country you are? what language you use?
+and of course contains date time format, moneny currency format and so much information. With the tendy of software internationalize, the
+specific localize for specific local users become urgent and necessary. All above is what locale is responsible for.  Ok, let's get start.</p>
+
+<h4>Locale Type and Environment Variables</h4>
+
+<p>The introduction part generally describe some aspects about what particular a lcoale seems contains. and As we know, all these have their
+standard definition, context and content details. For the locale, the ISO files have the regular and comprehensive definition. It may contain
+the following aspects and in unix-like system, It's demonstrated as Locale Environment Variables.
+- <em>LANG</em> the default definition for all local settings at once. while allowing the further individual customization via LC_* settings
+belows.
+- <em>LC_CTYPE</em> define the character handling properties for the system. <em>The determines which characters are seen as part of alphabet, numberic
+and so on</em>, This also determine teh character set used, if applicable.
+- <em>LC_COLLATE</em> define the alphabetical ordering of strings. This effects <em>eg.</em> output of sorted directory listing.
+- <em>LC_MESSAGE</em> Programs' localization for applications use message based localization.
+- <em>LC_MONETARY</em> define curry units and formatting of currency type, numberic values.
+- <em>LC_NUMBERIC</em> define formatting of numberic values which are not monetary.
+- <em>LC_TIME</em> define formatting of data and time.
+- <em>LC_...</em> main contains other setting.
+- <em>LC_ALL</em> A special value to overriding all the above settings.
+The linux system self provide a lot of locale for almost all of the countries and regions. the specific locale directory is
+<code>/usr/share/locale/</code>, which provide the locale resource files. By default, all kinds of locale contained Here.</p>
+
+<h4>Setting locale</h4>
+
+<p>The first step of settings is to know what locale our system current use. Here we need the <code>locale</code> command. which is used for get
+locale-specific informations.
+If we want to know what current locale our system support now, we should add the <code>-a</code> options for the <code>locale</code>
+command. If you find that there doesn't exist the locale you wanted , you should generate the locale by yourself. which contain two steps:
+1. edit the <code>/etc/locale.gen</code> configure file to add the locale you want.
+2. run the command <code>locale-gen</code> to generate the locale.</p>
+
+<p>Now, since we have generate the locale we need, we need to setting the locale. Like common linux configure sytles, almost every configure
+settings have the different apply range. namely the system-wide and personal user settings. and no exception for the locale. there are two
+choice to setting the locale. if you want to settingt the system-wide, you can edit two setting files.
+    /etc/env.d/02locale --> LANG="en_US.UTF-8" for instance.
+    /etc/profile --> export LANG="en_US.UTF-8" for instance.
+and for user specified range.
+    $HOME/.bash_profile --> LANG="en_US.UTF-8" for instance.</p>
+
+<p>Of course the above just simple give a simple example, you can give a specified setting for LC_* Variables for yourself.</p>
+
+</div>
+
+<div id="related">
+  <h2>Related Posts</h2>
+  <ul class="posts">
+    
+      <li><span>07 Jun 2015</span> &raquo; <a href="/post/gitignore%E6%96%87%E4%BB%B6%E4%B8%8D%E8%B5%B7%E4%BD%9C%E7%94%A8">.gitignore文件不起作用</a></li>
+    
+      <li><span>07 Jun 2015</span> &raquo; <a href="/post/css%E5%B8%B8%E7%94%A8tips%E6%B1%87%E6%80%BB">css常用tips汇总</a></li>
+    
+      <li><span>30 May 2015</span> &raquo; <a href="/post/singleton-design-pattern">Singleton Design Pattern</a></li>
+    
+  </ul>
+</div>
+
+
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+    /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+    var disqus_shortname = 'lengerfulluse'; // required: replace example with your forum shortname
+    /* * * This turns developer mode on, Make sure you remove this before you push this to your live site. * * * /
+    /* * * var disqus_developer = 1;  * * * /
+
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">blog comments powered by <span class="logo-disqus">Disqus</span></a>
+
+
+        <div class="footer">
+            <div class="copyright">
+                Personal technical blog for software development practices, reading notes on ML, NLP.
+                <br/> &copy; 2013&mdash;2015 by HengWei. All Rights Reserved.
+            </div>
+        </div>
+    </div>
+    <div class="main-right">
+        <ul id="results-container"></ul>
+    </div>
+    <!-- Script pointing to jekyll-search.js -->
+    <script src="/dest/jekyll-search.js" type="text/javascript"></script>
+    <script type="text/javascript">
+      SimpleJekyllSearch({
+        searchInput: document.getElementById('search'),
+        resultsContainer: document.getElementById('results-container'),
+        json: '/search.json',
+        searchResultTemplate: '<li><a href="{url}" title="{desc}">{title}</a></li>',
+        noResultsText: 'No results found',
+        limit: 10,
+        fuzzy: false,
+      })
+    </script>
+</body>
+
+</html>
