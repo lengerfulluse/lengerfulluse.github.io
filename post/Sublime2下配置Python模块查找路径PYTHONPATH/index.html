@@ -42,17 +42,17 @@
 
     
         
+    
+        
+    
+        
+    
+        
+    
+        
             
         
     
-        
-    
-        
-    
-        
-    
-        
-    
     
         
     
@@ -61,27 +61,27 @@
 
     
     
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
         
             
                 
             
         
-            
-        
-            
-        
-            
-        
-            
-        
-            
-        
-            
-        
-            
-        
-            
-        
         
             
             
@@ -90,23 +90,40 @@
 
 
 
-<div class="post-meta"><i class="fa fa-calendar-o"></i><span class="awesome_font_margin"></span>19 Mar 2013<span id="post-nav"> <i class="fa fa-folder-open-o fa-lg"></i> <span><a href="/blog/category/work/" style="color: #3498db;text-decoration: none;">Work</a></span><span id="post-tags">  <i class="fa fa-tags"></i> <a href="/blog/tag/language/" style="color:#33CCCC;text-decoration: none;">Language</a></span></span></div>
+<div class="post-meta"><i class="fa fa-calendar-o"></i><span class="awesome_font_margin"></span>21 Jul 2015<span id="post-nav"> <i class="fa fa-folder-open-o fa-lg"></i> <span><a href="/blog/category/tutorials/" style="color: #CC00FF;text-decoration: none;">Tutorials</a></span><span id="post-tags">  <i class="fa fa-tags"></i> <a href="/blog/tag/tips/" style="color:#33CCCC;text-decoration: none;">Tips</a></span></span></div>
 
 <div id="post">
-    <h1>Perl Python Ruby Note</h1>
-    <p>Fortunately, I still keep passion about the new things. Especially for the programming languages. from the moment that I first met c language, I wonder whether other various language look like. are they also static strong type? Are they have the unpleasant points? Are they contructed by the function invoking and variables? Are they general purpose or somethings like shell script? All in all, I seek for other interesting features in other language. In a word,  I attempt to find somethings common points and different parts respectively.</p>
+    <h1>Sublime2下配置Python模块查找路径PYTHONPATH</h1>
+    <p>最近在搞<a href="http://scikit-learn.org/stable/auto_examples/classification/plot_classifier_comparison.html">sclearn kit</a>库，用命令行build太麻烦，就直接用Sublime2来build，但发现build时总是出现sclearn模块找不到的情况，但的确已经通过pip install 了相关包，最后发现是sublime2里配置的Python setting 路径也需要配置<strong>PYTHONPATH</strong>变量来指出module的路径。</p>
 
-<h4>"All Language are just tools to solve problems"</h4>
+<h4>-问题场景</h4>
 
-<p>What a  concise summary! languages are just tools to solve particular problems. On one hand, Allthought each one has merits and its area of expertise, you can just show the most suitable for the specific problem. On the other hand, all roads to Roman. Classical book <em>SICP</em> tells me that except the essential programming paradigms difference under the two branches of functional and imperative, all their sub-branches share lots of commons. the only main difference lies in the discrepancy of <strong>syntax sugar</strong>. For instance, their all have basic and similar syntax. basic data type(though may distinguish between strong and weak type, dynamical and static), Conditional statement(though it seems little different, such as if else for C Java, if ; then elif done for shell, if : for python. ), Control flow (such as for loop, while loop, break, continue), also some basic data structure, such as array, list, hashmap ( or dictionary in Python and Perl). also some basic function( no matter it's member function of OO language or function), And also the most important part is its function library(C,C++) or Package(Java) or Module(Perl or Python).
-However, In some kinds, you can also think that the above things is just touch the superical part of languages. Because You can't become an experience and professional programmers with just that. As an chinese old sayings: a man can lead a horse to the water but he cannot make him drink. For the practical enterprise project development, there are often two focus: the develop efficiency and quality of product. there are lot of principals and conventional. it is that distinguish the normal and professional programmers. these potential things can alos thought as something like design pattern and software engineering.
-All right, we get involved too much.</p>
+<p>按照sclearn安装页的指示，安装了必要的package后，在sublime2中通过｀cmd + B`来build后出现了如下错误：</p>
 
-<h4>Intersting features borrowing</h4>
+<pre><code>Traceback (most recent call last):
+File "/Users/weiheng/Documents/personal/demo/scikit/plot_classifier_comparison.py", line 34, in &lt;module&gt;
+from sklearn.cross_validation import train_test_split
+ImportError: No module named sklearn.cross_validation
+</code></pre>
 
-<p>To design a language is to shut oneself up in a room making a cart, they all borrow a lot of  excellent features in exising languages. For instance, Perl borrows features from other languages including C, shell scrpting, AWK, sed. which obviously will provide it great power in the text processing applications tasks.
-Python's design philosophy emphasizes the code readability.
-Ruby is a dynamic, reflective, general-purpose pure OO languages that combines syntax inspired by Perl with Smalltalk-like features. It also was influenced by Eiffel and Lisp.</p>
+<p>但我用python命令行import是没问题的。</p>
+
+<h4>- 原因分析</h4>
+
+<p>需要在<em>Python.sublime-build</em>中设置<strong>env</strong>变量。Google了一些可能的答案，发现上面的错误是由于sublime2中默认的python模块的路径中找不到sclearn模块，而控制模块查找路径的则是$PYTHONPATH变量而非$PATH变量。且sublime2 GUI是通过自己的python设置文件查找变量的，很多建议在<em>.profile</em>， <em>.zshrc</em>等命令行配置文件中加上PYTHOINPATH变量的其实是不能工作的。solution则是：Click Sublime2 Text 2菜单，进入<em>Preference／Browse Packages／Python</em>文件夹，编辑<em>Python.sublime-build</em>文件在其中加上：</p>
+
+<pre><code>"env":
+{
+    "PYTHONPATH":"/usr/local/lib/python:/usr/local/lib/python2.7/site-packages"
+},
+</code></pre>
+
+<p>保存即可。贴一个build之后生成的分类器比较照片，对于理解不同分类器很有帮组。 <img src="/assets/img/post/classification_comparison.png" alt="classifier comparision" /></p>
+
+<h4>-参考</h4>
+
+<p><strong>[1]</strong> <a href="http://stackoverflow.com/questions/8574919/sublime-text-2-custom-path-and-pythonpath">Stackoverflow</a><br/>
+<strong>[2]</strong> <a href="http://robinwragg.tumblr.com/post/55364315373/how-to-specify-which-python-version-sublime-text-2#notes">How to specify which Python version </a></p>
 
 </div>
 
@@ -114,11 +131,11 @@ Ruby is a dynamic, reflective, general-purpose pure OO languages that combines s
   <h2>Related Posts</h2>
   <ul class="posts">
     
-      <li><span>21 Jul 2015</span> &raquo; <a href="/post/Sublime2%E4%B8%8B%E9%85%8D%E7%BD%AEPython%E6%A8%A1%E5%9D%97%E6%9F%A5%E6%89%BE%E8%B7%AF%E5%BE%84PYTHONPATH">Sublime2下配置Python模块查找路径PYTHONPATH</a></li>
-    
       <li><span>07 Jun 2015</span> &raquo; <a href="/post/gitignore%E6%96%87%E4%BB%B6%E4%B8%8D%E8%B5%B7%E4%BD%9C%E7%94%A8">.gitignore文件不起作用</a></li>
     
       <li><span>07 Jun 2015</span> &raquo; <a href="/post/css%E5%B8%B8%E7%94%A8tips%E6%B1%87%E6%80%BB">css常用tips汇总</a></li>
+    
+      <li><span>30 May 2015</span> &raquo; <a href="/post/singleton-design-pattern">Singleton Design Pattern</a></li>
     
   </ul>
 </div>

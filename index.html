@@ -42,6 +42,20 @@
     
       <div id="post-card">
         <div id="card-profile">
+          <span id="title"><i class="fa fa-book"></i><span class="awesome_font_margin"></span><a href="/post/Sublime2%E4%B8%8B%E9%85%8D%E7%BD%AEPython%E6%A8%A1%E5%9D%97%E6%9F%A5%E6%89%BE%E8%B7%AF%E5%BE%84PYTHONPATH">Sublime2下配置Python模块查找路径PYTHONPATH</a></span>
+          <span id="timedate"><i class="fa fa-calendar"></i><span class="awesome_font_margin"></span>21 Jul 2015</span>
+          <div id="card-content">
+            <a href="/post/Sublime2%E4%B8%8B%E9%85%8D%E7%BD%AEPython%E6%A8%A1%E5%9D%97%E6%9F%A5%E6%89%BE%E8%B7%AF%E5%BE%84PYTHONPATH">最近在搞sclearn kit库，用命令行build太麻烦，就直接用Sublime2来build，但发现build时总是出现sclearn模块找不到的情况，但的确已经通过pip install 了相关包，最后发现是sublime2里配置的Python setting 路径也需要配置PYTHONPATH变量来指出module的路径。 -问题场景 按照sclearn安装页的指示，安装了必要的package后，在sublime2中通过｀cmd + B`来build后出现了如下错误： Traceback (most recent call last): File "/Users/weiheng/Documents/personal/demo/scikit/plot_classifier_comparison.py", line 34, in &lt;module&gt; from sklearn.cross_validation import train_test_split ImportError: No module named sklearn.cross_validation 但我用python命令行import是没问题的。 - 原因分析 需要在Python.sublime-build中设置env变量。Google了一些可能的答案，发现上面的错误是由于sublime2中默认的python模块的路径中找不到sclearn模块，而控制模块查找路径的则是$PYTHONPATH变量而非$PATH变量。且sublime2 GUI是通过自己的python设置文件查找变量的，很多建议在.profile， .zshrc等命令行配置文件中加上PYTHOINPATH变量的其实是不能工作的。solution则是：Click Sublime2 Text 2菜单，进入Preference／Browse Packages／Python文件夹，编辑Python.sublime-build文件在其中加上： "env": { "PYTHONPATH":"/usr/local/lib/python:/usr/local/lib/python2.7/site-packages" }, 保存即可。贴一个build之后生成的分类器比较照片，对于理解不同分类器很有帮组。 -参考 [1] Stackoverflow [2] How...</a>
+          </div>
+          <div id="like">
+            <span style="margin-left:5px; margin-right:15px"><i class="fa fa-comment-o"></i><span class="awesome_font_margin"><a href="/post/Sublime2%E4%B8%8B%E9%85%8D%E7%BD%AEPython%E6%A8%A1%E5%9D%97%E6%9F%A5%E6%89%BE%E8%B7%AF%E5%BE%84PYTHONPATH/#disqus_thread"></a></span></span>
+            <span><i class="fa fa-heart"></i></span><span class="awesome_font_margin"></span><a href="/post/Sublime2%E4%B8%8B%E9%85%8D%E7%BD%AEPython%E6%A8%A1%E5%9D%97%E6%9F%A5%E6%89%BE%E8%B7%AF%E5%BE%84PYTHONPATH">0</a>
+          </div>
+        </div>
+      </div>
+    
+      <div id="post-card">
+        <div id="card-profile">
           <span id="title"><i class="fa fa-book"></i><span class="awesome_font_margin"></span><a href="/post/gitignore%E6%96%87%E4%BB%B6%E4%B8%8D%E8%B5%B7%E4%BD%9C%E7%94%A8">.gitignore文件不起作用</a></span>
           <span id="timedate"><i class="fa fa-calendar"></i><span class="awesome_font_margin"></span>07 Jun 2015</span>
           <div id="card-content">
