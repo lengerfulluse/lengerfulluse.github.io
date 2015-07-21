@@ -6,7 +6,8 @@ tags: [tips]
 published: True
 
 ---
-最近在搞[sclearn kit](http://scikit-learn.org/stable/auto_examples/classification/plot_classifier_comparison.html)库，用命令行build太麻烦，就直接用Sublime2来build，但发现build时总是出现sclearn模块找不到的情况，但的确已经通过pip install 了相关包，最后发现是sublime2里配置的Python setting 路径也需要配置**PYTHONPATH**变量来指出module的路径。  
+
+最近在搞[sclearn kit](http://scikit-learn.org/stable/auto_examples/classification/plot_classifier_comparison.html)库，用命令行build太麻烦，就直接用Sublime2来build，但发现build时总是出现sclearn模块找不到的情况，但的确已经通过pip install 了相关包，最后发现是sublime2里配置的Python setting 路径也需要配置**PYTHONPATH**变量来指出module的路径。<!--more-->
 #### -问题场景  
 按照sclearn安装页的指示，安装了必要的package后，在sublime2中通过｀cmd + B`来build后出现了如下错误：  
 
