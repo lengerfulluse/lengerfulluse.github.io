@@ -1,8 +1,8 @@
 ---
 layout: post
+title: Add Comment to Jekyll Blog with Disqus
 category: tutorials
 tags : [jekyll]
-title: Add Comment to Jekyll Blog with Disqus
 ---
 
 ####Blogging with personal domain, Github hosted, Jekyll themes

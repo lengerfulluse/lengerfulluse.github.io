@@ -7,36 +7,38 @@ title: Wei Heng
     {% for post in site.posts %}
       <div id="post-card">
         <div id="card-profile">
-          <div id="excerpt">
-            <span id="title"><i class="fa fa-book"></i><span class="awesome_font_margin"></span><a href="{{ post.url }}">{{ post.title }}</a></span>
-            <span id="timedate"><i class="fa fa-calendar"></i><span class="awesome_font_margin"></span>{{ post.date | date_to_string }}</span>
-            <div id="card-content">
-              <a href="{{post.url}}">
-                {% if post.content contains '<!--more-->' %}
-                  {{ post.content | split:'<!--more-->' | first | remove: '<p>' | remove: '</p>' }}
-                {% else %}
-                  {{ post.content | strip_html | truncatewords:50}}
-                {% endif %}
-              </a>
+            <div id="excerpt-title">
+              <span id="title"><i class="fa fa-book"></i><span class="awesome_font_margin"></span><a href="{{ post.url }}">{{ post.title }}</a></span>
+              <span id="timedate"><i class="fa fa-calendar"></i><span class="awesome_font_margin"></span>{{ post.date | date_to_string }}</span>
             </div>
-            <div id="excerpt-img">
-            {% assign foundImage = 0 %}
-            {% assign images = post.content | split:"<img " %}
-            {% for image in images %}
-              {% if image contains 'src' %}
-                {% if foundImage == 0 %}
-                  {% assign html = image | split:"/>" | first %}
-                  <img {{ html }} />
-                  {% assign foundImage = 1 %}
+            <div id="excerpt">
+              <div id="card-content">
+                <a href="{{post.url}}">
+                  {% if post.content contains '<!--more-->' %}
+                    {{ post.content | split:'<!--more-->' | first | remove: '<p>' | remove: '</p>' }}
+                  {% else %}
+                    {{ post.content | strip_html | truncatewords:50}}
+                  {% endif %}
+                </a>
+              </div>
+              <div id="excerpt-img">
+              {% assign foundImage = 0 %}
+              {% assign images = post.content | split:"<img " %}
+              {% for image in images %}
+                {% if image contains 'src' %}
+                  {% if foundImage == 0 %}
+                    {% assign html = image | split:"/>" | first %}
+                    <img {{ html }} />
+                    {% assign foundImage = 1 %}
+                  {% endif %}
                 {% endif %}
-              {% endif %}
-            {% endfor %}
+              {% endfor %}
+              </div>
             </div>
-          </div>
-          <div id="like">
-            <span style="margin-left:5px; margin-right:15px"><i class="fa fa-comment-o"></i><span class="awesome_font_margin"><a href="{{ post.url }}/#disqus_thread"></a></span></span>
-            <span><i class="fa fa-heart"></i></span><span class="awesome_font_margin"></span><a href="{{ post.url }}">0</a>
-          </div>
+            <div id="like" >
+              <span style="margin-left:5px; margin-right:15px"><i class="fa fa-comment-o"></i><span class="awesome_font_margin"><a href="{{ post.url }}/#disqus_thread"></a></span></span>
+              <span><i class="fa fa-heart"></i></span><span class="awesome_font_margin"></span><a href="{{ post.url }}">0</a>
+            </div>
         </div>
       </div>
     {% endfor %}

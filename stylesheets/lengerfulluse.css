@@ -151,27 +151,37 @@ img {
 }
 #post-card {
 	margin-bottom: 18px;
+	width: 100%;
+	background-color: #F8F8F8;
 }
 #card-profile {
 	padding: 10px 20px 4px;
-	display: inline-block;
 	border: 1px solid #c2c9d4;
 	box-shadow: 0 2px 3px rgba(0, 0, 0, 0.2);
 }
 #card-content {
 	text-indent: 24px;
 	color: #626252;
-	float : left;
-	width:  80%;
+	float: left;
+	width: 75%;
+	height: 100%;
 }
 #card-content a {
 	color: #546673;
 }
-#excerpt-img {
-	float : left;
-	width:  20%;
+#excerpt-title {
+	width: 100%;
 }
+#excerpt-img {
+	float: right;
+	width: 20%;
+	height: 100%;
+}
+
 #excerpt {
+	position: relative;
+	width: 100%;
+	height: 100%;
 	float: left;
 }
 #timedate {
