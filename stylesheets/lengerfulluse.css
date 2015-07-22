@@ -161,9 +161,18 @@ img {
 #card-content {
 	text-indent: 24px;
 	color: #626252;
+	float : left;
+	width:  80%;
 }
 #card-content a {
 	color: #546673;
+}
+#excerpt-img {
+	float : left;
+	width:  20%;
+}
+#excerpt {
+	float: left;
 }
 #timedate {
 	margin-right: 5px;
