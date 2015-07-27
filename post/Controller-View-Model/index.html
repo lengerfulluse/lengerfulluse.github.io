@@ -10,7 +10,9 @@
     <link rel="stylesheet" href="/stylesheets/pygment_trac.css">
     <link rel="stylesheet" href="/stylesheets/lengerfulluse.css" type="text/css" />
     <link rel="stylesheet" href="/stylesheets/font_awesome.css" type="text/css" />
-    <script src="javascripts/scale.fix.js"></script>
+    <script src="/javascripts/jquery-2.1.4.min.js" type="text/javascript"></script>
+    <script src="/javascripts/toc.js" type="text/javascript"></script>
+    <script src="/javascripts/scale.fix.js" type="text/javascript"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
     <!--[if lt IE 9]>
     <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
@@ -35,6 +37,8 @@
         </div>
     </div>
     <div class="main-left">
+        <div class="toc" style="display: none;">
+        </div>
     </div>
     <div class="main-center">
         
@@ -96,14 +100,12 @@
     <h1>Controller-View-Model</h1>
     <p>Models represent knowledge. A view is a (visual) representation of its model. It is thus acting as a presentation filter. A view is attached to its model or model part and get the data necessary for the presentation from the model by asking quetions. It may also update the model by sending appropriate messages. A controller is the link between a user and system. It provides the user with input by arranging for relavant views to present themselves in appropriate places on the screen. The controller receives such user output, translate it into the appropriate messages and pass these messages on to one or more of the views.</p>
 
-<dl>
-<dt>Model</dt>
-<dd>Data only. Get methods, set methods, etc. It is isolated. It knows nothing about View, or the controlls.</dd>
-<dt>View</dt>
-<dd>UI only. Only show what you tell it to, and never  performs any transformation or validation logic. It always forwards input via an event/callback system. It is isolated, knows nothing about the Model nor the Controller.</dd>
-<dt>Controller</dt>
-<dd>Sits between Model and View. Does any data transformation(bussiness logic) that is necessary to get the data from the Model to the View. Does most data validation on input. It knows about both the View and Model.</dd>
-</dl>
+<p>Model
+: Data only. Get methods, set methods, etc. It is isolated. It knows nothing about View, or the controlls.
+View
+: UI only. Only show what you tell it to, and never  performs any transformation or validation logic. It always forwards input via an event/callback system. It is isolated, knows nothing about the Model nor the Controller.
+Controller
+: Sits between Model and View. Does any data transformation(bussiness logic) that is necessary to get the data from the Model to the View. Does most data validation on input. It knows about both the View and Model.</p>
 
 </div>
 
@@ -161,6 +163,12 @@
         limit: 10,
         fuzzy: false,
       })
+    </script>
+    <!-- Script to display table of content -->
+    <script type="text/javascript">
+    $(document).ready(function() {
+    $('.toc').toc();
+    });
     </script>
 </body>
 

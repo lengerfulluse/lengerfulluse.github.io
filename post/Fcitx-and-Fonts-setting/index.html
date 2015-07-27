@@ -10,7 +10,9 @@
     <link rel="stylesheet" href="/stylesheets/pygment_trac.css">
     <link rel="stylesheet" href="/stylesheets/lengerfulluse.css" type="text/css" />
     <link rel="stylesheet" href="/stylesheets/font_awesome.css" type="text/css" />
-    <script src="javascripts/scale.fix.js"></script>
+    <script src="/javascripts/jquery-2.1.4.min.js" type="text/javascript"></script>
+    <script src="/javascripts/toc.js" type="text/javascript"></script>
+    <script src="/javascripts/scale.fix.js" type="text/javascript"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
     <!--[if lt IE 9]>
     <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
@@ -35,6 +37,8 @@
         </div>
     </div>
     <div class="main-left">
+        <div class="toc" style="display: none;">
+        </div>
     </div>
     <div class="main-center">
         
@@ -98,7 +102,7 @@
 input method <a href="http://www.fcitx-im.org"><strong>Fcitx</strong></a> in an English system
 environment.</p>
 
-<h4>English Environment for Fcitx</h4>
+<h4 id="english-environment-for-fcitx">English Environment for Fcitx</h4>
 
 <p>If you just Google the articles about installing the fcitx, almost most
 of them we noted that, you must setting the LC_CTYPE to zh_CN.UTF-8
@@ -107,11 +111,11 @@ Allthough fcitx cannot run on POSIX and C locale, But, it can run on the
 en_US.UTF-8 locale settings. And it can provide you the same english
 enrionment.</p>
 
-<h4>Fcitx Environment Varibles</h4>
+<h4 id="fcitx-environment-varibles">Fcitx Environment Varibles</h4>
 
 <p>There are mainly three important environment variables, they are:
 - XMODIFIERS it connects only to the im module. and common setting as
-this <code>XMODIFIERS="@im=fcitx"</code>
+this <code>XMODIFIERS=&quot;@im=fcitx&quot;</code>
 - GTK_IM_MODULE setting the im select for gtk programs. notice that
 only your fcitx compile USE flag contains gtk, gtk3, you should set it:
 <code>GTK_IM_MODULE=fcitx</code>, otherwise for common gtk2 programs,
@@ -125,7 +129,7 @@ environment variables in .xinitrc. if you use Slim, you could put it in
 the xsessions files.  Provided that You locale is not POSIX or C, it
 will works.</p>
 
-<h4>Install fonts on Sabayon(Gentoo) manual</h4>
+<h4 id="install-fonts-on-sabayon-gentoo-manual">Install fonts on Sabayon(Gentoo) manual</h4>
 
 <p>First you should copy the fonts into a system fonts directory or
 user self-definition directory.  And if you use the self-definition
@@ -141,7 +145,7 @@ Finally, we need to reconstruct the fonts cached with command
 After you reboot the X system, you could use the command <code>fc-list | grep
 -i font-name</code></p>
 
-<p>And that's all.</p>
+<p>And that&#39;s all.</p>
 
 </div>
 
@@ -199,6 +203,12 @@ After you reboot the X system, you could use the command <code>fc-list | grep
         limit: 10,
         fuzzy: false,
       })
+    </script>
+    <!-- Script to display table of content -->
+    <script type="text/javascript">
+    $(document).ready(function() {
+    $('.toc').toc();
+    });
     </script>
 </body>
 

@@ -10,7 +10,9 @@
     <link rel="stylesheet" href="/stylesheets/pygment_trac.css">
     <link rel="stylesheet" href="/stylesheets/lengerfulluse.css" type="text/css" />
     <link rel="stylesheet" href="/stylesheets/font_awesome.css" type="text/css" />
-    <script src="javascripts/scale.fix.js"></script>
+    <script src="/javascripts/jquery-2.1.4.min.js" type="text/javascript"></script>
+    <script src="/javascripts/toc.js" type="text/javascript"></script>
+    <script src="/javascripts/scale.fix.js" type="text/javascript"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
     <!--[if lt IE 9]>
     <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
@@ -35,6 +37,8 @@
         </div>
     </div>
     <div class="main-left">
+        <div class="toc" style="display: none;">
+        </div>
     </div>
     <div class="main-center">
         
@@ -94,24 +98,24 @@
 
 <div id="post">
     <h1>Fluxbox Installation</h1>
-    <p>I have mentioned a little about the configuration process related to the lightweight <em>Desktop Environment</em> or some kind of full-functional <em>Window Managerment</em>. It's extremely a bit lucky that I could have encountered the
-<strong>Fluxbox</strong>. It's almost the same situation as my dating with Sabayon Linux. One day, I suddenly miss the lovely gentoo linux, so I open my
-google plus homepage, and search gentoo's current release news. It's definately amazing that the second result of the gentoo query term is
-about a lovely logo, which like some animal's foot surrounded by a circle. After search it in wikipedia, I found that it's
-the honey sweet foot of gentoo penguin. As for the Fluxbox, you couldn't imagine that it's almost the same situation. Let's start our
+    <p>I have mentioned a little about the configuration process related to the lightweight <em>Desktop Environment</em> or some kind of full-functional <em>Window Managerment</em>. It&#39;s extremely a bit lucky that I could have encountered the
+<strong>Fluxbox</strong>. It&#39;s almost the same situation as my dating with Sabayon Linux. One day, I suddenly miss the lovely gentoo linux, so I open my
+google plus homepage, and search gentoo&#39;s current release news. It&#39;s definately amazing that the second result of the gentoo query term is
+about a lovely logo, which like some animal&#39;s foot surrounded by a circle. After search it in wikipedia, I found that it&#39;s
+the honey sweet foot of gentoo penguin. As for the Fluxbox, you couldn&#39;t imagine that it&#39;s almost the same situation. Let&#39;s start our
 narrative with the completion of Sabayon linux. I first choice the default Gnome Desktop envrionment, and everythins seems just work properly.
 However, when I tried to change the backgroud of the desktop theme, I found I cannot open the setting panel with the right click and selection
-of change desktop background item. After that some other symptoms continues one by one. For instance, There doesn't exist <em>System</em> menu in the
+of change desktop background item. After that some other symptoms continues one by one. For instance, There doesn&#39;t exist <em>System</em> menu in the
 Gnome default taskbar panel. and I cannot use the function of user system settings in my account applet.   So I decide to remove gnome and
-start something new, such as KDE or xfce4 <em>etc</em>. But at the same time, I found that it's not an easy thing to remove the gnome environment and
+start something new, such as KDE or xfce4 <em>etc</em>. But at the same time, I found that it&#39;s not an easy thing to remove the gnome environment and
 install some new desktop environment due to some fuzzy and frustrating depencdency considerations. So I log out the Gnome and back to the GDM
-login manager to see whether there are some other Sessions for selection. Bla bla bla, Fluxbox has just been waiting for me. Great, It's You.</p>
+login manager to see whether there are some other Sessions for selection. Bla bla bla, Fluxbox has just been waiting for me. Great, It&#39;s You.</p>
 
-<h4>Configure Fluxbox</h4>
+<h4 id="configure-fluxbox">Configure Fluxbox</h4>
 
-<p>The main confiugre file is under the user's Home directory, which is adopted a common configure style .fluxbox/. and it contains all aspect of
+<p>The main confiugre file is under the user&#39;s Home directory, which is adopted a common configure style .fluxbox/. and it contains all aspect of
 the fluxbox, from the start application with fluxbox, to the menu item selection, windowmenu, keyboard shortcuts and background of the
-desktop.  I'll list below and give a detailed explanations.
+desktop.  I&#39;ll list below and give a detailed explanations.
     .
     | --</p>
 
@@ -171,6 +175,12 @@ desktop.  I'll list below and give a detailed explanations.
         limit: 10,
         fuzzy: false,
       })
+    </script>
+    <!-- Script to display table of content -->
+    <script type="text/javascript">
+    $(document).ready(function() {
+    $('.toc').toc();
+    });
     </script>
 </body>
 

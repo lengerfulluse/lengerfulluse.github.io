@@ -10,7 +10,9 @@
     <link rel="stylesheet" href="/stylesheets/pygment_trac.css">
     <link rel="stylesheet" href="/stylesheets/lengerfulluse.css" type="text/css" />
     <link rel="stylesheet" href="/stylesheets/font_awesome.css" type="text/css" />
-    <script src="javascripts/scale.fix.js"></script>
+    <script src="/javascripts/jquery-2.1.4.min.js" type="text/javascript"></script>
+    <script src="/javascripts/toc.js" type="text/javascript"></script>
+    <script src="/javascripts/scale.fix.js" type="text/javascript"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
     <!--[if lt IE 9]>
     <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
@@ -35,6 +37,8 @@
         </div>
     </div>
     <div class="main-left">
+        <div class="toc" style="display: none;">
+        </div>
     </div>
     <div class="main-center">
         
@@ -97,16 +101,17 @@
     <p>In the myterious equations of love that any logic or reasons can be found.
 you are the only reason I am. You are all the reason.</p>
 
-<h4>Enjoy writing</h4>
+<h4 id="enjoy-writing">Enjoy writing</h4>
 
-<p>At some point, I begin to rethink the meanings of writing. It seems to me that it's not only the memories of carrier, but also it organize my thoughts, enlightened and inspired ideas.  Especially for the developers, it's important to form the habit of summarization and conclusion.
-Under the cover of darkness, a suitable desk accompanied with a laptop, beside a cup of tea. In the warm light, the smell of tea flow with mind. It's just perfect!</p>
+<p>At some point, I begin to rethink the meanings of writing. It seems to me that it&#39;s not only the memories of carrier, but also it organize my thoughts, enlightened and inspired ideas.  Especially for the developers, it&#39;s important to form the habit of summarization and conclusion.
+Under the cover of darkness, a suitable desk accompanied with a laptop, beside a cup of tea. In the warm light, the smell of tea flow with mind. It&#39;s just perfect!</p>
 
-<h4>Just go ahead</h4>
+<h4 id="just-go-ahead">Just go ahead</h4>
 
 <p>The preliminary assumption on the content of this blog contains the following <strong><em>categories</em></strong>:</p>
 
-<blockquote><ul>
+<blockquote>
+<ul>
 <li><strong>note</strong> : the usage of some tools or languages.</li>
 <li><strong>study</strong>: some interest research fields in my directions.</li>
 <li><strong>phi</strong>: some comprehensive thoughts.</li>
@@ -115,8 +120,7 @@ Under the cover of darkness, a suitable desk accompanied with a laptop, beside a
 The preliminary assumption on the content of this blog contain the following <strong><em>tags</em></strong>:</li>
 </ul>
 </blockquote>
-
-<pre><code>.
+<div class="highlight"><pre><code class="language-text" data-lang="text">.
 |-- life
 |   |-- feelings
 |   |-- tips
@@ -133,9 +137,8 @@ The preliminary assumption on the content of this blog contain the following <st
 |   |-- research
 |   |-- |-- nlp(natural language process)
 |   |-- |-- ml(machine learning)
-</code></pre>
-
-<h4>So long</h4>
+</code></pre></div>
+<h4 id="so-long">So long</h4>
 
 <p>However, the position of this blog is still aimed to technique articles, and do some help for myself, and It will be my honor if it happens to be useful to you.
 so long, and thanks for all the fish ^_^</p>
@@ -196,6 +199,12 @@ so long, and thanks for all the fish ^_^</p>
         limit: 10,
         fuzzy: false,
       })
+    </script>
+    <!-- Script to display table of content -->
+    <script type="text/javascript">
+    $(document).ready(function() {
+    $('.toc').toc();
+    });
     </script>
 </body>
 

@@ -401,6 +401,10 @@ section {
   .nav-logo {
     display: none;
   }
+
+  .toc {
+    display: none;
+  }
 }
 
 /* for small screen device, like smartphone*/
@@ -427,6 +431,10 @@ section {
   }
 
   .nav-logo {
+    display: none;
+  }
+
+  .toc {
     display: none;
   }
 }

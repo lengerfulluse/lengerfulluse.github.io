@@ -10,7 +10,9 @@
     <link rel="stylesheet" href="/stylesheets/pygment_trac.css">
     <link rel="stylesheet" href="/stylesheets/lengerfulluse.css" type="text/css" />
     <link rel="stylesheet" href="/stylesheets/font_awesome.css" type="text/css" />
-    <script src="javascripts/scale.fix.js"></script>
+    <script src="/javascripts/jquery-2.1.4.min.js" type="text/javascript"></script>
+    <script src="/javascripts/toc.js" type="text/javascript"></script>
+    <script src="/javascripts/scale.fix.js" type="text/javascript"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
     <!--[if lt IE 9]>
     <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
@@ -35,6 +37,8 @@
         </div>
     </div>
     <div class="main-left">
+        <div class="toc" style="display: none;">
+        </div>
     </div>
     <div class="main-center">
         
@@ -94,16 +98,16 @@
 
 <div id="post">
     <h1>Add Comment to Jekyll Blog with Disqus</h1>
-    <h4>Blogging with personal domain, Github hosted, Jekyll themes</h4>
+    <h4 id="blogging-with-personal-domain-github-hosted-jekyll-themes">Blogging with personal domain, Github hosted, Jekyll themes</h4>
 
 <p>If you are tired of common blogging with Wordpress, Pager like, and want to try some cool things of DIY, Just take a look at these combination:
 Buy a personal domain on <a href="http://godaddy.com">Godaddy</a>, hosted on <a href="http://github.com">Github</a>, and setting you blog template with the help of
-<a href="http://jekyllrb.com">Jekyll</a>. It's not a fresh thing when I write this article. So what I am aimed is to introduce a common way to add comments
+<a href="http://jekyllrb.com">Jekyll</a>. It&#39;s not a fresh thing when I write this article. So what I am aimed is to introduce a common way to add comments
 to your jekyll theme. <a href="https://disqus.com">Disqus</a> Here.</p>
 
-<h4>Comments with Disqus</h4>
+<h4 id="comments-with-disqus">Comments with Disqus</h4>
 
-<p> It's actually a lot simpler than you might think. The main process just contains following steps:
+<p>It&#39;s actually a lot simpler than you might think. The main process just contains following steps:
  1. Register an account on <a href="https://disqus.com/admin/create/">Disqus</a>. After register of disqus account,
  you could go next step to register your website, such as your personal domain blog website. The whole register process is very self explanation,
  so I will take no more explanation here.
@@ -132,10 +136,9 @@ to your jekyll theme. <a href="https://disqus.com">Disqus</a> Here.</p>
    <span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">&quot;http://disqus.com&quot;</span> <span class="na">class=</span><span class="s">&quot;dsq-brlink&quot;</span><span class="nt">&gt;</span>blog comments powered by
        <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">&quot;logo-disqus&quot;</span><span class="nt">&gt;</span>Disqus<span class="nt">&lt;/span&gt;&lt;/a&gt;</span></code></pre></div>
 
-
-<p> Now what you need to do is just putting them into the proper layout html template, post layout for example.
+<p>Now what you need to do is just putting them into the proper layout html template, post layout for example.
  4.  Noted that, most situation we need to test our Jekyll in local. In order for Disqus to work on your local, you need to tell it that you are working in
- development mode. If you don't do this, then you will get an message stating it can't reach the server. All you need to do is add a new variable with a value
+ development mode. If you don&#39;t do this, then you will get an message stating it can&#39;t reach the server. All you need to do is add a new variable with a value
  of <em>1</em>.</p>
 
 <div class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;script </span><span class="na">type=</span><span class="s">&quot;text/javascript&quot;</span><span class="nt">&gt;</span>
@@ -161,15 +164,13 @@ to your jekyll theme. <a href="https://disqus.com">Disqus</a> Here.</p>
    <span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">&quot;http://disqus.com&quot;</span> <span class="na">class=</span><span class="s">&quot;dsq-brlink&quot;</span><span class="nt">&gt;</span>blog comments powered by
    <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">&quot;logo-disqus&quot;</span><span class="nt">&gt;</span>Disqus<span class="nt">&lt;/span&gt;&lt;/a&gt;</span></code></pre></div>
 
-
 <p>Once you have these set up, everything worked perfectly.</p>
 
-<h4>Reference</h4>
+<h4 id="reference">Reference</h4>
 
 <ul>
 <li><a href="http://http://schmidt-happens.com/articles/2011/09/26/adding-disqus-comments.html">Adding Disqus Comments</a></li>
 </ul>
-
 
 </div>
 
@@ -227,6 +228,12 @@ to your jekyll theme. <a href="https://disqus.com">Disqus</a> Here.</p>
         limit: 10,
         fuzzy: false,
       })
+    </script>
+    <!-- Script to display table of content -->
+    <script type="text/javascript">
+    $(document).ready(function() {
+    $('.toc').toc();
+    });
     </script>
 </body>
 

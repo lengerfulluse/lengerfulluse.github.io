@@ -86,9 +86,41 @@ img {
 
 /* main body */
 .main-left {
-	margin-top: 51px;
+	margin-top: 151px;
 	float: left;
+	position: relative;
 }
+.toc {
+	width: 20%;
+	position: fixed;
+}
+
+.toc a:hover {
+	font-weight: 900;
+	color:#111112;
+}
+.toc a {
+  color:#909092;
+}
+
+.anchor {
+	padding-top: 51px;
+}
+
+.clickable-header {
+  cursor:pointer;
+}
+.clickable-header:hover {
+  text-decoration:underline;
+}
+.top-level-header {
+  display:inline;
+}
+.back-to-top {
+  margin-left:5px;
+  cursor:pointer;
+}
+
 .main-center {
 	float: left;
 	margin-top: 51px;

@@ -10,7 +10,9 @@
     <link rel="stylesheet" href="/stylesheets/pygment_trac.css">
     <link rel="stylesheet" href="/stylesheets/lengerfulluse.css" type="text/css" />
     <link rel="stylesheet" href="/stylesheets/font_awesome.css" type="text/css" />
-    <script src="javascripts/scale.fix.js"></script>
+    <script src="/javascripts/jquery-2.1.4.min.js" type="text/javascript"></script>
+    <script src="/javascripts/toc.js" type="text/javascript"></script>
+    <script src="/javascripts/scale.fix.js" type="text/javascript"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
     <!--[if lt IE 9]>
     <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
@@ -35,6 +37,8 @@
         </div>
     </div>
     <div class="main-left">
+        <div class="toc" style="display: none;">
+        </div>
     </div>
     <div class="main-center">
         
@@ -120,10 +124,10 @@
 
 <div id="post">
     <h1>Retrospect With Cpp</h1>
-    <h3>Hello C plus plus</h3>
+    <h3 id="hello-c-plus-plus">Hello C plus plus</h3>
 
-<p>1  <code>const</code> <strong>member function </strong> when a member function is declared as const suffixed, it promises that it will not change current class member
-2  <code>vitural1</code> <strong>member function</strong> must be declare and definition inside of the class body
+<p>1  <code>const</code> <strong>member function ** when a member function is declared as const suffixed, it promises that it will not change current class member
+2  <code>vitural1</code> **member function</strong> must be declare and definition inside of the class body
 3  Inherit class construct after the base construct And destruct process, inherit class will be release first, and base class last And when we construct class with simple declare like <code>Class name;</code>, it means that we construct the class object in local function stack. However, if we use the <code>new</code> operator, the destructor function will not execute automatically
 4  One of the core technique in c++ is its <strong>STL(Standard Template Library)</strong> It defines most the whole basic data storage type across the whole c++ language And also</p>
 
@@ -183,6 +187,12 @@
         limit: 10,
         fuzzy: false,
       })
+    </script>
+    <!-- Script to display table of content -->
+    <script type="text/javascript">
+    $(document).ready(function() {
+    $('.toc').toc();
+    });
     </script>
 </body>
 

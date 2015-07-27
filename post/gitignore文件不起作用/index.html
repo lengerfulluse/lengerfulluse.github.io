@@ -10,7 +10,9 @@
     <link rel="stylesheet" href="/stylesheets/pygment_trac.css">
     <link rel="stylesheet" href="/stylesheets/lengerfulluse.css" type="text/css" />
     <link rel="stylesheet" href="/stylesheets/font_awesome.css" type="text/css" />
-    <script src="javascripts/scale.fix.js"></script>
+    <script src="/javascripts/jquery-2.1.4.min.js" type="text/javascript"></script>
+    <script src="/javascripts/toc.js" type="text/javascript"></script>
+    <script src="/javascripts/scale.fix.js" type="text/javascript"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
     <!--[if lt IE 9]>
     <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
@@ -35,6 +37,8 @@
         </div>
     </div>
     <div class="main-left">
+        <div class="toc" style="display: none;">
+        </div>
     </div>
     <div class="main-center">
         
@@ -94,34 +98,34 @@
 
 <div id="post">
     <h1>.gitignore文件不起作用</h1>
-    <p>当我们用git时常常会习惯把我们不想上传到远程代码库中的一些本地文件（夹）放在一个叫做.gitignore的文件中，例如常见的本地build文件夹，一些IDE如Intellig,Eclipse的项目管理文件，但有些时候我们会遇到这样的问题：放入gitignore文件夹中的文件却还是被git index, 当你通过<code>git status</code> 显示文件状态时，他们并没有被忽略。<!--more--></p>
+    <p>当我们用git时常常会习惯把我们不想上传到远程代码库中的一些本地文件（夹）放在一个叫做.gitignore的文件中，例如常见的本地build文件夹，一些IDE如Intellig,Eclipse的项目管理文件，但有些时候我们会遇到这样的问题：放入gitignore文件夹中的文件却还是被git index, 当你通过<code>git status</code> 显示文件状态时，他们并没有被忽略。</p>
 
-<h4>-问题场景</h4>
+<!--more-->
+
+<h4 id="问题场景">问题场景</h4>
 
 <ul>
-<li>当你在git库中编写某些代码文件，并已经stage该文件之后，你发现某个文件你不想用了，想在以后的改变中忽略它。然后你再你的.gitignore文件中加入该文件名，结果它并没有被忽略。</li>
-<li>当你从远程代码库中<code>git clone</code>一份代码中本地并做些修改，build，然后<strong>通过git add .</strong>等stage了这些改变，当你通过<code>git status</code>查看状态时发现不小心把build/文件夹给add进来了。于是你在.gitignore文件中加入了build/，但发现并不起作用。</li>
+<li> 当你在git库中编写某些代码文件，并已经stage该文件之后，你发现某个文件你不想用了，想在以后的改变中忽略它。然后你再你的.gitignore文件中加入该文件名，结果它并没有被忽略。</li>
+<li> 当你从远程代码库中<code>git clone</code>一份代码中本地并做些修改，build，然后<strong>通过git add .</strong>等stage了这些改变，当你通过<code>git status</code>查看状态时发现不小心把build/文件夹给add进来了。于是你在.gitignore文件中加入了build/，但发现并不起作用。</li>
 </ul>
 
-
-<h4>-根本原因</h4>
+<h4 id="根本原因">根本原因</h4>
 
 <p>.gitignore文件只是ignore没有被staged(cached)文件，对于已经被staged文件，加入ignore文件时一定要先从staged移除。下面这段话来自github：
-<img src="/assets/img/blog/gitignore_not_working.png" alt=".gitignore文件不工作" />
+<img src="/assets/img/blog/gitignore_not_working.png" alt=".gitignore文件不工作">
 因此，要想用gitignore忽略文件，必须先把它们从staged中移除：</p>
 
 <ol>
 <li>commit你已有的改变，保存当前的工作。</li>
 <li>git rm --cached file/path/to/be/ignored。</li>
 <li>git add .</li>
-<li>git commit -m "fixed untracked files"</li>
+<li>git commit -m &quot;fixed untracked files&quot;</li>
 </ol>
 
+<h4 id="引用">引用</h4>
 
-<h4>-引用</h4>
-
-<p><strong>[1].</strong> <a href="http://stackoverflow.com/questions/11451535/gitignore-not-working">gitignore-not-working</a><br/>
-<strong>[2].</strong> <a href="https://help.github.com/articles/ignoring-files/">ignoring file</a></p>
+<p><strong>[1].</strong> <a href="http://stackoverflow.com/questions/11451535/gitignore-not-working">gitignore-not-working</a><br>
+<strong>[2].</strong> <a href="https://help.github.com/articles/ignoring-files/">ignoring file</a>  </p>
 
 </div>
 
@@ -179,6 +183,12 @@
         limit: 10,
         fuzzy: false,
       })
+    </script>
+    <!-- Script to display table of content -->
+    <script type="text/javascript">
+    $(document).ready(function() {
+    $('.toc').toc();
+    });
     </script>
 </body>
 

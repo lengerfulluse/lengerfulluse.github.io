@@ -10,7 +10,9 @@
     <link rel="stylesheet" href="/stylesheets/pygment_trac.css">
     <link rel="stylesheet" href="/stylesheets/lengerfulluse.css" type="text/css" />
     <link rel="stylesheet" href="/stylesheets/font_awesome.css" type="text/css" />
-    <script src="javascripts/scale.fix.js"></script>
+    <script src="/javascripts/jquery-2.1.4.min.js" type="text/javascript"></script>
+    <script src="/javascripts/toc.js" type="text/javascript"></script>
+    <script src="/javascripts/scale.fix.js" type="text/javascript"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
     <!--[if lt IE 9]>
     <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
@@ -35,6 +37,8 @@
         </div>
     </div>
     <div class="main-left">
+        <div class="toc" style="display: none;">
+        </div>
     </div>
     <div class="main-center">
         
@@ -85,7 +89,7 @@
 
 <div id="post">
     <h1>Learning With Amazoner</h1>
-    <h3>1. A Simple Algorithm for Print All Combination of Balanced Parentheses</h3>
+    <h3 id="1-a-simple-algorithm-for-print-all-combination-of-balanced-parentheses">1. A Simple Algorithm for Print All Combination of Balanced Parentheses</h3>
 
 <div class="highlight"><pre><code class="language-cpp" data-lang="cpp"><span class="cp">#include&lt;iostream&gt;</span>
     <span class="cp">#include&lt;cassert&gt;</span>
@@ -149,8 +153,7 @@
         <span class="n">print_bracket</span><span class="p">(</span><span class="n">level</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="n">out</span><span class="p">,</span> <span class="n">len</span><span class="p">,</span> <span class="n">flag</span><span class="p">);</span>
     <span class="p">}</span></code></pre></div>
 
-
-<h3>2. Find the Element Pair in Array with Sum Equals to a integer</h3>
+<h3 id="2-find-the-element-pair-in-array-with-sum-equals-to-a-integer">2. Find the Element Pair in Array with Sum Equals to a integer</h3>
 
 </div>
 
@@ -208,6 +211,12 @@
         limit: 10,
         fuzzy: false,
       })
+    </script>
+    <!-- Script to display table of content -->
+    <script type="text/javascript">
+    $(document).ready(function() {
+    $('.toc').toc();
+    });
     </script>
 </body>
 

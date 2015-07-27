@@ -10,7 +10,9 @@
     <link rel="stylesheet" href="/stylesheets/pygment_trac.css">
     <link rel="stylesheet" href="/stylesheets/lengerfulluse.css" type="text/css" />
     <link rel="stylesheet" href="/stylesheets/font_awesome.css" type="text/css" />
-    <script src="javascripts/scale.fix.js"></script>
+    <script src="/javascripts/jquery-2.1.4.min.js" type="text/javascript"></script>
+    <script src="/javascripts/toc.js" type="text/javascript"></script>
+    <script src="/javascripts/scale.fix.js" type="text/javascript"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
     <!--[if lt IE 9]>
     <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
@@ -35,6 +37,8 @@
         </div>
     </div>
     <div class="main-left">
+        <div class="toc" style="display: none;">
+        </div>
     </div>
     <div class="main-center">
         
@@ -97,11 +101,11 @@
     <p>Love is definitely amazing thing! ^_^, A ha ? Penny.
 I become to enjoy the writing and thinking time, when the light is  turn off. My heart is warm, and mind is clean, the whole circumstation is just right, except my pumble poor english represion. All right, lets take the driver, go!</p>
 
-<h4>My Vim Note</h4>
+<h4 id="my-vim-note">My Vim Note</h4>
 
 <p>I choose the excellent vi&amp;vim editor since the first time I got contact with Linux OS. the just perfect j, k, h, l keys, all the scenes are so beautiful! I like the spirk learning curve, which discourage the weak, but encourage the brave man to walk the nice travel of a new world.</p>
 
-<h5>Cursor movement</h5>
+<h5 id="cursor-movement">Cursor movement</h5>
 
 <ul>
 <li><strong>w</strong> - jump by start of words (punctuation considered words, etc. <em>word,</em> two words: <em>word</em> and <em>,</em>)</li>
@@ -114,40 +118,34 @@ I become to enjoy the writing and thinking time, when the light is  turn off. My
 <strong>Note</strong>: Prefix a cursor movement command with a number to repeat it.</li>
 </ul>
 
-
-<h5>Insert Mode -Inserting/Appending text</h5>
+<h5 id="insert-mode-inserting-appending-text">Insert Mode -Inserting/Appending text</h5>
 
 <ul>
 <li><strong>ea</strong> - append at end of word. the same to bA, append start of words. Amazing combining commands.
-
-<h5>Editing</h5></li>
+##### Editing</li>
 <li><strong>J</strong> - join line below to the current one.</li>
 <li><strong>cc</strong> - change(replace) the whole line.</li>
 <li><strong>cw</strong> - change(replace) to the end of word.</li>
 <li><strong>c$</strong> - change(replace) to the end of line.</li>
 <li><strong>s</strong> - delete character at cursor and substitute text. compare with <em>r</em></li>
 <li><strong>S</strong> - delete line at cursor and substitute text. (same as <em>cc</em>).
-
-<h5>Cut and Paste</h5></li>
+##### Cut and Paste</li>
 <li><strong>yy</strong> - yank(copy) the whole line.</li>
 <li><strong>yw</strong> - yank(copy) the whole word.</li>
 <li><strong>y$</strong> - yank to end of line.
-
-<h5>Search/Replace</h5></li>
-<li><strong>:%s/old/new/gc </strong> - replace all the <em>old</em> with <em>new</em> throughout file with confirmations.
-
-<h5>Working with multiple files</h5></li>
+##### Search/Replace</li>
+<li>*<em>:%s/old/new/gc *</em> - replace all the <em>old</em> with <em>new</em> throughout file with confirmations.
+##### Working with multiple files</li>
 <li><strong>:e file</strong> - Edit a file in a new buffer.</li>
 <li><strong>:bnext</strong> - go to next buffer(or :bn ).</li>
 <li><strong>:bprev</strong> - go to previous buffer( or :bp).</li>
 <li><strong>:bd</strong> - delete a buffer, namely close a file.</li>
-<li><strong>:sp filename </strong> - open file in a new buffer and split window. <strong>This command is useful</strong>.</li>
+<li><strong>:sp filename ** - open file in a new buffer and split window. **This command is useful</strong>.</li>
 <li><strong>Ctrl + ww</strong> - switch between windows.</li>
 <li><strong>Ctrl + ws</strong> -split windows.</li>
 <li><strong>Ctrl + wv</strong> -split windows vertical.</li>
 <li><strong>Ctrl + wq</strong> -close windows.</li>
 </ul>
-
 
 </div>
 
@@ -205,6 +203,12 @@ I become to enjoy the writing and thinking time, when the light is  turn off. My
         limit: 10,
         fuzzy: false,
       })
+    </script>
+    <!-- Script to display table of content -->
+    <script type="text/javascript">
+    $(document).ready(function() {
+    $('.toc').toc();
+    });
     </script>
 </body>
 

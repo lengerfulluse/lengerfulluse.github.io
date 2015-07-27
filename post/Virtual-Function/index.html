@@ -10,7 +10,9 @@
     <link rel="stylesheet" href="/stylesheets/pygment_trac.css">
     <link rel="stylesheet" href="/stylesheets/lengerfulluse.css" type="text/css" />
     <link rel="stylesheet" href="/stylesheets/font_awesome.css" type="text/css" />
-    <script src="javascripts/scale.fix.js"></script>
+    <script src="/javascripts/jquery-2.1.4.min.js" type="text/javascript"></script>
+    <script src="/javascripts/toc.js" type="text/javascript"></script>
+    <script src="/javascripts/scale.fix.js" type="text/javascript"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
     <!--[if lt IE 9]>
     <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
@@ -35,6 +37,8 @@
         </div>
     </div>
     <div class="main-left">
+        <div class="toc" style="display: none;">
+        </div>
     </div>
     <div class="main-center">
         
@@ -120,11 +124,10 @@
 
 <div id="post">
     <h1>Virtual Function</h1>
-    <h3>虚函数的作用</h3>
+    <h3 id="虚函数的作用">虚函数的作用</h3>
 
 <p>虚函数是为了实现多态性而实现的，更准确的说，是为了实现运行时多态，即dynamic binding的方法。如下例所示：</p>
-
-<pre><code>#include&lt;iostream&gt;
+<div class="highlight"><pre><code class="language-text" data-lang="text">#include&lt;iostream&gt;
 using namespace std;
 
 /* a simple example show the difference between the dynamic binding
@@ -137,7 +140,7 @@ class shape {
 public:
     shape() { };
     virtual void draw() {
-        cout&lt;&lt;"Draw shoap"&lt;&lt;endl;
+        cout&lt;&lt;&quot;Draw shoap&quot;&lt;&lt;endl;
     }
 };
 
@@ -145,7 +148,7 @@ class rectangle: public shape {
 public:
     rectangle() {};
     void draw() {
-        cout&lt;&lt;"Draw rectangle"&lt;&lt;endl;
+        cout&lt;&lt;&quot;Draw rectangle&quot;&lt;&lt;endl;
     }
 };
 
@@ -153,7 +156,7 @@ class round: public shape {
 public:
     round() {};
     void draw() {
-        cout&lt;&lt;"Draw round"&lt;&lt;endl;
+        cout&lt;&lt;&quot;Draw round&quot;&lt;&lt;endl;
     }
 };
 
@@ -166,19 +169,15 @@ int main() {
     s-&gt;draw();
     return 0;
 }
-</code></pre>
-
+</code></pre></div>
 <p>如果不用虚函数实现，派生类中对于<em>draw</em>函数的overriding是在编译时根据所调用的类指针类决定，并不能实现根据运行时指向的实际对象来进行调用。而正是虚函数使得通过基类指针，便能实现动态绑定。因此，上例的运行结果为：</p>
-
-<pre><code>Draw rectangle
+<div class="highlight"><pre><code class="language-text" data-lang="text">Draw rectangle
 Draw round
-</code></pre>
-
-<h3>进化一： 纯虚函数</h3>
+</code></pre></div>
+<h3 id="进化一：-纯虚函数">进化一： 纯虚函数</h3>
 
 <p>这种动态绑定的属性使得我们仅通过基类的指针便可以访问其派生类的某种方法，因此在设计对象继承模式时便很常见了。但是，我们发现对于这种依靠基类来进行动态绑定的方法中，某些基类的某种方法我们并不能实现，如下面的例子：</p>
-
-<pre><code>/* Declaration from:
+<div class="highlight"><pre><code class="language-text" data-lang="text">/* Declaration from:
  * http://www.learncpp.com/cpp-tutorial/126-pure-virtual-functions-abstract-base-classes-and-interface-classes/
  */
 
@@ -188,8 +187,8 @@ class Animal
 protected:
     std::string m_strName;
 
-    /* We're making this constructor protected because
-     * we don't want people creating Animal objects directly,
+    /* We&#39;re making this constructor protected because
+     * we don&#39;t want people creating Animal objects directly,
      * but we still want derived classes to be able to use it.
      */
     Animal(std::string strName)
@@ -199,7 +198,7 @@ protected:
 
 public:
     std::string GetName() { return m_strName; }
-    virtual const char* Speak() { return "???"; }
+    virtual const char* Speak() { return &quot;???&quot;; }
 };
 
 class Cat: public Animal
@@ -210,7 +209,7 @@ public:
     {
     }
 
-    virtual const char* Speak() { return "Meow"; }
+    virtual const char* Speak() { return &quot;Meow&quot;; }
 };
 
 class Dog: public Animal
@@ -221,25 +220,23 @@ public:
     {
     }
 
-    virtual const char* Speak() { return "Woof"; }
+    virtual const char* Speak() { return &quot;Woof&quot;; }
 };
-</code></pre>
-
+</code></pre></div>
 <p>此处我们提及两点：</p>
 
-<blockquote><ol>
-<li>. 对于<em>Animal</em>这种类型，我们无法对其的virtual方法Speak给出实现，当用户定义一个Animal对象时，如果调用其Speak方法，我们无法实现这样一个方法，或是只能空函数体，则得到的是空结果，或是非用户想要的结果，则在某种程度是一种很不好的设计模式。</li>
-<li>. 对于<em>Animal</em>类，在某种抽象程度上，对象本身是不具有意义的，往往是一个抽象的个体罢了，从语言理解的层面，其往往是一个具有抽象概念的东西。因此，我们不应该允许其实例化。故上面的代码对于其构造函数使用了Protected控制符。
+<blockquote>
+<ol>
+<li>对于<em>Animal</em>这种类型，我们无法对其的virtual方法Speak给出实现，当用户定义一个Animal对象时，如果调用其Speak方法，我们无法实现这样一个方法，或是只能空函数体，则得到的是空结果，或是非用户想要的结果，则在某种程度是一种很不好的设计模式。</li>
+<li>对于<em>Animal</em>类，在某种抽象程度上，对象本身是不具有意义的，往往是一个抽象的个体罢了，从语言理解的层面，其往往是一个具有抽象概念的东西。因此，我们不应该允许其实例化。故上面的代码对于其构造函数使用了Protected控制符。
 上面的两种情况，都可以利用纯虚函数的概念来解决。其定义方法为：</li>
 </ol>
 </blockquote>
-
-<pre><code>virtual const char* Speak() = 0;
-</code></pre>
-
+<div class="highlight"><pre><code class="language-text" data-lang="text">virtual const char* Speak() = 0;
+</code></pre></div>
 <p>而存在纯虚函数的类成为了抽象类，不允许构造对象实例。如此便进一步解决了这种抽象类中，虚函数无法实现，且抽象类不具有实际定义对象必要的情况。</p>
 
-<h3>进化二： 接口类</h3>
+<h3 id="进化二：-接口类">进化二： 接口类</h3>
 
 <p>严格意义上来，C++中并没有一个<strong>Interface</strong>关键词，来提供这样一种接口功能，但我们可以通过抽象类来定义。通常而言，接口类只提供一种操作原型的声明，把具体实现指派到派生类。从抽象的角度，接口通常不含有具体的数据成员。</p>
 
@@ -299,6 +296,12 @@ public:
         limit: 10,
         fuzzy: false,
       })
+    </script>
+    <!-- Script to display table of content -->
+    <script type="text/javascript">
+    $(document).ready(function() {
+    $('.toc').toc();
+    });
     </script>
 </body>
 
