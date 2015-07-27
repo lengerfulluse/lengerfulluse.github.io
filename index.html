@@ -14,8 +14,8 @@ title: Wei Heng
             <div id="excerpt">
               <div id="card-content">
                 <a href="{{post.url}}">
-                  {% if post.content contains '<!--more-->' %}
-                    {{ post.content | split:'<!--more-->' | first | remove: '<p>' | remove: '</p>' }}
+                  {% if post.content contains "<!--more-->" %}
+                    {{ post.content | split:"<!--more-->" | first | remove: "<p>" | remove: "</p>" }}
                   {% else %}
                     {{ post.content | strip_html | truncatewords:50}}
                   {% endif %}
@@ -25,11 +25,11 @@ title: Wei Heng
               {% assign foundImage = 0 %}
               {% assign images = post.content | split:"<img " %}
               {% for image in images %}
-                {% if image contains 'src' %}
+                {% if image contains "src" %}
                   {% if foundImage == 0 %}
-                    {% assign html = image | split:"/>" | first %}
+                    {% assign html = image | split:">" | first %}
                     <img {{ html }} />
-                    {% assign foundImage = 1 %}
+                    {% break %}
                   {% endif %}
                 {% endif %}
               {% endfor %}

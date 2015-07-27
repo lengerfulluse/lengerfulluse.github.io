@@ -6,7 +6,10 @@ tags: [ headfirst, tools ]
 published: True
 ---
 
-Singleton模式看似简单，却有很多值得注意的地方。虽然很多时候开口闭口都是singleton，其实很多时候很难完全正确的写出一个singleton模式。比如忽略构造函数的private特性，示例变量声明volatile关键字，以及线程安全等。就像是算法题中常见的快速排序，二分查找，常见却很少有人真正准确写出代码。<!--more-->   
+Singleton模式看似简单，却有很多值得注意的地方。虽然很多时候开口闭口都是singleton，其实很多时候很难完全正确的写出一个singleton模式。比如忽略构造函数的private特性，示例变量声明volatile关键字，以及线程安全等。就像是算法题中常见的快速排序，二分查找，常见却很少有人真正准确写出代码。
+
+<!--more-->   
+
 下面给出一个经典的多线程安全的简单例子，然后NOTE下值得注意的几点：
 
 {% highlight java %}
