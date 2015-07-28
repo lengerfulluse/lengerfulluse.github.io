@@ -30,6 +30,7 @@ body {
 	font-size: 14px;
 	color: #232323;
 	background-color: #eff3fa;
+  position: relative;
 	margin: 0;
 	line-height: 1.8em;
 	-webkit-font-smoothing: antialiased;
@@ -402,7 +403,7 @@ section {
     display: none;
   }
 
-  .toc {
+  #toc {
     display: none;
   }
 }
@@ -434,7 +435,7 @@ section {
     display: none;
   }
 
-  .toc {
+  #toc {
     display: none;
   }
 }

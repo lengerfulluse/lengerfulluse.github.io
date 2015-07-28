@@ -8,15 +8,13 @@
                 headers: 'h1, h2, h3, h4, h5, h6',
                 listType: 'ul', // values: [ol|ul]
                 classes: 'anchor',
-                showEffect: 'slideDown', // values: [show|slideDown|fadeIn|none]
+                showEffect: 'show', // values: [show|slideDown|fadeIn|none]
                 showSpeed: 'slow' // set to 0 to deactivate effect
             },
             settings = $.extend(defaults, options);
-
+        // since markdown render header into valid string, encodeURIComponenet is no longer necessary.
         function fixedEncodeURIComponent(str) {
-            return encodeURIComponent(str).replace(/[!'()*]/g, function(c) {
-                return '%' + c.charCodeAt(0).toString(16);
-            });
+            return encodeURI(str);
         }
 
         var headers = $(settings.headers).filter(function() {
@@ -61,7 +59,7 @@
 
         var level = get_level(headers[0]),
             this_level,
-            html = settings.title + " <" + settings.listType + ">";
+            html = settings.title + " <" + settings.listType + " class = 'nav nav-pills nav-stacked'>";
         headers.on('click', function() {
                 if (!settings.noBackToTopLinks) {
                     window.location.hash = this.id;
@@ -75,17 +73,17 @@
                     $(header).addClass('top-level-header').after(return_to_top);
                 }
                 if (this_level === level) // same level as before; same indenting
-                    html += "<li><a href='#" + fixedEncodeURIComponent(header.id) + "'>" + header.innerHTML + "</a>";
+                    html += "<li><a href='#" + header.id + "'>" + header.innerHTML + "</a>";
                 else if (this_level <= level) { // higher level than before; end parent ol
                     for (i = this_level; i < level; i++) {
                         html += "</li></" + settings.listType + ">"
                     }
-                    html += "<li><a href='#" + fixedEncodeURIComponent(header.id) + "'>" + header.innerHTML + "</a>";
+                    html += "<li><a href='#" + header.id + "'>" + header.innerHTML + "</a>";
                 } else if (this_level > level) { // lower level than before; expand the previous to contain a ol
                     for (i = this_level; i > level; i--) {
                         html += "<" + settings.listType + "><li>"
                     }
-                    html += "<a href='#" + fixedEncodeURIComponent(header.id) + "'>" + header.innerHTML + "</a>";
+                    html += "<a href='#" + header.id + "'>" + header.innerHTML + "</a>";
                 }
                 level = this_level; // update for the next one
             });
