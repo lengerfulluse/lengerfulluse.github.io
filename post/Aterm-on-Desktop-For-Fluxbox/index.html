@@ -21,7 +21,7 @@
     <![endif]-->
 </head>
 
-<body  data-spy="scroll" data-target="#toc" data-offset="20">
+<body  data-spy="scroll" data-target=".toc" data-offset="20">
     <div class="site-nav">
         <div class="nav-logo">
         <img src="/assets/img/blog/nav-logo.png" >
@@ -39,7 +39,7 @@
         </div>
     </div>
     <div class="main-left">
-        <div id="toc" style="display: none;">
+        <div class="toc" style="display: none;">
         </div>
     </div>
     <div class="main-center">
@@ -192,7 +192,7 @@ Ok, That&#39;s all, you reload your fluxbox, and run the <strong>aterm</strong>,
     <!-- Script to display table of content -->
     <script type="text/javascript">
     $(document).ready(function() {
-    $('#toc').toc();
+    $('.toc').toc();
     });
     </script>
 </body>
