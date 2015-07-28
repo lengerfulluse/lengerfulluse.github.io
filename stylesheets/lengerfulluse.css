@@ -90,19 +90,19 @@ img {
 	float: left;
 	position: relative;
 }
-#toc {
+.toc {
 	width: 20%;
 	position: fixed;
 	text-align: right;
 }
 
-#toc a:hover {
+.toc a:hover {
 	font-weight: 900;
 	color:#111112;
 	text-decoration: none;
 }
 
-#toc a {
+.toc a {
   color:#909092;
 }
 
