@@ -27,7 +27,7 @@ img {
 	line-height: 25px;
 	vertical-align: middle;
 	white-space: nowrap;
-	border: 1px solid #999999;
+	border: 1px solid #337ab7;
 	-webkit-border-radius: 5px;
 	-moz-border-radius: 5px;
 	border-radius: 5px;
@@ -90,19 +90,23 @@ img {
 	float: left;
 	position: relative;
 }
-.toc {
+#toc {
 	width: 20%;
 	position: fixed;
+	text-align: right;
 }
 
-.toc a:hover {
+#toc a:hover {
 	font-weight: 900;
 	color:#111112;
+	text-decoration: none;
 }
-.toc a {
+
+#toc a {
   color:#909092;
 }
 
+/* for retive margin with fixed html header nav */
 .anchor {
 	padding-top: 51px;
 }
