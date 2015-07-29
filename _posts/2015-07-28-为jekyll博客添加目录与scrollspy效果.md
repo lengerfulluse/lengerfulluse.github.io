@@ -1,7 +1,7 @@
 ---
 layout: post
 title: 为Jekyll博客添加目录与ScrollSpy效果
-categories: tutorials
+category: tutorials
 tags: [jekyll, tips]
 published: True
 
