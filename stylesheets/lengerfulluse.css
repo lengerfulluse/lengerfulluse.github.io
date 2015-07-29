@@ -120,6 +120,9 @@ img {
 .top-level-header {
   display:inline;
 }
+.sub-level-header {
+	display:  inline; 
+}
 .back-to-top {
   margin-left:5px;
   cursor:pointer;

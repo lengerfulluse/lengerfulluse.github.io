@@ -66,7 +66,7 @@
                 }
             })
             .addClass(settings.classes)
-            .addClass('clickable-header')
+            .addClass('clickable-header sub-level-header')
             .each(function(_, header) {
                 this_level = get_level(header);
                 if (!settings.noBackToTopLinks && this_level === highest_level) {
@@ -81,7 +81,7 @@
                     html += "<li><a href='#" + header.id + "'>" + header.innerHTML + "</a>";
                 } else if (this_level > level) { // lower level than before; expand the previous to contain a ol
                     for (i = this_level; i > level; i--) {
-                        html += "<" + settings.listType + "><li>"
+                        html += "<" + settings.listType + " class = 'nav nav-pills nav-stacked'><li>"
                     }
                     html += "<a href='#" + header.id + "'>" + header.innerHTML + "</a>";
                 }
