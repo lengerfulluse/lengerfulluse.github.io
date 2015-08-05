@@ -30,7 +30,7 @@ img {
 	border: 1px solid #337ab7;
 	-webkit-border-radius: 5px;
 	-moz-border-radius: 5px;
-	border-radius: 5px;
+	border-radius: 15px;
 	-webkit-transition: width .55s ease;
 	-moz-transition: width .55s ease;
 	-ms-transition: width .55s ease;
@@ -38,7 +38,15 @@ img {
 	transition: width .55s ease;
 }
 .nav-search:hover {
-	border: 1px solid #C30000;
+	border: 2px solid #337ab7;
+}
+
+.nav-search:hover .icon {
+	color: #337ab7;
+}
+
+.search-input {
+	padding-right: 13px;
 }
 .nav-search .search-input {
 	float: right;
@@ -186,7 +194,8 @@ img {
 }
 #like {
 	text-align: right;
-	left-margin: 10px;
+	display: inline-block;
+	width: 100%;
 }
 #post-card {
 	margin-bottom: 18px;
@@ -197,6 +206,7 @@ img {
 	padding: 10px 20px 4px;
 	border: 1px solid #c2c9d4;
 	box-shadow: 0 2px 3px rgba(0, 0, 0, 0.2);
+	overflow: auto;
 }
 #card-content {
 	text-indent: 24px;
