@@ -36,6 +36,23 @@
         </div>
     </div>
     <div class="main-left">
+        <!--
+        <div class="hung-panel">
+            <ul>
+            {% assign tags_list = site.categories %}  
+              {% if tags_list.first[0] == null %}
+                {% for tag in tags_list %} 
+                  <li  class="tag-cloud"><a href="#{{ tag }}">{{ tag | capitalize }} <span>{{ site.tags[tag].size }}</span></a></li>
+                {% endfor %}
+              {% else %}
+                {% for tag in tags_list %} 
+                  <li  class="tag-cloud"><a href="#{{ tag[0] }}">{{ tag[0] | capitalize }} <span>{{ tag[1].size }}</span></a></li>
+                {% endfor %}
+              {% endif %}
+            {% assign tags_list = nil %}
+            </ul>
+        </div>
+        -->
     </div>
     <div class="main-center">
         {{content}}
