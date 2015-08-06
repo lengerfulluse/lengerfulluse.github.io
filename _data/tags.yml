@@ -20,10 +20,13 @@
   name: research
 
 - slug: interview
-  name: interview
+  name: Interview
 
 - slug: tips
   name: Tips
 
 - slug: payments
   name: Payments
+
+- slug: algorithm
+  name: Algorithm

@@ -104,19 +104,32 @@ img {
 
 .hung-panel {
 	height: 100%;
-	padding-right: 5px;
-	display: inline;
-	width: 100%;
-	min-width: 35px;
+	display: block;
+	width: 80%;
+	float: right;
 }
 
 .tag-cloud {
+	display: inline-block;
+	width: 80%;
+	height: 100%;
+	border: 1px solid #e0e3e9;
+	padding-left: 10px;
+	padding-top: 6px;
+}
+
+.tag-title {
+	display: block;
+	font-family: monospace;
+	margin-bottom: 5px;
+}
+
+.tag-item {
 	margin-bottom: 4px;
 	margin-right: 2px;
 	background-color: #F8F8F8;
-	padding: 4px 8px 4px;
-	border: 1px solid #c2c9d4;
-	box-shadow: 0 2px 0px rgba(0, 0, 0, 0.2);
+	padding: 1px 4px 1px;
+	border: 1px solid #337ab7;
 	overflow: auto;
     list-style-type: none;
     -webkit-border-radius: 5px;
@@ -125,6 +138,22 @@ img {
 	display: inline;
 	float: left;
 }
+
+/* when curser hover on tag-item, front and 
+background color are switched. So as for a link font color
+*/
+
+.tag-item:hover {
+	background-color: #337ab7;
+}
+
+.tag-item:hover a{
+	color: #fff;
+	border: 1px solid #337ab7;
+	text-decoration: none;
+}
+
+/* remove hover a text decoration in tag item */
 
 .toc {
 	width: 20%;
@@ -172,6 +201,13 @@ img {
 	float: right;
 	margin-top: 51px;
 }
+
+.post-list-title {
+	font-family: monospace;
+	margin-top: 30px;
+	margin-bottom: 20px;
+}
+
 .post-meta {
 	font-style: italic;
 	text-align: left;

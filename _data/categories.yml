@@ -17,3 +17,7 @@
 - slug: tutorials
   name: Tutorials
   color: '#CC00FF'
+
+- slug: notes
+  name: notes
+  color: '#921477'
