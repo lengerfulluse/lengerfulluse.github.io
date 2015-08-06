@@ -206,6 +206,8 @@ background color are switched. So as for a link font color
 	font-family: monospace;
 	margin-top: 30px;
 	margin-bottom: 20px;
+	border-bottom: 1px solid #e0e3e9;
+	text-align: center;
 }
 
 .post-meta {
