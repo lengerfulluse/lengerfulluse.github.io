@@ -405,6 +405,10 @@ section {
   .toc {
     display: none;
   }
+
+  .hung-panel {
+    display: none;
+  }
 }
 
 /* for small screen device, like smartphone*/
@@ -435,6 +439,10 @@ section {
   }
 
   .toc {
+    display: none;
+  }
+
+  .hung-panel {
     display: none;
   }
 }
