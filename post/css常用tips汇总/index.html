@@ -146,8 +146,9 @@
 
 <p><strong>5. div + display 选项.</strong><br>
 <strong>none</strong>: 一些media options时如果想要在小屏幕（如智能手机上）不现实某个div，则可以用display:none选项。<br>
-<strong>inline</strong>: 只占用它所需要的最小的宽度，且不必强制换行（如段落标签会需要强制换行).<br>
-<strong>block</strong>: 占用整个可用的宽度，之前和之后都有空行。 </p>
+<strong>inline</strong>: 只占用它所需要的最小的宽度，且不必强制换行（其左右均可以有元素存在). 不可以设置高度和宽度属性。也没有top-margin,top-padding属性。<br>
+<strong>block</strong>: 占用整个可用的宽度，之前和之后都有空行。 高度，宽度，margin，padding都可以设置。<br>
+<strong>inline-block</strong>: 具有inline的特点，占用最小宽度，但没有强制换行，其左右均可以有元素。却有block的属性：可以设置高度和宽度等。  </p>
 
 <p><strong>6. @media query 规则.</strong><br>
 移动互联的今天，仅仅是pc端已经远不能满足用户的多途径浏览需求了，如smartphone, tablet, laptop等等。如果使你的网站真正的mobile-friendly便尤为重要了，而最简单的实现方法就是通过@media 规则来。 </p>
@@ -173,13 +174,19 @@
 <span class="p">}</span></code></pre></div>
 
 <p>如你可以根据不同屏幕的大小来设置不同class,id的显示与否，颜色等各种特性。<br>
-后续新的tips,会持续更新……</p>
+<strong>7. width 100% vs. auto</strong><br>
+很多时候，对于block元素，默认的宽度便是占满父容器剩余空间，如有margin，padding时，其默认宽度设置便是剩余的宽度。这便是width:auto的效果。而很多时候，一些developer喜欢把宽度设置成100%，其表明把其宽度设置成父容器相同的长度，这样如果该block再有padding或是margin的属性，其便会延伸到父容器外面去。可以参考JSFiddle上的一个<a href="https://jsfiddle.net/LengerFulluse/b5gvyzt6/1/">例子</a>.  </p>
+
+<p>后续新的tips,会持续更新……</p>
 
 <h4 id="引用">-引用</h4>
 
 <p><strong>[1].</strong> <a href="http://stackoverflow.com/questions/3029422/image-auto-resize-to-fit-div-container">img标签auto resize</a><br>
 <strong>[2].</strong> <a href="http://stackoverflow.com/questions/3099030/displayinline-vs-displayblock">Display选项</a><br>
-<strong>[3].</strong> <a href="https://css-tricks.com/snippets/css/media-queries-for-standard-devices/">Media queries</a></p>
+<strong>[3].</strong> <a href="http://stackoverflow.com/questions/9189810/css-display-inline-vs-inline-block">inline vs inlink-block</a><br>
+<strong>[4].</strong> <a href="http://stackoverflow.com/questions/11805352/floatleft-vs-displayinline-vs-displayinline-block-vs-displaytable-cell">float vs display</a><br>
+<strong>[5].</strong> <a href="http://www.456bereastreet.com/archive/201112/the_difference_between_widthauto_and_width100/">width auto vs width 100%</a><br>
+<strong>[6].</strong> <a href="https://css-tricks.com/snippets/css/media-queries-for-standard-devices/">Media queries</a>  </p>
 
 </div>
 
