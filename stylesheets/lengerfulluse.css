@@ -104,14 +104,13 @@ img {
 
 .hung-panel {
 	height: 100%;
-	display: block;
 	width: 80%;
 	float: right;
 }
 
 .tag-cloud {
 	display: inline-block;
-	width: 80%;
+	width: 70%;
 	height: 100%;
 	border: 1px solid #e0e3e9;
 	padding-left: 10px;
@@ -119,24 +118,20 @@ img {
 }
 
 .tag-title {
-	display: block;
+	display: inline-block;
 	font-family: monospace;
 	margin-bottom: 5px;
 }
 
 .tag-item {
 	margin-bottom: 4px;
-	margin-right: 2px;
 	background-color: #F8F8F8;
-	padding: 1px 4px 1px;
+	padding: 1px 3px 1px;
 	border: 1px solid #337ab7;
-	overflow: auto;
-    list-style-type: none;
     -webkit-border-radius: 5px;
 	-moz-border-radius: 5px;
 	border-radius: 15px;
-	display: inline;
-	float: left;
+	display: inline-block;
 }
 
 /* when curser hover on tag-item, front and 
@@ -149,7 +144,6 @@ background color are switched. So as for a link font color
 
 .tag-item:hover a{
 	color: #fff;
-	border: 1px solid #337ab7;
 	text-decoration: none;
 }
 
