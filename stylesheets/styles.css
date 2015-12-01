@@ -398,12 +398,16 @@ section {
     display: none;
   }
 
+  .nav-discovery {
+    display:none;
+  }
+
   .nav-logo {
-    display: none;
+    visibility:  hidden;
   }
 
   .toc {
-    display: none;
+    visibility:  hidden;
   }
 
   .hung-panel {
@@ -434,12 +438,16 @@ section {
     display:none;
   }
 
+  .nav-discovery {
+    display:none;
+  }
+
   .nav-logo {
-    display: none;
+    visibility: hidden;
   }
 
   .toc {
-    display: none;
+    visibility: hidden;
   }
 
   .hung-panel {
