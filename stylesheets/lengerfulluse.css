@@ -21,7 +21,7 @@ img {
 	max-height: 100%;
 }
 .nav-search {
-	float: left;
+	float: right;
 	margin-top: 12.5px;
 	padding: 0;
 	line-height: 25px;
@@ -112,7 +112,6 @@ img {
 	display: inline-block;
 	width: 70%;
 	height: 100%;
-	border: 1px solid #e0e3e9;
 	padding-left: 10px;
 	padding-top: 6px;
 }
