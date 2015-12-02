@@ -25,8 +25,8 @@
         <img src="/assets/img/blog/nav-logo.png" >
         </div>
         <div class="nav-content">
-            <a href="/index.html"><span class="nav-content-item item-selected">Home</span></a>
-            <a href="/project.html"><span class="nav-content-item">Projects</span></a>
+            <a href="/index.html"><span class="nav-content-item">Home</span></a>
+            <a href="/project.html"><span class="nav-content-item item-selected">Projects</span></a>
             <a href="/me.html"><span class="nav-content-item">About</span></a>
             <span>
                 <div class="nav-search">
@@ -39,37 +39,6 @@
         </div>
     </div>
     <div class="main-left">
-        <div class="hung-panel">
-            <div class="tag-title">
-                <i class="fa fa-lemon-o"></i> CLOUD TAGS
-            </div>
-            <div class="tag-cloud">
-                <!-- categories list -->
-                {% assign tags_list = site.categories %}  
-                  {% if tags_list.first[0] == null %}
-                    {% for tag in tags_list %} 
-                      <div class="tag-item"><a href="/blog/category/{{ tag }}/">{{ tag | capitalize }} <span>{{ site.tags[tag].size }}</span></a></div>
-                    {% endfor %}
-                  {% else %}
-                    {% for tag in tags_list %} 
-                      <div class="tag-item"><a href="/blog/category/{{ tag[0] }}/">{{ tag[0] | capitalize }} <span>{{ tag[1].size }}</span></a></div>
-                    {% endfor %}
-                  {% endif %}
-                {% assign tags_list = nil %}
-                <!-- tags list -->
-                {% assign tags_list = site.tags %}  
-                  {% if tags_list.first[0] == null %}
-                    {% for tag in tags_list %} 
-                      <div class="tag-item"><a href="/blog/tag/{{ tag }}/">{{ tag | capitalize }} <span>{{ site.tags[tag].size }}</span></a></div>
-                    {% endfor %}
-                  {% else %}
-                    {% for tag in tags_list %} 
-                      <div class="tag-item"><a href="/blog/tag/{{ tag[0] }}/">{{ tag[0] | capitalize }} <span>{{ tag[1].size }}</span></a></div>
-                    {% endfor %}
-                  {% endif %}
-                {% assign tags_list = nil %}
-            </div>
-        </div>
     </div>
     <div class="main-center">
         {{content}}

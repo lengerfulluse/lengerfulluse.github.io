@@ -88,8 +88,13 @@ img {
 	font-weight: 400;
 	font-size: 120%;
 }
-.nav-content-item:hover {
+
+.item-selected {
 	border-bottom: 2px solid #C30000;
+	font-weight: 800;
+}
+
+.nav-content-item:hover {
 	font-weight: 800;
 }
 
