@@ -1,0 +1,136 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Sublime2下配置Python模块查找路径PYTHONPATH</title>
+    <link rel="shortcut icon" type="image/png" href="/images/favicon.ico">
+    <link rel="stylesheet" href="/stylesheets/styles.css">
+    <link rel="stylesheet" href="/stylesheets/pygment_trac.css">
+    <link rel="stylesheet" href="/stylesheets/font_awesome.css" type="text/css" />
+    <link rel="stylesheet" href="/stylesheets/bootstrap.min.css">
+    <link rel="stylesheet" href="/stylesheets/lengerfulluse.css" type="text/css" />
+    <script src="/javascripts/jquery-2.1.4.min.js" type="text/javascript"></script>
+    <script src="/javascripts/toc.js" type="text/javascript"></script>
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+    <script src="/javascripts/scale.fix.js" type="text/javascript"></script>
+    <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+</head>
+
+<body  data-spy="scroll" data-target=".toc" data-offset="20">
+    <div class="site-nav">
+        <div class="nav-logo">
+        <img src="/assets/img/blog/nav-logo.png" >
+        </div>
+        <div class="nav-content">
+            <a href="/index.html"><span class="nav-content-item">Home</span></a>
+            <a href="#"><span class="nav-content-item item-selected">Blogs</span></a>
+            <a href="/me.html"><span class="nav-content-item">About</span></a>
+            <span>
+                <div class="nav-search">
+                    <span class="search-input"><input type="text" id="search" placeholder="Article..." /></span>
+                    <span class="icon"><i class="fa fa-search"></i></span>
+                </div>
+            </span>
+        </div>
+        <div class="nav-discovery">
+        </div>
+    </div>
+    <div class="main-left">
+        <div class="toc">
+        </div>
+    </div>
+    <div class="main-center">
+        
+
+
+
+
+
+
+<div class="post-meta"><i class="fa fa-calendar-o"></i><span class="awesome_font_margin"></span>21 Jul 2015<span id="post-nav"> <i class="fa fa-folder-open-o fa-lg"></i> <span><a href="/blog/category/tutorials/" style="color: #CC00FF;text-decoration: none;">Tutorials</a></span><span id="post-tags">  <i class="fa fa-tags"></i> <a href="/blog/tag/tips/" style="color:#33CCCC;text-decoration: none;">Tips</a></span></span></div>
+
+<div id="post">
+    <h1>Sublime2下配置Python模块查找路径PYTHONPATH</h1>
+    <p>最近在搞<a href="http://scikit-learn.org/stable/auto_examples/classification/plot_classifier_comparison.html">sclearn kit</a>库，用命令行build太麻烦，就直接用Sublime2来build，但发现build时总是出现sclearn模块找不到的情况，但的确已经通过pip install 了相关包，最后发现是sublime2里配置的Python setting 路径也需要配置<strong>PYTHONPATH</strong>变量来指出module的路径。</p>
+
+<!--more-->
+
+<h4 id="问题场景">问题场景</h4>
+
+<p>按照sclearn安装页的指示，安装了必要的package后，在sublime2中通过｀cmd + B`来build后出现了如下错误：  </p>
+<div class="highlight"><pre><code class="language-text" data-lang="text">Traceback (most recent call last):
+File &quot;/Users/weiheng/Documents/personal/demo/scikit/plot_classifier_comparison.py&quot;, line 34, in &lt;module&gt;
+from sklearn.cross_validation import train_test_split
+ImportError: No module named sklearn.cross_validation
+</code></pre></div>
+<p>但我用python命令行import是没问题的。</p>
+
+<h4 id="原因分析">原因分析</h4>
+
+<p>需要在<em>Python.sublime-build</em>中设置<strong>env</strong>变量。Google了一些可能的答案，发现上面的错误是由于sublime2中默认的python模块的路径中找不到sclearn模块，而控制模块查找路径的则是$PYTHONPATH变量而非$PATH变量。且sublime2 GUI是通过自己的python设置文件查找变量的，很多建议在<em>.profile</em>， <em>.zshrc</em>等命令行配置文件中加上PYTHOINPATH变量的其实是不能工作的。solution则是：Click Sublime2 Text 2菜单，进入<em>Preference／Browse Packages／Python</em>文件夹，编辑<em>Python.sublime-build</em>文件在其中加上：  </p>
+<div class="highlight"><pre><code class="language-text" data-lang="text">&quot;env&quot;:
+{
+    &quot;PYTHONPATH&quot;:&quot;/usr/local/lib/python:/usr/local/lib/python2.7/site-packages&quot;
+},
+</code></pre></div>
+<p>保存即可。贴一个build之后生成的分类器比较照片，对于理解不同分类器很有帮组。 <img src="/assets/img/post/classification_comparison.png" alt="classifier comparision"> </p>
+
+<h4 id="参考">参考</h4>
+
+<p><strong>[1]</strong> <a href="http://stackoverflow.com/questions/8574919/sublime-text-2-custom-path-and-pythonpath">Stackoverflow</a><br>
+<strong>[2]</strong> <a href="http://robinwragg.tumblr.com/post/55364315373/how-to-specify-which-python-version-sublime-text-2#notes">How to specify which Python version </a>  </p>
+
+</div>
+
+<div id="related">
+  <h2>Related Posts</h2>
+  <ul class="posts">
+    
+      <li><span>30 Aug 2015</span> &raquo; <a href="/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/2015/08/30/%E6%A0%B8%E5%87%BD%E6%95%B0%E4%B8%8E%E6%94%AF%E6%8C%81%E5%90%91%E9%87%8F%E6%9C%BA%E5%85%A5%E9%97%A8.html">核函数与支持向量机入门</a></li>
+    
+      <li><span>23 Aug 2015</span> &raquo; <a href="/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/2015/08/23/%E6%B5%85%E8%B0%88l0l1l2%E8%8C%83%E6%95%B0%E5%8F%8A%E5%85%B6%E5%BA%94%E7%94%A8.html">浅谈L0,L1,L2范数及其应用</a></li>
+    
+      <li><span>04 Aug 2015</span> &raquo; <a href="/programming/2015/08/04/java-exception-programming-practice.html">Java 异常处理实践</a></li>
+    
+  </ul>
+</div>
+
+
+        <div class="footer">
+            <div class="copyright">
+                Personal technical blog for software development practices, reading notes on ML, NLP.
+                <br/> &copy; 2013&mdash;2015 by HengWei. All Rights Reserved.
+            </div>
+        </div>
+    </div>
+    <div class="main-right">
+        <ul id="results-container"></ul>
+    </div>
+    <!-- Script pointing to jekyll-search.js -->
+    <script src="/dest/jekyll-search.js" type="text/javascript"></script>
+    <script type="text/javascript">
+      SimpleJekyllSearch({
+        searchInput: document.getElementById('search'),
+        resultsContainer: document.getElementById('results-container'),
+        json: '/search.json',
+        searchResultTemplate: '<li><a href="{url}" title="{desc}">{title}</a></li>',
+        noResultsText: ': (',
+        limit: 10,
+        fuzzy: false,
+      })
+    </script>
+    <!-- Script to display table of content -->
+    <script type="text/javascript">
+    $(document).ready(function() {
+    $('.toc').toc();
+    });
+    </script>
+</body>
+
+</html>

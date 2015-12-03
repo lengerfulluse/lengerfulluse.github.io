@@ -1,0 +1,173 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Learning With Amazoner</title>
+    <link rel="shortcut icon" type="image/png" href="/images/favicon.ico">
+    <link rel="stylesheet" href="/stylesheets/styles.css">
+    <link rel="stylesheet" href="/stylesheets/pygment_trac.css">
+    <link rel="stylesheet" href="/stylesheets/font_awesome.css" type="text/css" />
+    <link rel="stylesheet" href="/stylesheets/bootstrap.min.css">
+    <link rel="stylesheet" href="/stylesheets/lengerfulluse.css" type="text/css" />
+    <script src="/javascripts/jquery-2.1.4.min.js" type="text/javascript"></script>
+    <script src="/javascripts/toc.js" type="text/javascript"></script>
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+    <script src="/javascripts/scale.fix.js" type="text/javascript"></script>
+    <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+</head>
+
+<body  data-spy="scroll" data-target=".toc" data-offset="20">
+    <div class="site-nav">
+        <div class="nav-logo">
+        <img src="/assets/img/blog/nav-logo.png" >
+        </div>
+        <div class="nav-content">
+            <a href="/index.html"><span class="nav-content-item">Home</span></a>
+            <a href="#"><span class="nav-content-item item-selected">Blogs</span></a>
+            <a href="/me.html"><span class="nav-content-item">About</span></a>
+            <span>
+                <div class="nav-search">
+                    <span class="search-input"><input type="text" id="search" placeholder="Article..." /></span>
+                    <span class="icon"><i class="fa fa-search"></i></span>
+                </div>
+            </span>
+        </div>
+        <div class="nav-discovery">
+        </div>
+    </div>
+    <div class="main-left">
+        <div class="toc">
+        </div>
+    </div>
+    <div class="main-center">
+        
+
+
+
+
+
+
+<div class="post-meta"><i class="fa fa-calendar-o"></i><span class="awesome_font_margin"></span>25 Sep 2013<span id="post-nav"> <i class="fa fa-folder-open-o fa-lg"></i> <span><a href="/blog/category/work/" style="color: #921477;text-decoration: none;">Work</a></span><span id="post-tags">  <i class="fa fa-tags"></i> <a href="/blog/tag/algorithm/" style="color:#33CCCC;text-decoration: none;">Algorithm</a>, <a href="/blog/tag/interview/" style="color:#33CCCC;text-decoration: none;">Interview</a></span></span></div>
+
+<div id="post">
+    <h1>Learning With Amazoner</h1>
+    <h3 id="1-a-simple-algorithm-for-print-all-combination-of-balanced-parentheses">1. A Simple Algorithm for Print All Combination of Balanced Parentheses</h3>
+
+<figure class="highlight"><pre><code class="language-cpp" data-lang="cpp">    <span class="cp">#include&lt;iostream&gt;</span>
+    <span class="cp">#include&lt;cassert&gt;</span>
+    <span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
+    <span class="k">const</span> <span class="kt">int</span> <span class="n">MAX</span> <span class="o">=</span> <span class="mi">20</span><span class="p">;</span>
+    <span class="kt">void</span> <span class="nf">print_bracket</span><span class="p">(</span><span class="kt">int</span> <span class="n">level</span><span class="p">,</span> <span class="kt">char</span> <span class="n">out</span><span class="p">[],</span> <span class="kt">int</span> <span class="n">n</span><span class="p">,</span> <span class="kt">int</span> <span class="n">flag</span><span class="p">);</span>
+    <span class="kt">void</span> <span class="nf">print_bracket_v2</span><span class="p">(</span><span class="kt">int</span> <span class="n">n</span><span class="p">,</span> <span class="kt">int</span> <span class="n">pos</span><span class="p">,</span> <span class="kt">int</span> <span class="n">close</span><span class="p">,</span> <span class="kt">int</span> <span class="n">open</span><span class="p">);</span>
+    <span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+        <span class="kt">int</span> <span class="n">n</span> <span class="o">=</span> <span class="mi">3</span><span class="p">;</span>
+        <span class="kt">int</span> <span class="n">flag</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+        <span class="kt">char</span><span class="o">*</span> <span class="n">out</span> <span class="o">=</span> <span class="k">new</span> <span class="kt">char</span><span class="p">[</span><span class="mi">2</span><span class="o">*</span><span class="n">n</span><span class="p">];</span>
+        <span class="cm">/* we can define a static char array inside the print_bracket function */</span>
+        <span class="n">print_bracket</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">n</span><span class="p">,</span> <span class="n">out</span><span class="p">,</span> <span class="mi">2</span><span class="o">*</span><span class="n">n</span><span class="p">,</span> <span class="n">flag</span><span class="p">);</span>
+        <span class="n">cout</span><span class="o">&lt;&lt;</span><span class="s">&quot;another method:&quot;</span><span class="o">&lt;&lt;</span><span class="n">endl</span><span class="p">;</span>
+        <span class="n">print_bracket_v2</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">);</span>
+        <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="kt">void</span> <span class="nf">print_bracket_v2</span><span class="p">(</span><span class="kt">int</span> <span class="n">n</span><span class="p">,</span> <span class="kt">int</span> <span class="n">pos</span><span class="p">,</span> <span class="kt">int</span> <span class="n">close</span><span class="p">,</span> <span class="kt">int</span> <span class="n">open</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">static</span> <span class="kt">char</span> <span class="n">output</span><span class="p">[</span><span class="n">MAX</span><span class="p">];</span>
+        <span class="k">if</span><span class="p">(</span><span class="n">close</span> <span class="o">==</span> <span class="n">n</span><span class="p">)</span> <span class="p">{</span>
+            <span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span> <span class="n">i</span><span class="o">&lt;</span><span class="mi">2</span><span class="o">*</span><span class="n">n</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+                <span class="n">cout</span><span class="o">&lt;&lt;</span><span class="n">output</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">&lt;&lt;</span><span class="s">&quot;</span><span class="se">\t</span><span class="s">&quot;</span><span class="p">;</span>
+            <span class="p">}</span>
+            <span class="n">cout</span><span class="o">&lt;&lt;</span><span class="n">endl</span><span class="p">;</span>
+            <span class="k">return</span><span class="p">;</span>
+        <span class="p">}</span>
+
+        <span class="k">if</span><span class="p">(</span><span class="n">open</span> <span class="o">&lt;</span> <span class="n">n</span><span class="p">)</span> <span class="p">{</span>
+            <span class="n">output</span><span class="p">[</span><span class="n">pos</span><span class="p">]</span> <span class="o">=</span> <span class="sc">&#39;(&#39;</span><span class="p">;</span>
+            <span class="n">print_bracket_v2</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">pos</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span> <span class="n">close</span><span class="p">,</span> <span class="n">open</span><span class="o">+</span><span class="mi">1</span><span class="p">);</span>
+        <span class="p">}</span>
+        <span class="k">if</span><span class="p">(</span><span class="n">open</span> <span class="o">&gt;</span> <span class="n">close</span><span class="p">)</span> <span class="p">{</span>
+            <span class="n">output</span><span class="p">[</span><span class="n">pos</span><span class="p">]</span> <span class="o">=</span> <span class="sc">&#39;)&#39;</span><span class="p">;</span>
+            <span class="n">print_bracket_v2</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">pos</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span> <span class="n">close</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span> <span class="n">open</span><span class="p">);</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+    <span class="kt">void</span> <span class="nf">print_bracket</span><span class="p">(</span><span class="kt">int</span> <span class="n">level</span><span class="p">,</span> <span class="kt">char</span> <span class="n">out</span><span class="p">[],</span> <span class="kt">int</span> <span class="n">len</span><span class="p">,</span> <span class="kt">int</span> <span class="n">flag</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">if</span><span class="p">(</span><span class="n">level</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+            <span class="k">if</span><span class="p">(</span><span class="n">flag</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+                <span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">=</span><span class="n">len</span><span class="o">-</span><span class="mi">1</span><span class="p">;</span> <span class="n">i</span><span class="o">&gt;=</span><span class="mi">0</span><span class="p">;</span> <span class="n">i</span><span class="o">--</span><span class="p">)</span> <span class="p">{</span>
+                    <span class="n">cout</span><span class="o">&lt;&lt;</span><span class="n">out</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">&lt;&lt;</span><span class="s">&quot;</span><span class="se">\t</span><span class="s">&quot;</span><span class="p">;</span>
+                <span class="p">}</span>
+                <span class="n">cout</span><span class="o">&lt;&lt;</span><span class="n">endl</span><span class="p">;</span>
+            <span class="p">}</span>
+            <span class="k">return</span><span class="p">;</span>
+        <span class="p">}</span>
+        <span class="cm">/* this condition filter the illegal bracket */</span>
+        <span class="k">if</span><span class="p">(</span><span class="n">flag</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+            <span class="k">return</span><span class="p">;</span>
+        <span class="p">}</span>
+
+        <span class="n">out</span><span class="p">[</span><span class="n">level</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="sc">&#39;(&#39;</span><span class="p">;</span>
+        <span class="n">flag</span><span class="o">++</span><span class="p">;</span>
+        <span class="n">print_bracket</span><span class="p">(</span><span class="n">level</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="n">out</span><span class="p">,</span> <span class="n">len</span><span class="p">,</span> <span class="n">flag</span><span class="p">);</span>
+        <span class="cm">/* recover the modified flag */</span>
+        <span class="n">flag</span><span class="o">--</span><span class="p">;</span>
+
+        <span class="n">out</span><span class="p">[</span><span class="n">level</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="sc">&#39;)&#39;</span><span class="p">;</span>
+        <span class="n">flag</span><span class="o">--</span><span class="p">;</span>
+        <span class="n">print_bracket</span><span class="p">(</span><span class="n">level</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="n">out</span><span class="p">,</span> <span class="n">len</span><span class="p">,</span> <span class="n">flag</span><span class="p">);</span>
+    <span class="p">}</span></code></pre></figure>
+
+<h3 id="2-find-the-element-pair-in-array-with-sum-equals-to-a-integer">2. Find the Element Pair in Array with Sum Equals to a integer</h3>
+
+</div>
+
+<div id="related">
+  <h2>Related Posts</h2>
+  <ul class="posts">
+    
+      <li><span>30 Aug 2015</span> &raquo; <a href="/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/2015/08/30/%E6%A0%B8%E5%87%BD%E6%95%B0%E4%B8%8E%E6%94%AF%E6%8C%81%E5%90%91%E9%87%8F%E6%9C%BA%E5%85%A5%E9%97%A8.html">核函数与支持向量机入门</a></li>
+    
+      <li><span>23 Aug 2015</span> &raquo; <a href="/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/2015/08/23/%E6%B5%85%E8%B0%88l0l1l2%E8%8C%83%E6%95%B0%E5%8F%8A%E5%85%B6%E5%BA%94%E7%94%A8.html">浅谈L0,L1,L2范数及其应用</a></li>
+    
+      <li><span>04 Aug 2015</span> &raquo; <a href="/programming/2015/08/04/java-exception-programming-practice.html">Java 异常处理实践</a></li>
+    
+  </ul>
+</div>
+
+
+        <div class="footer">
+            <div class="copyright">
+                Personal technical blog for software development practices, reading notes on ML, NLP.
+                <br/> &copy; 2013&mdash;2015 by HengWei. All Rights Reserved.
+            </div>
+        </div>
+    </div>
+    <div class="main-right">
+        <ul id="results-container"></ul>
+    </div>
+    <!-- Script pointing to jekyll-search.js -->
+    <script src="/dest/jekyll-search.js" type="text/javascript"></script>
+    <script type="text/javascript">
+      SimpleJekyllSearch({
+        searchInput: document.getElementById('search'),
+        resultsContainer: document.getElementById('results-container'),
+        json: '/search.json',
+        searchResultTemplate: '<li><a href="{url}" title="{desc}">{title}</a></li>',
+        noResultsText: ': (',
+        limit: 10,
+        fuzzy: false,
+      })
+    </script>
+    <!-- Script to display table of content -->
+    <script type="text/javascript">
+    $(document).ready(function() {
+    $('.toc').toc();
+    });
+    </script>
+</body>
+
+</html>

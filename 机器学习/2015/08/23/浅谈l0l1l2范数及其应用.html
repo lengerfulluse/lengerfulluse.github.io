@@ -17,7 +17,6 @@
     <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
     <script src="/javascripts/scale.fix.js" type="text/javascript"></script>
     <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
     <!--[if lt IE 9]>
     <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
@@ -30,7 +29,7 @@
         </div>
         <div class="nav-content">
             <a href="/index.html"><span class="nav-content-item">Home</span></a>
-            <a href="/project.html"><span class="nav-content-item">Projects</span></a>
+            <a href="#"><span class="nav-content-item item-selected">Blogs</span></a>
             <a href="/me.html"><span class="nav-content-item">About</span></a>
             <span>
                 <div class="nav-search">
@@ -50,61 +49,7 @@
         
 
 
-    
-        
-    
-        
-    
-        
-    
-        
-    
-        
-    
-        
-    
-        
-            
-        
-    
-    
-        
-    
 
-
-
-    
-    
-        
-            
-        
-            
-        
-            
-        
-            
-        
-            
-        
-            
-        
-            
-                
-            
-        
-            
-        
-            
-        
-            
-        
-            
-        
-        
-            
-            
-        
-    
 
 
 
@@ -129,7 +74,7 @@ $$
 这三个范数有很多非常有意思的特征，尤其是在机器学习中的正则化（Regularization）以及稀疏编码（Sparse Coding）有非常有趣的应用。<br>
 下图给出了一个Lp球的形状随着P的减少的可视化图。<img src="/assets/img/post/lp_ball.png" alt="lp ball"></p>
 
-<h4 id="1--l0-范数">1- L0 范数</h4>
+<h4 id="1-l0-范数">1- L0 范数</h4>
 
 <p>虽然L0严格说不属于范数，我们可以采用等式<span>\(\ref{p}\)</span>来给出l0-norm得定义：
 <div>$$
@@ -142,7 +87,7 @@ $$
 </div>
 其表示向量中所有非零元素的个数。正是L0范数的这个属性，使得其非常适合机器学习中<a href="http://ufldl.stanford.edu/wiki/index.php/Sparse_Coding">稀疏编码</a>，特征选择的应用。通过最小化L0范数，来寻找最少最优的稀疏特征项。但不幸的是，L0范数的最小化问题在实际应用中是NP难问题。因此很多情况下，L0优化问题就会被relaxe为更高维度的范数问题，如L1范数，L2范数最小化问题。  </p>
 
-<h4 id="2--l1-范数">2- L1 范数</h4>
+<h4 id="2-l1-范数">2- L1 范数</h4>
 
 <p>对于向量X，其L1范数的定义如下：
 <div>$$
@@ -154,7 +99,7 @@ L1最优化问题的解是稀疏性的，其倾向于选择很少的一些非常
 <img src="/assets/img/post/l1_norm.png" alt="l1 norm"><img src="/assets/img/post/l2_norm.png" alt="l2 norm"><br>
 但由于L1范数并没有平滑的函数表示，起初L1最优化问题解决起来非常困难，但随着计算机技术的到来，利用很多凸优化算法使得L1最优化成为可能。</p>
 
-<h4 id="3--l2-范数">3- L2 范数</h4>
+<h4 id="3-l2-范数">3- L2 范数</h4>
 
 <p>当然范数中最常见，也最著名的非L2范数莫属。其应用也几乎包括科学和工程的各个领域。定义公式如下：
 <div>$$
@@ -186,7 +131,7 @@ $$
 \left| \left| x \right| \right|_{\infty }\; =\; \max \left( \left| x_{j} \right| \right) \tag{8}
 $$</p>
 
-<h4 id="4--机器学习中的应用">4- 机器学习中的应用</h4>
+<h4 id="4-机器学习中的应用">4- 机器学习中的应用</h4>
 
 <p>不知道有多少人是因为机器学习中的正则化和特征选择等才开始了解这些范数的，至少我是。L0范数本身是特征选择的最直接最理想的方案，但如前所述，其不可分，且很难优化，因此实际应用中我们使用L1来得到L0的最优凸近似。L2相对于L1具有更为平滑的特性，在模型预测中，往往比L1具有更好的预测特性。当遇到两个对预测有帮助的特征时，L1倾向于选择一个更大的特征。而L2更倾向把两者结合起来。  </p>
 
@@ -249,32 +194,14 @@ $$
   <h2>Related Posts</h2>
   <ul class="posts">
     
-      <li><span>30 Aug 2015</span> &raquo; <a href="/post/%E6%A0%B8%E5%87%BD%E6%95%B0%E4%B8%8E%E6%94%AF%E6%8C%81%E5%90%91%E9%87%8F%E6%9C%BA%E5%85%A5%E9%97%A8">核函数与支持向量机入门</a></li>
+      <li><span>30 Aug 2015</span> &raquo; <a href="/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/2015/08/30/%E6%A0%B8%E5%87%BD%E6%95%B0%E4%B8%8E%E6%94%AF%E6%8C%81%E5%90%91%E9%87%8F%E6%9C%BA%E5%85%A5%E9%97%A8.html">核函数与支持向量机入门</a></li>
     
-      <li><span>04 Aug 2015</span> &raquo; <a href="/post/java-exception-programming-practice">Java 异常处理实践</a></li>
+      <li><span>04 Aug 2015</span> &raquo; <a href="/programming/2015/08/04/java-exception-programming-practice.html">Java 异常处理实践</a></li>
     
-      <li><span>30 Jul 2015</span> &raquo; <a href="/post/%E5%BE%AE%E4%BF%A1%E4%B8%8E%E8%B4%A2%E4%BB%98%E9%80%9A%E6%94%AF%E4%BB%98%E6%8E%A5%E5%8F%A3%E7%AD%BE%E5%90%8D%E8%B0%83%E8%AF%95%E6%80%BB%E7%BB%93">微信与财付通接口签名调试总结</a></li>
+      <li><span>30 Jul 2015</span> &raquo; <a href="/work/2015/07/30/%E5%BE%AE%E4%BF%A1%E4%B8%8E%E8%B4%A2%E4%BB%98%E9%80%9A%E6%94%AF%E4%BB%98%E6%8E%A5%E5%8F%A3%E7%AD%BE%E5%90%8D%E8%B0%83%E8%AF%95%E6%80%BB%E7%BB%93.html">微信与财付通接口签名调试总结</a></li>
     
   </ul>
 </div>
-
-
-<div id="disqus_thread"></div>
-<script type="text/javascript">
-    /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
-    var disqus_shortname = 'lengerfulluse'; // required: replace example with your forum shortname
-    /* * * This turns developer mode on, Make sure you remove this before you push this to your live site. * * * /
-    /* * * var disqus_developer = 1;  * * * /
-
-    /* * * DON'T EDIT BELOW THIS LINE * * */
-    (function() {
-        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-        dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
-        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-    })();
-</script>
-<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-<a href="http://disqus.com" class="dsq-brlink">blog comments powered by <span class="logo-disqus">Disqus</span></a>
 
 
         <div class="footer">

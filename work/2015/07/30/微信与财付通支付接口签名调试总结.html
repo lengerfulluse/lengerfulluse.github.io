@@ -1,0 +1,183 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>微信与财付通接口签名调试总结</title>
+    <link rel="shortcut icon" type="image/png" href="/images/favicon.ico">
+    <link rel="stylesheet" href="/stylesheets/styles.css">
+    <link rel="stylesheet" href="/stylesheets/pygment_trac.css">
+    <link rel="stylesheet" href="/stylesheets/font_awesome.css" type="text/css" />
+    <link rel="stylesheet" href="/stylesheets/bootstrap.min.css">
+    <link rel="stylesheet" href="/stylesheets/lengerfulluse.css" type="text/css" />
+    <script src="/javascripts/jquery-2.1.4.min.js" type="text/javascript"></script>
+    <script src="/javascripts/toc.js" type="text/javascript"></script>
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+    <script src="/javascripts/scale.fix.js" type="text/javascript"></script>
+    <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+</head>
+
+<body  data-spy="scroll" data-target=".toc" data-offset="20">
+    <div class="site-nav">
+        <div class="nav-logo">
+        <img src="/assets/img/blog/nav-logo.png" >
+        </div>
+        <div class="nav-content">
+            <a href="/index.html"><span class="nav-content-item">Home</span></a>
+            <a href="#"><span class="nav-content-item item-selected">Blogs</span></a>
+            <a href="/me.html"><span class="nav-content-item">About</span></a>
+            <span>
+                <div class="nav-search">
+                    <span class="search-input"><input type="text" id="search" placeholder="Article..." /></span>
+                    <span class="icon"><i class="fa fa-search"></i></span>
+                </div>
+            </span>
+        </div>
+        <div class="nav-discovery">
+        </div>
+    </div>
+    <div class="main-left">
+        <div class="toc">
+        </div>
+    </div>
+    <div class="main-center">
+        
+
+
+
+
+
+
+<div class="post-meta"><i class="fa fa-calendar-o"></i><span class="awesome_font_margin"></span>30 Jul 2015<span id="post-nav"> <i class="fa fa-folder-open-o fa-lg"></i> <span><a href="/blog/category/work/" style="color: #921477;text-decoration: none;">Work</a></span><span id="post-tags">  <i class="fa fa-tags"></i> <a href="/blog/tag/payments/" style="color:#33CCCC;text-decoration: none;">Payments</a>, <a href="/blog/tag/tips/" style="color:#33CCCC;text-decoration: none;">Tips</a></span></span></div>
+
+<div id="post">
+    <h1>微信与财付通接口签名调试总结</h1>
+    <p>这几年国内互联网的迅速发展不仅催生出了BAT，也使得第三方支付平台异军突起。在欧美还是信用卡统治的时代，另一个具有中国特色的第三方支付方式（External Payments, 或跳转支付）不仅成功的绑定了用户的支付习惯，更是为国外支付行业进入中国建造了一个壁垒。而<a href="https://www.alipay.com/">支付宝(Alipay)</a>和<a href="http://weixin.qq.com/">微信(WeChat)</a>则是如今第三方支付的主流。</p>
+
+<!--more-->
+
+<p>最近在做微信支付接入的项目，虽然有微信文档以及那边技术人员的帮助，在调试签名上还是走了不少弯路。就当是个记录，也给将要接入者提供一个参考。  </p>
+
+<h4 id="微信app支付接口签名">微信APP支付接口签名</h4>
+
+<ul>
+<li>基本参数格式要求<br>
+参数中间如果有空格需要自行URL编码；参数中涉及到金额的一律转换成以分为单位的整数，不允许出现小数点。请确保相应的秘钥对和AppID是没问题的。<br></li>
+<li>获取PrepayId请求签名：<br>
+
+<ol>
+<li>把请求转换成JSON串格式POST方式发出，如果使用GSON库的GsonBuilder来transform，则需要使用disableHtmlEscaping().<br></li>
+<li>对请求串中的package参数进行MD5签名时，traceid参数即使为空，也需要加入签名串。<br></li>
+<li>MD5秘钥也需要参加queryString形式的排序。所有参数名均要转成小写，参数值中间不能有空格。<br></li>
+<li>package值转换成URLEncoded的值后作为整体Prepareid请求的一个参数，在和其他值一起参与SHA1签名。如果是单纯的MD5+SHA1签名，则SHA1签名不需要转换成大写。但如果接入商户想用RSA签名来代替SHA1签名，则需要注意：<br>
+
+<ul>
+<li>微信后台使用的是C++版本的签名接口，虽然微信文档上会写SHA1保持不变，其结果封装成RSA即可，但此处所指的RSA签名是纯粹的没有经过哈希的RSA签名。而我们通畅所指的RSA签名则大多数时候是指SHA1_WITH_RSA。所以如果你RSA签名出错，你可以看下是否是自己多了一层SHA1哈希。 </li>
+</ul></li>
+<li>timestamp 是以秒为单位，而非默认的毫秒。<br></li>
+</ol></li>
+<li>支付成功后台通知签名：<br>
+
+<ol>
+<li>其POST体采用XML格式来返回通知结果。值得注意的是，XML格式可能包含<strong>&lt;![CDATA[]]</strong>格式的数据，即<a href="http://stackoverflow.com/questions/2784183/what-does-cdata-in-xml-mean">Character Data</a>。其表明在XML标签之间可能含有不能被XML 标记语言准确解析的字符，因此需要用这个标记。在验签提取字符串的时候，需要去掉该字符。下面则是提取含有CDATA的XML数据一段小代码：<br></li>
+</ol></li>
+</ul>
+
+<figure class="highlight"><pre><code class="language-java" data-lang="java">  <span class="kd">private</span> <span class="n">String</span> <span class="nf">getNodeDataFromNode</span><span class="o">(</span><span class="n">Node</span> <span class="n">node</span><span class="o">)</span> <span class="o">{</span>
+      <span class="n">String</span> <span class="n">data</span><span class="o">;</span>
+      <span class="k">if</span><span class="o">(</span><span class="n">node</span> <span class="o">==</span> <span class="kc">null</span><span class="o">)</span> <span class="o">{</span>
+        <span class="k">return</span> <span class="kc">null</span><span class="o">;</span>
+      <span class="o">}</span>
+      <span class="k">if</span><span class="o">(</span><span class="n">node</span> <span class="k">instanceof</span> <span class="n">CharacterData</span><span class="o">)</span> <span class="o">{</span>
+        <span class="n">data</span> <span class="o">=</span> <span class="o">((</span><span class="n">CharacterData</span><span class="o">)</span> <span class="n">node</span><span class="o">).</span><span class="na">getData</span><span class="o">();</span>
+      <span class="o">}</span>
+      <span class="k">else</span> <span class="o">{</span>
+        <span class="n">data</span> <span class="o">=</span> <span class="n">node</span><span class="o">.</span><span class="na">getNodeValue</span><span class="o">();</span>
+      <span class="o">}</span>
+      <span class="k">return</span> <span class="n">data</span><span class="o">;</span>
+    <span class="o">}</span>
+  
+  </code></pre></figure>
+
+<h4 id="财付通退款接口签名">财付通退款接口签名</h4>
+
+<p>财付通相对于微信的支付系统比较老久，很多文档似乎没有微信写的严密，列出了一些可能让读者混淆的地方。  </p>
+
+<ul>
+<li>退款请求原生支持MD5和RSA签名，字符集也说是可以支持UTF-8和GBK。但其实有些时候，即使你请求串中声明是UTF-8，一些签名错误的情况下，财付通返回的信息仍有可能是GBK的，所以在处理签名响应的时候这个需要注意一下。<br></li>
+<li>退款请求文档中虽然说明是可以支持GET和POST请求，但是不要被他误解。尤其当你使用POST请求时，你还是要把请求体转换成query string格式，且POST体中的参数也要用URLEncode格式。<br></li>
+<li>而与此相反，退款响应采用的是XML格式的响应体，不需要URLDecode了。<br></li>
+</ul>
+
+<h4 id="常见调试签名错误描述">常见调试签名错误描述</h4>
+
+<ul>
+<li>not match signature {&quot;errcode&quot;:49004,&quot;errmsg&quot;:&quot;not match signature&quot;} </li>
+<li>签名错误</li>
+<li>invalid signature</li>
+<li>service is busy, please try later.</li>
+<li>签名验证失败</li>
+</ul>
+
+<p>后续想到继续添加吧.<br>
+So long, and thanks for all the fish.</p>
+
+<h4 id="参考">参考</h4>
+
+<p>[1]. <a href="https://pay.weixin.qq.com/wiki/doc/api/app.php?chapter=4_3">微信签名安全规范</a>.<br>
+[2]. <a href="http://mch.tenpay.com/">财付通支付</a>.<br>
+[3]. <a href="http://z.cn">Z</a>.  </p>
+
+</div>
+
+<div id="related">
+  <h2>Related Posts</h2>
+  <ul class="posts">
+    
+      <li><span>30 Aug 2015</span> &raquo; <a href="/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/2015/08/30/%E6%A0%B8%E5%87%BD%E6%95%B0%E4%B8%8E%E6%94%AF%E6%8C%81%E5%90%91%E9%87%8F%E6%9C%BA%E5%85%A5%E9%97%A8.html">核函数与支持向量机入门</a></li>
+    
+      <li><span>23 Aug 2015</span> &raquo; <a href="/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/2015/08/23/%E6%B5%85%E8%B0%88l0l1l2%E8%8C%83%E6%95%B0%E5%8F%8A%E5%85%B6%E5%BA%94%E7%94%A8.html">浅谈L0,L1,L2范数及其应用</a></li>
+    
+      <li><span>04 Aug 2015</span> &raquo; <a href="/programming/2015/08/04/java-exception-programming-practice.html">Java 异常处理实践</a></li>
+    
+  </ul>
+</div>
+
+
+        <div class="footer">
+            <div class="copyright">
+                Personal technical blog for software development practices, reading notes on ML, NLP.
+                <br/> &copy; 2013&mdash;2015 by HengWei. All Rights Reserved.
+            </div>
+        </div>
+    </div>
+    <div class="main-right">
+        <ul id="results-container"></ul>
+    </div>
+    <!-- Script pointing to jekyll-search.js -->
+    <script src="/dest/jekyll-search.js" type="text/javascript"></script>
+    <script type="text/javascript">
+      SimpleJekyllSearch({
+        searchInput: document.getElementById('search'),
+        resultsContainer: document.getElementById('results-container'),
+        json: '/search.json',
+        searchResultTemplate: '<li><a href="{url}" title="{desc}">{title}</a></li>',
+        noResultsText: ': (',
+        limit: 10,
+        fuzzy: false,
+      })
+    </script>
+    <!-- Script to display table of content -->
+    <script type="text/javascript">
+    $(document).ready(function() {
+    $('.toc').toc();
+    });
+    </script>
+</body>
+
+</html>

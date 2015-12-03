@@ -1,0 +1,130 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Bash Note</title>
+    <link rel="shortcut icon" type="image/png" href="/images/favicon.ico">
+    <link rel="stylesheet" href="/stylesheets/styles.css">
+    <link rel="stylesheet" href="/stylesheets/pygment_trac.css">
+    <link rel="stylesheet" href="/stylesheets/font_awesome.css" type="text/css" />
+    <link rel="stylesheet" href="/stylesheets/bootstrap.min.css">
+    <link rel="stylesheet" href="/stylesheets/lengerfulluse.css" type="text/css" />
+    <script src="/javascripts/jquery-2.1.4.min.js" type="text/javascript"></script>
+    <script src="/javascripts/toc.js" type="text/javascript"></script>
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+    <script src="/javascripts/scale.fix.js" type="text/javascript"></script>
+    <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+</head>
+
+<body  data-spy="scroll" data-target=".toc" data-offset="20">
+    <div class="site-nav">
+        <div class="nav-logo">
+        <img src="/assets/img/blog/nav-logo.png" >
+        </div>
+        <div class="nav-content">
+            <a href="/index.html"><span class="nav-content-item">Home</span></a>
+            <a href="#"><span class="nav-content-item item-selected">Blogs</span></a>
+            <a href="/me.html"><span class="nav-content-item">About</span></a>
+            <span>
+                <div class="nav-search">
+                    <span class="search-input"><input type="text" id="search" placeholder="Article..." /></span>
+                    <span class="icon"><i class="fa fa-search"></i></span>
+                </div>
+            </span>
+        </div>
+        <div class="nav-discovery">
+        </div>
+    </div>
+    <div class="main-left">
+        <div class="toc">
+        </div>
+    </div>
+    <div class="main-center">
+        
+
+
+
+
+
+
+<div class="post-meta"><i class="fa fa-calendar-o"></i><span class="awesome_font_margin"></span>30 Mar 2013<span id="post-nav"> <i class="fa fa-folder-open-o fa-lg"></i> <span><a href="/blog/category/work/" style="color: #921477;text-decoration: none;">Work</a></span><span id="post-tags">  <i class="fa fa-tags"></i> <a href="/blog/tag/tools/" style="color:#33CCCC;text-decoration: none;">Tools</a></span></span></div>
+
+<div id="post">
+    <h1>Bash Note</h1>
+    <p>Let&#39;s just start from the practical bash examples. The problem is this: I would do some ideal summary for a set of newswires about a particular topic. for example every topic contains about ten documents, which each is about an specified aspect, also connected with the times sequences. However, the time orders about the topic is only embeded in the content of the documents. When you concatenate all this sub-topic documents into a large topic sets to so the following ideal summary task about the particular topic, you would be confused by the un-order docment sets.
+And that&#39;s just what the point we aim to solve.</p>
+
+<h4 id="particular-and-important-script">Particular and Important Script</h4>
+
+<p>Although shell script are almost the same in essentials while differing in minor points. To ensure the accuracy of this article, I just decide to limit my note about the shell script on the bash shell. Therefore, the position of this post is aim to get some conclusion about the experience during the usage of the bash script.
+It&#39;s definitely an amazing thing that when you feel that you are just write beautiful code skilfully. Especially that when you encounter a pariticular problem ,and you find that it can be resolved by the computer elegant and high-efficiency. That&#39;s the origin of the sense of achievement.  Now, let&#39;s cut the cackle to just begin our particular requirement and resolution.
+First we need to divide our problems into some basic modules. they mainly contains three modules: method to extract the date in the documents; formatted the date from the extracted data string; sort and concatenate the date, generate the results.</p>
+
+<h5 id="normalized-the-text-and-extract-the-date-string">Normalized the Text and Extract the date String</h5>
+
+<p>During the process of hummanic translation from english to chinese, we conduct our work by three groups of people. and due to the discrepency of encoding system of ther editor, the result files contained incongruous encoding such as UTF-8 encoding, UTF-8 BOM encoding, ascii encoding and so on, so the first things I need to do it normalize the while encodings of the translations files. Therefore, I just write a simple script to check the encoding of files, and find the unmatched encoding, and then to converted them automatically or manually.
+Then, There comes the steps of extract the date string from the translated texts. the first things to do is to delete the blank lines in the texts. this tricky is also very important. it makes me re-relizes the function of sed to execute some other command, such as deletion, except for the common used substitued operations. And following the compress blank lines process, I adopt the grep -o option to extract the date information from the strings. also I learning about the array construction method through the bash substitution operations. It make me notices that some useful bash test conditions such as -z: stands for empty. -n: stands for empty string. also the iteration methods of array <code>for file in ${array[@]}</code>, also some logic operations. ! and -o, -a. One of most important may the usage of functions. how to defintion a function in bash, and pass paramters to the function and return values from it. Morely, such as the local and global variables.
+All in a word, I feel that this attemption just make me write code more easily. Also the standardlize of write code is the most important things I should develops.  Just write the code like compose a poem.  That&#39;s the philosophy of Perl languages.</p>
+
+<h4 id="sort-accroding-to-the-date">Sort accroding to the date</h4>
+
+<p>The last things to do is just sort the extracted date which belongs to corresponding docs in a particular topics. Here, I also find that the most ultimately and effective methods to learning the usage of sort. And all these things cannot not be finish once. And since you have encounter before, you should find that only by the combination of sytemic learning of the tutorial with the practical problems resolution you can truely master the essentials. And that&#39;s the different of proficient and possibility.</p>
+
+<h4 id="reference">Reference</h4>
+
+<p><a href="http://tldp.org/LDP/abs/html/">Advanced Bash-Scripting Guide</a></p>
+
+</div>
+
+<div id="related">
+  <h2>Related Posts</h2>
+  <ul class="posts">
+    
+      <li><span>30 Aug 2015</span> &raquo; <a href="/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/2015/08/30/%E6%A0%B8%E5%87%BD%E6%95%B0%E4%B8%8E%E6%94%AF%E6%8C%81%E5%90%91%E9%87%8F%E6%9C%BA%E5%85%A5%E9%97%A8.html">核函数与支持向量机入门</a></li>
+    
+      <li><span>23 Aug 2015</span> &raquo; <a href="/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/2015/08/23/%E6%B5%85%E8%B0%88l0l1l2%E8%8C%83%E6%95%B0%E5%8F%8A%E5%85%B6%E5%BA%94%E7%94%A8.html">浅谈L0,L1,L2范数及其应用</a></li>
+    
+      <li><span>04 Aug 2015</span> &raquo; <a href="/programming/2015/08/04/java-exception-programming-practice.html">Java 异常处理实践</a></li>
+    
+  </ul>
+</div>
+
+
+        <div class="footer">
+            <div class="copyright">
+                Personal technical blog for software development practices, reading notes on ML, NLP.
+                <br/> &copy; 2013&mdash;2015 by HengWei. All Rights Reserved.
+            </div>
+        </div>
+    </div>
+    <div class="main-right">
+        <ul id="results-container"></ul>
+    </div>
+    <!-- Script pointing to jekyll-search.js -->
+    <script src="/dest/jekyll-search.js" type="text/javascript"></script>
+    <script type="text/javascript">
+      SimpleJekyllSearch({
+        searchInput: document.getElementById('search'),
+        resultsContainer: document.getElementById('results-container'),
+        json: '/search.json',
+        searchResultTemplate: '<li><a href="{url}" title="{desc}">{title}</a></li>',
+        noResultsText: ': (',
+        limit: 10,
+        fuzzy: false,
+      })
+    </script>
+    <!-- Script to display table of content -->
+    <script type="text/javascript">
+    $(document).ready(function() {
+    $('.toc').toc();
+    });
+    </script>
+</body>
+
+</html>

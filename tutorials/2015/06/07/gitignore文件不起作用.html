@@ -1,0 +1,136 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>.gitignore文件不起作用</title>
+    <link rel="shortcut icon" type="image/png" href="/images/favicon.ico">
+    <link rel="stylesheet" href="/stylesheets/styles.css">
+    <link rel="stylesheet" href="/stylesheets/pygment_trac.css">
+    <link rel="stylesheet" href="/stylesheets/font_awesome.css" type="text/css" />
+    <link rel="stylesheet" href="/stylesheets/bootstrap.min.css">
+    <link rel="stylesheet" href="/stylesheets/lengerfulluse.css" type="text/css" />
+    <script src="/javascripts/jquery-2.1.4.min.js" type="text/javascript"></script>
+    <script src="/javascripts/toc.js" type="text/javascript"></script>
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+    <script src="/javascripts/scale.fix.js" type="text/javascript"></script>
+    <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+</head>
+
+<body  data-spy="scroll" data-target=".toc" data-offset="20">
+    <div class="site-nav">
+        <div class="nav-logo">
+        <img src="/assets/img/blog/nav-logo.png" >
+        </div>
+        <div class="nav-content">
+            <a href="/index.html"><span class="nav-content-item">Home</span></a>
+            <a href="#"><span class="nav-content-item item-selected">Blogs</span></a>
+            <a href="/me.html"><span class="nav-content-item">About</span></a>
+            <span>
+                <div class="nav-search">
+                    <span class="search-input"><input type="text" id="search" placeholder="Article..." /></span>
+                    <span class="icon"><i class="fa fa-search"></i></span>
+                </div>
+            </span>
+        </div>
+        <div class="nav-discovery">
+        </div>
+    </div>
+    <div class="main-left">
+        <div class="toc">
+        </div>
+    </div>
+    <div class="main-center">
+        
+
+
+
+
+
+
+<div class="post-meta"><i class="fa fa-calendar-o"></i><span class="awesome_font_margin"></span>07 Jun 2015<span id="post-nav"> <i class="fa fa-folder-open-o fa-lg"></i> <span><a href="/blog/category/tutorials/" style="color: #CC00FF;text-decoration: none;">Tutorials</a></span><span id="post-tags">  <i class="fa fa-tags"></i> <a href="/blog/tag/tips/" style="color:#33CCCC;text-decoration: none;">Tips</a></span></span></div>
+
+<div id="post">
+    <h1>.gitignore文件不起作用</h1>
+    <p>当我们用git时常常会习惯把我们不想上传到远程代码库中的一些本地文件（夹）放在一个叫做.gitignore的文件中，例如常见的本地build文件夹，一些IDE如Intellig,Eclipse的项目管理文件，但有些时候我们会遇到这样的问题：放入gitignore文件夹中的文件却还是被git index, 当你通过<code>git status</code> 显示文件状态时，他们并没有被忽略。</p>
+
+<!--more-->
+
+<h4 id="问题场景">问题场景</h4>
+
+<ul>
+<li> 当你在git库中编写某些代码文件，并已经stage该文件之后，你发现某个文件你不想用了，想在以后的改变中忽略它。然后你再你的.gitignore文件中加入该文件名，结果它并没有被忽略。</li>
+<li> 当你从远程代码库中<code>git clone</code>一份代码中本地并做些修改，build，然后<strong>通过git add .</strong>等stage了这些改变，当你通过<code>git status</code>查看状态时发现不小心把build/文件夹给add进来了。于是你在.gitignore文件中加入了build/，但发现并不起作用。</li>
+</ul>
+
+<h4 id="根本原因">根本原因</h4>
+
+<p>.gitignore文件只是ignore没有被staged(cached)文件，对于已经被staged文件，加入ignore文件时一定要先从staged移除。下面这段话来自github：
+<img src="/assets/img/blog/gitignore_not_working.png" alt=".gitignore文件不工作">
+因此，要想用gitignore忽略文件，必须先把它们从staged中移除：</p>
+
+<ol>
+<li>commit你已有的改变，保存当前的工作。</li>
+<li>git rm --cached file/path/to/be/ignored。</li>
+<li>git add .</li>
+<li>git commit -m &quot;fixed untracked files&quot;</li>
+</ol>
+
+<h4 id="引用">引用</h4>
+
+<p><strong>[1].</strong> <a href="http://stackoverflow.com/questions/11451535/gitignore-not-working">gitignore-not-working</a><br>
+<strong>[2].</strong> <a href="https://help.github.com/articles/ignoring-files/">ignoring file</a>  </p>
+
+</div>
+
+<div id="related">
+  <h2>Related Posts</h2>
+  <ul class="posts">
+    
+      <li><span>30 Aug 2015</span> &raquo; <a href="/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/2015/08/30/%E6%A0%B8%E5%87%BD%E6%95%B0%E4%B8%8E%E6%94%AF%E6%8C%81%E5%90%91%E9%87%8F%E6%9C%BA%E5%85%A5%E9%97%A8.html">核函数与支持向量机入门</a></li>
+    
+      <li><span>23 Aug 2015</span> &raquo; <a href="/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/2015/08/23/%E6%B5%85%E8%B0%88l0l1l2%E8%8C%83%E6%95%B0%E5%8F%8A%E5%85%B6%E5%BA%94%E7%94%A8.html">浅谈L0,L1,L2范数及其应用</a></li>
+    
+      <li><span>04 Aug 2015</span> &raquo; <a href="/programming/2015/08/04/java-exception-programming-practice.html">Java 异常处理实践</a></li>
+    
+  </ul>
+</div>
+
+
+        <div class="footer">
+            <div class="copyright">
+                Personal technical blog for software development practices, reading notes on ML, NLP.
+                <br/> &copy; 2013&mdash;2015 by HengWei. All Rights Reserved.
+            </div>
+        </div>
+    </div>
+    <div class="main-right">
+        <ul id="results-container"></ul>
+    </div>
+    <!-- Script pointing to jekyll-search.js -->
+    <script src="/dest/jekyll-search.js" type="text/javascript"></script>
+    <script type="text/javascript">
+      SimpleJekyllSearch({
+        searchInput: document.getElementById('search'),
+        resultsContainer: document.getElementById('results-container'),
+        json: '/search.json',
+        searchResultTemplate: '<li><a href="{url}" title="{desc}">{title}</a></li>',
+        noResultsText: ': (',
+        limit: 10,
+        fuzzy: false,
+      })
+    </script>
+    <!-- Script to display table of content -->
+    <script type="text/javascript">
+    $(document).ready(function() {
+    $('.toc').toc();
+    });
+    </script>
+</body>
+
+</html>

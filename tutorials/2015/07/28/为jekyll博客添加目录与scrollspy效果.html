@@ -1,0 +1,229 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>为Jekyll博客添加目录与ScrollSpy效果</title>
+    <link rel="shortcut icon" type="image/png" href="/images/favicon.ico">
+    <link rel="stylesheet" href="/stylesheets/styles.css">
+    <link rel="stylesheet" href="/stylesheets/pygment_trac.css">
+    <link rel="stylesheet" href="/stylesheets/font_awesome.css" type="text/css" />
+    <link rel="stylesheet" href="/stylesheets/bootstrap.min.css">
+    <link rel="stylesheet" href="/stylesheets/lengerfulluse.css" type="text/css" />
+    <script src="/javascripts/jquery-2.1.4.min.js" type="text/javascript"></script>
+    <script src="/javascripts/toc.js" type="text/javascript"></script>
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+    <script src="/javascripts/scale.fix.js" type="text/javascript"></script>
+    <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+</head>
+
+<body  data-spy="scroll" data-target=".toc" data-offset="20">
+    <div class="site-nav">
+        <div class="nav-logo">
+        <img src="/assets/img/blog/nav-logo.png" >
+        </div>
+        <div class="nav-content">
+            <a href="/index.html"><span class="nav-content-item">Home</span></a>
+            <a href="#"><span class="nav-content-item item-selected">Blogs</span></a>
+            <a href="/me.html"><span class="nav-content-item">About</span></a>
+            <span>
+                <div class="nav-search">
+                    <span class="search-input"><input type="text" id="search" placeholder="Article..." /></span>
+                    <span class="icon"><i class="fa fa-search"></i></span>
+                </div>
+            </span>
+        </div>
+        <div class="nav-discovery">
+        </div>
+    </div>
+    <div class="main-left">
+        <div class="toc">
+        </div>
+    </div>
+    <div class="main-center">
+        
+
+
+
+
+
+
+<div class="post-meta"><i class="fa fa-calendar-o"></i><span class="awesome_font_margin"></span>28 Jul 2015<span id="post-nav"> <i class="fa fa-folder-open-o fa-lg"></i> <span><a href="/blog/category/tutorials/" style="color: #CC00FF;text-decoration: none;">Tutorials</a></span><span id="post-tags">  <i class="fa fa-tags"></i> <a href="/blog/tag/jekyll/" style="color:#33CCCC;text-decoration: none;">Jekyll</a>, <a href="/blog/tag/tips/" style="color:#33CCCC;text-decoration: none;">Tips</a></span></span></div>
+
+<div id="post">
+    <h1>为Jekyll博客添加目录与ScrollSpy效果</h1>
+    <p>随着网上利用<a href="http://jekyllrb.com/">Jekyll</a>＋<a href="https://pages.github.com/">Github Pages</a>搭建个人静态博客的帖子越来越多，按照教程自己动手搭一个基于Github账户的博客已完全成为一个五分钟速成课程的内容了。网上也随处可见优美的<a href="http://jekyllthemes.org/">博客主题</a>，且能完全即插即用。但对于一些想要更深入定制化的博主，本文主要集合自己折腾的经验介绍下如何给Jekyll博客添加目录（即Table of Content）以及定制化目录显示的ScrollSpy效果。</p>
+
+<!--more-->
+
+<p><strong>如下图所示，生成ScrollSpy效果的目录结构主要有三个部分。</strong></p>
+
+<p><img src="/assets/img/post/toc_of_scrollspy.png" alt="Toc with ScrollSpy">
+<hr /></p>
+
+<h4 id="1-目录生成插件选择">1 目录生成插件选择</h4>
+
+<p>Jekyll官网上的plugins目录下便列出了很多有用的插件，其中关于目录生成的<a href="https://github.com/dafi/jekyll-toc-generator">jekyll-toc-generator</a>便是官方推荐的。但对于在Github上建站的同学应该知道，Github禁止了很多plugins的自动build，尽管也正在增加一些插件白名单，但貌似这个插件是不能通过源码提交给Github pages自动build的。因此对于不想通过设定.nojekyll 本地build，然后push整个静态代码到Github上的同学，可能一些纯javascript的插件便是首选。</p>
+
+<h5 id="1-a-纯js版本">1-a 纯JS版本</h5>
+
+<p>本文所用的便是纯javascript版的toc插件<a href="https://github.com/ghiculescu/jekyll-table-of-contents">jekyll-table-of-contents</a>. 其README也很详细，照着一步步配即可。<br>
+* 在待添加插件的模板中首先加入<code>jquery.js</code>的依赖，然后是把该<code>toc.js</code>放在其后。</p>
+
+<figure class="highlight"><pre><code class="language-css" data-lang="css"><span class="o">&lt;</span><span class="nt">script</span> <span class="nt">src</span><span class="o">=</span><span class="s2">&quot;/javascripts/jquery-2.1.4.min.js&quot;</span> <span class="nt">type</span><span class="o">=</span><span class="s2">&quot;text/javascript&quot;</span><span class="o">&gt;&lt;/</span><span class="nt">script</span><span class="o">&gt;</span>
+<span class="o">&lt;</span><span class="nt">script</span> <span class="nt">src</span><span class="o">=</span><span class="s2">&quot;/javascripts/toc.js&quot;</span> <span class="nt">type</span><span class="o">=</span><span class="s2">&quot;text/javascript&quot;</span><span class="o">&gt;&lt;/</span><span class="nt">script</span><span class="o">&gt;</span></code></pre></figure>
+
+<ul>
+<li>在需要显示目录结构的地方加上如下div。</li>
+</ul>
+
+<figure class="highlight"><pre><code class="language-css" data-lang="css"><span class="o">&lt;</span><span class="nt">div</span> <span class="nt">id</span><span class="o">=</span><span class="s2">&quot;toc&quot;</span><span class="o">&gt;&lt;/</span><span class="nt">div</span><span class="o">&gt;</span></code></pre></figure>
+
+<ul>
+<li>把toc.js调用函数放在最后（如<code>&lt;/body&gt;</code>之前）即可。</li>
+</ul>
+
+<figure class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="o">&lt;</span><span class="nx">script</span> <span class="nx">type</span><span class="o">=</span><span class="s2">&quot;text/javascript&quot;</span><span class="o">&gt;</span>
+<span class="nx">$</span><span class="p">(</span><span class="nb">document</span><span class="p">).</span><span class="nx">ready</span><span class="p">(</span><span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+    <span class="nx">$</span><span class="p">(</span><span class="s1">&#39;#toc&#39;</span><span class="p">).</span><span class="nx">toc</span><span class="p">();</span>
+<span class="p">});</span> <span class="o">&lt;</span><span class="err">/script&gt;</span></code></pre></figure>
+
+<h4 id="2-markdown实现版本">2 Markdown实现版本</h4>
+
+<p>Toc插件生成目录的原理便是借助markdown为每个header生成一个唯一的id，然后Toc便会寻找这样的header id逐一的构造相应的锚链接，并显示即可。<br>
+常见的Markdown实现如<a href="https://github.com/davidfstr/rdiscount">rdiscount</a>,<a href="http://kramdown.gettalong.org/">kramdown</a>,<a href="https://github.com/vmg/redcarpet">redcarpet</a>。不同的版本，需要在<code>_config.yml</code>文件中进行相应的配置。如对于rdiscount，配置如下：</p>
+<div class="highlight"><pre><code class="language-text" data-lang="text">markdown: rdiscount
+rdiscount:
+  extensions:
+    - generate_toc
+</code></pre></div>
+<p>值得说明的是，我发现rdiscount对每个header会生成相同的id,便导致了Toc插件生成的所有目录都被定向到同一个锚链接。在网上收了下有一些issues谈到这方面的问题，如：<br>
+1. <a href="https://github.com/jekyll/jekyll/issues/110">https://github.com/jekyll/jekyll/issues/110</a><br>
+2. <a href="https://github.com/jekyll/jekyll/issues/471">https://github.com/jekyll/jekyll/issues/471</a><br>
+3. <a href="https://github.com/ghiculescu/%20%20jekyll-table-of-contents/issues/16">https://github.com/ghiculescu/jekyll-table-of-contents/issues/16</a><br>
+所以如果有同学遇到类似的情况，可以用其他的markdown版本，如redcarpet.</p>
+
+<p>对于redcarpet,配置如下：</p>
+<div class="highlight"><pre><code class="language-text" data-lang="text">markdown: redcarpet
+redcarpet:
+  extensions: [with_toc_data]
+</code></pre></div>
+<p>用redcarpet时同样值得注意的是，对于使用&lt;!--more--&gt;串来做摘要分割符的会发现redcarpet并不能根据其来准确的截取相应的摘要串。原因便是redcarpet会对一些字符如<code>&lt;,&gt;</code>进行转义，变成相应的<code>&amp;lt;,&amp;gt;</code>。</p>
+
+<h5 id="2-a-锚链接缩进问题">2-a 锚链接缩进问题</h5>
+
+<p>当你为网页设置了一个固定位置的导航栏（具有确定的高度），然后你为其他页面内容生成了锚链接（如本文提到的目录结构）。当你点击锚链接时，页面会跳转到相应的锚链接位置，且该锚链接的起始点会缩进到最上方，而部分被导航栏遮住。如下表左表所示：  </p>
+<div class="highlight"><pre><code class="language-text" data-lang="text">  点击：http://foo.com/#bar
+  错误 (but the common behavior):         正确:
+  +---------------------------------+      +---------------------------------+
+  | BAR///////////////////// header |      | //////////////////////// header |
+  +---------------------------------+      +---------------------------------+
+  | Here is the rest of the Text    |      | BAR                             |
+  | ...                             |      |                                 |
+  | ...                             |      | Here is the rest of the Text    |
+  | ...                             |      | ...                             |
+  +---------------------------------+      +---------------------------------+
+</code></pre></div>
+<p>而你希望的行为则是如右表所示的。对此，可以在toc脚本生成header时为其添加一个div的class,</p>
+
+<figure class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;h1&gt;&lt;a</span> <span class="na">class=</span><span class="s">&quot;anchor&quot;</span> <span class="na">name=</span><span class="s">&quot;barlink&quot;</span><span class="nt">&gt;</span>Bar<span class="nt">&lt;/a&gt;&lt;/h1&gt;</span></code></pre></figure>
+
+<p>然后在css中设置起式样为：</p>
+
+<figure class="highlight"><pre><code class="language-css" data-lang="css"><span class="c">/* 具体padding高度可以根据你导航栏的高度来设定 */</span>
+<span class="nc">.anchor</span><span class="p">{</span><span class="k">padding-top</span><span class="o">:</span> <span class="m">50px</span><span class="p">;}</span></code></pre></figure>
+
+<h4 id="3-为目录显示添加scrollspy效果">3 为目录显示添加scrollspy效果</h4>
+
+<p>scrollspy效果即导航栏或目录会随着页面的滑动位置自动显示当前所在的段落所属的导航条目。其主要是基于著名的<a href="http://getbootstrap.com/">bootstrap</a>来实现的。W3Cschool上有一个设置scrollSpy的简单<a href="http://www.w3schools.com/bootstrap/bootstrap_scrollspy.asp">教程</a>。但其主要是针对手动设置header id的情况。针对通过toc.js自动生成header id的配置如下：  </p>
+
+<ul>
+<li>添加bootstrap式样头和脚本<br></li>
+</ul>
+
+<figure class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;link</span> <span class="na">rel=</span><span class="s">&quot;stylesheet&quot;</span> <span class="na">href=</span><span class="s">&quot;/stylesheets/bootstrap.min.css&quot;</span><span class="nt">&gt;</span>
+<span class="nt">&lt;script </span><span class="na">src=</span><span class="s">&quot;http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js&quot;</span><span class="nt">&gt;&lt;/script&gt;</span></code></pre></figure>
+
+<ul>
+<li>在你想要操作的页面范围内（通常是<body>)内设置滚动事件的响应目标（可以是id或是class，此处我们用toc表示目录），如下：</li>
+</ul>
+
+<figure class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;body</span>  <span class="na">data-spy=</span><span class="s">&quot;scroll&quot;</span> <span class="na">data-target=</span><span class="s">&quot;.toc&quot;</span> <span class="na">data-offset=</span><span class="s">&quot;20&quot;</span><span class="nt">&gt;</span></code></pre></figure>
+
+<ul>
+<li>设置你的toc div: </li>
+</ul>
+
+<figure class="highlight"><pre><code class="language-css" data-lang="css"><span class="o">&lt;</span><span class="nt">div</span> <span class="nt">class</span><span class="o">=</span><span class="s2">&quot;toc&quot;</span><span class="o">&gt;</span>
+<span class="c">/* 你的scrollSpy目录结构将要显示在这里 */</span>
+<span class="o">&lt;/</span><span class="nt">div</span><span class="o">&gt;</span></code></pre></figure>
+
+<ul>
+<li>在你的toc.js脚本中添加bootstrap中的｀nav nav-pills nav-stacked`类：<br></li>
+</ul>
+
+<figure class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="cm">/* 把 html = settings.title + &quot; &lt;&quot; + settings.listType + &quot;&gt;&quot; 变成如下 */</span>
+<span class="nx">html</span> <span class="o">=</span> <span class="nx">settings</span><span class="p">.</span><span class="nx">title</span> <span class="o">+</span> <span class="s2">&quot; &lt;&quot;</span> <span class="o">+</span> <span class="nx">settings</span><span class="p">.</span><span class="nx">listType</span> <span class="o">+</span> <span class="s2">&quot; class = &#39;nav nav-pills nav-stacked&#39;&gt;&quot;</span><span class="p">;</span></code></pre></figure>
+
+<p>So long, and Thanks for all the fish.</p>
+
+<h4 id="参考">参考</h4>
+
+<p>[1]. <a href="https://github.com/ghiculescu/jekyll-table-of-contents">jekyll-table-of-contents</a>.<br>
+[2]. <a href="http://stackoverflow.com/questions/4086107/html-positionfixed-page-header-and-in-page-anchors">positionfixed-page-header-and-anchors</a>.<br>
+[3]. <a href="http://www.w3schools.com/bootstrap/bootstrap_scrollspy.asp">W3cScholl</a>.<br>
+[4]. <a href="http://idratherbewriting.com/2015/01/20/implementing-scrollspy-with-jekyll-to-auto-build-a-table-of-contents/">Implementing ScrollSpy</a></p>
+
+</div>
+
+<div id="related">
+  <h2>Related Posts</h2>
+  <ul class="posts">
+    
+      <li><span>30 Aug 2015</span> &raquo; <a href="/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/2015/08/30/%E6%A0%B8%E5%87%BD%E6%95%B0%E4%B8%8E%E6%94%AF%E6%8C%81%E5%90%91%E9%87%8F%E6%9C%BA%E5%85%A5%E9%97%A8.html">核函数与支持向量机入门</a></li>
+    
+      <li><span>23 Aug 2015</span> &raquo; <a href="/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/2015/08/23/%E6%B5%85%E8%B0%88l0l1l2%E8%8C%83%E6%95%B0%E5%8F%8A%E5%85%B6%E5%BA%94%E7%94%A8.html">浅谈L0,L1,L2范数及其应用</a></li>
+    
+      <li><span>04 Aug 2015</span> &raquo; <a href="/programming/2015/08/04/java-exception-programming-practice.html">Java 异常处理实践</a></li>
+    
+  </ul>
+</div>
+
+
+        <div class="footer">
+            <div class="copyright">
+                Personal technical blog for software development practices, reading notes on ML, NLP.
+                <br/> &copy; 2013&mdash;2015 by HengWei. All Rights Reserved.
+            </div>
+        </div>
+    </div>
+    <div class="main-right">
+        <ul id="results-container"></ul>
+    </div>
+    <!-- Script pointing to jekyll-search.js -->
+    <script src="/dest/jekyll-search.js" type="text/javascript"></script>
+    <script type="text/javascript">
+      SimpleJekyllSearch({
+        searchInput: document.getElementById('search'),
+        resultsContainer: document.getElementById('results-container'),
+        json: '/search.json',
+        searchResultTemplate: '<li><a href="{url}" title="{desc}">{title}</a></li>',
+        noResultsText: ': (',
+        limit: 10,
+        fuzzy: false,
+      })
+    </script>
+    <!-- Script to display table of content -->
+    <script type="text/javascript">
+    $(document).ready(function() {
+    $('.toc').toc();
+    });
+    </script>
+</body>
+
+</html>

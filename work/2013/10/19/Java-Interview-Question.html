@@ -1,0 +1,152 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Java Interview Question</title>
+    <link rel="shortcut icon" type="image/png" href="/images/favicon.ico">
+    <link rel="stylesheet" href="/stylesheets/styles.css">
+    <link rel="stylesheet" href="/stylesheets/pygment_trac.css">
+    <link rel="stylesheet" href="/stylesheets/font_awesome.css" type="text/css" />
+    <link rel="stylesheet" href="/stylesheets/bootstrap.min.css">
+    <link rel="stylesheet" href="/stylesheets/lengerfulluse.css" type="text/css" />
+    <script src="/javascripts/jquery-2.1.4.min.js" type="text/javascript"></script>
+    <script src="/javascripts/toc.js" type="text/javascript"></script>
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+    <script src="/javascripts/scale.fix.js" type="text/javascript"></script>
+    <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+</head>
+
+<body  data-spy="scroll" data-target=".toc" data-offset="20">
+    <div class="site-nav">
+        <div class="nav-logo">
+        <img src="/assets/img/blog/nav-logo.png" >
+        </div>
+        <div class="nav-content">
+            <a href="/index.html"><span class="nav-content-item">Home</span></a>
+            <a href="#"><span class="nav-content-item item-selected">Blogs</span></a>
+            <a href="/me.html"><span class="nav-content-item">About</span></a>
+            <span>
+                <div class="nav-search">
+                    <span class="search-input"><input type="text" id="search" placeholder="Article..." /></span>
+                    <span class="icon"><i class="fa fa-search"></i></span>
+                </div>
+            </span>
+        </div>
+        <div class="nav-discovery">
+        </div>
+    </div>
+    <div class="main-left">
+        <div class="toc">
+        </div>
+    </div>
+    <div class="main-center">
+        
+
+
+
+
+
+
+<div class="post-meta"><i class="fa fa-calendar-o"></i><span class="awesome_font_margin"></span>19 Oct 2013<span id="post-nav"> <i class="fa fa-folder-open-o fa-lg"></i> <span><a href="/blog/category/work/" style="color: #921477;text-decoration: none;">Work</a></span><span id="post-tags">  <i class="fa fa-tags"></i> <a href="/blog/tag/language/" style="color:#33CCCC;text-decoration: none;">Language</a>, <a href="/blog/tag/interview/" style="color:#33CCCC;text-decoration: none;">Interview</a></span></span></div>
+
+<div id="post">
+    <h1>Java Interview Question</h1>
+    <p>通常面试对于纯语言知识性的东西问的不算太多，但是很多算法或者设计模式里恰恰需要用到一些经典的语言特征。因此往往这类问题会作为面试开始时一个入门菜。因此，准确的掌握一些基础知识便尤为重要了。</p>
+
+<!--more-->  
+
+<p><strong>1. Java String 类的基础知识</strong></p>
+
+<p>Q1: String 类到底创建几个对象？</p>
+<div class="highlight"><pre><code class="language-text" data-lang="text">String str = &quot;Hello, World&quot;;
+String str2 = &quot;Hello, World&quot;;
+String str3 = new String(&quot;Hello,World&quot;);
+String str4 = new String(&quot;Hello, World&quot;);
+</code></pre></div>
+<p>A1: String 构造时，如果是常量赋值的话，首先会去常量<strong>Pool</strong>中查找是否已经存在常量，如存在则直接把常量字符串的引用赋值便可，如果不存在则需要在常量池中创建新的常量引用在赋值给变量的引用;而如果是new操作的化，则是在堆中创建，且每次都会新创建一个常量池中的对象，然后在把这个对象用过new构造函数赋值给其在堆中的新对象。所以<strong>答案</strong>为：</p>
+<div class="highlight"><pre><code class="language-text" data-lang="text">1
+1
+2
+2
+</code></pre></div>
+<p>Q2:  String 中的== 和 equals操作符含义？</p>
+<div class="highlight"><pre><code class="language-text" data-lang="text"> str == str2 ?
+ str equals str2 ?
+ str3 == str4 ?
+ str3 equals str4 ?
+</code></pre></div>
+<p>A2: 通常对于字符串内容的比较我们通过<strong>equals()</strong>函数来进行，而==运算符则是比较两个字符串引用是否指向同一个对象。两者的区别用下面<a href="http://stackoverflow.com/questions/767372/java-string-equals-versus">stackoverflow</a>上的回答：
+<img src="http://t.hengwei.me/assets/img/java_equals.png" alt="java equals method source code"> 因此<strong>答案</strong>为：</p>
+<div class="highlight"><pre><code class="language-text" data-lang="text">true
+true
+false
+true
+</code></pre></div>
+<p><strong>2. Synchronized 类线程安全和效率的比较</strong>
+Q1: ArrayList, Vector and LinkedList 三者之间的区别？
+A1: 可以从两方面来比较，首先对于ArrayList和Vector其底层都是通过Array的连续存储空间实现，可以按位快速存取，但是当出入值时需要顺序后移，因此效率较低，而LinkedList则是用过链表的方式因此其插入效率很高，但查找效率降低。 然后，如果单从线程安全的角度来看，Vector是实现synchronized，因此是线程安全，但是却会因此降低了其效率。引用<a href="http://www.coderanch.com/t/409421/java/java/Difference-ArrayList-LinkedList-Vector">JavaRanch</a>上的一个回答：
+<img src="http://t.hengwei.me/assets/img/java_synchronized.png" alt="ArrayList, Vector LinkedList difference"></p>
+
+<p>Q2: HashMap 和 HashTable的区别？
+A2: 可以从两方面来回答。首先是线程安全的角度;其次是是否允许空值的角度。而HashTable都可以看作是对HashMap的限制和提高。因此HashMap是非线程安全的，且是允许一个null键和多个null值的，而HashTable是线程安全的，且是不允许null值和键的。最后可以从扩展性上来看，如果想要默认插入顺序的，可以选择<strong>LinkedHashMap</strong>，如果想要线程安全的可以使用<strong>ConcurrentHashMap</strong>，更详细的解答，仍旧是看<a href="http://stackoverflow.com/questions/40471/differences-between-hashmap-and-hashtable/40483#40483">stackoverflow</a>上的解答：
+<img src="http://t.hengwei.me/assets/img/java_hashmap_hashtable_difference.png" alt="difference between HashMap and HashTable"></p>
+
+<p><strong>3. Overloading vs override in Java</strong>
+Q1: Overloading 和 Override之间有什么区别？
+A1: Overloading称之为重载，通常是同一个功能的函数，为了实现不同的输入参数个数和类型等需要，在一个对象中定义的多个函数。而Override则通常是存在与父类和子类中的，同一个函数，其参数类型和个数都相等，在子类中对其重新实现，且覆盖了原先的方法。而Overriding通常有两种，一种是<em>vitual</em>函数的overriding，另一种是非<em>virtual</em>函数的overriding。前者是一种动态的绑定，而后者是一种静态的。 具体区别如下：
+<img src="http://t.hengwei.me/assets/img/java_overloading_override.png" alt="difference between overloading and override"></p>
+
+</div>
+
+<div id="related">
+  <h2>Related Posts</h2>
+  <ul class="posts">
+    
+      <li><span>30 Aug 2015</span> &raquo; <a href="/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/2015/08/30/%E6%A0%B8%E5%87%BD%E6%95%B0%E4%B8%8E%E6%94%AF%E6%8C%81%E5%90%91%E9%87%8F%E6%9C%BA%E5%85%A5%E9%97%A8.html">核函数与支持向量机入门</a></li>
+    
+      <li><span>23 Aug 2015</span> &raquo; <a href="/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/2015/08/23/%E6%B5%85%E8%B0%88l0l1l2%E8%8C%83%E6%95%B0%E5%8F%8A%E5%85%B6%E5%BA%94%E7%94%A8.html">浅谈L0,L1,L2范数及其应用</a></li>
+    
+      <li><span>04 Aug 2015</span> &raquo; <a href="/programming/2015/08/04/java-exception-programming-practice.html">Java 异常处理实践</a></li>
+    
+  </ul>
+</div>
+
+
+        <div class="footer">
+            <div class="copyright">
+                Personal technical blog for software development practices, reading notes on ML, NLP.
+                <br/> &copy; 2013&mdash;2015 by HengWei. All Rights Reserved.
+            </div>
+        </div>
+    </div>
+    <div class="main-right">
+        <ul id="results-container"></ul>
+    </div>
+    <!-- Script pointing to jekyll-search.js -->
+    <script src="/dest/jekyll-search.js" type="text/javascript"></script>
+    <script type="text/javascript">
+      SimpleJekyllSearch({
+        searchInput: document.getElementById('search'),
+        resultsContainer: document.getElementById('results-container'),
+        json: '/search.json',
+        searchResultTemplate: '<li><a href="{url}" title="{desc}">{title}</a></li>',
+        noResultsText: ': (',
+        limit: 10,
+        fuzzy: false,
+      })
+    </script>
+    <!-- Script to display table of content -->
+    <script type="text/javascript">
+    $(document).ready(function() {
+    $('.toc').toc();
+    });
+    </script>
+</body>
+
+</html>

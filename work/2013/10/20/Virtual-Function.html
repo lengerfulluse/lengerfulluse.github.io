@@ -1,0 +1,223 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Virtual Function</title>
+    <link rel="shortcut icon" type="image/png" href="/images/favicon.ico">
+    <link rel="stylesheet" href="/stylesheets/styles.css">
+    <link rel="stylesheet" href="/stylesheets/pygment_trac.css">
+    <link rel="stylesheet" href="/stylesheets/font_awesome.css" type="text/css" />
+    <link rel="stylesheet" href="/stylesheets/bootstrap.min.css">
+    <link rel="stylesheet" href="/stylesheets/lengerfulluse.css" type="text/css" />
+    <script src="/javascripts/jquery-2.1.4.min.js" type="text/javascript"></script>
+    <script src="/javascripts/toc.js" type="text/javascript"></script>
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+    <script src="/javascripts/scale.fix.js" type="text/javascript"></script>
+    <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+</head>
+
+<body  data-spy="scroll" data-target=".toc" data-offset="20">
+    <div class="site-nav">
+        <div class="nav-logo">
+        <img src="/assets/img/blog/nav-logo.png" >
+        </div>
+        <div class="nav-content">
+            <a href="/index.html"><span class="nav-content-item">Home</span></a>
+            <a href="#"><span class="nav-content-item item-selected">Blogs</span></a>
+            <a href="/me.html"><span class="nav-content-item">About</span></a>
+            <span>
+                <div class="nav-search">
+                    <span class="search-input"><input type="text" id="search" placeholder="Article..." /></span>
+                    <span class="icon"><i class="fa fa-search"></i></span>
+                </div>
+            </span>
+        </div>
+        <div class="nav-discovery">
+        </div>
+    </div>
+    <div class="main-left">
+        <div class="toc">
+        </div>
+    </div>
+    <div class="main-center">
+        
+
+
+
+
+
+
+<div class="post-meta"><i class="fa fa-calendar-o"></i><span class="awesome_font_margin"></span>20 Oct 2013<span id="post-nav"> <i class="fa fa-folder-open-o fa-lg"></i> <span><a href="/blog/category/work/" style="color: #921477;text-decoration: none;">Work</a></span><span id="post-tags">  <i class="fa fa-tags"></i> <a href="/blog/tag/language/" style="color:#33CCCC;text-decoration: none;">Language</a>, <a href="/blog/tag/interview/" style="color:#33CCCC;text-decoration: none;">Interview</a></span></span></div>
+
+<div id="post">
+    <h1>Virtual Function</h1>
+    <h3 id="虚函数的作用">虚函数的作用</h3>
+
+<p>虚函数是为了实现多态性而实现的，更准确的说，是为了实现运行时多态，即dynamic binding的方法。如下例所示：</p>
+<div class="highlight"><pre><code class="language-text" data-lang="text">#include&lt;iostream&gt;
+using namespace std;
+
+/* a simple example show the difference between the dynamic binding
+ * and static binding. And common function override is a static
+ * binding which aims to implement a common function in different
+ * class. However, the virtual function is just aimed at interface-like
+ * function. It implement the dynamic binding.
+ */
+class shape {
+public:
+    shape() { };
+    virtual void draw() {
+        cout&lt;&lt;&quot;Draw shoap&quot;&lt;&lt;endl;
+    }
+};
+
+class rectangle: public shape {
+public:
+    rectangle() {};
+    void draw() {
+        cout&lt;&lt;&quot;Draw rectangle&quot;&lt;&lt;endl;
+    }
+};
+
+class round: public shape {
+public:
+    round() {};
+    void draw() {
+        cout&lt;&lt;&quot;Draw round&quot;&lt;&lt;endl;
+    }
+};
+
+int main() {
+    shape* s;
+    s = new rectangle();
+    s-&gt;draw();
+
+    s = new round();
+    s-&gt;draw();
+    return 0;
+}
+</code></pre></div>
+<p>如果不用虚函数实现，派生类中对于<em>draw</em>函数的overriding是在编译时根据所调用的类指针类决定，并不能实现根据运行时指向的实际对象来进行调用。而正是虚函数使得通过基类指针，便能实现动态绑定。因此，上例的运行结果为：</p>
+<div class="highlight"><pre><code class="language-text" data-lang="text">Draw rectangle
+Draw round
+</code></pre></div>
+<h3 id="进化一：-纯虚函数">进化一： 纯虚函数</h3>
+
+<p>这种动态绑定的属性使得我们仅通过基类的指针便可以访问其派生类的某种方法，因此在设计对象继承模式时便很常见了。但是，我们发现对于这种依靠基类来进行动态绑定的方法中，某些基类的某种方法我们并不能实现，如下面的例子：</p>
+<div class="highlight"><pre><code class="language-text" data-lang="text">/* Declaration from:
+ * http://www.learncpp.com/cpp-tutorial/126-pure-virtual-functions-abstract-base-classes-and-interface-classes/
+ */
+
+#include &lt;string&gt;
+class Animal
+{
+protected:
+    std::string m_strName;
+
+    /* We&#39;re making this constructor protected because
+     * we don&#39;t want people creating Animal objects directly,
+     * but we still want derived classes to be able to use it.
+     */
+    Animal(std::string strName)
+        : m_strName(strName)
+    {
+    }
+
+public:
+    std::string GetName() { return m_strName; }
+    virtual const char* Speak() { return &quot;???&quot;; }
+};
+
+class Cat: public Animal
+{
+public:
+    Cat(std::string strName)
+        : Animal(strName)
+    {
+    }
+
+    virtual const char* Speak() { return &quot;Meow&quot;; }
+};
+
+class Dog: public Animal
+{
+public:
+    Dog(std::string strName)
+        : Animal(strName)
+    {
+    }
+
+    virtual const char* Speak() { return &quot;Woof&quot;; }
+};
+</code></pre></div>
+<p>此处我们提及两点：</p>
+
+<blockquote>
+<ol>
+<li>对于<em>Animal</em>这种类型，我们无法对其的virtual方法Speak给出实现，当用户定义一个Animal对象时，如果调用其Speak方法，我们无法实现这样一个方法，或是只能空函数体，则得到的是空结果，或是非用户想要的结果，则在某种程度是一种很不好的设计模式。</li>
+<li>对于<em>Animal</em>类，在某种抽象程度上，对象本身是不具有意义的，往往是一个抽象的个体罢了，从语言理解的层面，其往往是一个具有抽象概念的东西。因此，我们不应该允许其实例化。故上面的代码对于其构造函数使用了Protected控制符。
+上面的两种情况，都可以利用纯虚函数的概念来解决。其定义方法为：</li>
+</ol>
+</blockquote>
+<div class="highlight"><pre><code class="language-text" data-lang="text">virtual const char* Speak() = 0;
+</code></pre></div>
+<p>而存在纯虚函数的类成为了抽象类，不允许构造对象实例。如此便进一步解决了这种抽象类中，虚函数无法实现，且抽象类不具有实际定义对象必要的情况。</p>
+
+<h3 id="进化二：-接口类">进化二： 接口类</h3>
+
+<p>严格意义上来，C++中并没有一个<strong>Interface</strong>关键词，来提供这样一种接口功能，但我们可以通过抽象类来定义。通常而言，接口类只提供一种操作原型的声明，把具体实现指派到派生类。从抽象的角度，接口通常不含有具体的数据成员。</p>
+
+</div>
+
+<div id="related">
+  <h2>Related Posts</h2>
+  <ul class="posts">
+    
+      <li><span>30 Aug 2015</span> &raquo; <a href="/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/2015/08/30/%E6%A0%B8%E5%87%BD%E6%95%B0%E4%B8%8E%E6%94%AF%E6%8C%81%E5%90%91%E9%87%8F%E6%9C%BA%E5%85%A5%E9%97%A8.html">核函数与支持向量机入门</a></li>
+    
+      <li><span>23 Aug 2015</span> &raquo; <a href="/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/2015/08/23/%E6%B5%85%E8%B0%88l0l1l2%E8%8C%83%E6%95%B0%E5%8F%8A%E5%85%B6%E5%BA%94%E7%94%A8.html">浅谈L0,L1,L2范数及其应用</a></li>
+    
+      <li><span>04 Aug 2015</span> &raquo; <a href="/programming/2015/08/04/java-exception-programming-practice.html">Java 异常处理实践</a></li>
+    
+  </ul>
+</div>
+
+
+        <div class="footer">
+            <div class="copyright">
+                Personal technical blog for software development practices, reading notes on ML, NLP.
+                <br/> &copy; 2013&mdash;2015 by HengWei. All Rights Reserved.
+            </div>
+        </div>
+    </div>
+    <div class="main-right">
+        <ul id="results-container"></ul>
+    </div>
+    <!-- Script pointing to jekyll-search.js -->
+    <script src="/dest/jekyll-search.js" type="text/javascript"></script>
+    <script type="text/javascript">
+      SimpleJekyllSearch({
+        searchInput: document.getElementById('search'),
+        resultsContainer: document.getElementById('results-container'),
+        json: '/search.json',
+        searchResultTemplate: '<li><a href="{url}" title="{desc}">{title}</a></li>',
+        noResultsText: ': (',
+        limit: 10,
+        fuzzy: false,
+      })
+    </script>
+    <!-- Script to display table of content -->
+    <script type="text/javascript">
+    $(document).ready(function() {
+    $('.toc').toc();
+    });
+    </script>
+</body>
+
+</html>

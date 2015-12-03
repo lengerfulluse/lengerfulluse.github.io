@@ -1,0 +1,199 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Xorg Configuration</title>
+    <link rel="shortcut icon" type="image/png" href="/images/favicon.ico">
+    <link rel="stylesheet" href="/stylesheets/styles.css">
+    <link rel="stylesheet" href="/stylesheets/pygment_trac.css">
+    <link rel="stylesheet" href="/stylesheets/font_awesome.css" type="text/css" />
+    <link rel="stylesheet" href="/stylesheets/bootstrap.min.css">
+    <link rel="stylesheet" href="/stylesheets/lengerfulluse.css" type="text/css" />
+    <script src="/javascripts/jquery-2.1.4.min.js" type="text/javascript"></script>
+    <script src="/javascripts/toc.js" type="text/javascript"></script>
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+    <script src="/javascripts/scale.fix.js" type="text/javascript"></script>
+    <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+</head>
+
+<body  data-spy="scroll" data-target=".toc" data-offset="20">
+    <div class="site-nav">
+        <div class="nav-logo">
+        <img src="/assets/img/blog/nav-logo.png" >
+        </div>
+        <div class="nav-content">
+            <a href="/index.html"><span class="nav-content-item">Home</span></a>
+            <a href="#"><span class="nav-content-item item-selected">Blogs</span></a>
+            <a href="/me.html"><span class="nav-content-item">About</span></a>
+            <span>
+                <div class="nav-search">
+                    <span class="search-input"><input type="text" id="search" placeholder="Article..." /></span>
+                    <span class="icon"><i class="fa fa-search"></i></span>
+                </div>
+            </span>
+        </div>
+        <div class="nav-discovery">
+        </div>
+    </div>
+    <div class="main-left">
+        <div class="toc">
+        </div>
+    </div>
+    <div class="main-center">
+        
+
+
+
+
+
+
+<div class="post-meta"><i class="fa fa-calendar-o"></i><span class="awesome_font_margin"></span>26 Mar 2013<span id="post-nav"> <i class="fa fa-folder-open-o fa-lg"></i> <span><a href="/blog/category/work/" style="color: #921477;text-decoration: none;">Work</a></span><span id="post-tags">  <i class="fa fa-tags"></i> <a href="/blog/tag/linux/" style="color:#33CCCC;text-decoration: none;">linux</a></span></span></div>
+
+<div id="post">
+    <h1>Xorg Configuration</h1>
+    <p>In this article, we focus on some basic and foundational introduction about the X11 related topics in our linux experience.</p>
+
+<h4 id="xorg-server">Xorg Server</h4>
+
+<p>There are mainly two sub-sections in the Xorg Server section. firstly, I will conduct some introduction and explanation about the history and roles Xorg take in our hole GUI system. secondly, I&#39;ll give a practical example to show the process of problem trackback and solved.</p>
+
+<h4 id="login-manager-or-display-manager">Login Manager or Display Manager</h4>
+
+<p>To some kinds, when you setup the xorg server and install the Window manager or Desktop Environment you could start the X11 system with just a command <code>start x</code>. But if you want the show the GUI graphic system all the way, and you won&#39;t want to start the x system in console, you need the help of <strong>Login manger</strong>, the default login manager for the Gnome is gdm. and correspondly, for Fluxbox, the slim is an ideal choice. Just with these simple line, you could use it.</p>
+<div class="highlight"><pre><code class="language-text" data-lang="text">equo install x11-misc/slim
+vim /etc/conf.d/xdm
+</code></pre></div>
+<p>and the make the change of the following:, which is the core of choice.</p>
+<div class="highlight"><pre><code class="language-text" data-lang="text">---
+DISPLAYMANAGER=&quot;slim&quot;
+---
+</code></pre></div>
+<p>finally, you should add the xdm to default run-levels.</p>
+<div class="highlight"><pre><code class="language-text" data-lang="text">rc-update add xdm default
+</code></pre></div>
+<p>After finish the basic configure for the slim, and set the
+/etc/conf.d/xdm variable, we should be able to login our personal Xsession with the default themes in the /usr/share/slim/theme.
+However, we should notice that the /etc/slim.conf configure script file will automatically read the /etc/X11/Sessions/ directory to
+find the default multiply Session, so when you login in with the slim, you could select your particular session with a simple F1 key.
+Otherwise, if you want to set the default session environment, the simplest way is just:</p>
+<div class="highlight"><pre><code class="language-text" data-lang="text">ln -s /etc/X11/Sessions/fluxbox ~/.xsession
+</code></pre></div>
+<p>And let&#39;s conclude the above process. Simplely, if we want to create a X window system with Xorg server, what exactly methods we need to do
+contains only three steps:</p>
+
+<ol>
+<li>Install the Xorg server related source and config for them.</li>
+</ol>
+
+<ul>
+<li><p>Setting the kernel support for the input and video driver
+support. here we should notice that there exists some problems compatiable
+problem related to the lagecy video drivers with the KMS(Kernel ModSet tenique), so we should first disable all of the driver for the video.
+and then select the proper &quot;nouveau&quot; or &quot;nvidia&quot; drivers. and the &quot;endev&quot; input driver.</p>
+
+<ul>
+<li>Istall the related driver as listed above and set the
+corresponding support for the KMS technique.</li>
+</ul>
+
+<p>equo install ${qlist -CI x11-drivers}
+ * Install the Xorg server, and further configure manually.
+equo install xorg-server
+ * configure the /etc/X11/Xorg.conf.d/ directory files. for the
+keyboard and Screen resulations.
+ * Verify the successful installation of the xorg with command
+<code>startx</code>, for abvious and essy test setting, you can first install
+simple <em>xterm</em> and <em>twm</em> to test the xorg&#39;s installation and configuration.</p></li>
+</ul>
+
+<ol>
+<li><p>Install a window manager or desktop environment. After you can
+validate the success of xorg server, the next thing you should complete is to
+arrange a slave for the xorg-server boss. And the xorg just assigns lots of dirty and hardship work to it&#39;s slave, namely window manager, or
+more functional Desktop environment. Formally, window manager is a kind of programs which are reponsible for the arrangement, sechdule and
+position of the GUI programms. Here I will just install the most famous lightweight, <strong>Fluxbox</strong>.</p>
+
+<p>equo install fluxbox</p></li>
+</ol>
+
+<p>and after its installation, you can just configure it&#39;s behaves accroding to the conf.d in \$HOME directory ~/.fluxbox. such as you can
+setting the global keyboard shortcuts, the menu content, the wallpaper, the slit and of course the applet widget in the taskbar slit.</p>
+
+<ol>
+<li> Choose your favirate Login manager. Yes, don&#39;t take it for grant,
+allthough there will be no any problems if you type the command <code>startx</code></li>
+</ol>
+
+<p>and following by the command <code>startfluxbox</code>. or more simplely to edit the .xinitrc file in your home directory to add the &#39;startfluxbox&#39;
+command in this. however, leave no consideration for the issues of security from the terminal, if you just do your daily work in X window
+envrioment, it becomes naturally that there is no necessary for the intermediate steps for execute all this command in console. That&#39;s where
+the Login Manager benifits for.  the configure step has just been demonstrated above, we&#39;ll leave no more words here.</p>
+
+<h4 id="xorg-troubleshotings">Xorg Troubleshotings</h4>
+
+<p>One of the most important reasons that Xorg server confuse people is that its huge and compliated contents and terminology conceptions, which
+all are almost divert us away. also the whole installation process is automatically done, so once there encounters some problems, It&#39;s just
+terrible, and in most situation, people would select install the whole system. ^_^. I am at least. I always wonder that when I could resolve
+this problem myself, here today, I came over a startx failure, and after some dianostic, I finish it eventually.  Here I note some basic and
+important steps:
+- You&#39;re aim to solve the problems: the first and the only step is to analyze current problem. What&#39;s the symptoms of the problems, is
+there some log or error output? how many possible reasons for this/these symptoms? what&#39;s the most possible one?
+- Be careful and most selective for the search keywords when Google, also you should first finish some basic background knowledge learnint to
+have a better understanding of the problem.
+- Do necessary backup work. when you attempt to some possible solutions for the problems, you&#39;re experiment on the system, back up the
+original version files or programs, before you do every dangerous things!!</p>
+
+</div>
+
+<div id="related">
+  <h2>Related Posts</h2>
+  <ul class="posts">
+    
+      <li><span>30 Aug 2015</span> &raquo; <a href="/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/2015/08/30/%E6%A0%B8%E5%87%BD%E6%95%B0%E4%B8%8E%E6%94%AF%E6%8C%81%E5%90%91%E9%87%8F%E6%9C%BA%E5%85%A5%E9%97%A8.html">核函数与支持向量机入门</a></li>
+    
+      <li><span>23 Aug 2015</span> &raquo; <a href="/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/2015/08/23/%E6%B5%85%E8%B0%88l0l1l2%E8%8C%83%E6%95%B0%E5%8F%8A%E5%85%B6%E5%BA%94%E7%94%A8.html">浅谈L0,L1,L2范数及其应用</a></li>
+    
+      <li><span>04 Aug 2015</span> &raquo; <a href="/programming/2015/08/04/java-exception-programming-practice.html">Java 异常处理实践</a></li>
+    
+  </ul>
+</div>
+
+
+        <div class="footer">
+            <div class="copyright">
+                Personal technical blog for software development practices, reading notes on ML, NLP.
+                <br/> &copy; 2013&mdash;2015 by HengWei. All Rights Reserved.
+            </div>
+        </div>
+    </div>
+    <div class="main-right">
+        <ul id="results-container"></ul>
+    </div>
+    <!-- Script pointing to jekyll-search.js -->
+    <script src="/dest/jekyll-search.js" type="text/javascript"></script>
+    <script type="text/javascript">
+      SimpleJekyllSearch({
+        searchInput: document.getElementById('search'),
+        resultsContainer: document.getElementById('results-container'),
+        json: '/search.json',
+        searchResultTemplate: '<li><a href="{url}" title="{desc}">{title}</a></li>',
+        noResultsText: ': (',
+        limit: 10,
+        fuzzy: false,
+      })
+    </script>
+    <!-- Script to display table of content -->
+    <script type="text/javascript">
+    $(document).ready(function() {
+    $('.toc').toc();
+    });
+    </script>
+</body>
+
+</html>

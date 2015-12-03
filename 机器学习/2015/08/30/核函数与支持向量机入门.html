@@ -17,7 +17,6 @@
     <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
     <script src="/javascripts/scale.fix.js" type="text/javascript"></script>
     <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
     <!--[if lt IE 9]>
     <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
@@ -30,7 +29,7 @@
         </div>
         <div class="nav-content">
             <a href="/index.html"><span class="nav-content-item">Home</span></a>
-            <a href="/project.html"><span class="nav-content-item">Projects</span></a>
+            <a href="#"><span class="nav-content-item item-selected">Blogs</span></a>
             <a href="/me.html"><span class="nav-content-item">About</span></a>
             <span>
                 <div class="nav-search">
@@ -50,61 +49,7 @@
         
 
 
-    
-        
-    
-        
-    
-        
-    
-        
-    
-        
-    
-        
-    
-        
-            
-        
-    
-    
-        
-    
 
-
-
-    
-    
-        
-            
-        
-            
-        
-            
-        
-            
-        
-            
-        
-            
-        
-            
-                
-            
-        
-            
-        
-            
-        
-            
-        
-            
-        
-        
-            
-            
-        
-    
 
 
 
@@ -121,7 +66,7 @@
 <a href="http://blog.pluskid.org/?p=632">Allaboutinquiry同学</a>是这样说滴：  </p>
 <div class="highlight"><pre><code class="language-text" data-lang="text">关于这个同学举牌子的典故我知道，我也是CMU的。这是在2009年在Pittsburgh举行的G20峰会现场外面。很多反对G20的，支持G20的都来凑热闹。我们这位同学也来了，鱼目混珠的高举Support Vector Machine的牌子。很多老美就晕了，你说你支持加强控制二氧化碳排放我懂，你支持的的这个Vector Machine是个什么东西啊？然后这个同学搞笑的目的就达到了。
 </code></pre></div>
-<h3 id="i--非线性变换">I- 非线性变换</h3>
+<h3 id="i-非线性变换">I- 非线性变换</h3>
 
 <p>很多算法在处理输入空间的样本时，会把输入空间的生数据样本转换成特征空间的样本表达。有时这是一种显式的的特征选择，如去噪或提取更高层表达能力的特征。有时这是为了解决样本在生输入空间不可分，而进行的高维空间变换，从而把原本不可分的数据变换成在高纬可分的特征点。而这个映射便是通过非线性变换来实现的。一个直观的例子:  </p>
 
@@ -129,7 +74,7 @@
 
 <p>如上图所示，原始的二维平面上是遍布生数据的输入点，其类别标签用红点和蓝点来区分。由左图中平面上点的分布来看，在输入的二维空间是线性不可分的。但我们可以通过一个寻找一个特征映射函数\(\phi \left( . \right)\)来把输入空间的点\(x\)，映射为三维特征空间中的点\(\phi \left( x \right)\)，于是这个三维空间中的点便可以通过左图中一个粉红色的超平面来分隔。但即使在三维特征空间可分，我们怎么把这个三维特征空间的分隔超平面映射回二维输入空间去呢？很简单，我们可以直接把超平面与特征空间圆锥体的截平面直接投影到二维空间里去，所形成的椭圆曲线就是二维空间的分隔线。如上面右图中的白色所示。   </p>
 
-<h3 id="ii--核方法">II- 核方法</h3>
+<h3 id="ii-核方法">II- 核方法</h3>
 
 <p>核方法便是基于非线性特征映射，定义如下：<br>
 $$
@@ -168,7 +113,7 @@ Where \(\alpha\)可以视为一个scaling 参数，常数\(C\)则是shifting参�
 <img src="/assets/img/post/sigmoid_kernel.png" alt="sigmoid_parameters">
 关于各个内核的对比，quora上有一篇从<a href="https://www.quora.com/Why-does-RBF-kernel-generally-outperforms-linear-or-polynomial-kernels">parametric和nonparametric角度的问答</a>，相当经典。   </p>
 
-<h3 id="iii--从稀疏内核机到svm">III- 从稀疏内核机到SVM</h3>
+<h3 id="iii-从稀疏内核机到svm">III- 从稀疏内核机到SVM</h3>
 
 <p>定义(1)中提到的基于非线性映射的内核方法是基于所有\(x\; \cdot \; x&#39;\)训练数据对的。核函数虽然能够将高维空间的非线性映射特征直接在原始空间计算，但当训练样本过多时，这样的计算也是费时费力的。有没有可能做进一步的特征集选择，过滤到无关的样本点。如下图所示：<br>
 <img src="/assets/img/post/svm_support_vector.png" alt="support vector"><br>
@@ -188,32 +133,14 @@ Where \(\alpha\)可以视为一个scaling 参数，常数\(C\)则是shifting参�
   <h2>Related Posts</h2>
   <ul class="posts">
     
-      <li><span>23 Aug 2015</span> &raquo; <a href="/post/%E6%B5%85%E8%B0%88l0l1l2%E8%8C%83%E6%95%B0%E5%8F%8A%E5%85%B6%E5%BA%94%E7%94%A8">浅谈L0,L1,L2范数及其应用</a></li>
+      <li><span>23 Aug 2015</span> &raquo; <a href="/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/2015/08/23/%E6%B5%85%E8%B0%88l0l1l2%E8%8C%83%E6%95%B0%E5%8F%8A%E5%85%B6%E5%BA%94%E7%94%A8.html">浅谈L0,L1,L2范数及其应用</a></li>
     
-      <li><span>04 Aug 2015</span> &raquo; <a href="/post/java-exception-programming-practice">Java 异常处理实践</a></li>
+      <li><span>04 Aug 2015</span> &raquo; <a href="/programming/2015/08/04/java-exception-programming-practice.html">Java 异常处理实践</a></li>
     
-      <li><span>30 Jul 2015</span> &raquo; <a href="/post/%E5%BE%AE%E4%BF%A1%E4%B8%8E%E8%B4%A2%E4%BB%98%E9%80%9A%E6%94%AF%E4%BB%98%E6%8E%A5%E5%8F%A3%E7%AD%BE%E5%90%8D%E8%B0%83%E8%AF%95%E6%80%BB%E7%BB%93">微信与财付通接口签名调试总结</a></li>
+      <li><span>30 Jul 2015</span> &raquo; <a href="/work/2015/07/30/%E5%BE%AE%E4%BF%A1%E4%B8%8E%E8%B4%A2%E4%BB%98%E9%80%9A%E6%94%AF%E4%BB%98%E6%8E%A5%E5%8F%A3%E7%AD%BE%E5%90%8D%E8%B0%83%E8%AF%95%E6%80%BB%E7%BB%93.html">微信与财付通接口签名调试总结</a></li>
     
   </ul>
 </div>
-
-
-<div id="disqus_thread"></div>
-<script type="text/javascript">
-    /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
-    var disqus_shortname = 'lengerfulluse'; // required: replace example with your forum shortname
-    /* * * This turns developer mode on, Make sure you remove this before you push this to your live site. * * * /
-    /* * * var disqus_developer = 1;  * * * /
-
-    /* * * DON'T EDIT BELOW THIS LINE * * */
-    (function() {
-        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-        dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
-        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-    })();
-</script>
-<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-<a href="http://disqus.com" class="dsq-brlink">blog comments powered by <span class="logo-disqus">Disqus</span></a>
 
 
         <div class="footer">

@@ -1,0 +1,156 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>My Vim Manual</title>
+    <link rel="shortcut icon" type="image/png" href="/images/favicon.ico">
+    <link rel="stylesheet" href="/stylesheets/styles.css">
+    <link rel="stylesheet" href="/stylesheets/pygment_trac.css">
+    <link rel="stylesheet" href="/stylesheets/font_awesome.css" type="text/css" />
+    <link rel="stylesheet" href="/stylesheets/bootstrap.min.css">
+    <link rel="stylesheet" href="/stylesheets/lengerfulluse.css" type="text/css" />
+    <script src="/javascripts/jquery-2.1.4.min.js" type="text/javascript"></script>
+    <script src="/javascripts/toc.js" type="text/javascript"></script>
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+    <script src="/javascripts/scale.fix.js" type="text/javascript"></script>
+    <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+</head>
+
+<body  data-spy="scroll" data-target=".toc" data-offset="20">
+    <div class="site-nav">
+        <div class="nav-logo">
+        <img src="/assets/img/blog/nav-logo.png" >
+        </div>
+        <div class="nav-content">
+            <a href="/index.html"><span class="nav-content-item">Home</span></a>
+            <a href="#"><span class="nav-content-item item-selected">Blogs</span></a>
+            <a href="/me.html"><span class="nav-content-item">About</span></a>
+            <span>
+                <div class="nav-search">
+                    <span class="search-input"><input type="text" id="search" placeholder="Article..." /></span>
+                    <span class="icon"><i class="fa fa-search"></i></span>
+                </div>
+            </span>
+        </div>
+        <div class="nav-discovery">
+        </div>
+    </div>
+    <div class="main-left">
+        <div class="toc">
+        </div>
+    </div>
+    <div class="main-center">
+        
+
+
+
+
+
+
+<div class="post-meta"><i class="fa fa-calendar-o"></i><span class="awesome_font_margin"></span>20 Mar 2013<span id="post-nav"> <i class="fa fa-folder-open-o fa-lg"></i> <span><a href="/blog/category/work/" style="color: #921477;text-decoration: none;">Work</a></span><span id="post-tags">  <i class="fa fa-tags"></i> <a href="/blog/tag/tools/" style="color:#33CCCC;text-decoration: none;">Tools</a></span></span></div>
+
+<div id="post">
+    <h1>My Vim Manual</h1>
+    <p>Love is definitely amazing thing! ^_^, A ha ? Penny.
+I become to enjoy the writing and thinking time, when the light is  turn off. My heart is warm, and mind is clean, the whole circumstation is just right, except my pumble poor english represion. All right, lets take the driver, go!</p>
+
+<h4 id="my-vim-note">My Vim Note</h4>
+
+<p>I choose the excellent vi&amp;vim editor since the first time I got contact with Linux OS. the just perfect j, k, h, l keys, all the scenes are so beautiful! I like the spirk learning curve, which discourage the weak, but encourage the brave man to walk the nice travel of a new world.</p>
+
+<h5 id="cursor-movement">Cursor movement</h5>
+
+<ul>
+<li><strong>w</strong> - jump by start of words (punctuation considered words, etc. <em>word,</em> two words: <em>word</em> and <em>,</em>)</li>
+<li><strong>W</strong> - jump by words (spaces separate words, etc. <em>word,</em> one word: <em>word,</em>)</li>
+<li><strong>e</strong> - jump to end of words (punctuation considered words.)</li>
+<li><strong>E</strong> - jump end of words (no punctuation)</li>
+<li><strong>b</strong> - jump backward by words(punctuation considered)</li>
+<li><strong>B</strong> - jump backward by words(no punctuation)</li>
+<li><strong>0</strong> - (zero), start of line. which is very practical.
+<strong>Note</strong>: Prefix a cursor movement command with a number to repeat it.</li>
+</ul>
+
+<h5 id="insert-mode-inserting-appending-text">Insert Mode -Inserting/Appending text</h5>
+
+<ul>
+<li><strong>ea</strong> - append at end of word. the same to bA, append start of words. Amazing combining commands.
+##### Editing</li>
+<li><strong>J</strong> - join line below to the current one.</li>
+<li><strong>cc</strong> - change(replace) the whole line.</li>
+<li><strong>cw</strong> - change(replace) to the end of word.</li>
+<li><strong>c$</strong> - change(replace) to the end of line.</li>
+<li><strong>s</strong> - delete character at cursor and substitute text. compare with <em>r</em></li>
+<li><strong>S</strong> - delete line at cursor and substitute text. (same as <em>cc</em>).
+##### Cut and Paste</li>
+<li><strong>yy</strong> - yank(copy) the whole line.</li>
+<li><strong>yw</strong> - yank(copy) the whole word.</li>
+<li><strong>y$</strong> - yank to end of line.
+##### Search/Replace</li>
+<li>*<em>:%s/old/new/gc *</em> - replace all the <em>old</em> with <em>new</em> throughout file with confirmations.
+##### Working with multiple files</li>
+<li><strong>:e file</strong> - Edit a file in a new buffer.</li>
+<li><strong>:bnext</strong> - go to next buffer(or :bn ).</li>
+<li><strong>:bprev</strong> - go to previous buffer( or :bp).</li>
+<li><strong>:bd</strong> - delete a buffer, namely close a file.</li>
+<li><strong>:sp filename ** - open file in a new buffer and split window. **This command is useful</strong>.</li>
+<li><strong>Ctrl + ww</strong> - switch between windows.</li>
+<li><strong>Ctrl + ws</strong> -split windows.</li>
+<li><strong>Ctrl + wv</strong> -split windows vertical.</li>
+<li><strong>Ctrl + wq</strong> -close windows.</li>
+</ul>
+
+</div>
+
+<div id="related">
+  <h2>Related Posts</h2>
+  <ul class="posts">
+    
+      <li><span>30 Aug 2015</span> &raquo; <a href="/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/2015/08/30/%E6%A0%B8%E5%87%BD%E6%95%B0%E4%B8%8E%E6%94%AF%E6%8C%81%E5%90%91%E9%87%8F%E6%9C%BA%E5%85%A5%E9%97%A8.html">核函数与支持向量机入门</a></li>
+    
+      <li><span>23 Aug 2015</span> &raquo; <a href="/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/2015/08/23/%E6%B5%85%E8%B0%88l0l1l2%E8%8C%83%E6%95%B0%E5%8F%8A%E5%85%B6%E5%BA%94%E7%94%A8.html">浅谈L0,L1,L2范数及其应用</a></li>
+    
+      <li><span>04 Aug 2015</span> &raquo; <a href="/programming/2015/08/04/java-exception-programming-practice.html">Java 异常处理实践</a></li>
+    
+  </ul>
+</div>
+
+
+        <div class="footer">
+            <div class="copyright">
+                Personal technical blog for software development practices, reading notes on ML, NLP.
+                <br/> &copy; 2013&mdash;2015 by HengWei. All Rights Reserved.
+            </div>
+        </div>
+    </div>
+    <div class="main-right">
+        <ul id="results-container"></ul>
+    </div>
+    <!-- Script pointing to jekyll-search.js -->
+    <script src="/dest/jekyll-search.js" type="text/javascript"></script>
+    <script type="text/javascript">
+      SimpleJekyllSearch({
+        searchInput: document.getElementById('search'),
+        resultsContainer: document.getElementById('results-container'),
+        json: '/search.json',
+        searchResultTemplate: '<li><a href="{url}" title="{desc}">{title}</a></li>',
+        noResultsText: ': (',
+        limit: 10,
+        fuzzy: false,
+      })
+    </script>
+    <!-- Script to display table of content -->
+    <script type="text/javascript">
+    $(document).ready(function() {
+    $('.toc').toc();
+    });
+    </script>
+</body>
+
+</html>

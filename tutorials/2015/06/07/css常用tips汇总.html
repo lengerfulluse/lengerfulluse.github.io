@@ -1,0 +1,189 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>css常用tips汇总</title>
+    <link rel="shortcut icon" type="image/png" href="/images/favicon.ico">
+    <link rel="stylesheet" href="/stylesheets/styles.css">
+    <link rel="stylesheet" href="/stylesheets/pygment_trac.css">
+    <link rel="stylesheet" href="/stylesheets/font_awesome.css" type="text/css" />
+    <link rel="stylesheet" href="/stylesheets/bootstrap.min.css">
+    <link rel="stylesheet" href="/stylesheets/lengerfulluse.css" type="text/css" />
+    <script src="/javascripts/jquery-2.1.4.min.js" type="text/javascript"></script>
+    <script src="/javascripts/toc.js" type="text/javascript"></script>
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+    <script src="/javascripts/scale.fix.js" type="text/javascript"></script>
+    <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+</head>
+
+<body  data-spy="scroll" data-target=".toc" data-offset="20">
+    <div class="site-nav">
+        <div class="nav-logo">
+        <img src="/assets/img/blog/nav-logo.png" >
+        </div>
+        <div class="nav-content">
+            <a href="/index.html"><span class="nav-content-item">Home</span></a>
+            <a href="#"><span class="nav-content-item item-selected">Blogs</span></a>
+            <a href="/me.html"><span class="nav-content-item">About</span></a>
+            <span>
+                <div class="nav-search">
+                    <span class="search-input"><input type="text" id="search" placeholder="Article..." /></span>
+                    <span class="icon"><i class="fa fa-search"></i></span>
+                </div>
+            </span>
+        </div>
+        <div class="nav-discovery">
+        </div>
+    </div>
+    <div class="main-left">
+        <div class="toc">
+        </div>
+    </div>
+    <div class="main-center">
+        
+
+
+
+
+
+
+<div class="post-meta"><i class="fa fa-calendar-o"></i><span class="awesome_font_margin"></span>07 Jun 2015<span id="post-nav"> <i class="fa fa-folder-open-o fa-lg"></i> <span><a href="/blog/category/tutorials/" style="color: #CC00FF;text-decoration: none;">Tutorials</a></span><span id="post-tags">  <i class="fa fa-tags"></i> <a href="/blog/tag/tips/" style="color:#33CCCC;text-decoration: none;">Tips</a></span></span></div>
+
+<div id="post">
+    <h1>css常用tips汇总</h1>
+    <p>最近给<a href="http://t.hengwei.me">博客</a>换了一个新的主题布局，把以前传统方式的侧边栏给换成了导航栏，同时利用<a href="http://fortawesome.github.io/Font-Awesome/">font-awesome图标</a>加了些分类和标签。由于之前没有系统的看过关于css+div方面的书籍，只是在用到某个效果时临时的Google，于是在这边纪录下用到的一些非常有用的css+div的tips.</p>
+
+<!--more-->
+
+<p><strong>1. 图片根据所在div容器的范围自适应大小.</strong></p>
+
+<figure class="highlight"><pre><code class="language-css" data-lang="css"><span class="nt">img</span> <span class="p">{</span>
+    <span class="k">max-width</span><span class="o">:</span> <span class="m">100%</span><span class="p">;</span>
+    <span class="k">max-height</span><span class="o">:</span> <span class="m">100%</span><span class="p">;</span>
+<span class="p">}</span></code></pre></figure>
+
+<p><strong>2. 导航栏固定在最顶端，且两边margin都为0.</strong>  </p>
+
+<figure class="highlight"><pre><code class="language-css" data-lang="css"><span class="nc">.site-nav</span> <span class="p">{</span>
+    <span class="k">width</span><span class="o">:</span> <span class="m">100%</span><span class="p">;</span>
+<span class="p">}</span></code></pre></figure>
+
+<p><strong>3. 改变div中文字大小，使其适应，比如导航栏中的搜索框.</strong>  </p>
+
+<figure class="highlight"><pre><code class="language-css" data-lang="css"><span class="nc">.nav-search</span> <span class="p">{</span>
+  <span class="k">line-height</span><span class="o">:</span> <span class="m">25px</span><span class="p">;</span>
+<span class="p">}</span></code></pre></figure>
+
+<p><strong>4. 移除搜索框的外围边框，同时移除输入搜索时出现的outline.</strong><br>
+如下面图示，第一幅图就是搜索输入框，默认会出现灰色的边界框。而第二幅图中蓝色框圈所示就是在用户点击输入时出现的框圈，很多时候你发现这两种框圈的显示效果会很难看，通过下面的css样式，便可以移除。<br>
+<img src="/assets/img/post/search-input-border.png" alt="search-input-border"><br>
+<em>Fig 1. search input with grey border</em><br>
+<img src="/assets/img/post/outline-input.png" alt="outline"><br>
+<em>Fig 2. outline with yellow border</em>   </p>
+
+<figure class="highlight"><pre><code class="language-css" data-lang="css"><span class="nc">.nav-search</span> <span class="nt">input</span><span class="nf">#search</span> <span class="p">{</span>
+  <span class="c">/* remove input border */</span>
+  <span class="o">-</span><span class="n">webkit</span><span class="o">-</span><span class="n">appearance</span><span class="o">:</span> <span class="k">none</span><span class="p">;</span>
+  <span class="k">border</span><span class="o">:</span> <span class="m">0</span><span class="p">;</span>
+  <span class="c">/* remove outline */</span>
+  <span class="k">outline</span><span class="o">:</span> <span class="k">none</span><span class="p">;</span>
+<span class="p">}</span></code></pre></figure>
+
+<p><strong>5. div + display 选项.</strong><br>
+<strong>none</strong>: 一些media options时如果想要在小屏幕（如智能手机上）不现实某个div，则可以用display:none选项。<br>
+<strong>inline</strong>: 只占用它所需要的最小的宽度，且不必强制换行（其左右均可以有元素存在). 不可以设置高度和宽度属性。也没有top-margin,top-padding属性。<br>
+<strong>block</strong>: 占用整个可用的宽度，之前和之后都有空行。 高度，宽度，margin，padding都可以设置。<br>
+<strong>inline-block</strong>: 具有inline的特点，占用最小宽度，但没有强制换行，其左右均可以有元素。却有block的属性：可以设置高度和宽度等。  </p>
+
+<p><strong>6. @media query 规则.</strong><br>
+移动互联的今天，仅仅是pc端已经远不能满足用户的多途径浏览需求了，如smartphone, tablet, laptop等等。如果使你的网站真正的mobile-friendly便尤为重要了，而最简单的实现方法就是通过@media 规则来。 </p>
+
+<figure class="highlight"><pre><code class="language-css" data-lang="css"><span class="c">/* screen display side &gt;= 960 px(common large desktop display) */</span>
+<span class="k">@media</span> <span class="nt">print</span><span class="o">,</span> <span class="nt">screen</span> <span class="nt">and</span> <span class="o">(</span><span class="nt">min-width</span><span class="o">:</span> <span class="nt">960px</span><span class="o">)</span> <span class="p">{</span>
+<span class="p">}</span>
+<span class="c">/* screen display size &gt;= 661 and &lt;= 960 px(common laptop display) */</span>
+<span class="k">@media</span> <span class="nt">print</span><span class="o">,</span> <span class="nt">screen</span> <span class="nt">and</span> <span class="o">(</span><span class="nt">min-width</span><span class="o">:</span> <span class="nt">661px</span><span class="o">)</span> <span class="nt">and</span> <span class="o">(</span><span class="nt">max-width</span><span class="o">:</span> <span class="nt">960px</span><span class="o">)</span> <span class="p">{</span>
+<span class="p">}</span>
+<span class="c">/* screen display size &gt;= 481 and &lt;= 660px (common tablet etc) */</span>
+<span class="k">@media</span> <span class="nt">print</span><span class="o">,</span> <span class="nt">screen</span> <span class="nt">and</span> <span class="o">(</span><span class="nt">min-width</span><span class="o">:</span> <span class="nt">481px</span><span class="o">)</span> <span class="nt">and</span> <span class="o">(</span><span class="nt">max-width</span><span class="o">:</span> <span class="nt">660px</span><span class="o">)</span><span class="p">{</span>
+<span class="p">}</span>
+
+<span class="c">/* for small screen device, like smartphone*/</span>
+<span class="k">@media</span> <span class="nt">print</span><span class="o">,</span> <span class="nt">screen</span> <span class="nt">and</span> <span class="o">(</span><span class="nt">max-width</span><span class="o">:</span> <span class="nt">480px</span><span class="o">)</span> <span class="p">{</span>
+  <span class="nc">.nav-search</span> <span class="p">{</span>
+    <span class="k">display</span><span class="o">:</span><span class="k">none</span><span class="p">;</span>
+  <span class="p">}</span>
+  <span class="nc">.nav-logo</span> <span class="p">{</span>
+    <span class="k">display</span><span class="o">:</span> <span class="k">none</span><span class="p">;</span>
+  <span class="p">}</span>
+<span class="p">}</span></code></pre></figure>
+
+<p>如你可以根据不同屏幕的大小来设置不同class,id的显示与否，颜色等各种特性。<br>
+<strong>7. width 100% vs. auto</strong><br>
+很多时候，对于block元素，默认的宽度便是占满父容器剩余空间，如有margin，padding时，其默认宽度设置便是剩余的宽度。这便是width:auto的效果。而很多时候，一些developer喜欢把宽度设置成100%，其表明把其宽度设置成父容器相同的长度，这样如果该block再有padding或是margin的属性，其便会延伸到父容器外面去。可以参考JSFiddle上的一个<a href="https://jsfiddle.net/LengerFulluse/b5gvyzt6/1/">例子</a>.  </p>
+
+<p>后续新的tips,会持续更新……</p>
+
+<h4 id="引用">-引用</h4>
+
+<p><strong>[1].</strong> <a href="http://stackoverflow.com/questions/3029422/image-auto-resize-to-fit-div-container">img标签auto resize</a><br>
+<strong>[2].</strong> <a href="http://stackoverflow.com/questions/3099030/displayinline-vs-displayblock">Display选项</a><br>
+<strong>[3].</strong> <a href="http://stackoverflow.com/questions/9189810/css-display-inline-vs-inline-block">inline vs inlink-block</a><br>
+<strong>[4].</strong> <a href="http://stackoverflow.com/questions/11805352/floatleft-vs-displayinline-vs-displayinline-block-vs-displaytable-cell">float vs display</a><br>
+<strong>[5].</strong> <a href="http://www.456bereastreet.com/archive/201112/the_difference_between_widthauto_and_width100/">width auto vs width 100%</a><br>
+<strong>[6].</strong> <a href="https://css-tricks.com/snippets/css/media-queries-for-standard-devices/">Media queries</a>  </p>
+
+</div>
+
+<div id="related">
+  <h2>Related Posts</h2>
+  <ul class="posts">
+    
+      <li><span>30 Aug 2015</span> &raquo; <a href="/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/2015/08/30/%E6%A0%B8%E5%87%BD%E6%95%B0%E4%B8%8E%E6%94%AF%E6%8C%81%E5%90%91%E9%87%8F%E6%9C%BA%E5%85%A5%E9%97%A8.html">核函数与支持向量机入门</a></li>
+    
+      <li><span>23 Aug 2015</span> &raquo; <a href="/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/2015/08/23/%E6%B5%85%E8%B0%88l0l1l2%E8%8C%83%E6%95%B0%E5%8F%8A%E5%85%B6%E5%BA%94%E7%94%A8.html">浅谈L0,L1,L2范数及其应用</a></li>
+    
+      <li><span>04 Aug 2015</span> &raquo; <a href="/programming/2015/08/04/java-exception-programming-practice.html">Java 异常处理实践</a></li>
+    
+  </ul>
+</div>
+
+
+        <div class="footer">
+            <div class="copyright">
+                Personal technical blog for software development practices, reading notes on ML, NLP.
+                <br/> &copy; 2013&mdash;2015 by HengWei. All Rights Reserved.
+            </div>
+        </div>
+    </div>
+    <div class="main-right">
+        <ul id="results-container"></ul>
+    </div>
+    <!-- Script pointing to jekyll-search.js -->
+    <script src="/dest/jekyll-search.js" type="text/javascript"></script>
+    <script type="text/javascript">
+      SimpleJekyllSearch({
+        searchInput: document.getElementById('search'),
+        resultsContainer: document.getElementById('results-container'),
+        json: '/search.json',
+        searchResultTemplate: '<li><a href="{url}" title="{desc}">{title}</a></li>',
+        noResultsText: ': (',
+        limit: 10,
+        fuzzy: false,
+      })
+    </script>
+    <!-- Script to display table of content -->
+    <script type="text/javascript">
+    $(document).ready(function() {
+    $('.toc').toc();
+    });
+    </script>
+</body>
+
+</html>

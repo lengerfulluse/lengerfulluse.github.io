@@ -1,0 +1,182 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Add Comment to Jekyll Blog with Disqus</title>
+    <link rel="shortcut icon" type="image/png" href="/images/favicon.ico">
+    <link rel="stylesheet" href="/stylesheets/styles.css">
+    <link rel="stylesheet" href="/stylesheets/pygment_trac.css">
+    <link rel="stylesheet" href="/stylesheets/font_awesome.css" type="text/css" />
+    <link rel="stylesheet" href="/stylesheets/bootstrap.min.css">
+    <link rel="stylesheet" href="/stylesheets/lengerfulluse.css" type="text/css" />
+    <script src="/javascripts/jquery-2.1.4.min.js" type="text/javascript"></script>
+    <script src="/javascripts/toc.js" type="text/javascript"></script>
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+    <script src="/javascripts/scale.fix.js" type="text/javascript"></script>
+    <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+</head>
+
+<body  data-spy="scroll" data-target=".toc" data-offset="20">
+    <div class="site-nav">
+        <div class="nav-logo">
+        <img src="/assets/img/blog/nav-logo.png" >
+        </div>
+        <div class="nav-content">
+            <a href="/index.html"><span class="nav-content-item">Home</span></a>
+            <a href="#"><span class="nav-content-item item-selected">Blogs</span></a>
+            <a href="/me.html"><span class="nav-content-item">About</span></a>
+            <span>
+                <div class="nav-search">
+                    <span class="search-input"><input type="text" id="search" placeholder="Article..." /></span>
+                    <span class="icon"><i class="fa fa-search"></i></span>
+                </div>
+            </span>
+        </div>
+        <div class="nav-discovery">
+        </div>
+    </div>
+    <div class="main-left">
+        <div class="toc">
+        </div>
+    </div>
+    <div class="main-center">
+        
+
+
+
+
+
+
+<div class="post-meta"><i class="fa fa-calendar-o"></i><span class="awesome_font_margin"></span>09 Aug 2014<span id="post-nav"> <i class="fa fa-folder-open-o fa-lg"></i> <span><a href="/blog/category/tutorials/" style="color: #CC00FF;text-decoration: none;">Tutorials</a></span><span id="post-tags">  <i class="fa fa-tags"></i> <a href="/blog/tag/jekyll/" style="color:#33CCCC;text-decoration: none;">Jekyll</a></span></span></div>
+
+<div id="post">
+    <h1>Add Comment to Jekyll Blog with Disqus</h1>
+    <h4 id="blogging-with-personal-domain-github-hosted-jekyll-themes">Blogging with personal domain, Github hosted, Jekyll themes</h4>
+
+<p>If you are tired of common blogging with Wordpress, Pager like, and want to try some cool things of DIY, Just take a look at these combination:
+Buy a personal domain on <a href="http://godaddy.com">Godaddy</a>, hosted on <a href="http://github.com">Github</a>, and setting you blog template with the help of
+<a href="http://jekyllrb.com">Jekyll</a>. It&#39;s not a fresh thing when I write this article. So what I am aimed is to introduce a common way to add comments
+to your jekyll theme. <a href="https://disqus.com">Disqus</a> Here.</p>
+
+<h4 id="comments-with-disqus">Comments with Disqus</h4>
+
+<p>It&#39;s actually a lot simpler than you might think. The main process just contains following steps:
+ 1. Register an account on <a href="https://disqus.com/admin/create/">Disqus</a>. After register of disqus account,
+ you could go next step to register your website, such as your personal domain blog website. The whole register process is very self explanation,
+ so I will take no more explanation here.
+ 2. Generate code for your jekyll powered blog. The last and crucial step is to select the type of install instruction. You will see a lot of common
+ blogger platforms. What we choose here is <strong>Universal Code</strong> here. And once you selected, Disqus will automatically generate a bit of code that look
+ like this:</p>
+
+<figure class="highlight"><pre><code class="language-html" data-lang="html">    <span class="nt">&lt;div</span> <span class="na">id=</span><span class="s">&quot;disqus_thread&quot;</span><span class="nt">&gt;&lt;/div&gt;</span>
+    <span class="nt">&lt;script </span><span class="na">type=</span><span class="s">&quot;text/javascript&quot;</span><span class="nt">&gt;</span>
+        <span class="cm">/* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */</span>
+    <span class="c1">// required: replace example with your forum shortname</span>
+        <span class="kd">var</span> <span class="nx">disqus_shortname</span> <span class="o">=</span> <span class="s1">&#39;&lt;accountname&gt;&#39;</span><span class="p">;</span>
+
+        <span class="cm">/* * * DON&#39;T EDIT BELOW THIS LINE * * */</span>
+        <span class="p">(</span><span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+            <span class="kd">var</span> <span class="nx">dsq</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">createElement</span><span class="p">(</span><span class="s1">&#39;script&#39;</span><span class="p">);</span>
+        <span class="nx">dsq</span><span class="p">.</span><span class="nx">type</span> <span class="o">=</span> <span class="s1">&#39;text/javascript&#39;</span><span class="p">;</span>
+        <span class="nx">dsq</span><span class="p">.</span><span class="nx">async</span> <span class="o">=</span> <span class="kc">true</span><span class="p">;</span>
+           <span class="nx">dsq</span><span class="p">.</span><span class="nx">sre</span> <span class="o">=</span> <span class="s1">&#39;http://&#39;</span> <span class="o">+</span> <span class="nx">disqus_shortname</span> <span class="o">+</span> <span class="s1">&#39;.disqus.com/embed.js&#39;</span><span class="p">;</span>
+           <span class="p">(</span><span class="nb">document</span><span class="p">.</span><span class="nx">getElementsByTagName</span><span class="p">(</span><span class="s1">&#39;head&#39;</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+                <span class="o">||</span> <span class="nb">document</span><span class="p">.</span><span class="nx">getElementsByTagName</span><span class="p">(</span><span class="s1">&#39;body&#39;</span><span class="p">)[</span><span class="mi">0</span><span class="p">]).</span><span class="nx">appendChild</span><span class="p">(</span><span class="nx">dsq</span><span class="p">);</span>
+       <span class="p">})();</span>
+   <span class="nt">&lt;/script&gt;</span>
+   <span class="nt">&lt;noscript&gt;</span>Please enable JavaScript to view the <span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">&quot;http://disqus.com/?ref_noscript&quot;</span><span class="nt">&gt;</span>
+       comments powered by Disqus.<span class="nt">&lt;/a&gt;&lt;/noscript&gt;</span>
+   <span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">&quot;http://disqus.com&quot;</span> <span class="na">class=</span><span class="s">&quot;dsq-brlink&quot;</span><span class="nt">&gt;</span>blog comments powered by
+       <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">&quot;logo-disqus&quot;</span><span class="nt">&gt;</span>Disqus<span class="nt">&lt;/span&gt;&lt;/a&gt;</span>
+ </code></pre></figure>
+
+<p>Now what you need to do is just putting them into the proper layout html template, post layout for example.
+ 4.  Noted that, most situation we need to test our Jekyll in local. In order for Disqus to work on your local, you need to tell it that you are working in
+ development mode. If you don&#39;t do this, then you will get an message stating it can&#39;t reach the server. All you need to do is add a new variable with a value
+ of <em>1</em>.</p>
+
+<figure class="highlight"><pre><code class="language-html" data-lang="html">  <span class="nt">&lt;script </span><span class="na">type=</span><span class="s">&quot;text/javascript&quot;</span><span class="nt">&gt;</span>
+      <span class="cm">/* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */</span>
+      <span class="c1">// required: replace example with your forum shortname</span>
+      <span class="kd">var</span> <span class="nx">disqus_shortname</span> <span class="o">=</span> <span class="s1">&#39;&lt;shortname&gt;&#39;</span><span class="p">;</span>
+      <span class="kd">var</span> <span class="nx">disqus_developer</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span> <span class="c1">// This turns developer mode on</span>
+                                <span class="c1">// Make sure you remove this before you push this</span>
+                                <span class="c1">// to your live site.</span>
+
+      <span class="cm">/* * * DON&#39;T EDIT BELOW THIS LINE * * */</span>
+      <span class="p">(</span><span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+       <span class="kd">var</span> <span class="nx">dsq</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">createElement</span><span class="p">(</span><span class="s1">&#39;script&#39;</span><span class="p">);</span>
+       <span class="nx">dsq</span><span class="p">.</span><span class="nx">type</span> <span class="o">=</span> <span class="s1">&#39;text/javascript&#39;</span><span class="p">;</span>
+       <span class="nx">dsq</span><span class="p">.</span><span class="nx">async</span> <span class="o">=</span> <span class="kc">true</span><span class="p">;</span>
+       <span class="nx">dsq</span><span class="p">.</span><span class="nx">sre</span> <span class="o">=</span> <span class="s1">&#39;http://&#39;</span> <span class="o">+</span> <span class="nx">disqus_shortname</span> <span class="o">+</span> <span class="s1">&#39;.disqus.com/embed.js&#39;</span><span class="p">;</span>
+       <span class="p">(</span><span class="nb">document</span><span class="p">.</span><span class="nx">getElementsByTagName</span><span class="p">(</span><span class="s1">&#39;head&#39;</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+           <span class="o">||</span> <span class="nb">document</span><span class="p">.</span><span class="nx">getElementsByTagName</span><span class="p">(</span><span class="s1">&#39;body&#39;</span><span class="p">)[</span><span class="mi">0</span><span class="p">]).</span><span class="nx">appendChild</span><span class="p">(</span><span class="nx">dsq</span><span class="p">);</span>
+     <span class="p">})();</span>
+   <span class="nt">&lt;/script&gt;</span>
+   <span class="nt">&lt;noscript&gt;</span>Please enable JavaScript to view the <span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">&quot;http://disqus.com/?ref_noscript&quot;</span><span class="nt">&gt;</span>
+       comments powered by Disqus.<span class="nt">&lt;/a&gt;&lt;/noscript&gt;</span>
+   <span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">&quot;http://disqus.com&quot;</span> <span class="na">class=</span><span class="s">&quot;dsq-brlink&quot;</span><span class="nt">&gt;</span>blog comments powered by
+   <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">&quot;logo-disqus&quot;</span><span class="nt">&gt;</span>Disqus<span class="nt">&lt;/span&gt;&lt;/a&gt;</span></code></pre></figure>
+
+<p>Once you have these set up, everything worked perfectly.</p>
+
+<h4 id="reference">Reference</h4>
+
+<ul>
+<li><a href="http://http://schmidt-happens.com/articles/2011/09/26/adding-disqus-comments.html">Adding Disqus Comments</a></li>
+</ul>
+
+</div>
+
+<div id="related">
+  <h2>Related Posts</h2>
+  <ul class="posts">
+    
+      <li><span>30 Aug 2015</span> &raquo; <a href="/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/2015/08/30/%E6%A0%B8%E5%87%BD%E6%95%B0%E4%B8%8E%E6%94%AF%E6%8C%81%E5%90%91%E9%87%8F%E6%9C%BA%E5%85%A5%E9%97%A8.html">核函数与支持向量机入门</a></li>
+    
+      <li><span>23 Aug 2015</span> &raquo; <a href="/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/2015/08/23/%E6%B5%85%E8%B0%88l0l1l2%E8%8C%83%E6%95%B0%E5%8F%8A%E5%85%B6%E5%BA%94%E7%94%A8.html">浅谈L0,L1,L2范数及其应用</a></li>
+    
+      <li><span>04 Aug 2015</span> &raquo; <a href="/programming/2015/08/04/java-exception-programming-practice.html">Java 异常处理实践</a></li>
+    
+  </ul>
+</div>
+
+
+        <div class="footer">
+            <div class="copyright">
+                Personal technical blog for software development practices, reading notes on ML, NLP.
+                <br/> &copy; 2013&mdash;2015 by HengWei. All Rights Reserved.
+            </div>
+        </div>
+    </div>
+    <div class="main-right">
+        <ul id="results-container"></ul>
+    </div>
+    <!-- Script pointing to jekyll-search.js -->
+    <script src="/dest/jekyll-search.js" type="text/javascript"></script>
+    <script type="text/javascript">
+      SimpleJekyllSearch({
+        searchInput: document.getElementById('search'),
+        resultsContainer: document.getElementById('results-container'),
+        json: '/search.json',
+        searchResultTemplate: '<li><a href="{url}" title="{desc}">{title}</a></li>',
+        noResultsText: ': (',
+        limit: 10,
+        fuzzy: false,
+      })
+    </script>
+    <!-- Script to display table of content -->
+    <script type="text/javascript">
+    $(document).ready(function() {
+    $('.toc').toc();
+    });
+    </script>
+</body>
+
+</html>

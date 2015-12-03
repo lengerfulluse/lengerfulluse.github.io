@@ -1,0 +1,146 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Java 异常处理实践</title>
+    <link rel="shortcut icon" type="image/png" href="/images/favicon.ico">
+    <link rel="stylesheet" href="/stylesheets/styles.css">
+    <link rel="stylesheet" href="/stylesheets/pygment_trac.css">
+    <link rel="stylesheet" href="/stylesheets/font_awesome.css" type="text/css" />
+    <link rel="stylesheet" href="/stylesheets/bootstrap.min.css">
+    <link rel="stylesheet" href="/stylesheets/lengerfulluse.css" type="text/css" />
+    <script src="/javascripts/jquery-2.1.4.min.js" type="text/javascript"></script>
+    <script src="/javascripts/toc.js" type="text/javascript"></script>
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+    <script src="/javascripts/scale.fix.js" type="text/javascript"></script>
+    <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+</head>
+
+<body  data-spy="scroll" data-target=".toc" data-offset="20">
+    <div class="site-nav">
+        <div class="nav-logo">
+        <img src="/assets/img/blog/nav-logo.png" >
+        </div>
+        <div class="nav-content">
+            <a href="/index.html"><span class="nav-content-item">Home</span></a>
+            <a href="#"><span class="nav-content-item item-selected">Blogs</span></a>
+            <a href="/me.html"><span class="nav-content-item">About</span></a>
+            <span>
+                <div class="nav-search">
+                    <span class="search-input"><input type="text" id="search" placeholder="Article..." /></span>
+                    <span class="icon"><i class="fa fa-search"></i></span>
+                </div>
+            </span>
+        </div>
+        <div class="nav-discovery">
+        </div>
+    </div>
+    <div class="main-left">
+        <div class="toc">
+        </div>
+    </div>
+    <div class="main-center">
+        
+
+
+
+
+
+
+<div class="post-meta"><i class="fa fa-calendar-o"></i><span class="awesome_font_margin"></span>04 Aug 2015<span id="post-nav"> <i class="fa fa-folder-open-o fa-lg"></i> <span><a href="/blog/category/programming/" style="color: #990000;text-decoration: none;">Programming</a></span><span id="post-tags">  <i class="fa fa-tags"></i> <a href="/blog/tag/language/" style="color:#33CCCC;text-decoration: none;">Language</a>, <a href="/blog/tag/tips/" style="color:#33CCCC;text-decoration: none;">Tips</a></span></span></div>
+
+<div id="post">
+    <h1>Java 异常处理实践</h1>
+    <p>Java中的异常处理一直是困扰着我。比如catch并throw一个异常的best practice是什么？checked和unchecked异常的区别和使用，异常和错误该如何处理。最近在工作中连续出现了一些与异常相关的一些issues，才发现需要进行一些整理和总结了。  </p>
+
+<!--more-->
+
+<h4 id="i-exception的层次结构">I- Exception的层次结构</h4>
+
+<p>如图所示，java错误，异常类都是源于一个叫做Throwable的基类，只有该类及其子类的实例对象才可以被JVM进行<code>throw</code>操作。且也只有该类及其子类能作为<code>catch</code>语句的输入参数。<img src="/assets/img/post/java_exception.png" alt="throwable classes"><br>
+<strong>一个Error类及其子类表明一个合理设计的应用不需要，也不应该catch的一些严重问题。</strong>多数时候这些错误是来自一些异常情况。如AnnotationFormatError，当一个Annotation解析器试图读取一个类文件的Annotation时发现其是malformed而throw的Error。LinkageError则是指当一个类依赖的一些类在compile阶段之后有了一些非兼容性的改变，然后导致依赖其的类出现链接错误，NoClassDefFoundException便是其一个子类。当然还有经典的VirtualMachineError，其一般在java虚拟机broken或是没有足够的资源供其运行时throw。<br>
+从编译时异常检测的角度，Error类时unchecked异常。通畅其表明环境或是程序设计的一个严重bug。<br>
+<strong>另外一个Throwable的子类是Exception类。</strong>其是所有异常类的父类。跟Error相对应，Exception类通常指一个合理设计的应用可能需要catch的。<br>
+从编译时异常检测的角度，大多数的Exception类都是可检测异常，除了RuntimeException及其子类。一些常见的运行时异常，如NullPointerException，当一个应用试图使用本该是一个实例对象，而实际为null值时抛出（例如，调用一个null对象的方法，域值）。NoSuchElementException，当一个应用调用枚举类型中nextElement方法，在没有更多元素时抛出。IllegalArgumentException则表明一个方法传入了非法或者不合适的参数。其他常见的还有CastClassException，ArithmeticException等。如除数是0时，ArithmeticException便会抛出。    </p>
+
+<h4 id="ii-checked-vs-unchecked异常">II- Checked vs UnChecked异常</h4>
+
+<ul>
+<li>Checked Exception通常可以用来声明哪些在程序运行过程中可以预见的，又不可避免的异常，但对程序本身来说却是一定程度上可以恢复的。如文件不存在异常。虽然程序本身尽可能的去检测传入参数的合理性。但文件不存在这类异常是不可能避免的，我们通过什么这样一个checked 异常来提醒调用者，他们需要考虑到这种情况。这便是其不可避免的地方。而另外文件找不到可以通过告诉调用者输入新的文件名，或是等待调用者改变文件路径等方式来合理的恢复。而通畅Unchecked异常是由于程序方法的编程逻辑漏洞的原因是不可恢复的。<br></li>
+<li>准确的把握这两者的抽象层次。<br></li>
+</ul>
+
+<h4 id="iii-一些best-practise">III- 一些best practise</h4>
+
+<ol>
+<li>If an exception can be properly handled then it should be caught, otherwise, it should be thrown.<br></li>
+<li>When deciding on checked exceptions vs. unchecked exceptions, ask yourself, &quot;What action can the client code take when the exception occurs?&quot;<br></li>
+<li>Never let implementation-specific checked exceptions escalate to the higher layers. For example, do not propagate SQLException from data access code to the business objects layer. Business objects layer do not need to know about SQLException.<br></li>
+<li>Try not to create new custom exceptions if they do not have useful information for client code.<br></li>
+<li>Log exceptions just once. Logging the same exception stack trace more than once can confuse the programmer examining the stack trace about the original source of exception. So just log it once.<br></li>
+</ol>
+
+<h4 id="iv-参考">IV- 参考</h4>
+
+<p>[1.] <a href="http://docs.oracle.com/javase/7/docs/api/">Oracle Java API</a>.<br>
+[2.] <a href="http://www.programcreek.com/2013/10/top-10-questions-about-java-exceptions/">Top 10 questions about Java Exception</a>.<br>
+[3.] <a href="http://programmers.stackexchange.com/questions/121328/is-it-good-practice-to-catch-a-checked-exception-and-throw-a-runtimeexception">Checked Exception Practise</a><br>
+[4.] <a href="http://archive.oreilly.com/pub/a/onjava/2003/11/19/exceptions.html">Oreilly.com</a>.<br>
+[5.] <a href="http://howtodoinjava.com/2013/04/04/java-exception-handling-best-practices/">Howtodoinjava</a></p>
+
+<p>So long, and thanks for all the fish.  </p>
+
+</div>
+
+<div id="related">
+  <h2>Related Posts</h2>
+  <ul class="posts">
+    
+      <li><span>30 Aug 2015</span> &raquo; <a href="/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/2015/08/30/%E6%A0%B8%E5%87%BD%E6%95%B0%E4%B8%8E%E6%94%AF%E6%8C%81%E5%90%91%E9%87%8F%E6%9C%BA%E5%85%A5%E9%97%A8.html">核函数与支持向量机入门</a></li>
+    
+      <li><span>23 Aug 2015</span> &raquo; <a href="/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/2015/08/23/%E6%B5%85%E8%B0%88l0l1l2%E8%8C%83%E6%95%B0%E5%8F%8A%E5%85%B6%E5%BA%94%E7%94%A8.html">浅谈L0,L1,L2范数及其应用</a></li>
+    
+      <li><span>30 Jul 2015</span> &raquo; <a href="/work/2015/07/30/%E5%BE%AE%E4%BF%A1%E4%B8%8E%E8%B4%A2%E4%BB%98%E9%80%9A%E6%94%AF%E4%BB%98%E6%8E%A5%E5%8F%A3%E7%AD%BE%E5%90%8D%E8%B0%83%E8%AF%95%E6%80%BB%E7%BB%93.html">微信与财付通接口签名调试总结</a></li>
+    
+  </ul>
+</div>
+
+
+        <div class="footer">
+            <div class="copyright">
+                Personal technical blog for software development practices, reading notes on ML, NLP.
+                <br/> &copy; 2013&mdash;2015 by HengWei. All Rights Reserved.
+            </div>
+        </div>
+    </div>
+    <div class="main-right">
+        <ul id="results-container"></ul>
+    </div>
+    <!-- Script pointing to jekyll-search.js -->
+    <script src="/dest/jekyll-search.js" type="text/javascript"></script>
+    <script type="text/javascript">
+      SimpleJekyllSearch({
+        searchInput: document.getElementById('search'),
+        resultsContainer: document.getElementById('results-container'),
+        json: '/search.json',
+        searchResultTemplate: '<li><a href="{url}" title="{desc}">{title}</a></li>',
+        noResultsText: ': (',
+        limit: 10,
+        fuzzy: false,
+      })
+    </script>
+    <!-- Script to display table of content -->
+    <script type="text/javascript">
+    $(document).ready(function() {
+    $('.toc').toc();
+    });
+    </script>
+</body>
+
+</html>
