@@ -4,8 +4,9 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="chrome=1">
-    <title>楞伽山人</title>
-    <link rel="shortcut icon" type="image/png" href="/images/heng.png">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Common ShortKey And Command on MacOSX</title>
+    <link rel="shortcut icon" type="image/png" href="/images/favicon.ico">
     <link rel="stylesheet" href="/stylesheets/styles.css">
     <link rel="stylesheet" href="/stylesheets/pygment_trac.css">
     <link rel="stylesheet" href="/stylesheets/font_awesome.css" type="text/css" />
@@ -15,7 +16,7 @@
     <script src="/javascripts/toc.js" type="text/javascript"></script>
     <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
     <script src="/javascripts/scale.fix.js" type="text/javascript"></script>
-    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <!--[if lt IE 9]>
     <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
@@ -28,18 +29,20 @@
         </div>
         <div class="nav-content">
             <a href="/index.html"><span class="nav-content-item">Home</span></a>
-            <a href="/project.html"><span class="nav-content-item">Projects</span></a>
+            <a href="#"><span class="nav-content-item item-selected">Blogs</span></a>
             <a href="/me.html"><span class="nav-content-item">About</span></a>
+            <span>
+                <div class="nav-search">
+                    <span class="search-input"><input type="text" id="search" placeholder="Article..." /></span>
+                    <span class="icon"><i class="fa fa-search"></i></span>
+                </div>
+            </span>
         </div>
         <div class="nav-discovery">
-            <div class="nav-search">
-                <span class="search-input"><input type="text" id="search" placeholder="Article..." /></span>
-                <span class="icon"><i class="fa fa-search"></i></span>
-            </div>
         </div>
     </div>
     <div class="main-left">
-        <div class="toc" style="display: none;">
+        <div class="toc">
         </div>
     </div>
     <div class="main-center">
@@ -49,6 +52,8 @@
     
         
             
+        
+    
         
     
         
@@ -113,7 +118,7 @@
 <p>Perfect position between the simplify and foolish. :). Personally, I think that Windows exactly make people feels himself a foolish and will have no improvment in skills or communications things. And linux is so great, however the biggest problem is that it&#39;s not mature in present. I have try my 7 year college life in all kinds of *nix distribution, such as Ubuntu, OpenSUSE, RedHat, Gentoo, FreeBSD, Solaris and etc. And in the end, I really feels that the processes this years are all combined with so much duplications and complcated process, It will kill so much time, and if you are not devote yourself in this great career, It will gain so little, as long as you&#39;re lack of keeping this work.
 Current, I really find the perfect combination of Windows and *nix. And on the day of Nov 11, 2014. China&#39;s biggest e-comments glories of the year.</p>
 
-<h4 id="common-useful-shortkey-command">Common Useful ShortKey,Command</h4>
+<h4 id="common-useful-shortkey,command">Common Useful ShortKey,Command</h4>
 
 <p><strong>os x short key operation:</strong>
 1. delete a work : Option + delete.
@@ -139,23 +144,18 @@ Basic tools install:
   <h2>Related Posts</h2>
   <ul class="posts">
     
+      <li><span>30 Aug 2015</span> &raquo; <a href="/post/%E6%A0%B8%E5%87%BD%E6%95%B0%E4%B8%8E%E6%94%AF%E6%8C%81%E5%90%91%E9%87%8F%E6%9C%BA%E5%85%A5%E9%97%A8">核函数与支持向量机入门</a></li>
+    
+      <li><span>23 Aug 2015</span> &raquo; <a href="/post/%E6%B5%85%E8%B0%88l0l1l2%E8%8C%83%E6%95%B0%E5%8F%8A%E5%85%B6%E5%BA%94%E7%94%A8">浅谈L0,L1,L2范数及其应用</a></li>
+    
       <li><span>04 Aug 2015</span> &raquo; <a href="/post/java-exception-programming-practice">Java 异常处理实践</a></li>
-    
-      <li><span>30 Jul 2015</span> &raquo; <a href="/post/%E5%BE%AE%E4%BF%A1%E4%B8%8E%E8%B4%A2%E4%BB%98%E9%80%9A%E6%94%AF%E4%BB%98%E6%8E%A5%E5%8F%A3%E7%AD%BE%E5%90%8D%E8%B0%83%E8%AF%95%E6%80%BB%E7%BB%93">微信与财付通接口签名调试总结</a></li>
-    
-      <li><span>28 Jul 2015</span> &raquo; <a href="/post/%E4%B8%BAjekyll%E5%8D%9A%E5%AE%A2%E6%B7%BB%E5%8A%A0%E7%9B%AE%E5%BD%95%E4%B8%8Escrollspy%E6%95%88%E6%9E%9C">为Jekyll博客添加目录与ScrollSpy效果</a></li>
     
   </ul>
 </div>
 
-
 <div id="disqus_thread"></div>
 <script type="text/javascript">
-    /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
-    var disqus_shortname = 'lengerfulluse'; // required: replace example with your forum shortname
-    /* * * This turns developer mode on, Make sure you remove this before you push this to your live site. * * * /
-    /* * * var disqus_developer = 1;  * * * /
-
+    var disqus_shortname = 'lengerfulluse';
     /* * * DON'T EDIT BELOW THIS LINE * * */
     (function() {
         var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
@@ -185,7 +185,7 @@ Basic tools install:
         resultsContainer: document.getElementById('results-container'),
         json: '/search.json',
         searchResultTemplate: '<li><a href="{url}" title="{desc}">{title}</a></li>',
-        noResultsText: 'No results found',
+        noResultsText: ': (',
         limit: 10,
         fuzzy: false,
       })
