@@ -6,4 +6,11 @@ encoding: UTF-8
 permalink: /post/:title
 url: "http://t.hengwei.me"
 excerpt_separator: "<!--more-->"
+comments:
+  disqus:
+    short_name: lengerfulluse
+    api_key:    Pyv6AbTuloqrACiEDW3Np3UqCtkO94dU9GHzvOhYl81F9iNUg8P2IZUCqU0kz6zA
 
+gems: [jekyll-paginate]
+paginate: 10
+paginate_path: "/posts/page:num/"

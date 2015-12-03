@@ -73,6 +73,14 @@
     </div>
     <div class="main-center">
         {{content}}
+        <div class="pagination">
+            {% if paginator.previous_page %}
+            <a href="{{ paginator.previous_page_path }}" class="previous">&laquo; Prev</a> {% else %}
+            <span class="previous">&laquo; Prev</span> {% endif %}
+            <span class="page_number ">Page: {{ paginator.page }} of {{ paginator.total_pages }}</span> {% if paginator.next_page %}
+            <a href="{{ paginator.next_page_path }}" class="next">Next &raquo;</a> {% else %}
+            <span class="next ">Next &raquo;</span> {% endif %}
+        </div>
         <div class="footer">
             <div class="copyright">
                 Personal technical blog for software development practices, reading notes on ML, NLP.
@@ -95,6 +103,17 @@
         limit: 10,
         fuzzy: false,
       })
+    </script>
+    <!-- add comment count for article -->
+    <script type="text/javascript">
+        var disqus_shortname = 'lengerfulluse';
+        /* * * DON'T EDIT BELOW THIS LINE * * */
+        (function () {
+            var s = document.createElement('script'); s.async = true;
+            s.type = 'text/javascript';
+            s.src = '//' + disqus_shortname + '.disqus.com/count.js';
+            (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
+        }());
     </script>
 </body>
 

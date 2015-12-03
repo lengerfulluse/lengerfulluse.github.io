@@ -4,7 +4,7 @@ title: Wei Heng
 ---
 <div>
     <div class="post-list-title"> SO LONG, AND THANKS FOR ALL THE FISH.</div>
-    {% for post in site.posts %}
+    {% for post in paginator.posts %}
       <div id="post-card">
         <div id="card-profile">
             <div id="excerpt-title">
@@ -43,17 +43,3 @@ title: Wei Heng
       </div>
     {% endfor %}
 </div>
-
-<!-- add comment count for article -->
-<script type="text/javascript">
-/* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
-var disqus_shortname = 'lengerfulluse'; // required: replace example with your forum shortname
-
-/* * * DON'T EDIT BELOW THIS LINE * * */
-(function () {
-var s = document.createElement('script'); s.async = true;
-s.type = 'text/javascript';
-s.src = '//' + disqus_shortname + '.disqus.com/count.js';
-(document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
-}());
-</script>
