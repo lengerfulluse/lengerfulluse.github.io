@@ -4984,7 +4984,6 @@ textarea.input-group-sm>.input-group-btn>.btn {
 .nav-pills>li.active>a:hover {
     color: #111112;
     background-color: #F5F5F5
-    border: 1px solid #ddd;
 }
 
 .nav-stacked>li {

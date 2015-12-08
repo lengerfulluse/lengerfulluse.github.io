@@ -215,7 +215,16 @@ $$
 <h4 id="3-收敛条件的判断">3 收敛条件的判断</h4>
 
 <p>我们都知道当概率状态转移稳定时，其分布便是所要求的联合概率分布。但我们不可能通过如等式(2),(3)的方法来每转换一步就求其概率分布，比较是否改变。主要原因有二，其一是不可把所有变量间的转移概率都找到，其二矩阵计算耗时耗力。常见的方法便是通过burn-in的方法，多跑几次。也有通过计算当前状态下的联合分布可能性函数，然后根据Autocorrelation Function(ACF)的变化速率来判断迭代是否收敛。<br>
-So long, and thanks for all the fish.</p>
+So long, and thanks for all the fish.   </p>
+
+<h3 id="参考">参考</h3>
+
+<p>[1] <a href="http://blog.csdn.net/nietzsche2015/article/details/43450855">PRML读书会第十一章 Sampling Methods</a><br>
+[2] <a href="http://cos.name/2013/01/lda-math-mcmc-and-gibbs-sampling/">LDA-math-MCMC 和 Gibbs Sampling</a><br>
+[3] <a href="http://users.stat.umn.edu/%7Egeyer/mcmc/burn.html">Burn-In is Unnecessary</a><br>
+[4] <a href="http://users.stat.umn.edu/%7Egeyer/mcmc/one.html">One Long Run in MCMC</a><br>
+[5] <a href="https://www.quora.com/What-are-Markov-Chain-Monte-Carlo-methods-in-laymans-terms">What-are-Markov-Chain-Monte-Carlo-methods-in-laymans-terms</a><br>
+[6] <a href="http://mlwhiz.com/blog/2015/08/19/MCMC_Algorithms_Beta_Distribution/">MCMC<em>Algorithms</em>Beta_Distribution</a>  </p>
 
 </div>
 
