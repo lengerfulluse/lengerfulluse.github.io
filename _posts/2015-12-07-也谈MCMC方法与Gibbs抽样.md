@@ -97,7 +97,14 @@ $$
 ![gibbs-sampling](/assets/img/post/gibbs-sampling.png)  
 ####3 收敛条件的判断  
 我们都知道当概率状态转移稳定时，其分布便是所要求的联合概率分布。但我们不可能通过如等式(2),(3)的方法来每转换一步就求其概率分布，比较是否改变。主要原因有二，其一是不可把所有变量间的转移概率都找到，其二矩阵计算耗时耗力。常见的方法便是通过burn-in的方法，多跑几次。也有通过计算当前状态下的联合分布可能性函数，然后根据Autocorrelation Function(ACF)的变化速率来判断迭代是否收敛。  
-So long, and thanks for all the fish.
+So long, and thanks for all the fish.   
+###参考  
+[1] [PRML读书会第十一章 Sampling Methods](http://blog.csdn.net/nietzsche2015/article/details/43450855)  
+[2] [LDA-math-MCMC 和 Gibbs Sampling](http://cos.name/2013/01/lda-math-mcmc-and-gibbs-sampling/)  
+[3] [Burn-In is Unnecessary](http://users.stat.umn.edu/~geyer/mcmc/burn.html)  
+[4] [One Long Run in MCMC](http://users.stat.umn.edu/~geyer/mcmc/one.html)  
+[5] [What-are-Markov-Chain-Monte-Carlo-methods-in-laymans-terms](https://www.quora.com/What-are-Markov-Chain-Monte-Carlo-methods-in-laymans-terms)  
+[6] [MCMC_Algorithms_Beta_Distribution](http://mlwhiz.com/blog/2015/08/19/MCMC_Algorithms_Beta_Distribution/)  
 
 
 
