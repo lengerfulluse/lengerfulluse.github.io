@@ -91,11 +91,11 @@ img {
 
 .item-selected {
 	border-bottom: 2px solid #C30000;
-	font-weight: 800;
+	font-weight: 600;
 }
 
 .nav-content-item:hover {
-	font-weight: 800;
+	font-weight: 600;
 }
 
 /* main body */
@@ -160,7 +160,7 @@ background color are switched. So as for a link font color
 }
 
 .toc a:hover {
-	font-weight: 900;
+	font-weight: 700;
 	color:#111112;
 	text-decoration: none;
 }
