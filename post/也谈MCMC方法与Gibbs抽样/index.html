@@ -97,6 +97,8 @@
         
             
         
+            
+        
         
             
             
@@ -114,7 +116,7 @@
 <!--more--> 
 
 <p>山人第一次见到MCMC兄还是在研究僧阶段，那时候以Latent Direichlet Allocation(LDA)为代表的<a href="http://www.cs.columbia.edu/%7Eblei/">Blei先生</a>的一系列主题模型算法还很火，甚至你还能看见Andrew Ng的身影。于是导师欣然的把其另一篇层次主题模型的论文，Hierarchical LDA(hLDA)甩给我们，拍着我们的肩膀，语重心长的说，好好干，会很有前景的。于是我的MCMC初体验是这样的：
-<img src="/assets/img/post/john-nash.jpg" alt="John-nash">
+<img src="/assets/img/post/john-nash.jpg" alt="John-nash"><br>
 What the hell? 于是直到现在还对MCMC念念不忘。好吧，是耿耿于怀。最近又看见<a href="https://www.quora.com/What-are-Markov-Chain-Monte-Carlo-methods-in-laymans-terms">Quora</a>上有人讨论MCMC和Gibbs抽样，再看时，发现虽然有一两年未看，脑部神经元还是不停的工作，现在理解起来竟然清晰许多。
 MCMC是Markov Chain和Mento Carlo两个概念的组合，我们不妨分而治之，先看看各自的含义。   </p>
 
@@ -174,12 +176,12 @@ $$
 而只要通过对称性，取\(\alpha \left( i,j \right)\)为\(\pi \left( j \right)p\left( j,i \right)\)，取\(\alpha \left( j,i \right)\)为\(\pi \left( i \right)p\left( i,j \right)\)即可。此处的\(\alpha \left(.\right)\)称之为接受率。其可以理解为，在原来的马氏链上，从状态\(i\)以\(p\left( i,j \right)\)的概率跳转到状态\(j\)时，我们以\(\alpha \left(i,j\right)\)的概率接受这个跳转。<br>
 一般的MCMC采样算法的接受率通过和一个Uniform[0,1]分布采样的值u作比较，如果接受率大于这个值，则接受这次转移，从i转移到j状态，反之则保持原i状态。但是我们在实际应用中使用这个方法时发现，很多情况下接受率普遍很低，导致马氏链状态转移缓慢，最终收敛的速度非常慢。为了解决这个问题，我们还是采用类似等式（6）的方法，分子分母的接受率同步增大。<br>
 $$
-\frac{\alpha \left( x,y \right)}{\alpha \left( y,x \right)}\; =\; \frac{\pi \left( y \right)p\left( y,x \right)}{\pi \left( x \right)q\left( x,y \right)}
+\frac{\alpha \left( x,y \right)}{\alpha \left( y,x \right)}\; =\; \frac{\pi \left( y \right)p\left( y,x \right)}{\pi \left( x \right)p\left( x,y \right)}
 $$
 我们可以把跳转之后的状态\(\alpha \left( y,x \right)\)接受率为1，则我们可以得到下面的接受率公式(注意接受率取值范围只能是[0,1])：<br>
 $$
 \alpha \left( i,j \right)\; =\; \min \left\{ \frac{\pi \left( j \right)p\left( j,i \right)}{\pi \left( i \right)p\left( i,j \right)},\; 1 \right\}\tag{8}
-$$
+$$tag{8}
 按照式（8）的接受率，便是我们的<a href="https://en.wikipedia.org/wiki/Metropolis%E2%80%93Hastings_algorithm">Metropolis-Hastings算法</a>。  </p>
 
 <h4 id="2-gibbs抽样">2 Gibbs抽样</h4>
@@ -230,11 +232,11 @@ So long, and thanks for all the fish.   </p>
   <h2>Related Posts</h2>
   <ul class="posts">
     
+      <li><span>19 Dec 2015</span> &raquo; <a href="/post/%E5%BD%93%E6%88%91%E4%BB%AC%E8%B0%88%E8%AE%BArestful%E6%97%B6%E6%88%91%E4%BB%AC%E5%9C%A8%E8%B0%88%E8%AE%BA%E4%BB%80%E4%B9%88">当我们谈论RESTful时，我们在谈论什么</a></li>
+    
       <li><span>30 Aug 2015</span> &raquo; <a href="/post/%E6%A0%B8%E5%87%BD%E6%95%B0%E4%B8%8E%E6%94%AF%E6%8C%81%E5%90%91%E9%87%8F%E6%9C%BA%E5%85%A5%E9%97%A8">核函数与支持向量机入门</a></li>
     
       <li><span>23 Aug 2015</span> &raquo; <a href="/post/%E6%B5%85%E8%B0%88l0l1l2%E8%8C%83%E6%95%B0%E5%8F%8A%E5%85%B6%E5%BA%94%E7%94%A8">浅谈L0,L1,L2范数及其应用</a></li>
-    
-      <li><span>04 Aug 2015</span> &raquo; <a href="/post/java-exception-programming-practice">Java 异常处理实践</a></li>
     
   </ul>
 </div>

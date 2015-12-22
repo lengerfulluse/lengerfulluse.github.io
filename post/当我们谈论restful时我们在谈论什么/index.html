@@ -1,0 +1,331 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>当我们谈论RESTful时，我们在谈论什么</title>
+    <link rel="shortcut icon" type="image/png" href="/images/favicon.ico">
+    <link rel="stylesheet" href="/stylesheets/tufte.css" type="text/css" />
+    <link rel="stylesheet" href="/stylesheets/styles.css" type="text/css" />
+    <link rel="stylesheet" href="/stylesheets/pygment_trac.css" type="text/css" />
+    <link rel="stylesheet" href="/stylesheets/font_awesome.css" type="text/css" />
+    <link rel="stylesheet" href="/stylesheets/bootstrap.min.css" type="text/css" />
+    <link rel="stylesheet" href="/stylesheets/lengerfulluse.css" type="text/css" />
+    <script src="/javascripts/jquery-2.1.4.min.js" type="text/javascript"></script>
+    <script src="/javascripts/toc.js" type="text/javascript"></script>
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+    <script src="/javascripts/scale.fix.js" type="text/javascript"></script>
+    <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+</head>
+
+<body  data-spy="scroll" data-target=".toc" data-offset="20">
+    <div class="site-nav">
+        <div class="nav-logo">
+        <img src="/assets/img/blog/nav-logo.png" >
+        </div>
+        <div class="nav-content">
+            <a href="/index.html"><span class="nav-content-item">Home</span></a>
+            <a href="#"><span class="nav-content-item item-selected">Blogs</span></a>
+            <a href="/me.html"><span class="nav-content-item">About</span></a>
+            <span>
+                <div class="nav-search">
+                    <span class="search-input"><input type="text" id="search" placeholder="Article..." /></span>
+                    <span class="icon"><i class="fa fa-search"></i></span>
+                </div>
+            </span>
+        </div>
+        <div class="nav-discovery">
+        </div>
+    </div>
+    <div class="main-left">
+        <div class="toc">
+        </div>
+    </div>
+    <div class="main-center">
+        
+
+
+    
+        
+            
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+    
+        
+    
+
+
+
+    
+    
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+                
+            
+        
+        
+            
+            
+        
+    
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+                
+            
+        
+            
+        
+            
+        
+            
+        
+        
+            
+            
+        
+    
+
+
+
+<div class="post-meta"><i class="fa fa-calendar-o"></i><span class="awesome_font_margin"></span>19 Dec 2015<span id="post-nav"> <i class="fa fa-folder-open-o fa-lg"></i> <span><a href="/blog/category/work/" style="color: #921477;text-decoration: none;">Work</a></span><span id="post-tags">  <i class="fa fa-tags"></i> <a href="/blog/tag/web-service/" style="color:#33CCCC;text-decoration: none;">Web Service</a>, <a href="/blog/tag/tips/" style="color:#33CCCC;text-decoration: none;">Tips</a></span></span></div>
+
+<div id="post">
+    <h1>当我们谈论RESTful时，我们在谈论什么</h1>
+    <p>标题好像有点噱头，山人在此先检讨。去<a href="https://www.zhihu.com/question/20047243">知乎了一下</a>，发现这种句式叫做卡佛句式，好像村上春树也<a href="http://book.douban.com/subject/3369600/">用过</a>，看来是雅俗共赏的。且回正文，最近Team要做一个Service，负责一些全局资源的管理，并为Internal的其他Services提供通用资源访问接口。想着之前一直是用一些RPC-style的架构，不如来试试RESTful的吧。虽然关于什么才是真正的REST一直有很多<a href="http://stackoverflow.com/questions/671118/what-exactly-is-restful-programming/671508">争论</a>。  </p>
+
+<!--more-->  
+
+<h3 id="i--web服务的架构风格">I- Web服务的架构风格</h3>
+
+<p>就像面向对象与面向过程编程模型一样，Web Service应用服务中也有两种典型的架构模式，<a href="https://en.wikipedia.org/wiki/Remote_procedure_call">Remote Procedure Call</a>(即，RPC，还有一种类似的叫法Remote Method Invocation
+<label for="sn-1" class="margin-toggle sidenote-number"></label><input type="checkbox" id="sn-1" class="margin-toggle"/> 
+<span class="sidenote">
+细微的不同之处在于，RPC通过调用远程的过程函数，而RMI侧重于通过获取远程的对象引用，而通过对象引用调用其内部的方法。 
+</span>
+)与<a href="https://en.wikipedia.org/wiki/Representational_state_transfer">REpresentational State Transfer</a>(即REST)。通常RPC是Operation Oriented，其通过暴露内部的操作接口，提供与之相应的不同编程语言的Client API来实现客户端与服务器的交互。通常与服务器的通信基于HTTP协议，但主要利用其作为一种传输媒介，把通讯的方法，信息以及状态都封装在HTTP协议的URI或是Body内部。且大多使用GET或是POST等单一方法。而REST则是一种Resource Oriented架构，就像面向对象编程一样，其把一个对象实体视为一种数据资源，针对每一种数据资源都会有相应的Service Endpoint，其也用HTTP协议，但不同于RPC，REST充分利用了HTTP协议在WWW上取得的成功，直接视HTTP协议为一种应用层协议，重用其各种HTTP方法，以及统一响应码定义，为全网范围内分布式系统通信提供了统一规范标准。<br>
+严格来说REST本身并不是一种具体架构，而是一种更高level的标准规范。初见于Roy Fielding的<a href="http://www.ics.uci.edu/%7Efielding/pubs/dissertation/rest_arch_style.htm">论文中</a>，文中试图提出一种针对分布式超媒体(Hypermedia)系统架构，具有丰富表达能力的应用程序状态转换（即REST）Web应用服务的软件工程设计原则。以及依照这些原则下，规定客户端与服务器交互时应该遵守的一些限制。比如客户端与服务器的交互需是无状态的；为了提高Service性能而引入缓存机制；为了简化整个系统架构，提高交互的可见性提出的Uniform Interface的限制等
+<label for="sn-2" class="margin-toggle sidenote-number"></label><input type="checkbox" id="sn-2" class="margin-toggle"/> 
+<span class="sidenote">
+论文中主要有如下constrains:<br>
+<img src="/assets/img/post/restful-constrains.png" />
+</span>
+。论文是在2000年写的，开创性和预见性可想而知。而正是因为其不是具体的某个实现架构，也不是真正如RFC那样的定义清晰的业界标准。这么多年来，对REST的解读自然是仁者见仁智者见智了。<br>
+随着近几年RESTful Service越来越热，几乎每一个人在设计Web Service架构时都声称自己是遵照REST原则来设计的。因而诞生了好多RESTful Service API。但其实大多数系统的设计都是不伦不类的RPC与REST混合体。正如Richardson在他的那本经典的<a href="http://restfulwebapis.org/RESTful_Web_Services.pdf">RESTful Web Services</a>中所说，其实多数人设计的都是RESTful-RPC混合架构模式。但既然我们的主要争论点在RPC和REST这两者身上，不妨通过特征比较法来看看二者的主要不同点。    </p>
+
+<h3 id="ii--rpc-vs-rest">II- RPC vs REST</h3>
+
+<p>RPC和REST都是基于<a href="http://en.wikipedia.org/wiki/Hypertext_Transfer_Protocol">HTTP协议</a>的，我们不妨先看看他们使用HTTP请求的方式有什么不同。当Client发起一个基本的HTTP请求，首先需要确定两个内容，即</p>
+
+<blockquote>
+<ol>
+<li>HTTP Verb(Method)<br></li>
+<li>URI(Resources Endpoint)<br></li>
+</ol>
+</blockquote>
+
+<h4 id="1--http-verb">1- HTTP Verb</h4>
+
+<p>对于RPC而言，常用的HTTP方法只是POST和GET，尤其对于POST的使用比较依赖。且很多时候决定是使用GET还是POST的主要依据就是是否请求含有数据。而对于经典的RPC架构的产物，如XML-RPC或是SOAP-RPC，由于关于调用服务的所有信息，如操作类型，数据等都被封装在XML或是SOAP协议体Envelope内，而该协议本身又只被作为HTTP协议体封装传输。<br>
+XML RPC <a href="http://xmlrpc.scripting.com/spec.html">示例代码</a>：  </p>
+
+<div class="highlight"><pre><code class="language-html" data-lang="html">POST /RPC2 HTTP/1.0
+User-Agent: Frontier/5.1.2 (WinNT)
+Host: betty.userland.com
+Content-Type: text/xml
+Content-length: 181
+
+<span class="cp">&lt;?xml version=&quot;1.0&quot;?&gt;</span>
+<span class="nt">&lt;methodCall&gt;</span>
+   <span class="nt">&lt;methodName&gt;</span>examples.getStateName<span class="nt">&lt;/methodName&gt;</span>
+   <span class="nt">&lt;params&gt;</span>
+      <span class="nt">&lt;param&gt;</span>
+         <span class="nt">&lt;value&gt;&lt;i4&gt;</span>41<span class="nt">&lt;/i4&gt;&lt;/value&gt;</span>
+         <span class="nt">&lt;/param&gt;</span>
+    <span class="nt">&lt;/params&gt;</span>
+<span class="nt">&lt;/methodCall&gt;</span></code></pre></div>
+  
+
+<p>SOAP RPC<a href="http://www.w3.org/TR/2000/NOTE-SOAP-20000508/#_Toc478383487">示例代码</a>：   </p>
+
+<div class="highlight"><pre><code class="language-html" data-lang="html">POST /StockQuote HTTP/1.1
+Host: www.stockquoteserver.com
+Content-Type: text/xml; charset=&quot;utf-8&quot;
+Content-Length: nnnn
+SOAPAction: &quot;Some-URI&quot;
+
+<span class="nt">&lt;SOAP-ENV:Envelope</span>
+  <span class="na">xmlns:SOAP-ENV=</span><span class="s">&quot;http://schemas.xmlsoap.org/soap/envelope/&quot;</span>
+  <span class="na">SOAP-ENV:encodingStyle=</span><span class="s">&quot;http://schemas.xmlsoap.org/soap/encoding/&quot;</span><span class="nt">&gt;</span>
+   <span class="nt">&lt;SOAP-ENV:Body&gt;</span>
+       <span class="nt">&lt;m:GetLastTradePrice</span> <span class="na">xmlns:m=</span><span class="s">&quot;Some-URI&quot;</span><span class="nt">&gt;</span>
+           <span class="nt">&lt;symbol&gt;</span>DIS<span class="nt">&lt;/symbol&gt;</span>
+       <span class="nt">&lt;/m:GetLastTradePrice&gt;</span>
+   <span class="nt">&lt;/SOAP-ENV:Body&gt;</span>
+<span class="nt">&lt;/SOAP-ENV:Envelope&gt;</span></code></pre></div>
+
+<p>我们来分析下该SOAP请求，其目的很简单，就是得到上次的交易价格，其Operation是SOAP体中的<code>GetLastTradePrice</code>方法，从方法名我们不难看出，其实就是一个简单的查询。但是却封装成复杂的SOAP协议体，且本来基于HTTP协议的查询请求，GET语义就能够满足，但其却用POST方法来做。我们知道从HTTP协议的角度，各个HTTP Verb都有其标准规范，如下图所示：<br>
+<img src="/assets/img/post/http-verb.png" alt="Http Verb"><br>
+即POST请求通常用在资源创建或更新时，而GET则是用在读取一个资源。这样做的一个好处就是HTTP协议是整个WWW都一致使用的协议，全网范围内有着一致的上下文，而不像SOAP示例中其是读取资源还是更新资源只有客户端和服务器自己知道。统一HTTP Verb带来的另一个好处就是，Service缓存机制的实现变得很简单。因为大家都建立在这些Verb规范的共识之上，可以直接通过请求方法来判断是否这些内容该缓存或者应该从缓存读取。<br>
+除了HTTP Verb，REST也基于统一的HTTP Response Code，来表示请求响应的状态。把HTTP响应头的语义状态与应用本身的资源请求结果状态统一。如Amazon S3 REST风格的响应码：<br>
+<img src="/assets/img/post/amazon-s3-rest-response.png" alt="amazon s3 rest response"><br>
+便不会再像RPC风格的响应那样，响应码是200/OK，但返回的响应体却是Service specific的错误码。完全的HTTP响应码标准定义可以参考<a href="http://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html">HTTP/1.1协议</a>
+<label for="sn-3" class="margin-toggle sidenote-number"></label><input type="checkbox" id="sn-3" class="margin-toggle"/> 
+<span class="sidenote">
+也有人是这么记的:（ 
+<img src="/assets/img/post/http-response.png" /><br>
+</span>
+。  </p>
+
+<h4 id="2--uri">2- URI</h4>
+
+<p>利用统一的HTTP Verb, Response Code，也使得Fielding提出的Uniform interface成为可能。另一方面，网络上的资源访问统一接口便是URI，对于Resource-Oriented架构模式而言，便需要一个URI能够清晰无误的描述一个资源对象。且URI应该有层次结构，其改变最好能够以一种客户端用户可预测的方式来进行。按照Richardson的说法，一个好的URI需要self-descriptive和Addressibility。<br>
+<img src="/assets/img/post/s3-uri-example.png" alt="s3-uri-example"><br>
+与之相反，如前面提到的，RPC架构风格往往提供单个Service的全局URI，然后通过SOAP等应用协议来封装方法和所要获取的资源。   </p>
+
+<h4 id="3--stateless">3- Stateless</h4>
+
+<p>Resource-Oriented架构的另一个重要特征便是无状态性。但就Web Service而言，状态有两种，一种是应用程序状态，一种是资源状态。资源状态是Service本身内部维持的状态，其通过统一资源接口暴露给Client。当Client操作一个资源时，如在一个图片分享网站上上传了一幅照片，那么从Service的角度，这个资源新产生了，可以给它赋予一个URI来让Client进行增删改等资源操作了。这些都是Service需要维护的状态。应用程序状态是指客户端的行为。如其访问了分页资源，其当前所在的页数，之前访问的是哪儿，需不需要再次认证。这些都属于应用程序状态。REST的风格就是，我不会维持这些状态。所有的状态信息需要Client自己提供。比如认证，客户端需要每次访问时都提供认证。当然这有利有弊，但使得Web Service变得简单。    </p>
+
+<h3 id="iii--restful该如何评价">III- RESTful该如何评价</h3>
+
+<p>前面一章我们试图通过对比的方法来理解REST架构，但我们该如何定义一个Web Services是RESTful的，或不是RESTful的呢？还是Richardson这哥么，他把REST的一些原则特性细化成一系列可执行的步骤，提出了自己的REST成熟度模型。并再一次QCon的演讲中把它形象化为<a href="http://martinfowler.com/articles/richardsonMaturityModel.html">REST荣耀之路</a>：<br>
+<img src="/assets/img/post/rest-rmm.png" alt="RMM"><br>
+图中把REST成熟度分为0-3级。   </p>
+
+<ul>
+<li> 第0级是指没有使用REST，仍然淹没在RPC的人流中。把HTTP协议当做一种跟Web上远程系统交互的传输机制，所谓的POX(Plain Old XML)指的就是与SOAP，XML，JSON RPC类似的机制。<br></li>
+<li> 第1级是指引入了Resource的概念。交互的方式不再是单一的Endpoint下的传输体中不同方法的封装，而是能够针对每一个独立的资源实体，有相应的URI。我们的操作方法不再是零散的参数传递，而是在这个资源实体上的方法调用。<br></li>
+<li> 第2级是指引入了我们前面提到的HTTP Verb和Response Code。我们不依赖于传入自定义的操作方法，而是利用HTTP协议本身的优势。当我们想查询一个资源时候用GET，想更新一个资源时用PUT，想创建一个资源时用POST
+<label for="sn-3" class="margin-toggle sidenote-number"></label><input type="checkbox" id="sn-3" class="margin-toggle"/> 
+<span class="sidenote">
+关于POST和PUT的差别，统一的观点是：当Client知道待更新资源的URI，就用PUT。当Client不知道待更新资源的URI，只是把资源给Service，让它来决定资源的URI，就用POST。<br>
+</span>
+。<br></li>
+<li> 第3级就是Fielding所说的Hypertext As the Enginee of Application State（HATEOAS）。也就指示了State Transfer的含义。通过Hypermedia的响应来引导Client的下一步行为。当Client能够以一种可以预测的方式来探索Service的调用接口。更详细的介绍可以参考末尾的引用。<br></li>
+</ul>
+
+<p>当然这个成熟度模型可以很好的表达REST，但并不是唯一的标准，也有很多人提出了<a href="https://www.subbu.org/blog/2011/05/measuring-rest?">质疑</a>和自己的<a href="http://stackoverflow.com/questions/671118/what-exactly-is-restful-programming/671508">看法</a>。但山人认为，它至少能够帮助我们以一种逻辑的方式让我们对什么是RESTful有了更为深入和清晰的理解。  </p>
+
+<p>So long, and thanks for all the fish!   </p>
+
+<h3 id="参考">参考</h3>
+
+<p>[1]. <a href="http://apihandyman.io/do-you-really-know-why-you-prefer-rest-over-rpc/#comments">Do-You-Really-Know-Why-You-Prefer-Rest-over-Rpc</a>.<br>
+[2]. <a href="http://www.ics.uci.edu/%7Efielding/pubs/dissertation/rest_arch_style.htm">Rest Arch Style</a><br>
+[3]. <a href="https://www.subbu.org/blog/2011/05/measuring-rest?">Measuring-Rest</a><br>
+[4]. <a href="https://speakerdeck.com/jaytaph/rest-in-practice-froscon-2012">Rest in Practice</a><br>
+[5]. <a href="http://martinfowler.com/articles/richardsonMaturityModel.html">Richardson Maturity Model</a>  </p>
+
+</div>
+
+<div id="related">
+  <h2>Related Posts</h2>
+  <ul class="posts">
+    
+      <li><span>07 Dec 2015</span> &raquo; <a href="/post/%E4%B9%9F%E8%B0%88MCMC%E6%96%B9%E6%B3%95%E4%B8%8EGibbs%E6%8A%BD%E6%A0%B7">也谈MCMC方法与Gibbs抽样</a></li>
+    
+      <li><span>30 Aug 2015</span> &raquo; <a href="/post/%E6%A0%B8%E5%87%BD%E6%95%B0%E4%B8%8E%E6%94%AF%E6%8C%81%E5%90%91%E9%87%8F%E6%9C%BA%E5%85%A5%E9%97%A8">核函数与支持向量机入门</a></li>
+    
+      <li><span>23 Aug 2015</span> &raquo; <a href="/post/%E6%B5%85%E8%B0%88l0l1l2%E8%8C%83%E6%95%B0%E5%8F%8A%E5%85%B6%E5%BA%94%E7%94%A8">浅谈L0,L1,L2范数及其应用</a></li>
+    
+  </ul>
+</div>
+
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+    var disqus_shortname = 'lengerfulluse';
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">blog comments powered by <span class="logo-disqus">Disqus</span></a>
+
+
+        <div class="footer">
+            <div class="copyright">
+                Personal technical blog for software development practices, reading notes on ML, NLP.
+                <br/> &copy; 2013&mdash;2015 by HengWei. All Rights Reserved.
+            </div>
+        </div>
+    </div>
+    <div class="main-right">
+        <ul id="results-container"></ul>
+    </div>
+    <!-- Script pointing to jekyll-search.js -->
+    <script src="/dest/jekyll-search.js" type="text/javascript"></script>
+    <script type="text/javascript">
+      SimpleJekyllSearch({
+        searchInput: document.getElementById('search'),
+        resultsContainer: document.getElementById('results-container'),
+        json: '/search.json',
+        searchResultTemplate: '<li><a href="{url}" title="{desc}">{title}</a></li>',
+        noResultsText: ': (',
+        limit: 10,
+        fuzzy: false,
+      })
+    </script>
+    <!-- Script to display table of content -->
+    <script type="text/javascript">
+    $(document).ready(function() {
+    $('.toc').toc();
+    });
+    </script>
+</body>
+
+</html>
