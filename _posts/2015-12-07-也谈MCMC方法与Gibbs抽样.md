@@ -10,7 +10,7 @@ MCMC，即传说中的Markov Chain Mento Carlo方法。其主要用于统计推�
 
 <!--more--> 
 山人第一次见到MCMC兄还是在研究僧阶段，那时候以Latent Direichlet Allocation(LDA)为代表的[Blei先生](http://www.cs.columbia.edu/~blei/)的一系列主题模型算法还很火，甚至你还能看见Andrew Ng的身影。于是导师欣然的把其另一篇层次主题模型的论文，Hierarchical LDA(hLDA)甩给我们，拍着我们的肩膀，语重心长的说，好好干，会很有前景的。于是我的MCMC初体验是这样的：
-![John-nash](/assets/img/post/john-nash.jpg)
+![John-nash](/assets/img/post/john-nash.jpg)  
 What the hell? 于是直到现在还对MCMC念念不忘。好吧，是耿耿于怀。最近又看见[Quora](https://www.quora.com/What-are-Markov-Chain-Monte-Carlo-methods-in-laymans-terms)上有人讨论MCMC和Gibbs抽样，再看时，发现虽然有一两年未看，脑部神经元还是不停的工作，现在理解起来竟然清晰许多。
 MCMC是Markov Chain和Mento Carlo两个概念的组合，我们不妨分而治之，先看看各自的含义。   
 ###I-Markov Chain  
@@ -62,12 +62,12 @@ $$
 而只要通过对称性，取\\(\alpha \left( i,j \right)\\)为\\(\pi \left( j \right)p\left( j,i \right)\\)，取\\(\alpha \left( j,i \right)\\)为\\(\pi \left( i \right)p\left( i,j \right)\\)即可。此处的\\(\alpha \left(\.\right)\\)称之为接受率。其可以理解为，在原来的马氏链上，从状态\\(i\\)以\\(p\left( i,j \right)\\)的概率跳转到状态\\(j\\)时，我们以\\(\alpha \left(i,j\right)\\)的概率接受这个跳转。  
 一般的MCMC采样算法的接受率通过和一个Uniform[0,1]分布采样的值u作比较，如果接受率大于这个值，则接受这次转移，从i转移到j状态，反之则保持原i状态。但是我们在实际应用中使用这个方法时发现，很多情况下接受率普遍很低，导致马氏链状态转移缓慢，最终收敛的速度非常慢。为了解决这个问题，我们还是采用类似等式（6）的方法，分子分母的接受率同步增大。  
 $$
-\frac{\alpha \left( x,y \right)}{\alpha \left( y,x \right)}\; =\; \frac{\pi \left( y \right)p\left( y,x \right)}{\pi \left( x \right)q\left( x,y \right)}
+\frac{\alpha \left( x,y \right)}{\alpha \left( y,x \right)}\; =\; \frac{\pi \left( y \right)p\left( y,x \right)}{\pi \left( x \right)p\left( x,y \right)}
 $$
 我们可以把跳转之后的状态\\(\alpha \left( y,x \right)\\)接受率为1，则我们可以得到下面的接受率公式(注意接受率取值范围只能是[0,1])：  
 $$
 \alpha \left( i,j \right)\; =\; \min \left\\{ \frac{\pi \left( j \right)p\left( j,i \right)}{\pi \left( i \right)p\left( i,j \right)},\; 1 \right\\}\tag{8}
-$$
+$$tag{8}
 按照式（8）的接受率，便是我们的[Metropolis-Hastings算法](https://en.wikipedia.org/wiki/Metropolis%E2%80%93Hastings_algorithm)。  
 ####2 Gibbs抽样  
 当变量状态多，且维度比较高时，MH算法的接受率仍然差强人意。要是每次都接受该多好啊。那什么样的情况下，我从\\(i\\)到\\(j\\)时，每次都能接受呢？（即接受率为1）。最终发现，我们每次可以沿着垂直于某个变量维度的轴走。即通过迭代的方法，每一次只对一个变量进行采样。举一个二维空间的例子，假设一个概率分布\\(p\left( x,y \right)\\)，来看\\(x\\)坐标相同的两个点\\(A\left( x\_{1},\; y\_{1} \right)\\)和\\(B\left( x\_{1},\; y\_{2} \right)\\)，通过简单的联合概率和条件概率的关系我们可以得到：  
