@@ -1,0 +1,236 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>浅谈L0,L1,L2范数及其应用</title>
+    <link rel="shortcut icon" type="image/png" href="/images/favicon.ico">
+    <link rel="stylesheet" href="/stylesheets/tufte.css" type="text/css" />
+    <link rel="stylesheet" href="/stylesheets/styles.css" type="text/css" />
+    <link rel="stylesheet" href="/stylesheets/pygment_trac.css" type="text/css" />
+    <link rel="stylesheet" href="/stylesheets/font_awesome.css" type="text/css" />
+    <link rel="stylesheet" href="/stylesheets/bootstrap.min.css" type="text/css" />
+    <link rel="stylesheet" href="/stylesheets/lengerfulluse.css" type="text/css" />
+    <script src="/javascripts/jquery-2.1.4.min.js" type="text/javascript"></script>
+    <script src="/javascripts/toc.js" type="text/javascript"></script>
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+    <script src="/javascripts/scale.fix.js" type="text/javascript"></script>
+    <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+</head>
+
+<body  data-spy="scroll" data-target=".toc" data-offset="20">
+    <div class="site-nav">
+        <div class="nav-logo">
+        <img src="/assets/img/blog/nav-logo.png" >
+        </div>
+        <div class="nav-content">
+            <a href="/index.html"><span class="nav-content-item">Home</span></a>
+            <a href="#"><span class="nav-content-item item-selected">Blogs</span></a>
+            <a href="/me.html"><span class="nav-content-item">About</span></a>
+            <span>
+                <div class="nav-search">
+                    <span class="search-input"><input type="text" id="search" placeholder="Article..." /></span>
+                    <span class="icon"><i class="fa fa-search"></i></span>
+                </div>
+            </span>
+        </div>
+        <div class="nav-discovery">
+        </div>
+    </div>
+    <div class="main-left">
+        <div class="toc">
+        </div>
+    </div>
+    <div class="main-center">
+        
+
+
+
+
+
+
+<div class="post-meta"><i class="fa fa-calendar-o"></i><span class="awesome_font_margin"></span>23 Aug 2015<span id="post-nav"> <i class="fa fa-folder-open-o fa-lg"></i> <span><a href="/blog/category/机器学习/" style="color: #910921;text-decoration: none;">机器学习</a></span><span id="post-tags">  <i class="fa fa-tags"></i> <a href="/blog/tag/research/" style="color:#33CCCC;text-decoration: none;">Research</a></span></span></div>
+
+<div id="post">
+    <h1>浅谈L0,L1,L2范数及其应用</h1>
+    <p>在线性代数，函数分析等数学分支中，范数（Norm）是一个函数，其赋予某个向量空间（或矩阵）中的每个向量以长度或大小。对于零向量，另其长度为零。直观的说，向量或矩阵的范数越大，则我们可以说这个向量或矩阵也就越大。有时范数有很多更为常见的叫法，如绝对值其实便是一维向量空间中实数或复数的范数，而Euclidean距离也是一种范数。</p>
+
+<!--more-->  
+
+<p>范数的一般化定义：设<span>\(p\geq 1\)</span>的实数，p-norm定义为： 
+<div>$$
+\begin{align}
+\left| \left| x \right| \right|_{p}\; :=\; \left( \sum_{i=1}^{n}{\left| x_{i} \right|^{p}} \right)^{\frac{1}{p}}\label{p}\tag{1}
+\end{align}
+$$
+</div>
+此处，当<span>\(p=1\)</span>时，我们称之为taxicab Norm，也叫Manhattan Norm。其来源是曼哈顿的出租车司机在四四方方的曼哈顿街道中从一点到另一点所需要走过的距离。也即我们所要讨论的l1范数。其表示某个向量中所有元素绝对值的和。
+而当<span>\(p=2\)</span>时，则是我们最为常见的Euclidean norm。也称为Euclidean distance。也即我们要讨论的l2范数。
+而当<span>\(p=0\)</span>时，因其不再满足三角不等性，严格的说此时p已不算是范数了，但很多人仍然称之为l0范数。
+这三个范数有很多非常有意思的特征，尤其是在机器学习中的正则化（Regularization）以及稀疏编码（Sparse Coding）有非常有趣的应用。<br>
+下图给出了一个Lp球的形状随着P的减少的可视化图。<img src="/assets/img/post/lp_ball.png" alt="lp ball"></p>
+
+<h4 id="1-l0-范数">1- L0 范数</h4>
+
+<p>虽然L0严格说不属于范数，我们可以采用等式<span>\(\ref{p}\)</span>来给出l0-norm得定义：
+<div>$$
+\left| \left| x \right| \right|_{0}\; :=\; ^{0}\sqrt{\sum_{i=0}^{n}{x_{i}^{0}}}\tag{2}
+$$</div>
+上面的公式仍然让人不是很明白，0的指数和平方根严格意义上是受限条件下才成立的。因此在实际应用中，多数人给出下面的替代定义：
+<div>$$
+\left| \left| x \right| \right|_{0}\; \; =\; \#\left( i \right)\; with\; x_{i}\; \neq \; 0 \tag{3}
+$$
+</div>
+其表示向量中所有非零元素的个数。正是L0范数的这个属性，使得其非常适合机器学习中<a href="http://ufldl.stanford.edu/wiki/index.php/Sparse_Coding">稀疏编码</a>，特征选择的应用。通过最小化L0范数，来寻找最少最优的稀疏特征项。但不幸的是，L0范数的最小化问题在实际应用中是NP难问题。因此很多情况下，L0优化问题就会被relaxe为更高维度的范数问题，如L1范数，L2范数最小化问题。  </p>
+
+<h4 id="2-l1-范数">2- L1 范数</h4>
+
+<p>对于向量X，其L1范数的定义如下：
+<div>$$
+\left| \left| x \right| \right|_{1}\; :=\; \sum_{i=1}^{n}{\left| x_{i} \right|} \tag{4}
+$$
+</div>
+其应用范围非常的广泛。如在计算机视觉中的<a href="https://en.wikipedia.org/wiki/Sum_of_absolute_differences">Sum of Absolute Differents</a>，<a href="https://en.wikipedia.org/wiki/Mean_absolute_error">Mean Absolute Error</a>，都是利用L1范式的定义。<br>
+L1最优化问题的解是稀疏性的，其倾向于选择很少的一些非常大的值和很多的insignificant的小值。而L2最优化则更多的非常少的特别大的值，却又很多相对小的值，但其仍然对<a href="http://math.stackexchange.com/questions/384003/l1-norm-and-l2-norm#">最优化解有significant的贡献。</a>但从最优化问题解的平滑性来看，L1范数的最优解相对于L2范数要少，但其往往是最优解，而L2的解很多，但更多的倾向于某种局部最优解。<br>
+<img src="/assets/img/post/l1_norm.png" alt="l1 norm"><img src="/assets/img/post/l2_norm.png" alt="l2 norm"><br>
+但由于L1范数并没有平滑的函数表示，起初L1最优化问题解决起来非常困难，但随着计算机技术的到来，利用很多凸优化算法使得L1最优化成为可能。</p>
+
+<h4 id="3-l2-范数">3- L2 范数</h4>
+
+<p>当然范数中最常见，也最著名的非L2范数莫属。其应用也几乎包括科学和工程的各个领域。定义公式如下：
+<div>$$
+\left| \left| x \right| \right|_{2}\; :=\; \sqrt{\sum_{i=1}^{n}{x_{i}^{2}}} \tag{5}
+$$</div>
+也Euclidean Norm，如果用于计算两个向量之间的不同，即是Euclidean Distance.<br>
+欧几里德范数的最优化问题可以用如下公式表述：
+$$
+\min \; \left| \left| x \right| \right|_{2}\; subject\; to\; Ax\; =\; b \tag{6}
+$$
+借助拉格朗日乘子，我们便可以解决该最优化问题。由L2衍生，我们还可以定义无限norm，即l-infinity norm：
+$$
+\left| \left| x \right| \right|_{\infty }\; :=\; ^{\infty }\sqrt{\sum_{i=1}^{n}{x_{i}^{\infty }}} \tag{7}
+$$
+一眼看上去上面的公式还是有点tricky的。我们通过一个简单的数学变换，假设X_j是向量中最大的元素，则根据无限大的特性，我们可以得到：
+$$
+x_{j}^{\infty }\; &gt;&gt;\; x_{i}^{\infty }\; \vee j\neq i
+$$
+则可知
+$$
+\sum_{i=1}^{n}{x_{i}^{\infty }\; =\; x_{j}^{\infty }}
+$$
+则根据公式（7）的定义，我们可以得到：
+$$
+\left| \left| x \right| \right|_{\infty }\; =\; ^{\infty }\sqrt{\sum_{i=1}^{n}{x_{i}^{\infty }}}\; =\; ^{\infty }\sqrt{x_{j}^{\infty }}\; \; =\; \left| x_{j} \right| 
+$$
+因此我们便可以说l-infinity norm是X向量中最大元素的长度。
+$$
+\left| \left| x \right| \right|_{\infty }\; =\; \max \left( \left| x_{j} \right| \right) \tag{8}
+$$</p>
+
+<h4 id="4-机器学习中的应用">4- 机器学习中的应用</h4>
+
+<p>不知道有多少人是因为机器学习中的正则化和特征选择等才开始了解这些范数的，至少我是。L0范数本身是特征选择的最直接最理想的方案，但如前所述，其不可分，且很难优化，因此实际应用中我们使用L1来得到L0的最优凸近似。L2相对于L1具有更为平滑的特性，在模型预测中，往往比L1具有更好的预测特性。当遇到两个对预测有帮助的特征时，L1倾向于选择一个更大的特征。而L2更倾向把两者结合起来。  </p>
+
+<h5 id="4-1-正则化">4-1 正则化</h5>
+
+<p>在机器学习中正则化是指在损失函数中通过引入一些额外的信息，来防止<a href="https://en.wikipedia.org/wiki/Well-posed_problem">ill-posed</a>问题或<a href="https://en.wikipedia.org/wiki/Overfitting">过拟合</a>问题。一般这些额外的信息是用来对模型复杂度进行惩罚（<a href="https://en.wikipedia.org/wiki/Occam%27s_razor">Occam&#39;s razor</a>）。其一般形式如下：<br>
+$$
+Loss\left( X,Y \right)\; =\; \mbox{E}rror\left( X,Y \right)\; +\; \alpha \left| \left| w \right| \right| \tag{9}
+$$
+\(\; \left| \left| w \right| \right|\)便可以选取L1或是L2范数来作为惩罚项，不同的模型，其损失函数也不同，对于线性回归而言，如果惩罚项选择L1，则是我们所说的<a href="https://en.wikipedia.org/wiki/Least_squares#Lasso_method">Lasso回归</a>，而L2则是<a href="https://en.wikipedia.org/wiki/Tikhonov_regularization">Ridge回归</a>。下面我们列出了不同模型中的正则化的损失函数（来自Andrew Ng的<a href="https://www.coursera.org/learn/machine-learning/">Machine Learning</a>课程）：<br>
+<strong>Regularized Logistic Regression</strong>
+$$
+J\left( \theta  \right)\; =\; -\; \frac{1}{m}\left[ \sum_{i=i}^{m}{y^{\left( i \right)}\log h_{\theta }\left( x^{\left( i \right)} \right)\; +\; \left( 1-y^{\left( i \right)} \right)\log \left( 1\; -\; h_{\theta }\left( x^{\left( i \right)} \right) \right)} \right]\; +\; \frac{\lambda }{2m}\sum_{j=1}^{n}{\theta _{j}^{2}}
+$$
+<strong>Regularized Neural Network</strong>
+$$
+J\left( \theta  \right)\; =\; -\; \frac{1}{m}\left[ \sum_{i=i}^{m}{\sum_{k=1}^{K}{y_{k}^{\left( i \right)}\log \left( h_{\theta }\left( x^{\left( i \right)} \right) \right)_{k}}\; +\; \left( 1-y^{\left( i \right)} \right)\log \left( 1\; -\; \left( h_{\theta }\left( x^{\left( i \right)} \right) \right)_{k} \right)} \right]\; +\; \frac{\lambda }{2m}\sum_{l=1}^{L-1}{\sum_{i=1}^{s_{l}}{\sum_{j=1}^{s_{l}+1}{\left( \theta _{ji}^{\left( l \right)} \right)^{2}}}}
+$$
+<strong>Soft Margin SVM</strong>
+$$
+\frac{1}{2}|w|^2+C\sum_i\max(0,1-y_i(w^\intercal x_i+b))
+$$
+从上面可以看出常用的正则化项多是L2范数，除了防止过拟合的问题，还有一个好处就是能否改善ill-posed(condition)问题。尤其是当训练样本相对于特征数非常少时，其矩阵便是非满秩的，往往倾向于有无数个解，且是不可逆的。其<a href="https://en.wikipedia.org/wiki/Condition_number">condition num</a>便会很大。一方面，根据此得到的最优化值很不稳定，往往某个特征变量很小的变动都会引发最终结果较大的偏差。另外通过矩阵求逆从而求的最优解就会变的非常困难。如对于线性回归而言，求的最优解析解为：
+$$
+w^{ˆ}\; =\; \left( X^{T}X \right)^{-1}X^{T}y
+$$
+而加上L2正则项后，其变为：
+$$
+w^{\cdot }\; =\; \left( X^{T}X\; +\; \lambda I \right)^{-1}X^{T}y
+$$
+从而可以直接求逆，改善了condition number。<br>
+而对于无解析解，通过迭代优化的算法，L2正则化通过将目标函数变为λ-strongly convex（λ强凸），有效的加快了其收敛速度。  </p>
+
+<h5 id="4-2-贝叶斯先验">4-2 贝叶斯先验</h5>
+
+<p>正则化项从贝叶斯学习理论的角度来看，其相当于一种先验函数。即当你训练一个模型时，仅仅依靠当前的训练集数据是不够的，为了实现更好的预测（泛化）效果，我们还应该加上先验项。而L1则相当于设置一个Laplacean先验，去选择MAP（maximum a posteriori）假设。而L2则类似于 Gaussian先验。如下图所示：<img src="/assets/img/post/bayes_l1_l2.png" alt="bayes l1, l2"><br>
+从上图可以看出，L1先验对大值和小值的tolerate都很好，而L2先验则倾向于均匀化大值和小值。  </p>
+
+<h5 id="4-3-特征选择与稀疏编码">4-3 特征选择与稀疏编码</h5>
+
+<p>机器学习社区里通常把特征选择的方法分为三种。一种是基于统计学的一些方法，对特征进行预筛选，选出子集作为模型输入。如统计推理使用的假设检验，P值。另一种是采用某种成熟的学习算法进行特征选择，如决策树中采用信息增益来选择特征。还有一种便是在模型算法中进行自动特征选择。而L1范数作为正则化项，其特征选择的图谱倾向于spiky，实现了有效的特征选择。<br>
+稀疏编码也是想通过寻找尽可能少的特征表达某个输入的向量X。<br>
+$$
+\min \; a_{i}^{\left( j \right)},\phi _{i}\; \; \sum_{j=1}^{m}{\left| \left| x^{\left( j \right)}-\sum_{i=1}^{k}{a_{i}^{\left( j \right)}\phi _{i}} \right| \right|^{2}\; +\; \lambda \sum_{i=1}^{k}{\mbox{S}\left( a_{i}^{\left( j \right)} \right)}}
+$$
+其中\(\phi _{i}\)是所要寻找的基向量，\(a_{i}^{\left( j \right)}\)是我们要优化的各个基向量的权重。最右边的表达式便是其正则化惩罚项，在这里也称Sparse Cost。实际中我们通常便用L1范数。  </p>
+
+<h4 id="5-参考">5 参考</h4>
+
+<p>[1.] <a href="https://en.wikipedia.org/wiki/Norm_(mathematics)">Wiki: Norm</a>.<br>
+[2.] <a href="https://rorasa.wordpress.com/2012/05/13/l0-norm-l1-norm-l2-norm-l-infinity-norm/">Rorasa&#39;s blog</a>.<br>
+[3.] <a href="http://gastonsanchez.com/blog/opinion/2014/02/16/Mathjax-with-jekyll.html">MaxJax</a>.<br>
+[4.] <a href="http://blog.csdn.net/zouxy09/article/details/24971995/">机器学习中的范数规范化</a>.<br>
+[5.] <a href="https://www.quora.com/What-is-the-difference-between-L1-and-L2-regularization">Difference between l1 and l2</a>.<br>
+[6.] <a href="http://freemind.pluskid.org/machine-learning/gradient-descent-wolfe-s-condition-and-logistic-regression/">gradient-descent-wolfe-s-condition-and-logistic-regression</a>.  </p>
+
+</div>
+
+<div id="related">
+  <h2>Related Posts</h2>
+  <ul class="posts">
+    
+      <li><span>19 Dec 2015</span> &raquo; <a href="/post/%E5%BD%93%E6%88%91%E4%BB%AC%E8%B0%88%E8%AE%BArestful%E6%97%B6%E6%88%91%E4%BB%AC%E5%9C%A8%E8%B0%88%E8%AE%BA%E4%BB%80%E4%B9%88">当我们谈论RESTful时，我们在谈论什么</a></li>
+    
+      <li><span>07 Dec 2015</span> &raquo; <a href="/post/%E4%B9%9F%E8%B0%88MCMC%E6%96%B9%E6%B3%95%E4%B8%8EGibbs%E6%8A%BD%E6%A0%B7">也谈MCMC方法与Gibbs抽样</a></li>
+    
+      <li><span>30 Aug 2015</span> &raquo; <a href="/post/%E6%A0%B8%E5%87%BD%E6%95%B0%E4%B8%8E%E6%94%AF%E6%8C%81%E5%90%91%E9%87%8F%E6%9C%BA%E5%85%A5%E9%97%A8">核函数与支持向量机入门</a></li>
+    
+  </ul>
+</div>
+
+
+        <div class="footer">
+            <div class="copyright">
+                Personal technical blog for software development practices, reading notes on ML, NLP.
+                <br/> &copy; 2013&mdash;2015 by HengWei. All Rights Reserved.
+            </div>
+        </div>
+    </div>
+    <div class="main-right">
+        <ul id="results-container"></ul>
+    </div>
+    <!-- Script pointing to jekyll-search.js -->
+    <script src="/dest/jekyll-search.js" type="text/javascript"></script>
+    <script type="text/javascript">
+      SimpleJekyllSearch({
+        searchInput: document.getElementById('search'),
+        resultsContainer: document.getElementById('results-container'),
+        json: '/search.json',
+        searchResultTemplate: '<li><a href="{url}" title="{desc}">{title}</a></li>',
+        noResultsText: ': (',
+        limit: 10,
+        fuzzy: false,
+      })
+    </script>
+    <!-- Script to display table of content -->
+    <script type="text/javascript">
+    $(document).ready(function() {
+    $('.toc').toc();
+    });
+    </script>
+</body>
+
+</html>
