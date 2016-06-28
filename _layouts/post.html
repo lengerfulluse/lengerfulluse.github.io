@@ -35,7 +35,7 @@ comments: true
 {% endif %}
 
 
-<div class="post-meta"><span><i class="fa fa-heart-o"></i></span><span class="awesome_font_margin"></span><span data-hk-page="current"> - </span><i class="fa fa-calendar-o"></i><span class="awesome_font_margin"></span>{{ post.date | date_to_string }}<span id="post-nav">{{ category_content }}<span id="post-tags"> {{ tags_content }}</span></span></div>
+<div class="post-meta"><i class="fa fa-calendar-o"></i><span class="awesome_font_margin"></span>{{ post.date | date_to_string }}<span class="awesome_font_margin"></span><span><i class="fa fa-heart-o"></i></span><span class="awesome_font_margin"></span><span data-hk-page="current"> - </span><span id="post-nav">{{ category_content }}<span id="post-tags"> {{ tags_content }}</span></span></div>
 
 <div id="post">
     <h1>{{page.title}}</h1>
