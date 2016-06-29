@@ -20,6 +20,11 @@ img {
 	max-width: 100%;
 	max-height: 100%;
 }
+
+figure.highlight {
+	 max-width: 100%;
+}
+
 .nav-search {
 	float: right;
 	margin-top: 11.5px;
