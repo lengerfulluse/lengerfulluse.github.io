@@ -1,0 +1,108 @@
+---
+title: 支付网关接入中的ssl连接和签名调试tips
+layout: post
+category: work
+tags: [payments, tips]
+published: true
+
+---
+
+支付平台网关接入是个费力不讨好的活。做过的人都明白，本身没有很高的技术含量，但是工作的内容是及其繁琐和费时费力的。对一个商家的支付平台的开发者而言，每一个bank processor的接入都会涉及到基本的支付机构接入文档阅读，基本支付用例分析，双方通信方式，消息格式，连接和加密方式等分析。山人也曾接入过目前主流的几家支付渠道，便整理了些有用的tips以备不时之需。 
+
+<!--more-->    
+###一 ssl连接         
+目前来看国内目前主流的仍然是基于B/S架构的Web Service模式。采用基于SSL加密下的HTTP协议。bank side 给出标准的请求方式（如GET或POST），相应的参数格式（如Json,XML, QueryString）等。因为支付本身就对交易事务通讯的安全级别要求较高，故而ssl加密则是必须的。但由于前段时间openssl漏洞的巨大影响，很多网站对ssl加密秘钥和证书的要去也越来越高。很多老的ssl协议已经不再支持。如[alipay.com](https://www.ssllabs.com/ssltest/analyze.html?d=mapi.alipay.com&s=110.75.146.31&latest) 网站的ssl协议已经不支持ssl2了。相应的加密支持的芯片级也有所升级。这些ssl连接的细节对于client连接都很重要。最近发现了一个分析一个网站ssl协议细节的网站，[SSL Lab](https://www.ssllabs.com/ssltest/) 其可以非常详细的分析一个网站ssl连接细节。其不仅对于我们分析ssl的安全性非常重要，也是我们做支付网关接入的有利参考。   
+ssl连接的认证方式分为单向认证和双向认证。前者指的是往往只有客户端认证服务器证书，而服务器不会认证客户端证书。支付网关中的大多数商家，如支付宝，Payease，CMB等其实都是单向认证的方式。而后者则是指不仅客户端要认证服务器的证书，服务器边也要认证客户端证书。
+####a- 服务器证书    
+服务器证书是服务提供商在虚拟网络的身份证明。通过权威的第三方的CA(Cerfitication Authority)机构来注册。最常用的有GeoTrust，VerifiSign等。如Amazon，Alipay等采用均是VerifiSign颁发的证书。而银联则是采用GeoTrust的证书。通常而言，这些机构采用比较权威的认证方式，流程相对来说比较繁琐，也价格不菲。于是也有一些机构采用自自签名的证书，最广为所知道的应该是[12306](https://kyfw.12306.cn/otn/leftTicket/init)了吧。    
+查看一个服务器的根证书可以通过如下命令:     
+
+    openssl s_client -connect payment.ebank.cmbchina.com:443 -showcerts   
+
+如果想下载一个服务器的证书，可以直接在浏览器里点击URL最左侧的小锁标志的查看证书信息，然后到相应浏览器的证书管理setting里下载即可。如山人下载的amazon.cn的verifySign签名的证书
+<label for="sn-1" class="margin-toggle sidenote-number"></label><input type="checkbox" id="sn-1" class="margin-toggle"/> 
+<span class="sidenote">
+如果想下载作为demo演示[点击此处](/assets/downloads/amazon.cn.cert) 
+</span>
+。ssl证书是标准的x509格式，包含颁发者和授予者的信息，证书签名算法和公钥。从证书中提取公钥：  
+
+    openssl x509 -pubkey -noout -in cert.pem  > pubkey.pem
+
+对于自签名的证书，可以通过openssl先生成秘钥，然后创建证书请求文件，在自己给自己签名：   
+
+    openssl genrsa -out prvtkey.pem 1024/2048   # create key
+    openssl req -new -key prvtkey.pem -out cert.csr   # create cert request
+    openssl req -new -x509 -key prvtkey.pem -out cacert.pem -days 1095  # generate ca cert
+
+####b- 客户端证书   
+如果一个服务器只允许特定的客户端访问，便可以通过向制定客户颁发唯一标识该客户身份的客户端证书。对于单向认证的服务器，不需要客户端证书，只需要把获取到的服务器证书安装到制定证书目录便可以实现认证服务器。  
+![双向认证过程](/assets/img/post/ssl-mutal-authen.gif)   
+如Java里重要用trustStore来存储服务器证书。可以用`keytool`命令来创建一个trustStore文件，   
+
+    keytool -import -file C:\cascerts\firstCA.cert -alias firstCA -keystore myTrustStore
+
+然后把获取到的服务器根证书import到trustStore里：   
+
+    keytool -import -trustcacerts -file cacert.pem.cer -alias tenpay_ca -keystore wechat-cert.ssl.truststore.jks
+    keytool -list -v -keystore  $JAVA_HOME/jre/lib/security/cacerts
+
+如果安装客户端证书则创建一个keyStore（命令跟上面一样），然后实现客户端的认证。如果要改变keyStore的密码，   
+
+    keytool -storepasswd -keystore my.keystore  #Change a keystore password.
+    keytool -keypasswd  -alias <key_name> -keystore my.keystore   #Change the key's password
+
+证书有多种格式，最常见的如pem格式和pfx格式。国内很多支付机构的客户端证书往往采用pfx（或者p12后缀，其实里面格式都是PKCS#12标准）。从pfx格式转换成pem格式可以通过如下命令：  
+
+    openssl pkcs12 -in acp700000000000001.pfx -out prikey.pem -nocerts   # pfx -> pem
+    openssl x509 -in mycert.crt -out mycert.pem -outform PEM    # crt -> pem
+
+通常客户端的pfx格式的证书还包括私钥，从pfx中提取私钥如下：   
+
+    openssl pkcs12 -in publicAndprivate.pfx -nocerts -out privateKey.pem
+
+###二 加密签名算法   
+ssl协议实现了连接层的加密，通常支付网关还要实现数据层的加密和签名。如当客户在[亚马逊](http://z.cn)选择支付宝作为支付方式时，亚马逊会发起一笔支付请求到支付宝网关。其请求form中便包含支付参数和相应的签名，从更细粒度确保支付请求确实是亚马逊发起的。支付宝收到请求首先便是验证其签名是否正确。常用的加密算法如DSA, RSA等，摘要算法如SHA1，MD5等。由于最近安全事件越发增多，接入商家基本要求是RSA2048位的加密签名标准。    
+加密和签名是相对的过程。加密的过程是商家对发往银行服务器端的请求用自己的私钥加密，银行端收到请求后，则用商家侧实现给的公钥进行验签。生成响应后，在用自己侧的私钥进行签名，商家在收到银行侧的响应信息后用银行实现提供的公钥进行验证。签名保证的是信心来源的真实性，因为商家是唯一拥有自己私钥的人，当银行侧验证签名正确时，就表示这条信心确实是从商家发来的。因此其可以保证信息不被篡改，但并不能保证信息不被窃听。加密则是通过重新编码明文信息，来保证信息不被窃听。加密的过程是商家用自己的公钥进行加密请求，银行侧收到后用商家私钥给的私钥进行解密。然后银行用自己的公钥进行响应的加密，商家收到后用银行提供的私钥进行解密。    因为国内大多依赖ssl层来进行数据加密，因此实际的网关接入中多仅仅使用签名。最常用的签名算法如MD5，SHA1，SHA1WithRSA等。    
+####a- 签名和验签过程         
+针对对称和非对称的算法，签名和验签的过程有所不同。对于MD5，SHA1等[对称算法](http://baike.baidu.com/link?url=9dBlYCqOoQxnML5WxcOe1Trg4-lNvggdxHHnUsFW4xbTiEV4R0Q3OhpWOpnlCgpiM8R_ezbnui7sNfaM4eEFdq)，通常按照原始参数的key value pair的形式构造待签名的plain text，值得注意的是则里的原始串指的是非经过URLEncode的原始键值对。且通常空值和sign_key等是不参与签名过程，最后把签名得到的signature，构造成键值对附在请求参数上。在验签的过程用同样的方法构造好待签名的plain text串，把得到的签名后请求传来的参数进行对比即可。而非对称的签名则是构造好签名的串，连同当前的签名值一起传入验证签名的算法。   
+
+####b- 公私要生成和常用格式    
+RSA目前仍然是主流的签名方法，通常用`openssl`来生成或提取RSA公私钥。如生成2048位的私钥对,
+
+    `openssl genrsa -out privatekey.txt 2048` 
+
+从私钥对中导出公钥，
+    
+    `openssl rsa -in key.pem -pubout -out pubkey.pem`。   
+
+从PEM证书中提取公钥，   
+
+    openssl x509 -pubkey -noout -in cert.pem  > pubkey.pem
+
+从私钥生成证书，   
+
+    openssl req -x509 -new -nodes -key rootCA.key -days 1024 -out rootCA.pem
+
+PEM格式的RSA私钥也有不同的格式 ，最常见的有两种PKCS#1和PKCS#8 format，分别如下：   
+    
+    #Legacy PKCS#1 Format
+    -----BEGIN PRIVATE KEY-----
+    BASE64 ENCODED DATA
+    -----END PRIVATE KEY-----
+
+    #PKCS#8 Format
+    -----BEGIN RSA PRIVATE KEY-----
+    BASE64 ENCODED DATA
+    -----END RSA PRIVATE KEY-----
+    
+StackOverFlow上有个解释两者区别的经典回答：[what-is-the-differences-between-begin-rsa-private-key-and-begin-private-key](http://stackoverflow.com/questions/20065304/what-is-the-differences-between-begin-rsa-private-key-and-begin-private-key)   
+简单说来，PKCS#1格式仅仅是一个RSA key，等于PKCS#8中的RSA key对象。而PKCS#8不仅有PKCS#1所含有的RSA key对象，还包含版本算法标识。当然也可以从PKCS#1格式转换成PKCS#8格式，命令如下：  
+
+    openssl rsa -in begin_private_key.key -out begin_rsa_private_key.key
+
+上面的命令总结只是结合支付网关调试过程中常用的命令，对于目前国内第三方支付机构和银行的接入这些命令应该足够了。以后有增加还会持续更新。   
+Song Long, and Thanks for All The Fish.    
+
+###三 参考
+[1]. [WeChat API](http://dev.wechat.com/wechatapi).    
+[2]. [支付宝开放平台](https://doc.open.alipay.com/).
