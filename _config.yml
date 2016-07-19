@@ -3,7 +3,7 @@ redcarpet:
     extensions: [with_toc_data]
 highlighter: pygments
 encoding: UTF-8
-permalink: /post/:title.html
+permalink: /post/:title
 url: "http://t.hengwei.me"
 excerpt_separator: "<!--more-->"
 comments:
