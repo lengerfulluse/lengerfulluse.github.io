@@ -38,36 +38,48 @@ comments: true
 <div class="post-meta"><i class="fa fa-calendar-o"></i><span class="awesome_font_margin"></span>{{ post.date | date_to_string }}<span class="awesome_font_margin"></span><span class="awesome_element_margin"></span><span><i class="fa fa-bar-chart-o"></i></span><span class="awesome_font_margin"></span><span data-hk-page="current"> - </span><span id="post-nav">{{ category_content }}<span id="post-tags"> {{ tags_content }}</span></span></div>
 
 <div id="post">
-    <h1>{{page.title}}</h1>
+    <h2>{{page.title}}</h2>
     {{ content }}
 </div>
-
 <div id="related">
-  <h2>Related Posts</h2>
+  <span style="font-size: 18px; font-weight: 600;"><i class="fa fa-lightbulb-o" aria-hidden="true"></i>  Related Posts</span>
   <ul class="posts">
     {% for post in site.related_posts limit:3 %}
       <li><span>{{ post.date | date_to_string }}</span> &raquo; <a href="{{ post.url }}">{{ post.title }}</a></li>
     {% endfor %}
   </ul>
 </div>
-
+<button class="show-comments" data-disqus-url="{{ post.url }}#disqus_thread"><i class="fa fa-comments-o" aria-hidden="true"></i> Show Comments</button>
 <div id="disqus_thread"></div>
-<script>
-    /**
-     *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
-     *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables
-     */
-    var disqus_config = function () {
-        this.page.url = post.url ;  // Replace PAGE_URL with your page's canonical URL variable
-        this.page.identifier = post.url ; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
-    };
-    (function() {  // REQUIRED CONFIGURATION VARIABLE: EDIT THE SHORTNAME BELOW
-        var d = document, s = d.createElement('script');
+<script type="text/javascript">
+$(document).ready(function () {
+    var disqusPublicKey = "Pyv6AbTuloqrACiEDW3Np3UqCtkO94dU9GHzvOhYl81F9iNUg8P2IZUCqU0kz6zA";
+    var disqusShortname = "lengerfulluse";
+    var threadUrl = 'link:' + $('.show-comments').attr('data-disqus-url');
 
-        s.src = '//lengerfulluse.disqus.com/embed.js';  // IMPORTANT: Replace EXAMPLE with your forum shortname!
+    $.ajax({
+        type: 'GET',
+        url: 'https://disqus.com/api/3.0/threads/set.jsonp',
+        data: { api_key: disqusPublicKey, forum: disqusShortname, thread: threadUrl },
+        cache: false,
+        dataType: 'jsonp',
+        success: function(result) {
+            if (result.response.length === 1) {
+                btnText = 'Show Comments (' + result.response[0].posts + ')';
+                $('.show-comments').html(btnText);
+            }
+        }
+    });
 
-        s.setAttribute('data-timestamp', +new Date());
-        (d.head || d.body).appendChild(s);
-    })();
+    $('.show-comments').on('click', function() {
+        $.ajaxSetup({cache:true});
+        $.getScript('http://' + disqusShortname + '.disqus.com/embed.js');
+        $.ajaxSetup({cache:false});
+        $(this).remove();
+    });
+
+    if(/\#comment/.test(location.hash)){
+        $('.show-comments').trigger('click');
+    }
+});
 </script>
-<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>

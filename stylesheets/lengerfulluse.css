@@ -332,3 +332,10 @@ background color are switched. So as for a link font color
 .awesome_element_margin {
 	margin-left: 25px;
 }
+.show-comments {
+	border-width: 0px;
+	float: left;
+	background-color:  white;
+	font-size: 18px;
+	font-weight:  600;
+}
