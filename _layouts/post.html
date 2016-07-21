@@ -54,7 +54,9 @@ comments: true
         </span>
         <span id="post-comments">
           <i class="fa fa-comments-o" aria-hidden="true"></i>
-          <a href="{{ post.url }}#disqus_thread" class="show-comments" data-disqus-url="{{ post.url }}#disqus_thread">COMMENTS</a>
+          <span class="show-comments" data-disqus-url="{{ post.url }}#disqus_thread">
+            <a href="{{ post.url }}#disqus_thread">COMMENTS</a>
+          </span>
         </span>
       </div>
       <div class="post-content">
