@@ -205,7 +205,7 @@ background color are switched. So as for a link font color
 }
 .main-center-post {
 	padding: 0.5px 25px 1px 25px;
-	margin-top:5px;
+	margin-top:15px;
 	background-color: #fff;
 }
 .main-right {
@@ -222,18 +222,40 @@ background color are switched. So as for a link font color
 }
 
 .post-meta {
+	height: 100%;
 	font-style: italic;
-	text-align: left;
 	position: relative;
 	font-size: small;
+	margin: 15px auto 15px auto;
+}
+
+.post-meta-archieve {
+	float: right;
+}
+
+.post-meta-statistics {
+	width: 100%;
+	font-weight: bolder;
+	font-size: 90%;
+	font-family: 'Fira Sans';
+	text-align: center;
+}
+
+#post-category, #post-tags, #post-date {
+	text-align: center;
+	margin-left:5px;
+	margin-right:5px;
+}
+
+#post-viewcount, #post-comments {
+	text-align: center;
+	margin-right:15px;
+	background-color: white;
+	cursor: hand;
+}
+
+.post-content {
 	margin-top: 15px;
-}
-#post-nav {
-	float: right;
-}
-#post-tags {
-	float: right;
-	margin-left: 10px;
 }
 
 /* archives css, organize for category and tags */
@@ -336,4 +358,7 @@ background color are switched. So as for a link font color
 }
 .awesome_element_margin {
 	margin-left: 25px;
+}
+.show-comments {
+	border-width: 0px;
 }
