@@ -1395,7 +1395,10 @@ body {
     font-size: 14px;
     line-height: 1.42857143;
     color: #333;
-    background-color: #fff
+    max-width: 1820px;
+    background: url(/assets/img/blog/background-cover.jpg) right top;
+    background-size: 50% 100%;
+    background-attachment: fixed;
 }
 
 button,

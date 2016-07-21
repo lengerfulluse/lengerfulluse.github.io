@@ -27,7 +27,7 @@
             <a href="/me.html"><span class="nav-content-item">About</span></a>
             <span>
                 <div class="nav-search">
-                    <span class="search-input"><input type="text" id="search" placeholder="Article..." /></span>
+                    <span class="search-input"><input type="text" id="search" placeholder="Search..." /></span>
                     <span class="icon"><i class="fa fa-search"></i></span>
                 </div>
             </span>
@@ -42,25 +42,25 @@
             </div>
             <div class="tag-cloud">
                 <!-- categories list -->
-                {% assign tags_list = site.categories %}  
+                {% assign tags_list = site.categories %}
                   {% if tags_list.first[0] == null %}
-                    {% for tag in tags_list %} 
+                    {% for tag in tags_list %}
                       <div class="tag-item"><a href="/blog/category/{{ tag }}/">{{ tag | capitalize }} <span>{{ site.tags[tag].size }}</span></a></div>
                     {% endfor %}
                   {% else %}
-                    {% for tag in tags_list %} 
+                    {% for tag in tags_list %}
                       <div class="tag-item"><a href="/blog/category/{{ tag[0] }}/">{{ tag[0] | capitalize }} <span>{{ tag[1].size }}</span></a></div>
                     {% endfor %}
                   {% endif %}
                 {% assign tags_list = nil %}
                 <!-- tags list -->
-                {% assign tags_list = site.tags %}  
+                {% assign tags_list = site.tags %}
                   {% if tags_list.first[0] == null %}
-                    {% for tag in tags_list %} 
+                    {% for tag in tags_list %}
                       <div class="tag-item"><a href="/blog/tag/{{ tag }}/">{{ tag | capitalize }} <span>{{ site.tags[tag].size }}</span></a></div>
                     {% endfor %}
                   {% else %}
-                    {% for tag in tags_list %} 
+                    {% for tag in tags_list %}
                       <div class="tag-item"><a href="/blog/tag/{{ tag[0] }}/">{{ tag[0] | capitalize }} <span>{{ tag[1].size }}</span></a></div>
                     {% endfor %}
                   {% endif %}
