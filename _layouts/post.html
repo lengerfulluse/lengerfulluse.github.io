@@ -54,7 +54,7 @@ comments: true
         </span>
         <span id="post-comments">
           <i class="fa fa-comments-o" aria-hidden="true"></i>
-          <a href="#disqus_thread" class="show-comments" data-disqus-url="{{ post.url }}#disqus_thread">COMMENTS</a>
+          <a href="#disqus_thread" class="show-comments" data-disqus-url="{{ post.url | prepend: site.url }}">COMMENTS</a>
         </span>
       </div>
       <div class="post-content">
@@ -86,7 +86,7 @@ comments: true
           dataType: 'jsonp',
           success: function(result) {
               if (result.response.length === 1) {
-                  btnText = result.response[0].posts + 'COMMENTS';
+                  btnText = result.response[0].posts + ' COMMENTS';
                   $('.show-comments').html(btnText);
               } else {
                   $('.show-comments').html('0 COMMENTS');
