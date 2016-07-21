@@ -69,8 +69,7 @@ comments: true
       {% endfor %}
     </ul>
   </div>
-</div
-
+</div>
 <div id="disqus_thread"></div>
 <!-- add comment count for article -->
 <script id="dsq-count-scr" src="//lengerfulluse.disqus.com/count.js" async>
@@ -90,7 +89,7 @@ comments: true
           dataType: 'jsonp',
           success: function(result) {
               if (result.response.length === 1) {
-                  btnText = result.response[0].posts + ' comments';
+                  btnText = result.response[0].posts + ' COMMENTS';
                   $('.show-comments').html(btnText);
               }
           }
