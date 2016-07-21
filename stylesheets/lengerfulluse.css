@@ -251,7 +251,7 @@ background color are switched. So as for a link font color
 	text-align: center;
 	margin-right:15px;
 	background-color: white;
-	cursor: hand;
+	cursor: pointer;
 }
 
 .post-content {
