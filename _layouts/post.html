@@ -88,12 +88,6 @@ comments: true
           data: { api_key: disqusPublicKey, forum: disqusShortname, thread: threadUrl },
           cache: false,
           dataType: 'jsonp',
-          success: function(result) {
-              if (result.response.length === 1) {
-                  btnText = result.response[0].posts + 'COMMENTS';
-                  $('.show-comments').html(btnText);
-              }
-          }
       });
     $('.show-comments').on('click', function() {
         $.ajaxSetup({cache:true});
