@@ -353,6 +353,11 @@ background color are switched. So as for a link font color
 	margin-right: 5px;
 	margin-left: 0px;
 }
+
+#title a {
+	font-weight: 600;
+}
+
 .awesome_font_margin {
 	margin-left: 5px;
 }
