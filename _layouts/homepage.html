@@ -12,6 +12,7 @@
     <link rel="stylesheet" href="/stylesheets/font_awesome.css" type="text/css" />
     <link rel="stylesheet" href="/stylesheets/bootstrap.min.css" type="text/css" />
     <script src="/javascripts/scale.fix.js"></script>
+    <script src="https://cdn.staticfile.org/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://cdn1.lncld.net/static/js/av-mini-0.6.10.js"></script>
     <script src="http://jerry-cdn.b0.upaiyun.com/hit-kounter/hit-kounter-lc-0.2.0.js"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
@@ -102,6 +103,30 @@
       })
     </script>
     <!-- add comment count for article -->
-    <script id="dsq-count-scr" src="//lengerfulluse.disqus.com/count.js" async></script>
+    <script type="text/javascript">
+    $(document).ready(function () {
+      var disqusPublicKey = "7iPBdRZv3iAU0UWC721uhHKxwYvdXkVXobEikYhQtPau2VHwqzZRiq0Z9x628wCE";
+      var disqusShortname = "lengerfulluse";
+
+      $('.show-comments').each(function(i, obj) {
+            var curClass = $(this);
+            var threadUrl = 'link:' + curClass.attr('data-disqus-url');
+            $.ajax({
+              type: 'GET',
+              url: 'http://api.hengwei.me/disqus/api/threads/set',
+              data: { api_key: disqusPublicKey, forum: disqusShortname, thread: threadUrl },
+              cache: false,
+              success: function(result) {
+                  if (result.response.length === 1) {
+                      var btnText = result.response[0].posts;
+                      curClass.html(btnText);
+                  } else {
+                      curClass.html('0');
+                  }
+              }
+          });
+      });
+    });
+</script>
 </body>
 </html>

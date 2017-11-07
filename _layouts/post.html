@@ -77,14 +77,11 @@ comments: true
       var disqusPublicKey = "7iPBdRZv3iAU0UWC721uhHKxwYvdXkVXobEikYhQtPau2VHwqzZRiq0Z9x628wCE";
       var disqusShortname = "lengerfulluse";
       var threadUrl = 'link:' + $('.show-comments').attr('data-disqus-url');
-      console.log(threadUrl);
-
       $.ajax({
           type: 'GET',
-          url: 'https://disqus.com/api/3.0/threads/set.jsonp',
+          url: 'http://api.hengwei.me/disqus/api/threads/set',
           data: { api_key: disqusPublicKey, forum: disqusShortname, thread: threadUrl },
           cache: false,
-          dataType: 'jsonp',
           success: function(result) {
               if (result.response.length === 1) {
                   var btnText = result.response[0].posts + ' COMMENTS';
@@ -99,9 +96,5 @@ comments: true
         $.getScript('http://' + disqusShortname + '.disqus.com/embed.js');
         $.ajaxSetup({cache:false});
     });
-
-    if(/\#disqus_thread/.test(location.hash)){
-        $('.show-comments').trigger('click');
-    }
   });
 </script>
