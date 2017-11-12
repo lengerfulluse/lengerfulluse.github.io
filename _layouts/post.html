@@ -54,7 +54,7 @@ comments: true
         </span>
         <span id="post-comments">
           <i class="fa fa-comments-o" aria-hidden="true"></i>
-          <a href="#disqus_thread" class="show-comments" data-disqus-url="{{ post.url | prepend: site.url }}">COMMENTS</a>
+          <a href="#disqus_thread" class="show-comments"><span data-disqus-url="{{ post.url | prepend: site.url }}"></span> COMMENTS</a>
         </span>
       </div>
       <div class="post-content">
@@ -70,31 +70,4 @@ comments: true
     </ul>
   </div>
 </div>
-<div id="disqus_thread"></div>
-<!-- click to show comments async -->
-<script type="text/javascript">
-  $(document).ready(function () {
-      var disqusPublicKey = "7iPBdRZv3iAU0UWC721uhHKxwYvdXkVXobEikYhQtPau2VHwqzZRiq0Z9x628wCE";
-      var disqusShortname = "lengerfulluse";
-      var threadUrl = 'link:' + $('.show-comments').attr('data-disqus-url');
-      $.ajax({
-          type: 'GET',
-          url: 'http://api.hengwei.me/disqus/api/threads/set',
-          data: { api_key: disqusPublicKey, forum: disqusShortname, thread: threadUrl },
-          cache: false,
-          success: function(result) {
-              if (result.response.length === 1) {
-                  var btnText = result.response[0].posts + ' COMMENTS';
-                  $('.show-comments').html(btnText);
-              } else {
-                  $('.show-comments').html('0 COMMENTS');
-              }
-          }
-      });
-    $('.show-comments').on('click', function() {
-        $.ajaxSetup({cache:true});
-        $.getScript('http://' + disqusShortname + '.disqus.com/embed.js');
-        $.ajaxSetup({cache:false});
-    });
-  });
-</script>
+<div id="comment"></div>

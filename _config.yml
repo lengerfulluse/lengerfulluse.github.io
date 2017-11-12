@@ -9,7 +9,7 @@ excerpt_separator: "<!--more-->"
 comments:
   disqus:
     short_name: lengerfulluse
-    api_key:    Pyv6AbTuloqrACiEDW3Np3UqCtkO94dU9GHzvOhYl81F9iNUg8P2IZUCqU0kz6zA
+    api_key:    7iPBdRZv3iAU0UWC721uhHKxwYvdXkVXobEikYhQtPau2VHwqzZRiq0Z9x628wCE
 
 gems: [jekyll-paginate]
 paginate: 10
