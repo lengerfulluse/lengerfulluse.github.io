@@ -97,9 +97,6 @@
             badge: "山人"
           });
         disq.count();
-        if(/\#disqus_thread/.test(location.hash)){
-          $('.show-comments').trigger('click');
-        }
       });
 
       var threadUrl = $('.post-qrcode').attr('data-qrcode-url');
