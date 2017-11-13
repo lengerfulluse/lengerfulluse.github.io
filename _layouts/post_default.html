@@ -26,6 +26,7 @@
         src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?...">
     </script>
     <script type="text/javascript" src="/javascripts/iDisqus.min.js"></script>
+    <script type="text/javascript" src="/javascripts/qrcode.js"></script>
 </head>
 
 <body  data-spy="scroll" data-target="#toc" data-offset="20">
@@ -99,6 +100,18 @@
           $('.show-comments').trigger('click');
         }
       });
+
+      var threadUrl = $('.post-qrcode').attr('data-qrcode-url');
+      console.log(threadUrl);
+      var qrcode = new QRCode("qrcode", {
+                text: threadUrl,
+                width: 80,
+                height: 80,
+                colorDark: "#000000",
+                colorLight: "#ffffff",
+                useSVG: !0,
+                correctLevel: QRCode.CorrectLevel.L
+            });
     </script>
 </body>
 
