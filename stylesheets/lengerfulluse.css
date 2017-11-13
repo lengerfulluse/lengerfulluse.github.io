@@ -372,3 +372,152 @@ background color are switched. So as for a link font color
 .show-comments {
 	border-width: 0px;
 }
+
+/* media option */
+@media print, screen and (min-width: 960px) {
+
+  .main-left, .nav-logo {
+    width: 25%;
+  }
+
+  .main-right, .nav-discovery {
+    width: 25%;
+  }
+
+  .main-center, .nav-content {
+    width: 50%;
+  }
+
+}
+
+@media print, screen and (min-width: 661px) and (max-width: 960px) {
+  .main-left, .nav-logo {
+    width: 20%;
+  }
+
+  .main-right, .nav-discovery {
+    width: 20%;
+  }
+
+  .main-center, .nav-content {
+    width: 60%;
+  }
+}
+
+@media print, screen and (min-width: 481px) and (max-width: 660px){
+  body {
+    word-wrap:break-word;
+  }
+
+  header ul, header p.view {
+    position:static;
+  }
+
+  .main-left, .nav-logo {
+    width: 10%;
+  }
+
+  .main-right, .nav-discovery {
+    width: 10%;
+  }
+
+  .main-center, .nav-content {
+    width: 80%;
+  }
+
+  .nav-search {
+    display: none;
+  }
+
+  .nav-discovery {
+    display:none;
+  }
+
+  .nav-logo {
+    visibility:  hidden;
+  }
+
+  .toc {
+    visibility:  hidden;
+  }
+
+  .hung-panel {
+    display: none;
+  }
+}
+
+/* for small screen device, like smartphone*/
+@media print, screen and (max-width: 480px) {
+
+  header ul li.download {
+    display:none;
+  }
+
+  .main-left, .nav-logo {
+    width: 5%;
+  }
+
+  .main-right, .nav-discovery {
+    width: 5%;
+  }
+
+  .main-center, .nav-content {
+    width: 90%;
+  }
+
+  .nav-search {
+    display:none;
+  }
+
+  .nav-discovery {
+    display:none;
+  }
+
+  .nav-logo {
+    visibility: hidden;
+  }
+
+  .toc {
+    visibility: hidden;
+  }
+
+  .hung-panel {
+    display: none;
+  }
+  
+  #timedate {
+    display: none;
+  }
+
+  #card-content {
+  	display: none;
+  }
+
+  #card-profile {
+    padding: 0px;
+    border: 0px;
+    box-shadow: none;
+  }
+
+  #excerpt-img {
+  	text-align: center;
+  	padding: 1px 20px;
+  	width: 100%;
+  }
+
+  #post-card {
+  	width: 100%;
+  }
+
+  #like {
+  	text-align: left;
+  }
+}
+
+@media print {
+  body {
+    padding:0.4in;
+    font-size:12pt;
+    color:#444;
+  }
+}
