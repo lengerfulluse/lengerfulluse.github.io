@@ -137,7 +137,6 @@ figure.highlight {
 
 .tag-item {
 	margin-bottom: 4px;
-	background-color: #F8F8F8;
 	padding: 1px 3px 1px;
 	border: 1px solid #337ab7;
     -webkit-border-radius: 5px;
@@ -225,7 +224,7 @@ background color are switched. So as for a link font color
 
 }
 
-.post h3 {
+.post-title {
 	text-align: center;
 }
 
