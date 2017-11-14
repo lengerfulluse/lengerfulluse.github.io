@@ -364,6 +364,7 @@ background color are switched. So as for a link font color
 #timedate {
 	margin-right: 5px;
 	float: right;
+	font-family: fantasy;
 }
 #title {
 	margin-right: 5px;
