@@ -221,6 +221,14 @@ background color are switched. So as for a link font color
 	text-align: center;
 }
 
+.post {
+
+}
+
+.post h3 {
+	text-align: center;
+}
+
 .post-meta {
 	height: 100%;
 	font-style: italic;
@@ -239,6 +247,11 @@ background color are switched. So as for a link font color
 	font-size: 90%;
 	font-family: 'Fira Sans';
 	text-align: center;
+}
+
+#post-date {
+	color: #969696;
+	font-family: fantasy;
 }
 
 #post-category, #post-tags, #post-date {
@@ -509,6 +522,10 @@ background color are switched. So as for a link font color
 
   #post-card {
   	width: 100%;
+  }
+
+  .main-center-post {
+  	padding: 0;
   }
 }
 

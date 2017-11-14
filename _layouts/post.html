@@ -36,7 +36,6 @@ comments: true
 
 <div class="post-meta">
   <span id="post-date">
-    <i class="fa fa-calendar-o"></i>
     {{ post.date | date_to_string }}
   </span>
   <div class="post-meta-archieve">
@@ -45,8 +44,8 @@ comments: true
   </div>
 </div>
 <div class="main-center-post">
-  <div id="post">
-      <h2 style="text-align: center;">{{page.title}}</h2>
+  <div class="post">
+      <h3>{{page.title}}</h3>
       <div class="post-meta-statistics">
         <span id="post-viewcount">
           <i class="fa fa-bar-chart-o"></i>
