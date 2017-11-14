@@ -521,3 +521,133 @@ background color are switched. So as for a link font color
     color:#444;
   }
 }
+
+/* post share part css */
+.post-info .post-share .post-share-item:hover,
+.post-info .post-source .post-source-button:hover {
+    border-bottom: none
+}
+
+.post-info,
+.post-info .post-source {
+    display: flex
+}
+
+.post-info {
+    line-height: 20px;
+    height: 20px;
+    justify-content: space-between;
+    float: right;
+    padding-top: 10px
+}
+
+.post-info .post-source .post-source-button,
+.post-info .post-tags .post-tag-link {
+    color: #fff!important;
+    background-color: #434343;
+    border-radius: 2px;
+    line-height: 20px;
+    padding: 0 3px;
+    font-size: 12px;
+    height: 20px;
+    border-bottom: none
+}
+
+.post-info .icon {
+    height: 20px;
+    width: 20px
+}
+
+.post-info .post-source .post-source-button {
+    display: block;
+    margin: 0 5px
+}
+
+.post-info .post-tags {
+    display: flex
+}
+
+.post-info .post-tags .post-tag-list {
+    list-style: none;
+    display: flex
+}
+
+.post-info .post-tags .post-tag-item {
+    margin-left: 5px
+}
+
+.post-info .post-tags .post-tag-link {
+    display: block
+}
+
+.post-info .post-share {
+    display: flex;
+    position: relative
+}
+
+.post-info .post-share .post-share-item {
+    width: 20px;
+    height: 20px;
+    margin: 0 3px;
+    color: #333;
+    cursor: pointer
+}
+
+.post-info .post-share .icon {
+    transition: all .3s
+}
+
+.post-info .post-share .wechat:hover .icon {
+    fill: #51c332
+}
+
+.post-info .post-share .weibo:hover .icon {
+    fill: #e72c40
+}
+
+.post-info .post-share .qzone:hover .icon {
+    fill: #fcb920
+}
+
+.post-info .post-share .twitter:hover .icon {
+    fill: #55acee
+}
+
+.post-info .post-share .facebook:hover .icon {
+    fill: #415d98
+}
+
+.post-info .post-share .gplus:hover .icon {
+    fill: #db4437
+}
+
+.post-info .post-share .post-qrcode {
+    display: none;
+    position: absolute;
+    bottom: 30px;
+    right: 80px;
+    width: 100px;
+    height: 100px;
+    overflow: hidden;
+    background-color: #fff;
+    padding: 10px;
+    border: 1px solid #969696;
+    border-radius: 5px;
+    box-shadow: 1px 1px 2px #969696
+}
+
+.post-info .post-share .post-qrcode-input {
+    display: none
+}
+
+.post-info .post-share .post-qrcode-input:checked+.post-qrcode {
+    display: block
+}
+
+.post-info .post-share .post-qrcode-input:checked~.wechat .icon {
+    fill: #51c332
+}
+
+#comment {
+    margin-top: 30px
+}
