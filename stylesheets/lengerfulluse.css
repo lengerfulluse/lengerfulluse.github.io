@@ -292,9 +292,13 @@ background color are switched. So as for a link font color
 	font-family: "Lucida Console";
 }
 #like {
-	text-align: right;
+	text-align: left;
 	display: inline-block;
 	width: 100%;
+	margin-top: 5px;
+	color: #969696;
+	font-size: 12px;
+	transition: all .5s;
 }
 #post-card {
 	margin-bottom: 18px;
@@ -484,9 +488,9 @@ background color are switched. So as for a link font color
   .hung-panel {
     display: none;
   }
-  
-  #timedate {
-    display: none;
+
+  .post-list-title {
+  	text-align: left;
   }
 
   #card-content {
@@ -495,22 +499,16 @@ background color are switched. So as for a link font color
 
   #card-profile {
     padding: 0px;
-    border: 0px;
     box-shadow: none;
+    border: 0;
   }
 
   #excerpt-img {
-  	text-align: center;
-  	padding: 1px 20px;
-  	width: 100%;
+  	display: none;
   }
 
   #post-card {
   	width: 100%;
-  }
-
-  #like {
-  	text-align: left;
   }
 }
 
@@ -646,6 +644,22 @@ background color are switched. So as for a link font color
 
 .post-info .post-share .post-qrcode-input:checked~.wechat .icon {
     fill: #51c332
+}
+
+.post-item:not(:empty) {
+    opacity: 1;
+}
+
+.post-item {
+    margin: auto;
+    text-decoration: none;
+    text-align: center;
+    font: 600 14px/18px Arial,Sans-serif;
+    border-radius: 10px;
+    width: 30px;
+    height: 18px;
+    opacity: 0;
+    transition: all .5s;
 }
 
 #comment {
