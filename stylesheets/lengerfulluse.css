@@ -226,6 +226,8 @@ background color are switched. So as for a link font color
 
 .post-title {
 	text-align: center;
+	font-size: 24px;
+	margin-bottom: 5px;
 }
 
 .post-meta {
