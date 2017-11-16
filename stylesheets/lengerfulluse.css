@@ -121,6 +121,10 @@ figure.highlight {
 	float: right;
 }
 
+#toc {
+	width: 20%;
+}
+
 .tag-cloud {
 	display: inline-block;
 	width: 70%;
