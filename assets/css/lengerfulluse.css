@@ -147,6 +147,7 @@ figure.highlight {
 	-moz-border-radius: 5px;
 	border-radius: 15px;
 	display: inline-block;
+	font: 600 14px/18px Arial,Sans-serif;
 }
 
 /* when curser hover on tag-item, front and
@@ -274,6 +275,7 @@ background color are switched. So as for a link font color
 
 .post-content {
 	margin-top: 15px;
+	font: 350 14px/18px Arial,Sans-serif;
 }
 
 /* archives css, organize for category and tags */
