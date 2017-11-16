@@ -36,7 +36,7 @@ ssl连接的认证方式分为单向认证和双向认证。前者指的是往�
 
 ####b- 客户端证书   
 如果一个服务器只允许特定的客户端访问，便可以通过向制定客户颁发唯一标识该客户身份的客户端证书。对于单向认证的服务器，不需要客户端证书，只需要把获取到的服务器证书安装到制定证书目录便可以实现认证服务器。  
-![双向认证过程](/assets/img/post/ssl-mutal-authen.gif)   
+![双向认证过程]({{site.cdnurl}}/assets/img/post/ssl-mutal-authen.gif)   
 如Java里重要用trustStore来存储服务器证书。可以用`keytool`命令来创建一个trustStore文件，   
 
     keytool -import -file C:\cascerts\firstCA.cert -alias firstCA -keystore myTrustStore

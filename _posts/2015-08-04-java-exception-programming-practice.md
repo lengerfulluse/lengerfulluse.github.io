@@ -11,7 +11,7 @@ Java中的异常处理一直是困扰着我。比如catch并throw一个异常的
 
 <!--more-->
 ####I- Exception的层次结构  
-如图所示，java错误，异常类都是源于一个叫做Throwable的基类，只有该类及其子类的实例对象才可以被JVM进行`throw`操作。且也只有该类及其子类能作为`catch`语句的输入参数。![throwable classes](/assets/img/post/java_exception.png)    
+如图所示，java错误，异常类都是源于一个叫做Throwable的基类，只有该类及其子类的实例对象才可以被JVM进行`throw`操作。且也只有该类及其子类能作为`catch`语句的输入参数。![throwable classes]({{site.cdnurl}}/assets/img/post/java_exception.png)    
 **一个Error类及其子类表明一个合理设计的应用不需要，也不应该catch的一些严重问题。**多数时候这些错误是来自一些异常情况。如AnnotationFormatError，当一个Annotation解析器试图读取一个类文件的Annotation时发现其是malformed而throw的Error。LinkageError则是指当一个类依赖的一些类在compile阶段之后有了一些非兼容性的改变，然后导致依赖其的类出现链接错误，NoClassDefFoundException便是其一个子类。当然还有经典的VirtualMachineError，其一般在java虚拟机broken或是没有足够的资源供其运行时throw。   
 从编译时异常检测的角度，Error类时unchecked异常。通畅其表明环境或是程序设计的一个严重bug。  
 **另外一个Throwable的子类是Exception类。**其是所有异常类的父类。跟Error相对应，Exception类通常指一个合理设计的应用可能需要catch的。  

@@ -12,7 +12,7 @@ published: True
 
 **如下图所示，生成ScrollSpy效果的目录结构主要有三个部分。**
 
-![Toc with ScrollSpy](/assets/img/post/toc_of_scrollspy.png)
+![Toc with ScrollSpy]({{site.cdnurl}}/assets/img/post/toc_of_scrollspy.png)
 <hr />
 
 ####1 目录生成插件选择

@@ -28,7 +28,7 @@ published: True
     	"PYTHONPATH":"/usr/local/lib/python:/usr/local/lib/python2.7/site-packages"
 	},
 
-保存即可。贴一个build之后生成的分类器比较照片，对于理解不同分类器很有帮组。 ![classifier comparision](/assets/img/post/classification_comparison.png) 
+保存即可。贴一个build之后生成的分类器比较照片，对于理解不同分类器很有帮组。 ![classifier comparision]({{site.cdnurl}}/assets/img/post/classification_comparison.png) 
 
 ####参考
 **[1]** [Stackoverflow](http://stackoverflow.com/questions/8574919/sublime-text-2-custom-path-and-pythonpath)  
