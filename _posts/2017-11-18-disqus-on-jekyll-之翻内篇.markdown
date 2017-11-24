@@ -36,18 +36,23 @@ published: True
 
 #### 1.1 安装Nginx和PHP服务  
 Ubuntu上安装nginx直接apt一键完成：
+
 ```
 sudo apt-get update
 sudo apt-get install nginx
 ```
+
 接下来安装PHP：
+
 ```
 # for ubuntu 16.04
 sudo apt-get install php-fpm php-mysql
 # for ubuntu 14.04
 sudo apt-get install php
 ```
+
 处于安全考虑，接下来配置PHP processor cgi默认安全配置
+
 ```
 # 修改php.ini文件
 sudo nano /etc/php/7.0/fpm/php.ini
@@ -56,14 +61,18 @@ cgi.fix_pathinfo=0
 # 重启PHP server即可
 sudo systemctl restart php7.0-fpm
 ```
+
 然后就是配置NGINX，把相应的serverip指定使用PHP processor
+
 ```
 sudo nano /etc/nginx/sites-available/default
 ```
+
 把default文件改成如下类似配置即可<label for="sn-1" class="margin-toggle sidenote-number"></label><input type="checkbox" id="sn-1" class="margin-toggle"/> 
 <span class="sidenote">
 	NGINX支持把多个子域名映射到同一个VPS上的。比如可以对Disqus反向代理自建一个子域名disqus.hengwei.me，相应的配置会略有不同，比如我们的server_name需要改成disqus.hengwei.me，根目录root，需要改成相应子域名目录，如/var/www/disqus.hengwei.me。
 </span>。
+
 ```
 server {
     listen 80 default_server;
@@ -90,41 +99,53 @@ server {
 ```
 
 修改完之后，可以通过如下命令测试语法是否正确：
+
 ```
 sudo nginx -t
 ```
+
 如果没有问题，reload下NGINX：
+
 ```
 sudo systemctl reload nginx
 ```
 
 测试安装PHP是否成功
+
 ```
 sudo nano /var/www/html/info.php
 ```
+
 添加如下内容：
+
 ```
 <?php
 phpinfo();
 ```
 
 保存关闭文件，打开网址`http://server_domain_or_IP/info.php`查看正确看到PHP页面。如果可以，删掉测试页面
+
 ```
 sudo rm /var/www/html/info.php
 ```
+
 然后我们就可以进入正题，配置服务器端Disqus PHP 代理的代码。
 #### 1.2 配置Disqus服务器端代码 
 进入GitHub [disqus-php-api](https://github.com/fooleap/disqus-php-api.git) repository 页面，clone代码到VPS服务器目录下，如home目录下
+
 ```
 cd /home/hengwei/
 git clone https://github.com/fooleap/disqus-php-api.git
 ```
 
 其中**api/**目录下为服务器端代码，我们只要把该目录下代码拷贝到上文nignx配置文件中所示的root目录路径`/var/www/html`即可。
+
 ```
 cp -r /home/hengwei/disqus-php-api/api/* /var/www/html/
 ```
+
 进入该目录：
+
 ```
 cd /var/www/html
 ```
