@@ -229,6 +229,14 @@ background color are switched. So as for a link font color
 	text-align: justify;
 }
 
+.post h3 {
+	font-weight: bold;
+}
+
+.post h4 {
+	font-weight: bold;
+}
+
 .post-title {
 	text-align: center;
 	font-size: 24px;
