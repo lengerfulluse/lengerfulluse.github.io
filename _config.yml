@@ -11,7 +11,7 @@ comments:
     short_name: lengerfulluse
     api_key:    7iPBdRZv3iAU0UWC721uhHKxwYvdXkVXobEikYhQtPau2VHwqzZRiq0Z9x628wCE
 
-gems: [jekyll-paginate]
+plugins: [jekyll-paginate, jekyll-sitemap]
 paginate: 10
 paginate_path: "/posts/page:num/"
 
