@@ -543,6 +543,10 @@ background color are switched. So as for a link font color
   .main-center-post {
   	padding: 0;
   }
+
+  .post-content p {
+  	width: 98%;
+  }
 }
 
 @media print {
