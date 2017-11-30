@@ -105,3 +105,4 @@ host github.com
 ```
 So long, and thanks for all the fish.   
 ###参考  
+**1.** [jexhan](https://gist.github.com/jexchan/2351996)  
