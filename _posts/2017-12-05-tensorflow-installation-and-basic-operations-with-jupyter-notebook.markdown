@@ -262,5 +262,5 @@ with tf.Session() as sess:
 So long, and thanks for all the fish.   
 ###参考  
 [1] [Official Tensorflow Installation On Mac](https://www.tensorflow.org/install/install_mac).  
-[2] [Tensorflow for Deep Learning Research](https://web.stanford.edu/class/cs20si/syllabus.html).
+[2] [Tensorflow for Deep Learning Research](https://web.stanford.edu/class/cs20si/syllabus.html).  
 [3] [stackoverflow](https://stackoverflow.com/questions/41704484/what-is-difference-between-tf-truncated-normal-and-tf-random-normal)
