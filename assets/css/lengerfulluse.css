@@ -703,3 +703,11 @@ background color are switched. So as for a link font color
 #comment {
     margin-top: 30px
 }
+
+span.highlight {
+	color: "#e94849"
+}
+
+table {
+	text-align: left;
+}
