@@ -150,6 +150,13 @@ figure.highlight {
 	font: 600 14px/18px Arial,Sans-serif;
 }
 
+.tag-item span {
+    font-size: x-small;
+    position: relative;
+    color: #969696;
+    top: -0.3em;
+}
+
 /* when curser hover on tag-item, front and
 background color are switched. So as for a link font color
 */
