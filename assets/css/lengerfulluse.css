@@ -284,7 +284,6 @@ background color are switched. So as for a link font color
 #post-viewcount, #post-comments {
 	text-align: center;
 	margin-right:15px;
-	background-color: white;
 	cursor: pointer;
 }
 
@@ -534,7 +533,7 @@ background color are switched. So as for a link font color
   }
 
   #card-profile {
-    padding: 0px;
+    padding-left: 10px;
     box-shadow: none;
     border: 0;
   }
@@ -549,6 +548,7 @@ background color are switched. So as for a link font color
 
   .main-center-post {
   	padding: 0;
+		background-color: #eff3fa
   }
 
   .post-content p {
