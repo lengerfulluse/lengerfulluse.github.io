@@ -28,7 +28,7 @@ TensorFlow的基本数据类型在借鉴[NumPy](http://lagrange.univ-lyon1.fr/do
 ### 变量
 前一篇我们介绍了常量，常量跟变量的区别自然不必赘述，就跟任何语言类似。其存储的地方也不同，比如Java中的常量是放在堆区，而变量是在栈区。在TensorFlow里，常量和变量也是分开存储的。常量的值是放在graph的definition里的，在分布式环境下，每个节点上整个graph都是replicated的，相应的常量也会replicated一份。对于TensorFlow而言，Graph的definition用protocol buffer来表述：
 
-```
+```python
 import tensorflow as tf
 vector = tf.constant([2.0, 8], name="vector")
 print tf.get_default_graph().as_graph_def()
@@ -42,7 +42,7 @@ print tf.get_default_graph().as_graph_def()
 #### 变量声明
 和一般的面向对象语言一样，声明一个变量就是创建一个`tf.Variable`类的实例。和常量不同的是，我们用`tf.constant`来声明一个常量。前者是一个Class，而后者是一个operator（可以看作是一个类里的方法），一个`tf.Variable`类里可以有多个operator。
 
-```
+```python
 import tensorflow as tf
 # use InteractiveSession
 sess = tf.InteractiveSession()
@@ -58,7 +58,7 @@ print var
 
 **全局初始化函数**
 
-```
+```python
 import tensorflow as tf
 cons = tf.constant(8, name="consant")
 var = tf.Variable(8, name="Variable")
@@ -74,7 +74,7 @@ with tf.Session() as sess:
 
 **选择性初始化**
 
-```
+```python
 import tensorflow as tf
 var1 = tf.Variable(8, name="var1")
 var2 = tf.Variable(8, name="var2")
@@ -90,7 +90,7 @@ with tf.Session() as sess:
 
 **单个变量初始化**
 
-```
+```python
 import tensorflow as tf
 var2 = tf.Variable(8, name="var1")
 with tf.Session() as sess:
@@ -104,7 +104,7 @@ with tf.Session() as sess:
 
 变量声明之后，我们可以通过在Session中的`sess.run()`来查看一个变量的值，还有一个`eval()`函数也可以实现该功能。变量的赋值则是通过`assign()`函数来实现，值得注意的是这里的赋值是非引用式的，函数返回赋值后的值，但该变量的值不会改变。
 
-```
+```python
 import tensorflow as tf
 var1 = tf.Variable(8, name="var1")
 var1.assign(100) # 变量赋值，var1 任然是8
@@ -115,7 +115,7 @@ with tf.Session() as sess:
 
 值得注意的是在使用了赋值函数后，**我们并没有对`var2`进行初始化却可以正确使用。** 查看源码会发现，其实是`assign()`函数替我们做了。当我们通过赋值函数声明一个变量，但这个变量依赖于另外一个变量时，情况便变得很有趣了。如下所示：
 
-```
+```python
 import tensorflow as tf
 var1 = tf.Variable(8, name="var1")
 
@@ -144,14 +144,14 @@ TensorFlow提供了`assign_add()`和`assgin_sub()`函数来实现函数的自增
 
 更详尽的介绍和使用将根据具体的的机器学习的例子来介绍更具有直观性。最简单的使用仅两步：首先在Session里首行加上，
 
-```
+```python
 writer = tf.summary.FileWriter('./graphs', sess.graph)
 ```
 
 然后在shell里run如下命令。打开浏览器，`http://localhost:6006`，就可以看见针对当前Session的TensorFlow可视化效果。
 
-```
-$ tensorboard --logdir="./graphs"
+```python
+tensorboard --logdir="./graphs"
 ```
 
 

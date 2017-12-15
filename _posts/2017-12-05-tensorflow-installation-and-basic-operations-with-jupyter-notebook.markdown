@@ -37,14 +37,14 @@ resources for this?
 
 **安装virtualenv**
 
-```
+```shell
 sudo easy_install pip
 sudo pip install --upgrade virtualenv
 ```
 
 **创建 virtualenv和相关的setup tools.**
 
-```
+```shell
 # for python 2.7
 virtualenv --system-site-packages ~/tensorflow
 # for python 3.n
@@ -53,7 +53,7 @@ virtualenv --system-site-packages -p python3 ~/tensorflow
 
 **根据不同的shell，激活virtualenv**
 
-```
+```shell
 # for bash, sh, ksh, or zsh
 source ~/tensorflow/bin/activate
 
@@ -66,13 +66,13 @@ source ~/tensorflow/bin/activate.fish
 
 **检查pip version, 如果小于8.1，执行下面一行**
 
-```
+```shell
 easy_install -U pip
 ```
 
 **用pip安装TensorFlow及其依赖的环境.**
 
-```
+```shell
 # for Python 2.7
 pip install --upgrade
 # for Python 3.n
@@ -81,7 +81,7 @@ pip3 install --upgrade tensorflow
 
 OK, that's All.
 
-```
+```shell
 # deactivate TensorFlow
 deactivate
 # remove TensorFlow and its dependencies
@@ -101,7 +101,7 @@ Type "help", "copyright", "credits" or "license" for more information.
 #### Jupyter Notebook ####
 直接通过pip来安装Jupyter：
 
-```
+```shell
 # for python3
 python3 -m pip install --upgrade pip
 python3 -m pip install jupyter
@@ -124,7 +124,7 @@ In general, TensorFlow提供了一整套的tool suites, 对机器学习领域一
 
 tensor便是TensorFlow最基本的数据类型概念，其表示某种geometric对象，用来描述基本的标量（scalar), 向量(vectors)，或是更高维度的(matrix等)之间的线性关系。因此我们一般语言中提及的数值常量，向量或是二维矩阵，或是更高纬的vectors,都是一种特殊的tensor。在TensorFlow中
 
-```
+```python
 # scalar(0d tensor)
 tf.constant(2, name="scalar")
 # vector(1d tensor)
@@ -135,7 +135,7 @@ tf.constant([[0, 1], [2, 4]], name="matrix")
 
 如早期Machine Learning课程上用的[Scientific Programming Language Octave](https://www.gnu.org/software/octave/)，TensorFlow 也支持创建很多具有特定值和形状的Tensor，
 
-```
+```python
 # tf.zeros(shape, dtype=tf.float32, name=None)
 # 创建一个所有元素全部是0的2*4举证
 tf.zeros([2, 4], tf.int32) ==> [[0, 0, 0, 0], [0, 0, 0, 0]]
@@ -157,7 +157,7 @@ tf.fill([2, 4], 8) ==> [[8, 8, 8, 8], [8, 8, 8, 8]]
 
 ####创建线性序列(Sequence)
 
-```
+```python
 # tf.linspace(start, stop, num, name=None);
 # 创建一个有num个元素的序列，起始和结束点分别是start和stop，值得注意的是这里的start和stop的dtype类型不能为tf.int32, 而是tf.float32或tf.float64.
 tf.linspace(0.0, 10.0, 5) => [  0.    2.5   5.    7.5  10. ]
@@ -170,7 +170,7 @@ tf.range(0, 10, 5) => [ 0, 5];
 
 有一点值得注意的时，虽然TensorFlow兼容几乎numpy所有的数据类型，TensorFlow的序列是不可迭代的。
 
-```
+```python
 for _ in np.linspace(0, 10, 4): # OK
 for _ in tf.linspace(0, 10, 4): # TypeError: 'Tensor' object is not iterable.
 ```
@@ -184,7 +184,7 @@ for _ in tf.linspace(0, 10, 4): # TypeError: 'Tensor' object is not iterable.
 ![sigmoid-saturation-random]({{site.cdnurl}}/assets/img/post/sigmoid-saturation-random.png)
 </span>。
 
-```
+```python
 %matplotlib inline  
 
 # random和truncated_normal正态分布。
@@ -209,7 +209,7 @@ plt.plot(t);
 ```
 **创建均匀分布和随机shuffle** 针对Tensor 序列进行[随机shuffle](https://stats.stackexchange.com/questions/180827/model-construction-when-to-shuffle-data-and-when-to-sort-it)，使得尽可能降低模型对数据集不相关特征（如对称性、特定顺序）的假设，提高模型质量和预测准确性。
 
-```
+```python
 # 随机正态分布
 rand_t = tf.random_uniform([5], 0, 10, dtype=tf.int32, seed=0)
 with tf.Session() as sess:
@@ -230,7 +230,7 @@ plt.plot(f_s);
 
 **Tensor(Matrix)随机Corp与多项式分布** 随机Corp在图像识别类算法（RNN）预处理阶段尤为重要。
 
-```
+```python
 # random crop
 # output will be ==> [[8 9], [1 2]]
 c_crop_before = tf.constant(([[3, 4, 5], [7, 8, 9], [0, 1, 2]]), name="before-crop");

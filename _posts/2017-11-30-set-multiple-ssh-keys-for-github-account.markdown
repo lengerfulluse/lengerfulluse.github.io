@@ -64,13 +64,13 @@ __需要针对公司的git配置生成一个默认的ssh key，相应的`.ssh`�
 
 **git config**
 
-```
+```shell
 git config --global user.name "weheng"
 git config --global user.email "weheng@mynux.cn"
 ```
 **ssh config**
 
-```
+```shell
 # generate rsa 配置 ~/.ssh/id_rsa和~/.ssh/id_rsa.pub
 ssh-keygen -t rsa -C "weheng@mynux.cn"
 ```
@@ -85,13 +85,13 @@ host mynux.cn
 #### 针对自己的github账户jj
 **git config**
 
-```
+```shell
 git config user.name "jj"
 git config user.email "jj@hengwei.me"
 ```
 **ssh config**
 
-```
+```shell
 # generate rsa 配置 ~/.ssh/id_rsa_for_jj和~/.ssh/id_rsa_for_jj.pub
 ssh-keygen -t rsa -C "jj@hengwei.me"
 ```
