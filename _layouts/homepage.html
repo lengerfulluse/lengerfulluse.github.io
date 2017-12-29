@@ -52,10 +52,7 @@
             <a href="/project.html"><span class="nav-content-item">Projects</span></a>
             <a href="/me.html"><span class="nav-content-item">About</span></a>
             <span>
-                <div class="nav-search">
-                    <span class="search-input"><input type="text" id="search" placeholder="Search..." /></span>
-                    <span class="icon"><i class="fa fa-search"></i></span>
-                </div>
+              {% include search-bar.html %}
             </span>
         </div>
         <div class="nav-discovery">
@@ -114,18 +111,7 @@
     <div class="main-right">
         <ul id="results-container"></ul>
     </div>
-    <!-- Script pointing to jekyll-search.js -->
-    <script type="text/javascript">
-      SimpleJekyllSearch({
-        searchInput: document.getElementById('search'),
-        resultsContainer: document.getElementById('results-container'),
-        json: '/search.json',
-        searchResultTemplate: '<li><a href="{url}" title="{desc}">{title}</a></li>',
-        noResultsText: ': (',
-        limit: 10,
-        fuzzy: false,
-      })
-    </script>
+    {% include search-bar.js %}
     <!-- add comment count for article -->
     <script type="text/javascript">
       $(document).ready(function () {

@@ -6,10 +6,7 @@
         <a href="{{ include.titleUrl }}"><span class="nav-content-item item-selected">{{ include.title }}</span></a>
         <a href="/me.html"><span class="nav-content-item">About</span></a>
         <span>
-            <div class="nav-search">
-                <span class="search-input"><input type="text" id="search" placeholder="Search..." /></span>
-                <span class="icon"><i class="fa fa-search"></i></span>
-            </div>
+          {% include search-bar.html %}
         </span>
     </div>
     <div class="nav-discovery">
