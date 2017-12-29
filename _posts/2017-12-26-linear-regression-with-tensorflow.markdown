@@ -175,4 +175,4 @@ plt.show()
 ![hubor error]({{site.cdnurl}}/assets/img/post/hubor_loss.png)
 
 ###参考  
-[2] [Tensorflow for Deep Learning Research](https://web.stanford.edu/class/cs20si/syllabus.html).  
+[1] [Tensorflow for Deep Learning Research](https://web.stanford.edu/class/cs20si/syllabus.html).  
