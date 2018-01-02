@@ -75,6 +75,7 @@ figure.highlight {
 #results-container {
 	margin-top: 10px;
 	position: fixed;
+	font-family: cursive;
 }
 .nav-discovery {
 	float: left;
