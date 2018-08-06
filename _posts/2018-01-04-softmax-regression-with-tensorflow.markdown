@@ -11,6 +11,7 @@ Linear Regression聊完了，自然就来到了Logistics Regression了。前者�
 
 #### 1.数据集获取与预处理
 本文的测试数据是MNIST的手写数字字符，Tensorflow提供了直接的util类来下载数据集使用，但是天朝的网络通常是Request Timeout。所以这里直接通过翻墙或是啥的下载到工作目录最为省心。
+
 ```shell
 # 数据集file主要有
 weheng@34363bca98b0 ~/D/w/m/t/d/c/d/mnist> ls
@@ -20,6 +21,7 @@ wget http://yann.lecun.com/exdb/mnist/{$file}
 ```
 
 然后就开始数据读取，全局变量设置
+
 ```python
 import tensorflow as tf
 from tensorflow.examples.tutorials.mnist import input_data
@@ -39,6 +41,7 @@ n_epoches = 25
 这里提到的是对于image数据，我们同样可以通过可视化工具来对其有个直观的印象。
 #### 2.输入数据可视化
 我们可以通过可视化来简单直观的了解下MNIST数据集。记得我们之前介绍过Tensorboard，用其tf.summary.image的方法也可以进行数据可视化。
+
 ```python
 # input name space for tensorboard.
 with tf.name_scope('input'):
@@ -54,6 +57,7 @@ with tf.name_scope('input'):
 ![mnist digital plot]({{site.cdnurl}}/assets/img/post/mnist_digital_plot.png)
 
 当然也可以直接在python里面，利用matplotlib来进行：
+
 ```python
 import tensorflow as tf
 from tensorflow.examples.tutorials.mnist import input_data
@@ -72,6 +76,7 @@ plt.show()
 ### 3.模型选择与变量定义
 Softmax Regression(SR)本质是一种多分类的Logistic Regression(LR)，不同点在于SR通常要求各个类别要求互斥(Mutually Exclusive)但不一定需要独立（Independent)，而如果用LR来分类则要求独立，但不一定互斥。因此对于不同的分类任务，模型选择不同。这里的手写数字识别分类数据集中，一张图片通常只能有一个结果，损失函数便可以用softmax假设分类效果要好些，而如果数据集中出现了多章digtial数字，则可以考虑Logistic来做。听着有些晕，其实很直白的理解就是SR的函数表达更像是多个变量条件下的边际分布，而多分类情况下的LR，则是一种一对多的条件分布。
 #### 3.1 定义Weight和Bias
+
 ```python
 # train variables name space.
 with tf.name_scope('weight'):
@@ -88,6 +93,7 @@ Wiki对logic的定义如下：
 ![logit-definition-wiki]({{site.cdnurl}}/assets/img/post/logit-definition-wiki.svg)
 
 在这里，这个number p很明显就是指linear regression里的这条直线`wX + b`。有了logit之后便可以针对softmax Regression使用cross entropy的损失函数。
+
 ```python
 with tf.name_scope('logits'):
     logits = tf.matmul(X, w) + b
@@ -103,6 +109,7 @@ with tf.name_scope('loss'):
 ```
 
 ### 定义预测metric和Optimizer
+
 ```python
 # can move accuracy into defintion, and put into optimizer in sess.run then.
 with tf.name_scope('predict'):
@@ -113,6 +120,7 @@ optimizer = tf.train.GradientDescentOptimizer(learning_rate=learning_rate).minim
 ```
 
 ### 全局初始化与模型训练
+
 ```python
 # scalar for tensorboard.
 tf.summary.scalar("cost", loss)
@@ -147,6 +155,7 @@ with tf.Session() as sess:
 
 ### 效果评估与测试
 根据tensorboard的预测效果进行参数（learning_rate, epoches，甚至是optimizer的有效调节），最后确定下比较满意的学习效果，然后便可以在测试集上进行测试。
+
 ```python
 # testing the model
     n_batches = int(mnist.test.num_examples/batch_size)
