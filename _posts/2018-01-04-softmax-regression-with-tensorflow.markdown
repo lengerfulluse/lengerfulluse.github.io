@@ -49,7 +49,8 @@ with tf.name_scope('input'):
 
 ```
 
-如简单的数据可视化如下：
+如简单的数据可视化如下：  
+
 ![mnist digital plot]({{site.cdnurl}}/assets/img/post/mnist_digital_plot.png)
 
 当然也可以直接在python里面，利用matplotlib来进行：
@@ -82,7 +83,8 @@ with tf.name_scope('bias'):
 
 #### 3.2 定义logit和loss函数
 Wiki对logic的定义如下：
->The logit of a number p between 0 and 1 is given by the formula:
+>The logit of a number p between 0 and 1 is given by the formula:   
+
 ![logit-definition-wiki]({{site.cdnurl}}/assets/img/post/logit-definition-wiki.svg)
 
 在这里，这个number p很明显就是指linear regression里的这条直线`wX + b`。有了logit之后便可以针对softmax Regression使用cross entropy的损失函数。
@@ -139,7 +141,7 @@ with tf.Session() as sess:
 
 ```
 
-前面提到过，把一些变量进行一定规则的`tf.name_scope`命名以及tensorboard的使用，对于可视化训练过程和一些变量的变化趋势特别的有好处。例如上面我们把cost和accuracy加入可视化，便可以通过tensorboard来直观的看到训练过程中损失函数和精度随着训练样本数，次数的变化趋势，如下图所示：
+前面提到过，把一些变量进行一定规则的`tf.name_scope`命名以及tensorboard的使用，对于可视化训练过程和一些变量的变化趋势特别的有好处。例如上面我们把cost和accuracy加入可视化，便可以通过tensorboard来直观的看到训练过程中损失函数和精度随着训练样本数，次数的变化趋势，如下图所示：  
 
 ![tensorboard-accu-loss]({{site.cdnurl}}/assets/img/post/tensorboard-accu-loss.png)
 
@@ -158,7 +160,7 @@ with tf.Session() as sess:
 So long, and thanks for all the fish.
 
 ###参考  
-[1] [Tensorflow for Deep Learning Research](https://web.stanford.edu/class/cs20si/syllabus.html).  
-[2] [how-to-use-tensorboard](http://ischlag.github.io/2016/06/04/how-to-use-tensorboard/).
-[3] [Softmax Regression](http://ufldl.stanford.edu/tutorial/supervised/SoftmaxRegression/).
-[4] [not-another-mnist-tutorial-with-tensorflow](https://www.oreilly.com/learning/not-another-mnist-tutorial-with-tensorflow)
+[1] [Tensorflow for Deep Learning Research](https://web.stanford.edu/class/cs20si/syllabus.html).   
+[2] [how-to-use-tensorboard](http://ischlag.github.io/2016/06/04/how-to-use-tensorboard/).   
+[3] [Softmax Regression](http://ufldl.stanford.edu/tutorial/supervised/SoftmaxRegression/).   
+[4] [not-another-mnist-tutorial-with-tensorflow](https://www.oreilly.com/learning/not-another-mnist-tutorial-with-tensorflow)    
