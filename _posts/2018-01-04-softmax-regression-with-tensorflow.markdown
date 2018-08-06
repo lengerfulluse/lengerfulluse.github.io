@@ -9,7 +9,7 @@ Linear Regression聊完了，自然就来到了Logistics Regression了。前者�
 
 <!--more-->
 
-#### 1.数据集获取与预处理
+### 1.数据集获取与预处理
 本文的测试数据是MNIST的手写数字字符，Tensorflow提供了直接的util类来下载数据集使用，但是天朝的网络通常是Request Timeout。所以这里直接通过翻墙或是啥的下载到工作目录最为省心。
 
 ```shell
@@ -39,7 +39,7 @@ n_epoches = 25
 ```
 
 这里提到的是对于image数据，我们同样可以通过可视化工具来对其有个直观的印象。
-#### 2.输入数据可视化
+### 2.输入数据可视化
 我们可以通过可视化来简单直观的了解下MNIST数据集。记得我们之前介绍过Tensorboard，用其tf.summary.image的方法也可以进行数据可视化。
 
 ```python
