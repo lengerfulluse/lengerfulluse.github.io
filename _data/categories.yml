@@ -1,10 +1,10 @@
 - slug: work
   name: Work
-  color: '#3498db'
+  color: '#921477'
 
 - slug: programming
   name: Programming
-  color: '#1abc9c'
+  color: '#990000'
 
 - slug: design-pattern
   name: Design Pattern
@@ -17,3 +17,11 @@
 - slug: tutorials
   name: Tutorials
   color: '#CC00FF'
+
+- slug: notes
+  name: notes
+  color: '#921477'
+
+- slug: 机器学习
+  name: 机器学习
+  color: '#910921'

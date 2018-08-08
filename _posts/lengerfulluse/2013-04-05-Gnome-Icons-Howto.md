@@ -1,7 +1,7 @@
 ---
 layout: post
 category: "notes"
-tags: [tutorial, linux]
+tags: [tips, linux]
 ---
 
 Change Gnome Start-here Icons Howto.

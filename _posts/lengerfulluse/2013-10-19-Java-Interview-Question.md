@@ -3,15 +3,19 @@ layout: post
 category: work
 tags: [language, interview]
 ---
+通常面试对于纯语言知识性的东西问的不算太多，但是很多算法或者设计模式里恰恰需要用到一些经典的语言特征。因此往往这类问题会作为面试开始时一个入门菜。因此，准确的掌握一些基础知识便尤为重要了。
 
-###Java 面试题小结
+<!--more-->  
+
 **1. Java String 类的基础知识**
+
 Q1: String 类到底创建几个对象？
 
     String str = "Hello, World";
     String str2 = "Hello, World";
     String str3 = new String("Hello,World");
     String str4 = new String("Hello, World");
+
 A1: String 构造时，如果是常量赋值的话，首先会去常量**Pool**中查找是否已经存在常量，如存在则直接把常量字符串的引用赋值便可，如果不存在则需要在常量池中创建新的常量引用在赋值给变量的引用;而如果是new操作的化，则是在堆中创建，且每次都会新创建一个常量池中的对象，然后在把这个对象用过new构造函数赋值给其在堆中的新对象。所以**答案**为：
 
     1

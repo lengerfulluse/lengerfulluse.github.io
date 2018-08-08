@@ -1,55 +1,15 @@
-<!doctype html>
-<html>
-
-<head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="chrome=1">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Wei's Tech Blog</title>
-    <link rel="shortcut icon" type="image/png" href="/images/favicon.ico">
-    <link rel="stylesheet" href="/stylesheets/styles.css">
-    <link rel="stylesheet" href="/stylesheets/pygment_trac.css">
-    <link rel="stylesheet" href="/stylesheets/lengerfulluse.css" type="text/css" />
-    <link rel="stylesheet" href="/stylesheets/font_awesome.css" type="text/css" />
-    <link rel="stylesheet" href="/stylesheets/bootstrap.min.css" type="text/css" />
-    <script src="/javascripts/scale.fix.js"></script>
-    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
-</head>
-
-<body>
-    <div class="site-nav">
-        <div class="nav-logo">
-        <img src="/assets/img/blog/nav-logo.png" >
-        </div>
-        <div class="nav-content">
-            <a href="/index.html"><span class="nav-content-item">Home</span></a>
-            <a href="/project.html"><span class="nav-content-item item-selected">Projects</span></a>
-            <a href="/me.html"><span class="nav-content-item">About</span></a>
-            <span>
-                <div class="nav-search">
-                    <span class="search-input"><input type="text" id="search" placeholder="Article..." /></span>
-                    <span class="icon"><i class="fa fa-search"></i></span>
-                </div>
-            </span>
-        </div>
-        <div class="nav-discovery">
-        </div>
-    </div>
-    <div class="main-left">
-    </div>
-    <div class="main-center">
-        <h1>
-<a class="anchor" href="project.html">
-<span class="octicon octicon-link"> Projects Lists </span>
-</a>
-</h1>
-<a href="ml/">-WEI'S MACHINE LEARNING PLAN</a>
+---
+layout: project_default
+title: Wei Heng
+---
+<br>
+<a href="project.html">-WEI'S MACHINE LEARNING PLAN</a>
 <br>
 Another personal machine learning study notes, aimed to build cool projects based on machine learning techniques. Still pending on cool ideas, knowledge bases and of course, free time after work. <img src="assets/img/blog/machine_learning_jokes.jpg">
 <a href="#">-PRESENTATIONS </a><br />
 <ul>
 <li>
-<a href="/assets/downloads/cbi_nlp.pdf" style="color:#C30000">NLP Introduction and Practises</a> 
+<a href="/assets/downloads/cbi_nlp.pdf" style="color:#C30000">NLP Introduction and Practises</a>
 </li>
 <li>
 <a href="/assets/downloads/dm_introduction.pdf" style="color:#C30000">DW Introduction</a>
@@ -58,30 +18,3 @@ Another personal machine learning study notes, aimed to build cool projects base
 <a href="/assets/downloads/ijcai_hlda.pdf" style="color:#C30000">IJCAI Hierarchical Latent Dirichlet Allocation</a>
 </li>
 </ul>
-
-        <div class="footer">
-            <div class="copyright">
-                Personal technical blog for software development practices, reading notes on ML, NLP.
-                <br/> &copy; 2013&mdash;2015 by HengWei. All Rights Reserved.
-            </div>
-        </div>
-    </div>
-    <div class="main-right">
-        <ul id="results-container"></ul>
-    </div>
-    <!-- Script pointing to jekyll-search.js -->
-    <script src="/dest/jekyll-search.js" type="text/javascript"></script>
-    <script type="text/javascript">
-      SimpleJekyllSearch({
-        searchInput: document.getElementById('search'),
-        resultsContainer: document.getElementById('results-container'),
-        json: '/search.json',
-        searchResultTemplate: '<li><a href="{url}" title="{desc}">{title}</a></li>',
-        noResultsText: ': (',
-        limit: 10,
-        fuzzy: false,
-      })
-    </script>
-</body>
-
-</html>

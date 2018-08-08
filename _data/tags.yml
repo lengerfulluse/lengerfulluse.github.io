@@ -17,10 +17,22 @@
   name: linux
 
 - slug: research
-  name: research
+  name: Research
 
 - slug: interview
-  name: interview
+  name: Interview
 
 - slug: tips
   name: Tips
+
+- slug: payments
+  name: Payments
+
+- slug: algorithm
+  name: Algorithm
+
+- slug: web-service
+  name: Web Service
+
+- slug: deep-learning
+  name: Deep Learning

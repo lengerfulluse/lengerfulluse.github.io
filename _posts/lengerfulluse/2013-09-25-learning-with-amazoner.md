@@ -1,7 +1,7 @@
 ---
 layout: post
-category: interview
-tags: [algorithm]
+category: work
+tags: [algorithm, interview]
 ---
 
 ### 1. A Simple Algorithm for Print All Combination of Balanced Parentheses

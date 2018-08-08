@@ -1,66 +1,131 @@
 <!doctype html>
 <html>
-
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="chrome=1">
-    <title>楞伽山人</title>
-    <link rel="shortcut icon" type="image/png" href="/images/heng.png">
-    <link rel="stylesheet" href="/stylesheets/styles.css">
-    <link rel="stylesheet" href="/stylesheets/pygment_trac.css">
-    <link rel="stylesheet" href="/stylesheets/lengerfulluse.css" type="text/css" />
-    <link rel="stylesheet" href="/stylesheets/font_awesome.css" type="text/css" />
-    <script src="javascripts/scale.fix.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Personal technical blog for DevOps, reading notes on Machine Learning, Natural Language Processing." />
+    <title>Wei's Tech Blog</title>
+    <link rel="shortcut icon" type="image/png" href="/assets/img/blog/favicon.ico">
+    <link rel="stylesheet" href="{{site.cdnurl}}/assets/css/styles.min.css">
+    <link rel="stylesheet" href="{{site.cdnurl}}/assets/css/lengerfulluse.min.css" type="text/css" />
+    <link href="https://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="{{site.cdnurl}}/assets/css/bootstrap.min.css" />
+    <link rel="stylesheet" type="text/css" href="{{site.cdnurl}}/assets/css/iDisqus.min.css" />
+
+    <script src="https://cdn.staticfile.org/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://cdn1.lncld.net/static/js/av-mini-0.6.10.js"></script>
+    <script src="http://jerry-cdn.b0.upaiyun.com/hit-kounter/hit-kounter-lc-0.2.0.js"></script>
+    <script type="text/javascript" src="{{site.cdnurl}}/assets/js/iDisqus.min.js"></script>
+    <script src="{{site.cdnurl}}/assets/js/jekyll-search-min.js" type="text/javascript"></script>
+    <script>
+      var _hmt = _hmt || [];
+      (function() {
+        var hm = document.createElement("script");
+        hm.src = "https://hm.baidu.com/hm.js?a014ecf90833ab380cffeeacd141a221";
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(hm, s);
+      })();
+    </script>
+    <script type="application/ld+json">
+    {
+      "@context": "http://schema.org",
+      "@type": "Person",
+      "name": "Wei Heng",
+      "url": "http://t.hengwei.me",
+      "sameAs": [
+        "https://www.linkedin.com/in/hengwei",
+        "https://www.quora.com/profile/Will-Heng",
+        "https://github.com/lengerfulluse"
+      ]
+    }
+  </script>
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
-    <!--[if lt IE 9]>
-    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
-    <![endif]-->
 </head>
 
 <body>
     <div class="site-nav">
         <div class="nav-logo">
-        <img src="/assets/img/blog/nav-logo.png" >
         </div>
         <div class="nav-content">
-            <a href="/index.html"><span class="nav-content-item">Home</span></a>
+            <a href="/index.html"><span class="nav-content-item item-selected">Home</span></a>
             <a href="/project.html"><span class="nav-content-item">Projects</span></a>
             <a href="/me.html"><span class="nav-content-item">About</span></a>
+            <span>
+              {% include search-bar.html %}
+            </span>
         </div>
         <div class="nav-discovery">
-            <div class="nav-search">
-                <span class="search-input"><input type="text" id="search" placeholder="Article..." /></span>
-                <span class="icon"><i class="fa fa-search"></i></span>
-            </div>
         </div>
     </div>
     <div class="main-left">
+        <div class="hung-panel">
+            <div class="tag-title">
+                <i class="fa fa-leaf"></i> CLOUD TAGS
+            </div>
+            <div class="tag-cloud">
+                <!-- categories list -->
+                {% assign tags_list = site.categories %}
+                  {% if tags_list.first[0] == null %}
+                    {% for tag in tags_list %}
+                      <div class="tag-item"><a href="/blog/category/{{ tag }}/">{{ tag | capitalize }} <span>{{ site.tags[tag].size }}</span></a></div>
+                    {% endfor %}
+                  {% else %}
+                    {% for tag in tags_list %}
+                      <div class="tag-item"><a href="/blog/category/{{ tag[0] }}/">{{ tag[0] | capitalize }} <span>{{ tag[1].size }}</span></a></div>
+                    {% endfor %}
+                  {% endif %}
+                {% assign tags_list = nil %}
+                <!-- tags list -->
+                {% assign tags_list = site.tags %}
+                  {% if tags_list.first[0] == null %}
+                    {% for tag in tags_list %}
+                      <div class="tag-item"><a href="/blog/tag/{{ tag }}/">{{ tag | capitalize }} <span>{{ site.tags[tag].size }}</span></a></div>
+                    {% endfor %}
+                  {% else %}
+                    {% for tag in tags_list %}
+                      <div class="tag-item"><a href="/blog/tag/{{ tag[0] }}/">{{ tag[0] | capitalize }} <span>{{ tag[1].size }}</span></a></div>
+                    {% endfor %}
+                  {% endif %}
+                {% assign tags_list = nil %}
+            </div>
+        </div>
     </div>
     <div class="main-center">
         {{content}}
+        <div class="pagination">
+            {% if paginator.previous_page %}
+            <a href="{{ paginator.previous_page_path }}" class="previous">&laquo; Prev</a> {% else %}
+            <span class="previous">&laquo; Prev</span> {% endif %}
+            <span class="page_number ">Page: {{ paginator.page }} of {{ paginator.total_pages }}</span> {% if paginator.next_page %}
+            <a href="{{ paginator.next_page_path }}" class="next">Next &raquo;</a> {% else %}
+            <span class="next ">Next &raquo;</span> {% endif %}
+        </div>
         <div class="footer">
             <div class="copyright">
                 Personal technical blog for software development practices, reading notes on ML, NLP.
-                <br/> &copy; 2013&mdash;2015 by HengWei. All Rights Reserved.
+                <br/> &copy; 2013&mdash;2018 by HengWei. All Rights Reserved.
             </div>
         </div>
     </div>
     <div class="main-right">
         <ul id="results-container"></ul>
     </div>
-    <!-- Script pointing to jekyll-search.js -->
-    <script src="/dest/jekyll-search.js" type="text/javascript"></script>
+    {% include search-bar.js %}
+    <!-- add comment count for article -->
     <script type="text/javascript">
-      SimpleJekyllSearch({
-        searchInput: document.getElementById('search'),
-        resultsContainer: document.getElementById('results-container'),
-        json: '/search.json',
-        searchResultTemplate: '<li><a href="{url}" title="{desc}">{title}</a></li>',
-        noResultsText: 'No results found',
-        limit: 10,
-        fuzzy: false,
-      })
+      $(document).ready(function () {
+        var disq = new iDisqus('comment', {
+            forum: 'lengerfulluse',
+            api: 'http://disqus.hengwei.me',
+            site: 'http://t.hengwei.me',
+            url: location.pathname,
+            mode: 1,
+            timeout: 2000,
+            init: true
+          });
+        disq.count();
+      });
     </script>
 </body>
-
 </html>

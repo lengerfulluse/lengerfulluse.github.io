@@ -1,6 +1,22 @@
-markdown: rdiscount
+markdown: redcarpet
+redcarpet:
+    extensions: ["tables", "with_toc_data"]
 highlighter: pygments
 encoding: UTF-8
-permalink: /post/:title
+permalink: /post/:title.html
 url: "http://t.hengwei.me"
+excerpt_separator: "<!--more-->"
+comments:
+  disqus:
+    short_name: lengerfulluse
+    api_key:    7iPBdRZv3iAU0UWC721uhHKxwYvdXkVXobEikYhQtPau2VHwqzZRiq0Z9x628wCE
 
+plugins: [jekyll-paginate, jekyll-sitemap]
+paginate: 10
+paginate_path: "/posts/page:num/"
+
+nickname: lengerfulluse
+home: http://t.hengwei.me
+title: Wei's Tech Blog
+
+cdnurl: http://cdn.mynux.cn
