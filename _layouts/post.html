@@ -47,11 +47,8 @@ comments: true
   <div class="post">
       <div class="post-title">{{page.title}}</div>
       <div class="post-meta-statistics">
-        <span id="post-viewcount">
-        </span>
         <span id="post-comments">
-          <i class="fa fa-comments-o" aria-hidden="true"></i>
-          <a href="#comment" class="show-comments"><span class="disqus-comment-count" data-disqus-url="{{ post.url | prepend: site.url }}"></span> COMMENTS</a>
+          <!-- placeholder for comment field. Disabled temporary -->
         </span>
       </div>
       <div class="post-content">
@@ -70,14 +67,8 @@ comments: true
     <a class="post-share-item facebook" target="_blank" title="Share to Facebook" href="http://www.facebook.com/sharer.php?u={{ site.home }}{{ page.url }}&amp;t={{ page.title }} | {{ site.title }}">{% include svg/facebook.svg %}</a>
     <a class="post-share-item gplus" target="_blank" title="Share to Google+" href="https://plus.google.com/share?url={{ site.home }}{{ page.url }}">{% include svg/gplus.svg %}</a>
   </div>
-</div>
-<div id="comment"></div>
+</div
 
 <div class="related">
-    <span style="font-size: 18px; font-weight: 600;"><i class="fa fa-lightbulb-o" aria-hidden="true"></i>  你可能还喜欢</span>
-    <ul class="posts">
-      {% for post in site.related_posts limit:3 %}
-        <li><span>{{ post.date | date_to_string }}</span> &raquo; <a href="{{ post.url }}">{{ post.title }}</a></li>
-      {% endfor %}
-    </ul>
+  <!-- placeholder for recommendation stuff, disabled temporary -->
 </div>
