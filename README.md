@@ -1,4 +1,5 @@
-# [t.hengwei.me](http://t.hengwei.me). 
+=======
+# [t.hengwei.me](http://wheng.dev). [侧帽]
 Personal technique blog platform hosts on github pages.
 
 ### INSTALL
@@ -11,3 +12,6 @@ Personal technique blog platform hosts on github pages.
 1. git remote rm tech
 2. git remote set-url origin hengwei@hengwei.me:~/repos/t.hengwei.me.git
 3. git remote add tech hengwei@hengwei.me:~/repos/t.hengwei.me.git
+
+### CUSTOM YOUR OWN .GITCONFIG
+git config --local include.path ../.gitconfig
