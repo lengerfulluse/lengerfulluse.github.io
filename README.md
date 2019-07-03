@@ -10,8 +10,8 @@ Personal technique blog platform hosts on github pages.
 
 ### SET REMOTE RAW GIT REPOSITORY
 1. git remote rm tech
-2. git remote set-url origin hengwei@hengwei.me:~/repos/t.hengwei.me.git
-3. git remote add tech hengwei@hengwei.me:~/repos/t.hengwei.me.git
+2. git remote add tech hengwei@hengwei.me:~/repos/t.hengwei.me.git
+3. git push tech source
 
 ### CUSTOM YOUR OWN .GITCONFIG
 git config --local include.path ../.gitconfig
