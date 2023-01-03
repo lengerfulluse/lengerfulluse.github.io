@@ -10,7 +10,7 @@ published: True
 
 <!--more--> 
 
-![spring-microservice]({{site.cdnurl}}/assets/img/post/swift-lang.jpg)
+![swift-lang]({{site.cdnurl}}/assets/img/post/swift-lang.jpg)
 
 # 1. Constants and Variables
 
